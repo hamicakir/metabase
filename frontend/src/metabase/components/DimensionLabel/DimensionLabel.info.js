@@ -58,7 +58,7 @@ const templateTagDimension = Dimension.parseMBQL(
 );
 
 export const component = DimensionLabel;
-export const description = "A label for a Dimension";
+export const description = "A label for instances of Dimension";
 export const examples = {
   "field dimension": <DimensionLabel dimension={fieldDimension} />,
   "aggregation dimension": <DimensionLabel dimension={aggregationDimension} />,
