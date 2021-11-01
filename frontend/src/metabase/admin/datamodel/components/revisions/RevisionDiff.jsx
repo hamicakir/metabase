@@ -1,10 +1,10 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
-
-import TextDiff from "./TextDiff";
-import QueryDiff from "./QueryDiff";
+import React, { Component } from "react";
 
 import Icon from "metabase/components/Icon";
+
+import QueryDiff from "./QueryDiff";
+import TextDiff from "./TextDiff";
 
 export default class RevisionDiff extends Component {
   static propTypes = {

@@ -1,5 +1,5 @@
-import React from "react";
 import { renderWithProviders, screen } from "__support__/ui";
+import React from "react";
 
 import Collections from "./Collections";
 

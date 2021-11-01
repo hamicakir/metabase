@@ -1,13 +1,11 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-
-import _ from "underscore";
-import { t } from "ttag";
 import cx from "classnames";
-
-import { color } from "metabase/lib/colors";
+import React from "react";
+import { t } from "ttag";
+import _ from "underscore";
 
 import SchedulePicker from "metabase/components/SchedulePicker";
+import { color } from "metabase/lib/colors";
 
 export default function CacheFieldValuesScheduleWidget({
   field,

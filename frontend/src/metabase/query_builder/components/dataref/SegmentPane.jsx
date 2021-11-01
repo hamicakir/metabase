@@ -1,21 +1,21 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { t } from "ttag";
+import _ from "underscore";
+
+import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
+
+import QueryButton from "metabase/components/QueryButton";
+import { createCard } from "metabase/lib/card";
+import * as Q_DEPRECATED from "metabase/lib/query";
 import { fetchTableMetadata } from "metabase/redux/metadata";
 import { getMetadata } from "metabase/selectors/metadata";
 
-import DetailPane from "./DetailPane";
-import QueryButton from "metabase/components/QueryButton";
-import UseForButton from "./UseForButton";
 import QueryDefinition from "../QueryDefinition";
-
-import { createCard } from "metabase/lib/card";
-import * as Q_DEPRECATED from "metabase/lib/query";
-
-import _ from "underscore";
-import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
+import DetailPane from "./DetailPane";
+import UseForButton from "./UseForButton";
 
 const mapDispatchToProps = {
   fetchTableMetadata,
@@ -25,10 +25,7 @@ const mapStateToProps = (state, props) => ({
   metadata: getMetadata(state, props),
 });
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class SegmentPane extends Component {
   constructor(props, context) {
     super(props, context);

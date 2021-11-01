@@ -1,7 +1,7 @@
-import _ from "underscore";
+import crossfilter from "crossfilter";
 import d3 from "d3";
 import { t } from "ttag";
-import crossfilter from "crossfilter";
+import _ from "underscore";
 
 import { isDimension, isMetric, isDate } from "metabase/lib/schema_metadata";
 
@@ -100,8 +100,14 @@ export function computeSplit(extents, left = [], right = []) {
   const favorUnsplit = right.length > 0;
 
   const cost = split =>
-    axisCost(split[0].map(i => extents[i]), favorUnsplit) +
-    axisCost(split[1].map(i => extents[i]), favorUnsplit);
+    axisCost(
+      split[0].map(i => extents[i]),
+      favorUnsplit,
+    ) +
+    axisCost(
+      split[1].map(i => extents[i]),
+      favorUnsplit,
+    );
 
   const splits = generateSplits(unassigned, left, right);
 
@@ -153,7 +159,7 @@ export function isSameSeries(seriesA, seriesB) {
       const sameVizSettings =
         (a.card && JSON.stringify(a.card.visualization_settings)) ===
         (b.card && JSON.stringify(b.card.visualization_settings));
-      return acc && (sameData && sameDisplay && sameVizSettings);
+      return acc && sameData && sameDisplay && sameVizSettings;
     }, true)
   );
 }
@@ -169,9 +175,8 @@ export function colorShade(hex, shade = 0) {
   if (!match) {
     return hex;
   }
-  const components = (match[1] != null
-    ? match.slice(1, 4)
-    : match.slice(4, 7)
+  const components = (
+    match[1] != null ? match.slice(1, 4) : match.slice(4, 7)
   ).map(d => parseInt(d, 16));
   const min = Math.min(...components);
   const max = Math.max(...components);
@@ -206,7 +211,10 @@ const extentCache = new WeakMap();
 export function getColumnExtent(cols, rows, index) {
   const col = cols[index];
   if (!extentCache.has(col)) {
-    extentCache.set(col, d3.extent(rows, row => row[index]));
+    extentCache.set(
+      col,
+      d3.extent(rows, row => row[index]),
+    );
   }
   return extentCache.get(col);
 }

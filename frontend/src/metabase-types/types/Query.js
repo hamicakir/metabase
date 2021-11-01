@@ -1,8 +1,8 @@
-import type { TableId } from "./Table";
 import type { FieldId, BaseType } from "./Field";
-import type { SegmentId } from "./Segment";
 import type { MetricId } from "./Metric";
 import type { ParameterType } from "./Parameter";
+import type { SegmentId } from "./Segment";
+import type { TableId } from "./Table";
 
 export type ExpressionName = string;
 

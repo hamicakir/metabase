@@ -1,5 +1,6 @@
-import React from "react";
 import { Box } from "grid-styled";
+import React from "react";
+
 import Heading from "metabase/components/type/Heading";
 import Subhead from "metabase/components/type/Subhead";
 import Text from "metabase/components/type/Text";
@@ -197,7 +198,10 @@ export default function StaticVizPage() {
           <StaticChart
             type="categorical/donut"
             options={{
-              data: [["donut", 2000], ["cronut", 3100]],
+              data: [
+                ["donut", 2000],
+                ["cronut", 3100],
+              ],
               colors: {
                 donut: "#509EE3",
                 cronut: "#DDECFA",

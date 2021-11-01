@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 
-import { IFRAMED } from "metabase/lib/dom";
-import * as MetabaseAnalytics from "metabase/lib/analytics";
-import MetabaseSettings from "metabase/lib/settings";
-
 import AuthProviderButton from "metabase/auth/components/AuthProviderButton";
+import * as MetabaseAnalytics from "metabase/lib/analytics";
+import { IFRAMED } from "metabase/lib/dom";
+import MetabaseSettings from "metabase/lib/settings";
 
 export default class SSOButton extends React.Component {
   UNSAFE_componentWillMount() {

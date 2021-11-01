@@ -1,7 +1,7 @@
-import { parseTimestamp } from "metabase/lib/time";
-import type { DateSeparator } from "metabase/lib/formatting";
-
 import type { DatetimeUnit } from "metabase-types/types/Query";
+
+import type { DateSeparator } from "metabase/lib/formatting";
+import { parseTimestamp } from "metabase/lib/time";
 
 export type DateStyle =
   | "M/D/YYYY"

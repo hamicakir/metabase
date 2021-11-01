@@ -1,9 +1,9 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
 import DatePicker from "../filters/pickers/DatePicker";
-import TimePicker from "../filters/pickers/TimePicker";
 import DefaultPicker from "../filters/pickers/DefaultPicker";
+import TimePicker from "../filters/pickers/TimePicker";
 
 export default class FilterPopoverPicker extends React.Component {
   UNSAFE_componentWillMount() {

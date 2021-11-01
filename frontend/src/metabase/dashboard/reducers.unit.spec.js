@@ -1,4 +1,3 @@
-import reducer from "./reducers";
 import {
   INITIALIZE,
   SET_EDITING_DASHBOARD,
@@ -7,6 +6,7 @@ import {
   REMOVE_PARAMETER,
   SET_DASHBOARD_ATTRIBUTES,
 } from "./actions";
+import reducer from "./reducers";
 
 describe("dashboard reducers", () => {
   let initState;

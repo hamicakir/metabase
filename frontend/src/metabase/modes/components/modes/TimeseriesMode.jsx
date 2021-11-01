@@ -1,20 +1,19 @@
 import React from "react";
 
-// import TimeseriesGroupingWidget
-//     from "metabase/modes/components/TimeseriesGroupingWidget";
-import TimeseriesFilterWidget from "metabase/modes/components/TimeseriesFilterWidget";
-
-import { getDefaultDrills } from "../drill";
-
-import PivotByCategoryDrill from "../drill/PivotByCategoryDrill";
-import PivotByLocationDrill from "../drill/PivotByLocationDrill";
-
-import type { QueryMode } from "metabase-types/types/Visualization";
 import type {
   Card as CardObject,
   DatasetQuery,
 } from "metabase-types/types/Card";
+import type { QueryMode } from "metabase-types/types/Visualization";
+
+// import TimeseriesGroupingWidget
+//     from "metabase/modes/components/TimeseriesGroupingWidget";
+import TimeseriesFilterWidget from "metabase/modes/components/TimeseriesFilterWidget";
 import TimeseriesGroupingWidget from "metabase/modes/components/TimeseriesGroupingWidget";
+
+import { getDefaultDrills } from "../drill";
+import PivotByCategoryDrill from "../drill/PivotByCategoryDrill";
+import PivotByLocationDrill from "../drill/PivotByLocationDrill";
 
 type Props = {
   lastRunCard: CardObject,

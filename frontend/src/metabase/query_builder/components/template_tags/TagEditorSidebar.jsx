@@ -1,24 +1,24 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-import PropTypes from "prop-types";
-
-import { t } from "ttag";
 import cx from "classnames";
+import PropTypes from "prop-types";
+import React from "react";
+import { t } from "ttag";
 import _ from "underscore";
 
-import TagEditorParam from "./TagEditorParam";
-import CardTagEditor from "./CardTagEditor";
-import TagEditorHelp from "./TagEditorHelp";
-import SidebarContent from "metabase/query_builder/components/SidebarContent";
+import NativeQuery from "metabase-lib/lib/queries/NativeQuery";
+
+import type { DatasetQuery } from "metabase-types/types/Card";
+import type { Database } from "metabase-types/types/Database";
+import type { Field as FieldObject } from "metabase-types/types/Field";
+import type { TemplateTag } from "metabase-types/types/Query";
+import type { TableId } from "metabase-types/types/Table";
 
 import * as MetabaseAnalytics from "metabase/lib/analytics";
+import SidebarContent from "metabase/query_builder/components/SidebarContent";
 
-import NativeQuery from "metabase-lib/lib/queries/NativeQuery";
-import type { DatasetQuery } from "metabase-types/types/Card";
-import type { TableId } from "metabase-types/types/Table";
-import type { Database } from "metabase-types/types/Database";
-import type { TemplateTag } from "metabase-types/types/Query";
-import type { Field as FieldObject } from "metabase-types/types/Field";
+import CardTagEditor from "./CardTagEditor";
+import TagEditorHelp from "./TagEditorHelp";
+import TagEditorParam from "./TagEditorParam";
 
 type Props = {
   query: NativeQuery,

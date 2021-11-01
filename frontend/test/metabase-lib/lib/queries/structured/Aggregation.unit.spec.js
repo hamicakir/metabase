@@ -1,6 +1,6 @@
-import Aggregation from "metabase-lib/lib/queries/structured/Aggregation";
-
 import { ORDERS } from "__support__/sample_dataset_fixture";
+
+import Aggregation from "metabase-lib/lib/queries/structured/Aggregation";
 
 const query = ORDERS.query();
 

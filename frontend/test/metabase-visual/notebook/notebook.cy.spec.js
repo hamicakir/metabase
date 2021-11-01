@@ -108,9 +108,7 @@ function selectFromDropdown(itemName) {
 }
 
 function addJoin({ rightTable }) {
-  cy.icon("join_left_outer")
-    .last()
-    .click();
+  cy.icon("join_left_outer").last().click();
 
   selectFromDropdown(rightTable).click();
 }
@@ -138,9 +136,7 @@ function addCustomColumn({ name, formula }) {
 function addSingleValueFilter({ field, filterType, filterValue }) {
   cy.findByText("Add filters to narrow your answer").click();
   selectFromDropdown(field).click();
-  popover()
-    .get(".AdminSelect")
-    .click();
+  popover().get(".AdminSelect").click();
   selectFromDropdown(filterType).click();
   popover().within(() => {
     cy.get("input").type(filterValue);

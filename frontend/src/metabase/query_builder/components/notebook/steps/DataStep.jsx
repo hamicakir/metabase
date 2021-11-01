@@ -6,12 +6,12 @@ import { t } from "ttag";
 import { DatabaseSchemaAndTableDataSelector } from "metabase/query_builder/components/DataSelector";
 import { getDatabasesList } from "metabase/query_builder/selectors";
 
-import { NotebookCell, NotebookCellItem } from "../NotebookCell";
 import {
   FieldsPickerIcon,
   FieldPickerContentContainer,
   FIELDS_PICKER_STYLES,
 } from "../FieldsPickerIcon";
+import { NotebookCell, NotebookCellItem } from "../NotebookCell";
 import FieldsPicker from "./FieldsPicker";
 
 function DataStep({ color, query, updateQuery }) {
@@ -42,10 +42,7 @@ function DataStep({ color, query, updateQuery }) {
           selectedDatabaseId={query.databaseId()}
           selectedTableId={query.tableId()}
           setSourceTableFn={tableId =>
-            query
-              .setTableId(tableId)
-              .setDefaultQuery()
-              .update(updateQuery)
+            query.setTableId(tableId).setDefaultQuery().update(updateQuery)
           }
           isInitiallyOpen={!query.tableId()}
           triggerElement={

@@ -1,7 +1,8 @@
-import Query from "metabase-lib/lib/queries/Query";
-import type Table from "metabase-lib/lib/metadata/Table";
-import type { DatabaseEngine, DatabaseId } from "metabase-types/types/Database";
 import type Database from "metabase-lib/lib/metadata/Database";
+import type Table from "metabase-lib/lib/metadata/Table";
+import Query from "metabase-lib/lib/queries/Query";
+
+import type { DatabaseEngine, DatabaseId } from "metabase-types/types/Database";
 
 /**
  * A query type for queries that are attached to a specific database table

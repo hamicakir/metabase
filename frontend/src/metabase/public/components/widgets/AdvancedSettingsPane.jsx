@@ -1,16 +1,22 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
 import React from "react";
 import { t } from "ttag";
-import cx from "classnames";
 
-import Icon from "metabase/components/Icon";
+import type { Parameter, ParameterId } from "metabase-types/types/Parameter";
+
 import Button from "metabase/components/Button";
-import Parameters from "metabase/parameters/components/Parameters/Parameters";
+import Icon from "metabase/components/Icon";
 import Select, { Option } from "metabase/components/Select";
-
 import { color } from "metabase/lib/colors";
+import Parameters from "metabase/parameters/components/Parameters/Parameters";
+import type {
+  EmbeddableResource,
+  EmbeddingParams,
+} from "metabase/public/lib/types";
 
 import DisplayOptionsPane from "./DisplayOptionsPane";
+import type { EmbedType, DisplayOptions } from "./EmbedModalContent";
 
 const getIconForParameter = parameter =>
   parameter.type === "category"
@@ -18,13 +24,6 @@ const getIconForParameter = parameter =>
     : parameter.type.indexOf("date/") === 0
     ? "calendar"
     : "unknown";
-
-import type { EmbedType, DisplayOptions } from "./EmbedModalContent";
-import type {
-  EmbeddableResource,
-  EmbeddingParams,
-} from "metabase/public/lib/types";
-import type { Parameter, ParameterId } from "metabase-types/types/Parameter";
 
 type Props = {
   className?: string,

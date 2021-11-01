@@ -1,19 +1,16 @@
 import React from "react";
-
 import { connect } from "react-redux";
 import { push } from "react-router-redux";
-import { getMetadata } from "metabase/selectors/metadata";
 
 import { Dashboard } from "metabase/dashboard/containers/Dashboard";
 import DashboardData from "metabase/dashboard/hoc/DashboardData";
-
-const DashboardWithData = DashboardData(Dashboard);
+import { harmony } from "metabase/lib/colors";
+import { getMetadata } from "metabase/selectors/metadata";
 
 import { AuditMode } from "../lib/mode";
-
 import type { AuditCard } from "../types";
 
-import { harmony } from "metabase/lib/colors";
+const DashboardWithData = DashboardData(Dashboard);
 
 type Props = {
   cards: AuditCard[],
@@ -54,7 +51,4 @@ const mapDispatchToProps = {
   onChangeLocation: push,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(AuditDashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(AuditDashboard);

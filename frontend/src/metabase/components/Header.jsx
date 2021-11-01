@@ -1,16 +1,15 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { Box, Flex } from "grid-styled";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { t } from "ttag";
 
-import { getScrollY } from "metabase/lib/dom";
-
-import CollectionBadge from "metabase/questions/components/CollectionBadge";
 import EditBar from "metabase/components/EditBar";
 import EditWarning from "metabase/components/EditWarning";
 import HeaderModal from "metabase/components/HeaderModal";
 import LastEditInfoLabel from "metabase/components/LastEditInfoLabel";
 import TitleAndDescription from "metabase/components/TitleAndDescription";
+import { getScrollY } from "metabase/lib/dom";
+import CollectionBadge from "metabase/questions/components/CollectionBadge";
 
 const propTypes = {
   analyticsContext: PropTypes.string,

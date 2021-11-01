@@ -1,5 +1,5 @@
-import L from "leaflet/dist/leaflet-src.js";
 import d3 from "d3";
+import L from "leaflet/dist/leaflet-src.js";
 
 export function computeMinimalBounds(features) {
   const points = getAllFeaturesPoints(features);

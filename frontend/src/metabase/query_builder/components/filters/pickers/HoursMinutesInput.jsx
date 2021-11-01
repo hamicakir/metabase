@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-
-import NumericInput from "metabase/components/NumericInput";
-import Icon from "metabase/components/Icon";
-import { isLocale24Hour } from "metabase/lib/i18n";
-
 import cx from "classnames";
 import moment from "moment";
+import React from "react";
+
+import Icon from "metabase/components/Icon";
+import NumericInput from "metabase/components/NumericInput";
+import { isLocale24Hour } from "metabase/lib/i18n";
 
 const HoursMinutesInput = ({
   hours,

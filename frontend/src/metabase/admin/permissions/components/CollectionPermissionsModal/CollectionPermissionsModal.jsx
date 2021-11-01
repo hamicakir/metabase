@@ -1,33 +1,29 @@
-import React, { useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
+import React, { useEffect, useCallback } from "react";
 import { connect } from "react-redux";
 import { t } from "ttag";
 import _ from "underscore";
 
-import * as Urls from "metabase/lib/urls";
-
-import Collections from "metabase/entities/collections";
-import SnippetCollections from "metabase/entities/snippet-collections";
-
 import { isPersonalCollectionChild } from "metabase/collections/utils";
-
-import ModalContent from "metabase/components/ModalContent";
 import Button from "metabase/components/Button";
 import Link from "metabase/components/Link";
+import ModalContent from "metabase/components/ModalContent";
+import Collections from "metabase/entities/collections";
 import Groups from "metabase/entities/groups";
+import SnippetCollections from "metabase/entities/snippet-collections";
+import * as Urls from "metabase/lib/urls";
 
-import { PermissionsTable } from "../PermissionsTable";
-import { permissionEditorPropTypes } from "../PermissionsEditor";
-import {
-  getIsDirty,
-  getCollectionsPermissionEditor,
-} from "../../selectors/collection-permissions";
 import {
   initializeCollectionPermissions,
   updateCollectionPermission,
   saveCollectionPermissions,
 } from "../../permissions";
-
+import {
+  getIsDirty,
+  getCollectionsPermissionEditor,
+} from "../../selectors/collection-permissions";
+import { permissionEditorPropTypes } from "../PermissionsEditor";
+import { PermissionsTable } from "../PermissionsTable";
 import { PermissionTableContainer } from "./CollectionPermissionsModal.styled";
 
 const getDefaultTitle = namespace =>
@@ -164,8 +160,5 @@ export default _.compose(
     query: () => ({ tree: true }),
   }),
   Groups.loadList(),
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
 )(CollectionPermissionsModal);

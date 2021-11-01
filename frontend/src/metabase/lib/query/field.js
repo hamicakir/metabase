@@ -1,11 +1,11 @@
 import _ from "underscore";
 
+import type { Value } from "metabase-types/types/Dataset";
+import type { Field, FieldValues } from "metabase-types/types/Field";
 import type {
   Field as FieldReference,
   FieldsClause,
 } from "metabase-types/types/Query";
-import type { Field, FieldValues } from "metabase-types/types/Field";
-import type { Value } from "metabase-types/types/Dataset";
 
 import { add, update, remove, clear } from "./util";
 

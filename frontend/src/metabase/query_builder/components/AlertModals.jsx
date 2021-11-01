@@ -4,39 +4,6 @@ import { connect } from "react-redux";
 import { t, jt, ngettext, msgid } from "ttag";
 import _ from "underscore";
 
-// components
-import Button from "metabase/components/Button";
-import SchedulePicker from "metabase/components/SchedulePicker";
-import ModalContent from "metabase/components/ModalContent";
-import DeleteModalWithConfirm from "metabase/components/DeleteModalWithConfirm";
-import ModalWithTrigger from "metabase/components/ModalWithTrigger";
-import Radio from "metabase/components/Radio";
-import Icon from "metabase/components/Icon";
-import ChannelSetupModal from "metabase/components/ChannelSetupModal";
-import ButtonWithStatus from "metabase/components/ButtonWithStatus";
-import PulseEditChannels from "metabase/pulse/components/PulseEditChannels";
-import { AlertModalFooter } from "./AlertModals.styled";
-
-import User from "metabase/entities/users";
-
-// actions
-import { createAlert, deleteAlert, updateAlert } from "metabase/alert/alert";
-import { apiUpdateQuestion, updateUrl } from "metabase/query_builder/actions";
-import { fetchPulseFormInput } from "metabase/pulse/actions";
-
-// selectors
-import { getUser, getUserIsAdmin } from "metabase/selectors/user";
-import {
-  getQuestion,
-  getVisualizationSettings,
-} from "metabase/query_builder/selectors";
-import {
-  getPulseFormInput,
-  hasConfiguredAnyChannelSelector,
-  hasConfiguredEmailChannelSelector,
-  hasLoadedChannelInfoSelector,
-} from "metabase/pulse/selectors";
-
 // lib
 import {
   ALERT_TYPE_PROGRESS_BAR_GOAL,
@@ -44,12 +11,42 @@ import {
   ALERT_TYPE_TIMESERIES_GOAL,
   getDefaultAlert,
 } from "metabase-lib/lib/Alert";
-import MetabaseCookies from "metabase/lib/cookies";
-import * as MetabaseAnalytics from "metabase/lib/analytics";
-
 // types
 import type { AlertType } from "metabase-lib/lib/Alert";
+
+// actions
+import { createAlert, deleteAlert, updateAlert } from "metabase/alert/alert";
+// components
+import Button from "metabase/components/Button";
+import ButtonWithStatus from "metabase/components/ButtonWithStatus";
+import ChannelSetupModal from "metabase/components/ChannelSetupModal";
+import DeleteModalWithConfirm from "metabase/components/DeleteModalWithConfirm";
+import Icon from "metabase/components/Icon";
+import ModalContent from "metabase/components/ModalContent";
+import ModalWithTrigger from "metabase/components/ModalWithTrigger";
+import Radio from "metabase/components/Radio";
+import SchedulePicker from "metabase/components/SchedulePicker";
+import User from "metabase/entities/users";
 import { alertIsValid } from "metabase/lib/alert";
+import * as MetabaseAnalytics from "metabase/lib/analytics";
+import MetabaseCookies from "metabase/lib/cookies";
+import { fetchPulseFormInput } from "metabase/pulse/actions";
+import PulseEditChannels from "metabase/pulse/components/PulseEditChannels";
+import {
+  getPulseFormInput,
+  hasConfiguredAnyChannelSelector,
+  hasConfiguredEmailChannelSelector,
+  hasLoadedChannelInfoSelector,
+} from "metabase/pulse/selectors";
+import { apiUpdateQuestion, updateUrl } from "metabase/query_builder/actions";
+import {
+  getQuestion,
+  getVisualizationSettings,
+} from "metabase/query_builder/selectors";
+// selectors
+import { getUser, getUserIsAdmin } from "metabase/selectors/user";
+
+import { AlertModalFooter } from "./AlertModals.styled";
 
 const getScheduleFromChannel = channel =>
   _.pick(
@@ -347,14 +344,8 @@ export class UpdateAlertModalContent extends Component {
   };
 
   render() {
-    const {
-      onCancel,
-      question,
-      visualizationSettings,
-      alert,
-      user,
-      isAdmin,
-    } = this.props;
+    const { onCancel, question, visualizationSettings, alert, user, isAdmin } =
+      this.props;
     const { modifiedAlert } = this.state;
 
     const isCurrentUser = alert.creator.id === user.id;
@@ -468,10 +459,7 @@ const AlertModalTitle = ({ text }) => (
   </div>
 );
 
-@connect(
-  state => ({ isAdmin: getUserIsAdmin(state) }),
-  null,
-)
+@connect(state => ({ isAdmin: getUserIsAdmin(state) }), null)
 export class AlertEditForm extends Component {
   props: {
     alertType: AlertType,

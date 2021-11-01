@@ -1,6 +1,6 @@
-import React from "react";
 import { render } from "@testing-library/react";
 import { metadata, ORDERS } from "__support__/sample_dataset_fixture";
+import React from "react";
 
 import Dimension from "metabase-lib/lib/Dimension";
 

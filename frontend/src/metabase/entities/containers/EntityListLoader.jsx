@@ -1,13 +1,14 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { connect } from "react-redux";
-import _ from "underscore";
 import { createSelector } from "reselect";
+import _ from "underscore";
+
+import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
+import paginationState from "metabase/hoc/PaginationState";
 import { createMemoizedSelector } from "metabase/lib/redux";
 
 import entityType from "./EntityType";
-import paginationState from "metabase/hoc/PaginationState";
-import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
 
 const propTypes = {
   entityType: PropTypes.string,

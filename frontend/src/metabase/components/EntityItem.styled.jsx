@@ -1,9 +1,8 @@
-import styled from "styled-components";
 import { Flex } from "grid-styled";
-
-import { alpha, color, lighten } from "metabase/lib/colors";
+import styled from "styled-components";
 
 import IconButtonWrapper from "metabase/components/IconButtonWrapper";
+import { alpha, color, lighten } from "metabase/lib/colors";
 
 function getPinnedBackground(model) {
   return model === "dashboard"

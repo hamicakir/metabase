@@ -1,7 +1,8 @@
-import React from "react";
 import { renderWithProviders } from "__support__/ui";
 import mockDate from "mockdate";
 import moment from "moment";
+import React from "react";
+
 import LastEditInfoLabel from "metabase/components/LastEditInfoLabel";
 
 describe("LastEditInfoLabel", () => {

@@ -1,8 +1,9 @@
 import styled from "styled-components";
+
 import Icon from "metabase/components/Icon";
 import Link from "metabase/components/Link";
-import { space } from "metabase/styled-components/theme";
 import { color } from "metabase/lib/colors";
+import { space } from "metabase/styled-components/theme";
 
 export const ItemLink = styled(Link)`
   display: block;

@@ -1,16 +1,14 @@
 import { assocIn } from "icepick";
 
-import { createEntity, undo } from "metabase/lib/entities";
-import * as Urls from "metabase/lib/urls";
-import { color } from "metabase/lib/colors";
-
 import {
   canonicalCollectionId,
   getCollectionType,
   normalizedCollection,
 } from "metabase/entities/collections";
-
 import { POST, DELETE } from "metabase/lib/api";
+import { color } from "metabase/lib/colors";
+import { createEntity, undo } from "metabase/lib/entities";
+import * as Urls from "metabase/lib/urls";
 
 import forms from "./questions/forms";
 

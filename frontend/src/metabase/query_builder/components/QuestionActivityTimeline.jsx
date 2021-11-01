@@ -1,25 +1,25 @@
-import React, { useMemo } from "react";
 import PropTypes from "prop-types";
-import { t } from "ttag";
+import React, { useMemo } from "react";
 import { connect } from "react-redux";
+import { t } from "ttag";
 import _ from "underscore";
 
-import { PLUGIN_MODERATION } from "metabase/plugins";
+import DrawerSection, {
+  STATES as DRAWER_STATES,
+} from "metabase/components/DrawerSection/DrawerSection";
+import Timeline from "metabase/components/Timeline";
+import Revision from "metabase/entities/revisions";
+import User from "metabase/entities/users";
 import { getRevisionEventsForTimeline } from "metabase/lib/revisions";
+import { PLUGIN_MODERATION } from "metabase/plugins";
 import {
   revertToRevision,
   onOpenQuestionHistory,
   onCloseQuestionHistory,
 } from "metabase/query_builder/actions";
-import { getUser } from "metabase/selectors/user";
 import { getQuestionDetailsTimelineDrawerState } from "metabase/query_builder/selectors";
+import { getUser } from "metabase/selectors/user";
 
-import Revision from "metabase/entities/revisions";
-import User from "metabase/entities/users";
-import Timeline from "metabase/components/Timeline";
-import DrawerSection, {
-  STATES as DRAWER_STATES,
-} from "metabase/components/DrawerSection/DrawerSection";
 import { RevertButton } from "./QuestionActivityTimeline.styled";
 
 const { getModerationTimelineEvents } = PLUGIN_MODERATION;
@@ -46,10 +46,7 @@ export default _.compose(
     }),
     wrapped: true,
   }),
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
 )(QuestionActivityTimeline);
 
 RevisionEventFooter.propTypes = {

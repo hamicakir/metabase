@@ -1,4 +1,3 @@
-import _ from "underscore";
 import {
   restore,
   modal,
@@ -6,8 +5,10 @@ import {
   openOrdersTable,
   sidebar,
 } from "__support__/e2e/cypress";
-import { displaySidebarChildOf } from "./helpers/e2e-collections-sidebar.js";
 import { USERS, USER_GROUPS } from "__support__/e2e/cypress_data";
+import _ from "underscore";
+
+import { displaySidebarChildOf } from "./helpers/e2e-collections-sidebar.js";
 
 const { nocollection } = USERS;
 const { DATA_GROUP } = USER_GROUPS;
@@ -299,9 +300,7 @@ describe("scenarios > collection_defaults", () => {
 
       displaySidebarChildOf("Your personal collection");
       cy.findByText(COLLECTION);
-      cy.get("@sidebar")
-        .contains("Our analytics")
-        .click();
+      cy.get("@sidebar").contains("Our analytics").click();
 
       openEllipsisMenuFor("Orders");
       cy.findByText("Move this item").click();
@@ -378,9 +377,7 @@ describe("scenarios > collection_defaults", () => {
         cy.findByText("First collection").click();
       });
       popover().within(() => {
-        cy.findAllByText("Our analytics")
-          .last()
-          .click();
+        cy.findAllByText("Our analytics").last().click();
       });
       // Make sure the correct value is selected
       cy.get(".AdminSelect-content").contains("Our analytics");
@@ -436,16 +433,10 @@ describe("scenarios > collection_defaults", () => {
 
       // Ensure if sub-collection is archived, the chevron is not displayed
       displaySidebarChildOf("First collection");
-      sidebar()
-        .findByText("Second collection")
-        .click();
+      sidebar().findByText("Second collection").click();
       cy.icon("pencil").click();
-      popover()
-        .findByText("Archive this collection")
-        .click();
-      cy.get(".Modal")
-        .findByRole("button", { name: "Archive" })
-        .click();
+      popover().findByText("Archive this collection").click();
+      cy.get(".Modal").findByRole("button", { name: "Archive" }).click();
       sidebar()
         .findByText("First collection")
         .parent()
@@ -519,9 +510,7 @@ describe("scenarios > collection_defaults", () => {
           cy.visit("/collection/root");
           selectItemUsingCheckbox("Orders");
 
-          cy.findByTestId("bulk-action-bar")
-            .button("Archive")
-            .click();
+          cy.findByTestId("bulk-action-bar").button("Archive").click();
 
           cy.findByText("Orders").should("not.exist");
           cy.findByTestId("bulk-action-bar").should("not.be.visible");
@@ -533,9 +522,7 @@ describe("scenarios > collection_defaults", () => {
           cy.visit("/collection/root");
           selectItemUsingCheckbox("Orders");
 
-          cy.findByTestId("bulk-action-bar")
-            .button("Move")
-            .click();
+          cy.findByTestId("bulk-action-bar").button("Move").click();
 
           modal().within(() => {
             cy.findByText("First collection").click();
@@ -546,9 +533,7 @@ describe("scenarios > collection_defaults", () => {
           cy.findByTestId("bulk-action-bar").should("not.be.visible");
 
           // Check that items were actually moved
-          sidebar()
-            .findByText("First collection")
-            .click();
+          sidebar().findByText("First collection").click();
           cy.findByText("Orders");
         });
       });
@@ -586,11 +571,7 @@ function selectItemUsingCheckbox(item, icon = "table") {
 }
 
 function getSidebarCollectionChildrenFor(item) {
-  return sidebar()
-    .findByText(item)
-    .closest("a")
-    .parent()
-    .parent();
+  return sidebar().findByText(item).closest("a").parent().parent();
 }
 
 function pinAllRootItems() {

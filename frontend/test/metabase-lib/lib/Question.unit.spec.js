@@ -5,12 +5,11 @@ import {
   PRODUCTS,
   createMetadata,
 } from "__support__/sample_dataset_fixture";
-
 import { assoc, dissoc } from "icepick";
 
 import Question from "metabase-lib/lib/Question";
-import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
 import NativeQuery from "metabase-lib/lib/queries/NativeQuery";
+import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
 
 const card = {
   display: "table",
@@ -538,9 +537,8 @@ describe("Question", () => {
       it("applies a filter to a given filterspec", () => {
         const dimensions = [{ value: 1, column: ORDERS.ID.column() }];
 
-        const drilledQuestion = ordersCountQuestion.drillUnderlyingRecords(
-          dimensions,
-        );
+        const drilledQuestion =
+          ordersCountQuestion.drillUnderlyingRecords(dimensions);
         expect(drilledQuestion.canRun()).toBe(true);
 
         expect(drilledQuestion._card.dataset_query).toEqual({
@@ -573,7 +571,8 @@ describe("Question", () => {
         });
       });
       it("returns underlying records correctly for a broken out query", () => {
-        const underlyingRecordsQuestion = ordersCountQuestion.toUnderlyingRecords();
+        const underlyingRecordsQuestion =
+          ordersCountQuestion.toUnderlyingRecords();
 
         expect(underlyingRecordsQuestion.canRun()).toBe(true);
         // if I actually call the .query() method below, this blows up garbage collection =/

@@ -1,9 +1,10 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import styled, { css } from "styled-components";
-import { color } from "metabase/lib/colors";
+
 import Icon from "metabase/components/Icon";
 import Link from "metabase/components/Link";
+import { color } from "metabase/lib/colors";
 
 const propTypes = {
   to: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),

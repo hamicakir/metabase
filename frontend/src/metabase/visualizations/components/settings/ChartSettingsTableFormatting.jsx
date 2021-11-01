@@ -1,29 +1,26 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
 import React from "react";
-
 import { t, jt } from "ttag";
+import _ from "underscore";
 
 import Button from "metabase/components/Button";
-import Icon from "metabase/components/Icon";
-import Select, { Option } from "metabase/components/Select";
-import Radio from "metabase/components/Radio";
-import Toggle from "metabase/components/Toggle";
 import ColorPicker from "metabase/components/ColorPicker";
-
 import ColorRangePicker, {
   ColorRangePreview,
 } from "metabase/components/ColorRangePicker";
+import Icon from "metabase/components/Icon";
 import NumericInput from "metabase/components/NumericInput";
+import Radio from "metabase/components/Radio";
+import Select, { Option } from "metabase/components/Select";
+import Toggle from "metabase/components/Toggle";
 import {
   SortableContainer,
   SortableElement,
 } from "metabase/components/sortable";
-
 import * as MetabaseAnalytics from "metabase/lib/analytics";
+import { color, desaturated } from "metabase/lib/colors";
 import { isNumeric, isString } from "metabase/lib/schema_metadata";
-
-import _ from "underscore";
-import cx from "classnames";
 
 const NUMBER_OPERATOR_NAMES = {
   "<": t`is less than`,
@@ -52,12 +49,13 @@ export const ALL_OPERATOR_NAMES = {
   ...STRING_OPERATOR_NAMES,
 };
 
-import { color, desaturated } from "metabase/lib/colors";
-
 // TODO
 const COLORS = Object.values(desaturated);
 const COLOR_RANGES = [].concat(
-  ...COLORS.map(color => [["white", color], [color, "white"]]),
+  ...COLORS.map(color => [
+    ["white", color],
+    [color, "white"],
+  ]),
   [
     [color("error"), "white", color("success")],
     [color("success"), "white", color("error")],

@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import { Box } from "grid-styled";
+import React from "react";
 
 import ConfirmContent from "metabase/components/ConfirmContent";
-import ModalContent from "metabase/components/ModalContent";
 import DeleteModalWithConfirm from "metabase/components/DeleteModalWithConfirm";
+import ModalContent from "metabase/components/ModalContent";
 
 const Section = ({ children }) => (
   <Box className="bordered shadowed rounded" my={3} width={520}>

@@ -4,9 +4,8 @@ import { connect } from "react-redux";
 import { goBack, push } from "react-router-redux";
 import { t } from "ttag";
 
-import * as Urls from "metabase/lib/urls";
-
 import User from "metabase/entities/users";
+import * as Urls from "metabase/lib/urls";
 
 const NewUserModal = ({ onClose, onSaved, ...props }) => (
   <User.ModalForm
@@ -17,10 +16,7 @@ const NewUserModal = ({ onClose, onSaved, ...props }) => (
   />
 );
 
-export default connect(
-  null,
-  {
-    onClose: goBack,
-    onSaved: user => push(Urls.newUserSuccess(user.id)),
-  },
-)(NewUserModal);
+export default connect(null, {
+  onClose: goBack,
+  onSaved: user => push(Urls.newUserSuccess(user.id)),
+})(NewUserModal);

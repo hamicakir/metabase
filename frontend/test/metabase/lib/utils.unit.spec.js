@@ -1,5 +1,5 @@
-import MetabaseUtils from "metabase/lib/utils";
 import MetabaseSettings from "metabase/lib/settings";
+import MetabaseUtils from "metabase/lib/utils";
 
 describe("utils", () => {
   describe("generatePassword", () => {

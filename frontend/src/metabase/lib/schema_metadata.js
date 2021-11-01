@@ -1,5 +1,6 @@
-import _ from "underscore";
 import { t } from "ttag";
+import _ from "underscore";
+
 import {
   isa,
   isFK as isTypeFK,
@@ -275,7 +276,10 @@ function equivalentArgument(field, table) {
   if (isBoolean(field)) {
     return {
       type: "select",
-      values: [{ key: true, name: t`True` }, { key: false, name: t`False` }],
+      values: [
+        { key: true, name: t`True` },
+        { key: false, name: t`False` },
+      ],
       default: true,
     };
   }
@@ -757,10 +761,10 @@ export function foreignKeyCountsByOriginTable(fks) {
   }
 
   return fks
-    .map(function(fk) {
+    .map(function (fk) {
       return "origin" in fk ? fk.origin.table.id : null;
     })
-    .reduce(function(prev, curr, idx, array) {
+    .reduce(function (prev, curr, idx, array) {
       if (curr in prev) {
         prev[curr]++;
       } else {

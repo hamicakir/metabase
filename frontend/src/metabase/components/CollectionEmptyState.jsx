@@ -1,16 +1,15 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-import { t } from "ttag";
-import { withRouter } from "react-router";
 import { Box, Flex } from "grid-styled";
+import React from "react";
+import { withRouter } from "react-router";
+import { t } from "ttag";
 
-import { color } from "metabase/lib/colors";
-import * as Urls from "metabase/lib/urls";
-
-import Icon from "metabase/components/Icon";
 import EmptyState from "metabase/components/EmptyState";
+import Icon from "metabase/components/Icon";
 import IconWrapper from "metabase/components/IconWrapper";
 import Link from "metabase/components/Link";
+import { color } from "metabase/lib/colors";
+import * as Urls from "metabase/lib/urls";
 
 const Element = ({
   iconName,

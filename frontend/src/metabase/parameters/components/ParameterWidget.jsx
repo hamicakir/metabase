@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
-import ParameterValueWidget from "./ParameterValueWidget";
+import React, { Component } from "react";
+
 import Icon from "metabase/components/Icon";
 import { color } from "metabase/lib/colors";
 
-import S from "./ParameterWidget.css";
-import cx from "classnames";
-
 import FieldSet from "../../components/FieldSet";
+import ParameterValueWidget from "./ParameterValueWidget";
+import S from "./ParameterWidget.css";
 
 export default class ParameterWidget extends Component {
   state = {

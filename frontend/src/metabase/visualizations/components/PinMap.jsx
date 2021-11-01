@@ -1,22 +1,24 @@
-import React, { Component } from "react";
-import { t } from "ttag";
-import { hasLatitudeAndLongitudeColumns } from "metabase/lib/schema_metadata";
-import { LatitudeLongitudeError } from "metabase/visualizations/lib/errors";
-
-import LeafletMarkerPinMap from "./LeafletMarkerPinMap";
-import LeafletTilePinMap from "./LeafletTilePinMap";
-import LeafletHeatMap from "./LeafletHeatMap";
-import LeafletGridHeatMap from "./LeafletGridHeatMap";
-
-import _ from "underscore";
 import cx from "classnames";
 import d3 from "d3";
-
 import L from "leaflet";
+import React, { Component } from "react";
+import { t } from "ttag";
+import _ from "underscore";
 
 import type { VisualizationProps } from "metabase-types/types/Visualization";
 
-const WORLD_BOUNDS = [[-90, -180], [90, 180]];
+import { hasLatitudeAndLongitudeColumns } from "metabase/lib/schema_metadata";
+import { LatitudeLongitudeError } from "metabase/visualizations/lib/errors";
+
+import LeafletGridHeatMap from "./LeafletGridHeatMap";
+import LeafletHeatMap from "./LeafletHeatMap";
+import LeafletMarkerPinMap from "./LeafletMarkerPinMap";
+import LeafletTilePinMap from "./LeafletTilePinMap";
+
+const WORLD_BOUNDS = [
+  [-90, -180],
+  [90, 180],
+];
 
 type Props = VisualizationProps;
 

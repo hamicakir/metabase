@@ -1,20 +1,20 @@
+import { Box } from "grid-styled";
+import PropTypes from "prop-types";
 import React from "react";
 import { t } from "ttag";
-import PropTypes from "prop-types";
 import _ from "underscore";
-import { Box } from "grid-styled";
 
-import { PLUGIN_MODERATION } from "metabase/plugins";
+import EmptyState from "metabase/components/EmptyState";
+import { PERSONAL_COLLECTIONS } from "metabase/entities/collections";
 import Schemas from "metabase/entities/schemas";
 import { SAVED_QUESTIONS_VIRTUAL_DB_ID } from "metabase/lib/saved-questions";
-import EmptyState from "metabase/components/EmptyState";
+import { PLUGIN_MODERATION } from "metabase/plugins";
 import { generateSchemaId } from "metabase/schema";
 
 import {
   SavedQuestionListRoot,
   SavedQuestionListItem,
 } from "./SavedQuestionList.styled";
-import { PERSONAL_COLLECTIONS } from "metabase/entities/collections";
 
 const propTypes = {
   databaseId: PropTypes.string,

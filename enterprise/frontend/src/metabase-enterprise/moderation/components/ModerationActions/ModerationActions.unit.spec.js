@@ -1,6 +1,7 @@
-import React from "react";
-import ModerationActions from "./ModerationActions";
 import { render, screen } from "@testing-library/react";
+import React from "react";
+
+import ModerationActions from "./ModerationActions";
 
 describe("ModerationActions", () => {
   describe("when the user is not a moderator", () => {

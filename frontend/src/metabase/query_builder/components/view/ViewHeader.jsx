@@ -1,31 +1,29 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { t } from "ttag";
 import cx from "classnames";
 import { Box } from "grid-styled";
-
-import Link from "metabase/components/Link";
-import ButtonBar from "metabase/components/ButtonBar";
-import CollectionBadge from "metabase/questions/components/CollectionBadge";
-import LastEditInfoLabel from "metabase/components/LastEditInfoLabel";
-import SavedQuestionHeaderButton from "metabase/query_builder/components/SavedQuestionHeaderButton/SavedQuestionHeaderButton";
-import ViewSection, { ViewHeading, ViewSubHeading } from "./ViewSection";
-import ViewButton from "metabase/query_builder/components/view/ViewButton";
-
-import QuestionDataSource from "./QuestionDataSource";
-import QuestionDescription from "./QuestionDescription";
-import QuestionLineage from "./QuestionLineage";
-import QuestionPreviewToggle from "./QuestionPreviewToggle";
-import QuestionNotebookButton from "./QuestionNotebookButton";
-
-import QuestionFilters, { QuestionFilterWidget } from "./QuestionFilters";
-import { QuestionSummarizeWidget } from "./QuestionSummaries";
-
-import NativeQueryButton from "./NativeQueryButton";
-import RunButtonWithTooltip from "../RunButtonWithTooltip";
-import { SavedQuestionHeaderButtonContainer } from "./ViewHeader.styled";
+import PropTypes from "prop-types";
+import React from "react";
+import { t } from "ttag";
 
 import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
+
+import ButtonBar from "metabase/components/ButtonBar";
+import LastEditInfoLabel from "metabase/components/LastEditInfoLabel";
+import Link from "metabase/components/Link";
+import SavedQuestionHeaderButton from "metabase/query_builder/components/SavedQuestionHeaderButton/SavedQuestionHeaderButton";
+import ViewButton from "metabase/query_builder/components/view/ViewButton";
+import CollectionBadge from "metabase/questions/components/CollectionBadge";
+
+import RunButtonWithTooltip from "../RunButtonWithTooltip";
+import NativeQueryButton from "./NativeQueryButton";
+import QuestionDataSource from "./QuestionDataSource";
+import QuestionDescription from "./QuestionDescription";
+import QuestionFilters, { QuestionFilterWidget } from "./QuestionFilters";
+import QuestionLineage from "./QuestionLineage";
+import QuestionNotebookButton from "./QuestionNotebookButton";
+import QuestionPreviewToggle from "./QuestionPreviewToggle";
+import { QuestionSummarizeWidget } from "./QuestionSummaries";
+import { SavedQuestionHeaderButtonContainer } from "./ViewHeader.styled";
+import ViewSection, { ViewHeading, ViewSubHeading } from "./ViewSection";
 
 const viewTitleHeaderPropTypes = {
   question: PropTypes.object.isRequired,
@@ -133,11 +131,7 @@ export class ViewTitleHeader extends React.Component {
     const isSaved = question.isSaved();
 
     const isSummarized =
-      isStructured &&
-      question
-        .query()
-        .topLevelQuery()
-        .hasAggregations();
+      isStructured && question.query().topLevelQuery().hasAggregations();
 
     const showFiltersInHeading = !isSummarized && !isFiltersExpanded;
 

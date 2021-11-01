@@ -1,15 +1,13 @@
 /* eslint-disable react/prop-types */
+import L from "leaflet";
+// import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 import React from "react";
 
 import { color } from "metabase/lib/colors";
+import { computeMinimalBounds } from "metabase/visualizations/lib/mapping";
 
 import CardRenderer from "./CardRenderer";
-
-// import L from "leaflet";
-import "leaflet/dist/leaflet.css";
-import L from "leaflet";
-
-import { computeMinimalBounds } from "metabase/visualizations/lib/mapping";
 
 const LeafletChoropleth = ({
   series,

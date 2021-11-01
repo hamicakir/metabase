@@ -1,10 +1,10 @@
-import { restore } from "__support__/e2e/helpers/e2e-setup-helpers";
+import { describeWithToken } from "__support__/e2e/cypress";
 import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
+import { restore } from "__support__/e2e/helpers/e2e-setup-helpers";
 import {
   modal,
   popover,
 } from "__support__/e2e/helpers/e2e-ui-elements-helpers";
-import { describeWithToken } from "__support__/e2e/cypress";
 
 const { ORDERS_ID } = SAMPLE_DATASET;
 
@@ -177,18 +177,13 @@ function testRemovingAuditItem() {
 }
 
 function testEditingRecipients({ editModalHeader }) {
-  cy.get("tbody > tr > td")
-    .eq(1)
-    .as("recipients")
-    .click();
+  cy.get("tbody > tr > td").eq(1).as("recipients").click();
 
   modal().within(() => {
     cy.findByText(editModalHeader);
     cy.findByText("Bobby Tables");
 
-    cy.icon("close")
-      .eq(1)
-      .click(); // Remove Bobby Tables
+    cy.icon("close").eq(1).click(); // Remove Bobby Tables
 
     cy.get("input").click();
   });

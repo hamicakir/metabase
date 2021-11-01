@@ -1,6 +1,5 @@
-import mock from "xhr-mock";
-
 import { getStore } from "__support__/entities-store";
+import mock from "xhr-mock";
 
 import Databases from "metabase/entities/databases";
 
@@ -26,7 +25,7 @@ describe("database entity", () => {
     );
     const { databases, schemas, tables } = store.getState().entities;
     expect(databases).toEqual({
-      "123": { id: 123, tables: [234], is_saved_questions: false },
+      123: { id: 123, tables: [234], is_saved_questions: false },
     });
     expect(schemas).toEqual({
       "123:public": {
@@ -36,7 +35,7 @@ describe("database entity", () => {
       },
     });
     expect(tables).toEqual({
-      "234": {
+      234: {
         db_id: 123,
         fields: [],
         id: 234,

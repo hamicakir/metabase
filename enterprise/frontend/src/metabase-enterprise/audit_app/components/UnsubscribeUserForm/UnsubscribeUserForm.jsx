@@ -1,9 +1,11 @@
-import React, { useCallback, useState } from "react";
 import PropTypes from "prop-types";
+import React, { useCallback, useState } from "react";
 import { t } from "ttag";
+
 import Button from "metabase/components/Button";
 import ModalContent from "metabase/components/ModalContent";
 import FormMessage from "metabase/components/form/FormMessage";
+
 import { ModalMessage } from "./UnsubscribeUserForm.styled";
 
 const propTypes = {

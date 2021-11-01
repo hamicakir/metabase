@@ -1,12 +1,10 @@
-import React, { Component } from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
-
-import OnClickOutsideWrapper from "./OnClickOutsideWrapper";
 import Tether from "tether";
 
-import cx from "classnames";
-
+import OnClickOutsideWrapper from "./OnClickOutsideWrapper";
 import "./Popover.css";
 
 // space we should leave berween page edge and popover edge
@@ -350,9 +348,11 @@ export default class Popover extends Component {
               (best, attachmentY) => ({
                 ...best,
                 attachmentY: attachmentY,
-                targetAttachmentY: (this.props.alignVerticalEdge
-                ? attachmentY === "bottom"
-                : attachmentY === "top")
+                targetAttachmentY: (
+                  this.props.alignVerticalEdge
+                    ? attachmentY === "bottom"
+                    : attachmentY === "top"
+                )
                   ? "bottom"
                   : "top",
                 offsetY: {

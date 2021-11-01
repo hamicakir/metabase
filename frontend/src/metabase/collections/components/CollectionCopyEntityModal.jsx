@@ -1,17 +1,15 @@
 /* eslint-disable react/prop-types */
+import { dissoc } from "icepick";
 import React from "react";
 import { connect } from "react-redux";
-import { dissoc } from "icepick";
 import { t } from "ttag";
 
-import * as Urls from "metabase/lib/urls";
-import withToast from "metabase/hoc/Toast";
-import { entityTypeForObject } from "metabase/schema";
-
 import Link from "metabase/components/Link";
-
 import Collections from "metabase/entities/collections";
 import EntityCopyModal from "metabase/entities/containers/EntityCopyModal";
+import withToast from "metabase/hoc/Toast";
+import * as Urls from "metabase/lib/urls";
+import { entityTypeForObject } from "metabase/schema";
 
 function mapStateToProps(state, props) {
   return {

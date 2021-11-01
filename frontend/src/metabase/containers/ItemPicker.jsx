@@ -1,25 +1,21 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
-
+import { Flex, Box } from "grid-styled";
+import PropTypes from "prop-types";
+import React from "react";
+import { connect } from "react-redux";
 import { t } from "ttag";
 import _ from "underscore";
-import { Flex, Box } from "grid-styled";
-import Icon from "metabase/components/Icon";
+
 import Breadcrumbs from "metabase/components/Breadcrumbs";
+import Icon from "metabase/components/Icon";
 import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
-
-import { color } from "metabase/lib/colors";
-
-import { connect } from "react-redux";
-
+import Collections from "metabase/entities/collections";
 // NOTE: replacing these with Collections.ListLoader etc currently fails due to circular dependency
 import EntityListLoader, {
   entityListLoader,
 } from "metabase/entities/containers/EntityListLoader";
-
-import Collections from "metabase/entities/collections";
+import { color } from "metabase/lib/colors";
 
 const getCollectionIconColor = () => color("text-light");
 

@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { t } from "ttag";
-import { getDashboardParameterSections } from "metabase/parameters/utils/dashboard-options";
-import Icon from "metabase/components/Icon";
-import { getParameterIconName } from "metabase/parameters/utils/ui";
 import styled from "styled-components";
+import { t } from "ttag";
+import _ from "underscore";
 
 import type {
   Parameter,
@@ -11,7 +9,9 @@ import type {
   ParameterSection,
 } from "metabase-types/types/Parameter";
 
-import _ from "underscore";
+import Icon from "metabase/components/Icon";
+import { getDashboardParameterSections } from "metabase/parameters/utils/dashboard-options";
+import { getParameterIconName } from "metabase/parameters/utils/ui";
 
 const PopoverBody = styled.div`
   max-width: 300px;

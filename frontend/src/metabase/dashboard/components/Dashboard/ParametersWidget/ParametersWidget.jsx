@@ -1,8 +1,8 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
-import { getValuePopulatedParameters } from "metabase/parameters/utils/parameter-values";
 import Parameters from "metabase/parameters/components/Parameters/Parameters";
+import { getValuePopulatedParameters } from "metabase/parameters/utils/parameter-values";
 
 const propTypes = {
   dashboard: PropTypes.object,

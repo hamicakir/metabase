@@ -1,13 +1,12 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-import PropTypes from "prop-types";
 import { Box, Flex } from "grid-styled";
-
-import { color } from "metabase/lib/colors";
-import { extractQueryParams } from "metabase/lib/urls";
+import PropTypes from "prop-types";
+import React from "react";
 
 import Icon from "metabase/components/Icon";
 import Label from "metabase/components/type/Label";
+import { color } from "metabase/lib/colors";
+import { extractQueryParams } from "metabase/lib/urls";
 
 function colorForType(type) {
   switch (type) {

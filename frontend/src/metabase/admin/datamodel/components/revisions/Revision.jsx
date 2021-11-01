@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
+import moment from "moment";
 import PropTypes from "prop-types";
-
-import RevisionDiff from "./RevisionDiff";
+import React, { Component } from "react";
 import { t } from "ttag";
+
 import UserAvatar from "metabase/components/UserAvatar";
 
-import moment from "moment";
+import RevisionDiff from "./RevisionDiff";
 
 export default class Revision extends Component {
   static propTypes = {

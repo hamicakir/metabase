@@ -4,7 +4,6 @@ import {
   setFilter,
   popover,
 } from "__support__/e2e/cypress";
-
 import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
 
 const { PRODUCTS_ID } = SAMPLE_DATASET;
@@ -42,12 +41,8 @@ describe.skip("issue 17212", () => {
 
     cy.findByText("No valid fields").should("not.exist");
 
-    cy.findByText("Column to filter on")
-      .next("a")
-      .click();
+    cy.findByText("Column to filter on").next("a").click();
 
-    popover()
-      .contains("ID")
-      .click();
+    popover().contains("ID").click();
   });
 });

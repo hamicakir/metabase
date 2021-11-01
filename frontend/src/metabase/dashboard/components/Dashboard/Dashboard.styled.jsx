@@ -1,11 +1,9 @@
 import styled, { css } from "styled-components";
 
-import { color } from "metabase/lib/colors";
-import { space } from "metabase/styled-components/theme";
-
-import { FullWidthContainer } from "metabase/styled-components/layout/FullWidthContainer";
-
 import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
+import { color } from "metabase/lib/colors";
+import { FullWidthContainer } from "metabase/styled-components/layout/FullWidthContainer";
+import { space } from "metabase/styled-components/theme";
 
 // Class names are added here because we still use traditional css,
 // see dashboard.css
@@ -13,8 +11,9 @@ export const DashboardLoadingAndErrorWrapper = styled(
   LoadingAndErrorWrapper,
 ).attrs({
   className: ({ isFullscreen, isNightMode }) =>
-    `Dashboard ${isFullscreen && "Dashboard--fullscreen"} ${isNightMode &&
-      "Dashboard--night"}`,
+    `Dashboard ${isFullscreen && "Dashboard--fullscreen"} ${
+      isNightMode && "Dashboard--night"
+    }`,
 })`
   flex: 1 0 auto;
 

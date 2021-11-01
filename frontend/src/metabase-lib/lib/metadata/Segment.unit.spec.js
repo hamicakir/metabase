@@ -1,5 +1,5 @@
-import Segment from "./Segment";
 import Base from "./Base";
+import Segment from "./Segment";
 
 describe("Segment", () => {
   describe("instantiation", () => {

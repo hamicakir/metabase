@@ -1,17 +1,14 @@
+import NoResults from "assets/img/no_results.svg";
 import React from "react";
-
 import { t } from "ttag";
 
 import EmptyState from "metabase/components/EmptyState";
-
-import { getSettingDefintionsForColumn } from "metabase/visualizations/lib/settings/column";
+import ChartSettingsWidget from "metabase/visualizations/components/ChartSettingsWidget";
 import {
   getSettingsWidgets,
   getComputedSettings,
 } from "metabase/visualizations/lib/settings";
-
-import ChartSettingsWidget from "metabase/visualizations/components/ChartSettingsWidget";
-import NoResults from "assets/img/no_results.svg";
+import { getSettingDefintionsForColumn } from "metabase/visualizations/lib/settings/column";
 
 type SettingId = string;
 type Settings = { [id: SettingId]: any };

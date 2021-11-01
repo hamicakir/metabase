@@ -1,5 +1,5 @@
-import { createSelector } from "reselect";
 import { getValues } from "redux-form";
+import { createSelector } from "reselect";
 
 export const DATABASE_FORM_NAME = "database";
 

@@ -33,7 +33,10 @@ const questionDetails = {
       "order-by": [
         ["asc", ["joined-field", "Products", ["field-id", PRODUCTS.TITLE]]],
       ],
-      fields: [["field-id", REVIEWS.ID], ["field-id", REVIEWS.REVIEWER]],
+      fields: [
+        ["field-id", REVIEWS.ID],
+        ["field-id", REVIEWS.REVIEWER],
+      ],
       limit: 5,
     },
   },

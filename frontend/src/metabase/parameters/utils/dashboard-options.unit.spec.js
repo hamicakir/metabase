@@ -1,5 +1,7 @@
 import _ from "underscore";
+
 import MetabaseSettings from "metabase/lib/settings";
+
 import { getDashboardParameterSections } from "./dashboard-options";
 
 MetabaseSettings.get = jest.fn();

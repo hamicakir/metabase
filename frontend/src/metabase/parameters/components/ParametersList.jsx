@@ -1,23 +1,24 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import cx from "classnames";
+import React from "react";
 
-import StaticParameterWidget from "./ParameterWidget";
+import type { DashboardWithCards } from "metabase-types/types/Dashboard";
+import type {
+  ParameterId,
+  Parameter,
+  ParameterValues,
+} from "metabase-types/types/Parameter";
+
 import Icon from "metabase/components/Icon";
 import {
   SortableContainer,
   SortableElement,
   SortableHandle,
 } from "metabase/components/sortable";
-import { getVisibleParameters } from "metabase/parameters/utils/ui";
 import { getValuePopulatedParameters } from "metabase/parameters/utils/parameter-values";
+import { getVisibleParameters } from "metabase/parameters/utils/ui";
 
-import type {
-  ParameterId,
-  Parameter,
-  ParameterValues,
-} from "metabase-types/types/Parameter";
-import type { DashboardWithCards } from "metabase-types/types/Dashboard";
+import StaticParameterWidget from "./ParameterWidget";
 
 type Props = {
   className?: string,

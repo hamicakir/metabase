@@ -1,12 +1,11 @@
-import React from "react";
+import moment from "moment";
 import PropTypes from "prop-types";
+import React from "react";
 import { connect } from "react-redux";
 import { t } from "ttag";
-import moment from "moment";
-
-import { getUser } from "metabase/selectors/user";
 
 import { TextButton } from "metabase/components/Button.styled";
+import { getUser } from "metabase/selectors/user";
 
 function mapStateToProps(state) {
   return {
@@ -37,9 +36,12 @@ function formatEditorName(firstName, lastName) {
 }
 
 function LastEditInfoLabel({ item, user, onClick, className }) {
-  const { first_name, last_name, id: editorId, timestamp } = item[
-    "last-edit-info"
-  ];
+  const {
+    first_name,
+    last_name,
+    id: editorId,
+    timestamp,
+  } = item["last-edit-info"];
   const time = moment(timestamp).fromNow();
 
   const editor =

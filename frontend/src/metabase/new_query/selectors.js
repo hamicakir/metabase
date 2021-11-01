@@ -2,11 +2,12 @@
  * Redux selectors for the new query flow
  * (used both for new questions and for adding "ad-hoc metrics" to multi-query questions)
  */
-
 import { createSelector } from "reselect";
-import { getMetadata, getDatabases } from "metabase/selectors/metadata";
-import NativeQuery from "metabase-lib/lib/queries/NativeQuery";
+
 import Question from "metabase-lib/lib/Question";
+import NativeQuery from "metabase-lib/lib/queries/NativeQuery";
+
+import { getMetadata, getDatabases } from "metabase/selectors/metadata";
 
 export const getPlainNativeQuery = state => {
   const metadata = getMetadata(state);

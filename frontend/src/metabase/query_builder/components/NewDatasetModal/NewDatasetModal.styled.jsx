@@ -1,9 +1,10 @@
-import React from "react";
 import { PropTypes } from "prop-types";
+import React from "react";
 import styled from "styled-components";
+
+import Icon from "metabase/components/Icon";
 import { color, lighten } from "metabase/lib/colors";
 import { space } from "metabase/styled-components/theme";
-import Icon from "metabase/components/Icon";
 
 const FeatureOverviewContainer = styled.div`
   padding-right: ${space(1)};

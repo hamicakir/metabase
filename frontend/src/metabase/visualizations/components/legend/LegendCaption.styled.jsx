@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import colors from "metabase/lib/colors";
+
 import Icon from "metabase/components/Icon";
+import colors from "metabase/lib/colors";
 
 export const LegendCaptionRoot = styled.div`
   display: flex;

@@ -1,9 +1,14 @@
-import React from "react";
-import ExternalLink from "metabase/components/ExternalLink";
-import { t, jt } from "ttag";
 import { updateIn } from "icepick";
+import React from "react";
+import { t, jt } from "ttag";
 
 import { hasPremiumFeature } from "metabase-enterprise/settings";
+
+import SettingsGoogleForm from "metabase/admin/settings/components/SettingsGoogleForm";
+import AuthenticationOption from "metabase/admin/settings/components/widgets/AuthenticationOption";
+import GroupMappingsWidget from "metabase/admin/settings/components/widgets/GroupMappingsWidget";
+import SecretKeyWidget from "metabase/admin/settings/components/widgets/SecretKeyWidget";
+import ExternalLink from "metabase/components/ExternalLink";
 import MetabaseSettings from "metabase/lib/settings";
 import {
   PLUGIN_AUTH_PROVIDERS,
@@ -12,15 +17,9 @@ import {
 } from "metabase/plugins";
 import { UtilApi } from "metabase/services";
 
-import AuthenticationOption from "metabase/admin/settings/components/widgets/AuthenticationOption";
-import GroupMappingsWidget from "metabase/admin/settings/components/widgets/GroupMappingsWidget";
-import SecretKeyWidget from "metabase/admin/settings/components/widgets/SecretKeyWidget";
-
-import SettingsGoogleForm from "metabase/admin/settings/components/SettingsGoogleForm";
-import SettingsSAMLForm from "./components/SettingsSAMLForm";
-import SettingsJWTForm from "./components/SettingsJWTForm";
-
 import SSOButton from "./components/SSOButton";
+import SettingsJWTForm from "./components/SettingsJWTForm";
+import SettingsSAMLForm from "./components/SettingsSAMLForm";
 
 PLUGIN_ADMIN_SETTINGS_UPDATES.push(sections =>
   updateIn(sections, ["authentication", "settings"], settings => [

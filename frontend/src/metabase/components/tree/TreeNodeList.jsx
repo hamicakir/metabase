@@ -1,5 +1,6 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
+
 import { useScrollOnMount } from "metabase/hooks/use-scroll-on-mount";
 
 const propTypes = {

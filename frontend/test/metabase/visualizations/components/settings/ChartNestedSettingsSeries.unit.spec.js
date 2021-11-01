@@ -1,5 +1,5 @@
-import React from "react";
 import { render } from "@testing-library/react";
+import React from "react";
 
 // these tests use ChartSettings directly, but logic we're testing lives in ChartNestedSettingSeries
 import ChartSettings from "metabase/visualizations/components/ChartSettings";
@@ -9,7 +9,10 @@ function getSeries(display) {
     {
       card: { display, visualization_settings: {} },
       data: {
-        rows: [["a", 1], ["b", 2]],
+        rows: [
+          ["a", 1],
+          ["b", 2],
+        ],
         cols: [{ name: "foo" }, { name: "bar" }],
       },
     },

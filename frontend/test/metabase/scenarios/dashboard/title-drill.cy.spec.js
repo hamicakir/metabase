@@ -98,9 +98,7 @@ describe("scenarios > dashboard > title drill", () => {
     );
 
     cy.findByText("Text contains").click();
-    cy.findByPlaceholderText("Enter some text")
-      .type("bb")
-      .blur();
+    cy.findByPlaceholderText("Enter some text").type("bb").blur();
     cy.button("Add filter").click();
 
     checkFilterLabelAndValue("Text contains", "bb");
@@ -115,15 +113,10 @@ describe("scenarios > dashboard > title drill", () => {
 });
 
 function checkFilterLabelAndValue(label, value) {
-  filterWidget()
-    .find("legend")
-    .invoke("text")
-    .should("eq", label);
+  filterWidget().find("legend").invoke("text").should("eq", label);
   filterWidget().contains(value);
 }
 
 function checkScalarResult(result) {
-  cy.get(".ScalarValue")
-    .invoke("text")
-    .should("eq", result);
+  cy.get(".ScalarValue").invoke("text").should("eq", result);
 }

@@ -1,18 +1,17 @@
-import ObjectMode from "../components/modes/ObjectMode";
-import SegmentMode from "../components/modes/SegmentMode";
-import MetricMode from "../components/modes/MetricMode";
-import TimeseriesMode from "../components/modes/TimeseriesMode";
-import GeoMode from "../components/modes/GeoMode";
-import PivotMode from "../components/modes/PivotMode";
-import NativeMode from "../components/modes/NativeMode";
-import DefaultMode from "../components/modes/DefaultMode";
+import type Question from "metabase-lib/lib/Question";
+import NativeQuery from "metabase-lib/lib/queries/NativeQuery";
+import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
 
 import type { QueryMode } from "metabase-types/types/Visualization";
 
-import type Question from "metabase-lib/lib/Question";
-
-import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
-import NativeQuery from "metabase-lib/lib/queries/NativeQuery";
+import DefaultMode from "../components/modes/DefaultMode";
+import GeoMode from "../components/modes/GeoMode";
+import MetricMode from "../components/modes/MetricMode";
+import NativeMode from "../components/modes/NativeMode";
+import ObjectMode from "../components/modes/ObjectMode";
+import PivotMode from "../components/modes/PivotMode";
+import SegmentMode from "../components/modes/SegmentMode";
+import TimeseriesMode from "../components/modes/TimeseriesMode";
 
 const isPKFilter = (filters, query) => {
   const sourceTablePKFields =

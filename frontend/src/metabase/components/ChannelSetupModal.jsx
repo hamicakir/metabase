@@ -1,10 +1,11 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { t } from "ttag";
-import ModalContent from "metabase/components/ModalContent";
+
 import ChannelSetupMessage from "metabase/components/ChannelSetupMessage";
+import ModalContent from "metabase/components/ModalContent";
 
 export default class ChannelSetupModal extends Component {
   static propTypes = {
@@ -20,13 +21,8 @@ export default class ChannelSetupModal extends Component {
   };
 
   render() {
-    const {
-      onClose,
-      user,
-      entityNamePlural,
-      fullPageModal,
-      channels,
-    } = this.props;
+    const { onClose, user, entityNamePlural, fullPageModal, channels } =
+      this.props;
 
     return (
       <ModalContent

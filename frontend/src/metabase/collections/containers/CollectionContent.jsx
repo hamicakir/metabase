@@ -1,26 +1,22 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useCallback } from "react";
 import { Box } from "grid-styled";
-import _ from "underscore";
+import React, { useState, useCallback } from "react";
 import { connect } from "react-redux";
-
-import Collection from "metabase/entities/collections";
-import Search from "metabase/entities/search";
-
-import { getUserIsAdmin } from "metabase/selectors/user";
+import _ from "underscore";
 
 import BulkActions from "metabase/collections/components/BulkActions";
-import CollectionEmptyState from "metabase/components/CollectionEmptyState";
 import Header from "metabase/collections/components/CollectionHeader/CollectionHeader";
 import ItemsTable from "metabase/collections/components/ItemsTable";
 import PinnedItemsTable from "metabase/collections/components/PinnedItemsTable";
 import { isPersonalCollectionChild } from "metabase/collections/utils";
-
-import ItemsDragLayer from "metabase/containers/dnd/ItemsDragLayer";
+import CollectionEmptyState from "metabase/components/CollectionEmptyState";
 import PaginationControls from "metabase/components/PaginationControls";
-
-import { usePagination } from "metabase/hooks/use-pagination";
+import ItemsDragLayer from "metabase/containers/dnd/ItemsDragLayer";
+import Collection from "metabase/entities/collections";
+import Search from "metabase/entities/search";
 import { useListSelect } from "metabase/hooks/use-list-select";
+import { usePagination } from "metabase/hooks/use-pagination";
+import { getUserIsAdmin } from "metabase/selectors/user";
 
 const PAGE_SIZE = 25;
 
@@ -53,13 +49,8 @@ function CollectionContent({
     sort_direction: "asc",
   });
   const { handleNextPage, handlePreviousPage, setPage, page } = usePagination();
-  const {
-    selected,
-    toggleItem,
-    toggleAll,
-    getIsSelected,
-    clear,
-  } = useListSelect(itemKeyFn);
+  const { selected, toggleItem, toggleAll, getIsSelected, clear } =
+    useListSelect(itemKeyFn);
 
   const handleBulkArchive = useCallback(async () => {
     try {

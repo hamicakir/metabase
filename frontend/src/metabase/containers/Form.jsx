@@ -1,13 +1,12 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-import PropTypes from "prop-types";
-
-import { connect } from "react-redux";
-import { createSelector } from "reselect";
-import { reduxForm, getValues, initialize, change } from "redux-form";
 import { getIn, assocIn } from "icepick";
-import _ from "underscore";
+import PropTypes from "prop-types";
+import React from "react";
+import { connect } from "react-redux";
+import { reduxForm, getValues, initialize, change } from "redux-form";
+import { createSelector } from "reselect";
 import { t } from "ttag";
+import _ from "underscore";
 
 import CustomForm from "metabase/components/form/CustomForm";
 import StandardForm from "metabase/components/form/StandardForm";
@@ -179,9 +178,8 @@ export default class Form extends React.Component {
         };
       },
     );
-    const getFormObject = createSelector(
-      [getFormDefinition],
-      formDef => makeFormObject(formDef),
+    const getFormObject = createSelector([getFormDefinition], formDef =>
+      makeFormObject(formDef),
     );
     const getInitialValues = createSelector(
       [

@@ -1,19 +1,18 @@
-import React, { useState, useMemo, memo } from "react";
-import PropTypes from "prop-types";
-import { t } from "ttag";
 import { Box, Flex } from "grid-styled";
+import PropTypes from "prop-types";
+import React, { useState, useMemo, memo } from "react";
+import { t } from "ttag";
 
 import EmptyState from "metabase/components/EmptyState";
+import Icon from "metabase/components/Icon";
 import Radio from "metabase/components/Radio";
 import TextInput from "metabase/components/TextInput";
-import Icon from "metabase/components/Icon";
+import { Tree } from "metabase/components/tree";
 import Label from "metabase/components/type/Label";
 import Text from "metabase/components/type/Text";
-import { Tree } from "metabase/components/tree";
 import { useDebouncedValue } from "metabase/hooks/use-debounced-value";
 import { SEARCH_DEBOUNCE_DURATION } from "metabase/lib/constants";
 
-import { searchItems } from "./utils";
 import {
   SidebarHeader,
   SidebarContent,
@@ -21,6 +20,7 @@ import {
   BackButton,
   BackIcon,
 } from "./PermissionsSidebar.styled";
+import { searchItems } from "./utils";
 
 export const permissionSidebarContentPropTypes = {
   title: PropTypes.string,

@@ -1,16 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-
 import { t } from "ttag";
 
-import Tooltip from "metabase/components/Tooltip";
 import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
-
-import FilterPopover from "metabase/query_builder/components/filters/FilterPopover";
-import ViewPill from "./ViewPill";
-import ViewButton from "./ViewButton";
-
+import Tooltip from "metabase/components/Tooltip";
 import { color } from "metabase/lib/colors";
+import FilterPopover from "metabase/query_builder/components/filters/FilterPopover";
+
+import ViewButton from "./ViewButton";
+import ViewPill from "./ViewPill";
 
 const FilterPill = props => <ViewPill color={color("filter")} {...props} />;
 

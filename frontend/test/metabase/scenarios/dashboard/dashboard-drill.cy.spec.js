@@ -5,17 +5,10 @@ import {
   filterWidget,
   showDashboardCardActions,
 } from "__support__/e2e/cypress";
-
 import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
 
-const {
-  ORDERS,
-  ORDERS_ID,
-  PRODUCTS,
-  PRODUCTS_ID,
-  REVIEWS,
-  REVIEWS_ID,
-} = SAMPLE_DATASET;
+const { ORDERS, ORDERS_ID, PRODUCTS, PRODUCTS_ID, REVIEWS, REVIEWS_ID } =
+  SAMPLE_DATASET;
 
 describe("scenarios > dashboard > dashboard drill", () => {
   beforeEach(() => {
@@ -41,16 +34,12 @@ describe("scenarios > dashboard > dashboard drill", () => {
 
     // set the url and text template
     modal().within(() => {
-      cy.get("input")
-        .first()
-        .type("/foo/{{my_number}}/{{my_param}}", {
-          parseSpecialCharSequences: false,
-        });
-      cy.get("input")
-        .last()
-        .type("column value: {{my_number}}", {
-          parseSpecialCharSequences: false,
-        });
+      cy.get("input").first().type("/foo/{{my_number}}/{{my_param}}", {
+        parseSpecialCharSequences: false,
+      });
+      cy.get("input").last().type("column value: {{my_number}}", {
+        parseSpecialCharSequences: false,
+      });
       cy.findByText("Done").click();
     });
 
@@ -145,9 +134,7 @@ describe("scenarios > dashboard > dashboard drill", () => {
       },
     );
 
-    cy.findAllByText("18")
-      .first()
-      .click();
+    cy.findAllByText("18").first().click();
     cy.location("pathname").should("eq", "/test/18/CO/Organic");
   });
 
@@ -732,18 +719,14 @@ describe("scenarios > dashboard > dashboard drill", () => {
           cy.visit(`/dashboard/${DASHBOARD_ID}`);
           cy.wait("@secondCardQuery");
 
-          cy.get(".bar")
-            .first()
-            .trigger("mousemove");
+          cy.get(".bar").first().trigger("mousemove");
 
           popover().within(() => {
             testPairedTooltipValues("AXIS", "1");
             testPairedTooltipValues("VALUE", "5");
           });
 
-          cy.get(".bar")
-            .last()
-            .trigger("mousemove");
+          cy.get(".bar").last().trigger("mousemove");
 
           popover().within(() => {
             testPairedTooltipValues("AXIS", "1");
@@ -845,9 +828,7 @@ describe("scenarios > dashboard > dashboard drill", () => {
     });
 
     function setFilterValue(filterName) {
-      filterWidget()
-        .contains(filterName)
-        .click();
+      filterWidget().contains(filterName).click();
       cy.findByPlaceholderText("Enter an ID").type("1,2,");
       cy.button("Add filter").click();
       cy.findByText("2 selections");
@@ -951,15 +932,10 @@ function setParamValue(paramName, text) {
 }
 
 function drillThroughCardTitle(title) {
-  cy.findByTestId("legend-caption")
-    .contains(title)
-    .click();
+  cy.findByTestId("legend-caption").contains(title).click();
   cy.contains(`Started from ${title}`);
 }
 
 function testPairedTooltipValues(val1, val2) {
-  cy.contains(val1)
-    .closest("td")
-    .siblings("td")
-    .findByText(val2);
+  cy.contains(val1).closest("td").siblings("td").findByText(val2);
 }

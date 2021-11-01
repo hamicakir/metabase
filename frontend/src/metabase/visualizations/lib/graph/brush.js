@@ -1,5 +1,5 @@
-import { KEYCODE_ESCAPE } from "metabase/lib/keyboard";
 import { moveToBack, moveToFront } from "metabase/lib/dom";
+import { KEYCODE_ESCAPE } from "metabase/lib/keyboard";
 
 export function initBrush(parent, child, onBrushChange, onBrushEnd) {
   if (!parent.brushOn || !child.brushOn) {
@@ -78,7 +78,7 @@ export function initBrush(parent, child, onBrushChange, onBrushEnd) {
     }
   };
 
-  parent.on("pretransition.custom", function(chart) {
+  parent.on("pretransition.custom", function (chart) {
     // move brush to the back so tootips/clicks still work
     moveToBack(chart.select(".brush").node());
     // remove the handles since we can't adjust them anyway

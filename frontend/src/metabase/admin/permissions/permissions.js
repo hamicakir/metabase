@@ -1,14 +1,8 @@
-import { t } from "ttag";
-import { push } from "react-router-redux";
 import { assocIn } from "icepick";
+import { push } from "react-router-redux";
+import { t } from "ttag";
 
-import {
-  createAction,
-  createThunkAction,
-  handleActions,
-  combineReducers,
-} from "metabase/lib/redux";
-import { CollectionsApi, PermissionsApi } from "metabase/services";
+import { getGroupFocusPermissionsUrl } from "metabase/admin/permissions/utils/urls";
 import Group from "metabase/entities/groups";
 import Tables from "metabase/entities/tables";
 import * as MetabaseAnalytics from "metabase/lib/analytics";
@@ -19,8 +13,15 @@ import {
   updateSchemasPermission,
   updateTablesPermission,
 } from "metabase/lib/permissions";
-import { getGroupFocusPermissionsUrl } from "metabase/admin/permissions/utils/urls";
+import {
+  createAction,
+  createThunkAction,
+  handleActions,
+  combineReducers,
+} from "metabase/lib/redux";
 import { getMetadataWithHiddenTables } from "metabase/selectors/metadata";
+import { CollectionsApi, PermissionsApi } from "metabase/services";
+
 import { isDatabaseEntityId } from "./utils/data-entity-id";
 
 const INITIALIZE_DATA_PERMISSIONS =
@@ -123,10 +124,8 @@ export const saveDataPermissions = createThunkAction(
   SAVE_DATA_PERMISSIONS,
   () => async (_dispatch, getState) => {
     MetabaseAnalytics.trackStructEvent("Permissions", "save");
-    const {
-      dataPermissions,
-      dataPermissionsRevision,
-    } = getState().admin.permissions;
+    const { dataPermissions, dataPermissionsRevision } =
+      getState().admin.permissions;
     const result = await PermissionsApi.updateGraph({
       groups: dataPermissions,
       revision: dataPermissionsRevision,
@@ -148,10 +147,8 @@ export const saveCollectionPermissions = createThunkAction(
   SAVE_COLLECTION_PERMISSIONS,
   namespace => async (_dispatch, getState) => {
     MetabaseAnalytics.trackStructEvent("Permissions", "save");
-    const {
-      collectionPermissions,
-      collectionPermissionsRevision,
-    } = getState().admin.permissions;
+    const { collectionPermissions, collectionPermissionsRevision } =
+      getState().admin.permissions;
     const result = await CollectionsApi.updateGraph({
       namespace,
       revision: collectionPermissionsRevision,

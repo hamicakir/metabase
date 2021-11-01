@@ -1,5 +1,4 @@
 /*global gapi*/
-
 import { SessionApi } from "metabase/services";
 
 // actively delete the session and remove the cookie

@@ -1,18 +1,21 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import { connect } from "react-redux";
+
+import Question from "metabase-lib/lib/Question";
+import NativeQuery from "metabase-lib/lib/queries/NativeQuery";
+
+import ExplicitSize from "metabase/components/ExplicitSize";
+import { serializeCardForUrl } from "metabase/lib/card";
+import { loadMetadataForCard } from "metabase/query_builder/actions";
+import GuiQueryEditor from "metabase/query_builder/components/GuiQueryEditor";
+import NativeQueryEditor from "metabase/query_builder/components/NativeQueryEditor";
+import { getMetadata } from "metabase/selectors/metadata";
 
 import AuditContent from "../components/AuditContent";
-import AuditCustomView from "../containers/AuditCustomView";
-
 import OpenInMetabase from "../components/OpenInMetabase";
-
-import NativeQueryEditor from "metabase/query_builder/components/NativeQueryEditor";
-import GuiQueryEditor from "metabase/query_builder/components/GuiQueryEditor";
-import Question from "metabase-lib/lib/Question";
-
+import AuditCustomView from "../containers/AuditCustomView";
 import * as QueryDetailCards from "../lib/cards/query_detail";
-
-import { serializeCardForUrl } from "metabase/lib/card";
 
 type Props = {
   params: { [key: string]: string },
@@ -59,21 +62,10 @@ const AuditQueryDetail = ({ params: { queryHash } }: Props) => (
   </AuditCustomView>
 );
 
-import { connect } from "react-redux";
-import { getMetadata } from "metabase/selectors/metadata";
-
-import NativeQuery from "metabase-lib/lib/queries/NativeQuery";
-
-import ExplicitSize from "metabase/components/ExplicitSize";
-import { loadMetadataForCard } from "metabase/query_builder/actions";
-
 const mapStateToProps = state => ({ metadata: getMetadata(state) });
 const mapDispatchToProps = { loadMetadataForCard };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 @ExplicitSize()
 class QueryBuilderReadOnly extends React.Component {
   state = {

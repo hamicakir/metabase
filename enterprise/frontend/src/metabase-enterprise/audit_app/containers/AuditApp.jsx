@@ -1,7 +1,7 @@
 import React from "react";
 
-import SidebarLayout from "../components/SidebarLayoutFixedWidth";
 import AuditSidebar from "../components/AuditSidebar";
+import SidebarLayout from "../components/SidebarLayoutFixedWidth";
 
 type Props = {
   children: React.Element,

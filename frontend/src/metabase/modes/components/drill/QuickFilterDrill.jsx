@@ -1,13 +1,15 @@
 import React from "react";
 import { jt } from "ttag";
-import { TYPE, isa, isFK, isPK } from "metabase/lib/types";
-import { singularize, pluralize, stripId } from "metabase/lib/formatting";
+
 import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
 
 import type {
   ClickAction,
   ClickActionProps,
 } from "metabase-types/types/Visualization";
+
+import { singularize, pluralize, stripId } from "metabase/lib/formatting";
+import { TYPE, isa, isFK, isPK } from "metabase/lib/types";
 
 function getFiltersForColumn(column) {
   if (
@@ -23,7 +25,10 @@ function getFiltersForColumn(column) {
       { name: "≠", operator: "!=" },
     ];
   } else {
-    return [{ name: "=", operator: "=" }, { name: "≠", operator: "!=" }];
+    return [
+      { name: "=", operator: "=" },
+      { name: "≠", operator: "!=" },
+    ];
   }
 }
 

@@ -1,20 +1,17 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { createSelector } from "reselect";
+import _ from "underscore";
 
 import Icon from "metabase/components/Icon";
 import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
-import SelectButton from "./SelectButton";
-
-import _ from "underscore";
-import cx from "classnames";
-
-import AccordionList from "./AccordionList";
-import { createSelector } from "reselect";
-
+import Uncontrollable from "metabase/hoc/Uncontrollable";
 import { color } from "metabase/lib/colors";
 
-import Uncontrollable from "metabase/hoc/Uncontrollable";
+import AccordionList from "./AccordionList";
+import SelectButton from "./SelectButton";
 
 const MIN_ICON_WIDTH = 20;
 
@@ -75,9 +72,8 @@ export default class Select extends Component {
         ? props.defaultValue
         : props.value;
 
-    const _getValues = createSelector(
-      [_getValue],
-      value => (Array.isArray(value) ? value : [value]),
+    const _getValues = createSelector([_getValue], value =>
+      Array.isArray(value) ? value : [value],
     );
     const _getValuesSet = createSelector(
       [_getValues],

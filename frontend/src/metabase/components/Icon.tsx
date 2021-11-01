@@ -1,14 +1,13 @@
-import React, { Component } from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import styled from "styled-components";
 import { color, space, hover } from "styled-system";
-import cx from "classnames";
-import { color as c } from "metabase/lib/colors";
-
-import { loadIcon } from "metabase/icon_paths";
-import { stripLayoutProps } from "metabase/lib/utils";
 
 import Tooltipify from "metabase/hoc/Tooltipify";
+import { loadIcon } from "metabase/icon_paths";
+import { color as c } from "metabase/lib/colors";
+import { stripLayoutProps } from "metabase/lib/utils";
 
 const MISSING_ICON_NAME = "unknown";
 

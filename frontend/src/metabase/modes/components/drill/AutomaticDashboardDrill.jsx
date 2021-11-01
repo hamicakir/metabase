@@ -1,11 +1,13 @@
-import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
 import { t } from "ttag";
+
+import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
+
 import type {
   ClickAction,
   ClickActionProps,
 } from "metabase-types/types/Visualization";
-import { isExpressionField } from "metabase/lib/query/field_ref";
 
+import { isExpressionField } from "metabase/lib/query/field_ref";
 import MetabaseSettings from "metabase/lib/settings";
 
 export default ({ question, clicked }: ClickActionProps): ClickAction[] => {

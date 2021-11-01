@@ -1,12 +1,11 @@
-import React from "react";
-import { t, jt } from "ttag";
 import PropTypes from "prop-types";
+import React from "react";
 import { connect } from "react-redux";
-
-import { turnQuestionIntoDataset } from "metabase/query_builder/actions";
+import { t, jt } from "ttag";
 
 import Button from "metabase/components/Button";
 import ModalContent from "metabase/components/ModalContent";
+import { turnQuestionIntoDataset } from "metabase/query_builder/actions";
 
 import {
   DatasetFeatureOverview,
@@ -63,7 +62,4 @@ function NewDatasetModal({ turnQuestionIntoDataset, onClose }) {
 
 NewDatasetModal.propTypes = propTypes;
 
-export default connect(
-  null,
-  mapDispatchToProps,
-)(NewDatasetModal);
+export default connect(null, mapDispatchToProps)(NewDatasetModal);

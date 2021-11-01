@@ -1,9 +1,9 @@
 import { getIn } from "icepick";
 import { ngettext, msgid, t } from "ttag";
-import { ExpressionVisitor } from "./visitor";
-import { CLAUSE_TOKENS } from "./lexer";
 
 import { MBQL_CLAUSES, getMBQLName } from "./config";
+import { CLAUSE_TOKENS } from "./lexer";
+import { ExpressionVisitor } from "./visitor";
 
 export function typeCheck(cst, rootType) {
   class TypeChecker extends ExpressionVisitor {

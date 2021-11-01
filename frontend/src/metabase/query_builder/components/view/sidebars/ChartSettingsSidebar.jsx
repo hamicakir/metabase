@@ -2,9 +2,9 @@
 import React from "react";
 import { t } from "ttag";
 
-import ChartSettings from "metabase/visualizations/components/ChartSettings";
-import visualizations from "metabase/visualizations";
 import SidebarContent from "metabase/query_builder/components/SidebarContent";
+import visualizations from "metabase/visualizations";
+import ChartSettings from "metabase/visualizations/components/ChartSettings";
 
 export default class ChartSettingsSidebar extends React.Component {
   state = { sidebarPropsOverride: null };

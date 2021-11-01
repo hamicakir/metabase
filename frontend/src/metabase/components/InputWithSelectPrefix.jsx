@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import Select, { Option } from "./Select";
 import InputBlurChange from "./InputBlurChange";
+import Select, { Option } from "./Select";
 
 type Props = {
   onChange: (value: any) => void,

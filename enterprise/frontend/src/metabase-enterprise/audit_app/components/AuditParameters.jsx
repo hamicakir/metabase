@@ -1,9 +1,9 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
+import _ from "underscore";
 
 import Button from "metabase/components/Button";
 
-import _ from "underscore";
 import { AuditParametersInput } from "./AuditParameters.styled";
 
 const DEBOUNCE_PERIOD = 300;

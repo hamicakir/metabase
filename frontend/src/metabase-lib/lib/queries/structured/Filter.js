@@ -1,15 +1,14 @@
-import MBQLClause from "./MBQLClause";
+import { t, ngettext, msgid } from "ttag";
+import _ from "underscore";
 
+import type { FilterOperator } from "metabase-types/types/Metadata";
 import type {
   Filter as FilterObject,
   FieldFilter,
   Field,
 } from "metabase-types/types/Query";
-import type { FilterOperator } from "metabase-types/types/Metadata";
-import type StructuredQuery from "../StructuredQuery";
-import type Dimension from "../../Dimension";
 
-import { generateTimeFilterValuesDescriptions } from "metabase/lib/query_time";
+import { isExpression } from "metabase/lib/expressions";
 import {
   isStandard,
   isSegment,
@@ -17,12 +16,12 @@ import {
   isFieldFilter,
   hasFilterOptions,
 } from "metabase/lib/query/filter";
-
-import { isExpression } from "metabase/lib/expressions";
+import { generateTimeFilterValuesDescriptions } from "metabase/lib/query_time";
 import { getFilterArgumentFormatOptions } from "metabase/lib/schema_metadata";
 
-import { t, ngettext, msgid } from "ttag";
-import _ from "underscore";
+import type Dimension from "../../Dimension";
+import type StructuredQuery from "../StructuredQuery";
+import MBQLClause from "./MBQLClause";
 
 export default class Filter extends MBQLClause {
   /**

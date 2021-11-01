@@ -23,10 +23,7 @@ describe("issue 13751", () => {
         'regexextract([State], "^C[A-Z]")',
       );
       cy.findByPlaceholderText("Something nice and descriptive").type(CC_NAME);
-      cy.get(".Button")
-        .contains("Done")
-        .should("not.be.disabled")
-        .click();
+      cy.get(".Button").contains("Done").should("not.be.disabled").click();
     });
 
     // Add filter based on custom column

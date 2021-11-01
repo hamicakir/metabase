@@ -1,12 +1,10 @@
-import React, { useMemo } from "react";
 import PropTypes from "prop-types";
-
+import React, { useMemo } from "react";
 import { t, jt } from "ttag";
-
-import MetabaseSettings from "metabase/lib/settings";
 
 import ExternalLink from "metabase/components/ExternalLink";
 import Icon from "metabase/components/Icon";
+import MetabaseSettings from "metabase/lib/settings";
 
 import {
   CardContent,

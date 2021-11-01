@@ -1,13 +1,13 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
+import Icon from "metabase/components/Icon";
+import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
 import { color } from "metabase/lib/colors";
 import AggregationPopover from "metabase/query_builder/components/AggregationPopover";
-import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
-import Icon from "metabase/components/Icon";
 
-import { AggregationItemRoot } from "./AggregationItem.styled";
 import { updateAndRunQuery } from "../utils";
+import { AggregationItemRoot } from "./AggregationItem.styled";
 
 const propTypes = {
   className: PropTypes.string,

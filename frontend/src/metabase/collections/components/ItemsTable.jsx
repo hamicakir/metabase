@@ -1,13 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { t } from "ttag";
 import { Flex } from "grid-styled";
-
-import { color } from "metabase/lib/colors";
-
-import PinDropTarget from "metabase/containers/dnd/PinDropTarget";
+import PropTypes from "prop-types";
+import React from "react";
+import { t } from "ttag";
 
 import { ANALYTICS_CONTEXT } from "metabase/collections/constants";
+import PinDropTarget from "metabase/containers/dnd/PinDropTarget";
+import { color } from "metabase/lib/colors";
 
 import BaseItemsTable from "./BaseItemsTable";
 

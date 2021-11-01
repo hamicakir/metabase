@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-
 import cx from "classnames";
+import React from "react";
 
 const DEFAULT_STYLE = {
   borderWidth: 2,

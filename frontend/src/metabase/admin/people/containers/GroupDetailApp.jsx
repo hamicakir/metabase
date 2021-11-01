@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import User from "metabase/entities/users";
 import Group from "metabase/entities/groups";
-import { getUsersWithMemberships } from "../selectors";
+import User from "metabase/entities/users";
 import { getUser } from "metabase/selectors/user";
 
 import GroupDetail from "../components/GroupDetail";
+import { getUsersWithMemberships } from "../selectors";
 
 @User.loadList()
 @Group.load({ id: (state, props) => props.params.groupId })

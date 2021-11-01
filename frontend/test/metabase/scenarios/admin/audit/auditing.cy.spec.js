@@ -1,6 +1,7 @@
 import { restore, describeWithToken } from "__support__/e2e/cypress";
 import { USERS } from "__support__/e2e/cypress_data";
 import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
+
 const { normal } = USERS;
 const { PRODUCTS } = SAMPLE_DATASET;
 const TOTAL_USERS = Object.entries(USERS).length;
@@ -80,9 +81,7 @@ describeWithToken("audit > auditing", () => {
       cy.findByText("No results!");
 
       // Wait for both of the charts to show up
-      cy.get(".dc-chart")
-        .as("charts")
-        .should("have.length", 2);
+      cy.get(".dc-chart").as("charts").should("have.length", 2);
 
       // For queries viewed, only 3 viewed something
       cy.get("@charts")

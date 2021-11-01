@@ -1,5 +1,4 @@
 import testAcrossTimezones from "__support__/timezones";
-
 import moment from "moment-timezone";
 
 import { computeTimeseriesDataInverval } from "metabase/visualizations/lib/timeseries";

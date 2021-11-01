@@ -1,20 +1,21 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
 import cx from "classnames";
+import React, { Component } from "react";
 import { t } from "ttag";
-import DatePicker, {
-  DATE_OPERATORS,
-  getOperator,
-} from "metabase/query_builder/components/filters/pickers/DatePicker";
-import FilterOptions from "metabase/query_builder/components/filters/FilterOptions";
-import { generateTimeFilterValuesDescriptions } from "metabase/lib/query_time";
-import { dateParameterValueToMBQL } from "metabase/parameters/utils/mbql";
 
-import type { OperatorName } from "metabase/query_builder/components/filters/pickers/DatePicker";
 import type {
   FieldFilter,
   LocalFieldReference,
 } from "metabase-types/types/Query";
+
+import { generateTimeFilterValuesDescriptions } from "metabase/lib/query_time";
+import { dateParameterValueToMBQL } from "metabase/parameters/utils/mbql";
+import FilterOptions from "metabase/query_builder/components/filters/FilterOptions";
+import DatePicker, {
+  DATE_OPERATORS,
+  getOperator,
+} from "metabase/query_builder/components/filters/pickers/DatePicker";
+import type { OperatorName } from "metabase/query_builder/components/filters/pickers/DatePicker";
 
 type UrlEncoded = string;
 

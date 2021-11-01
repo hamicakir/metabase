@@ -1,34 +1,31 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
+import cx from "classnames";
 import { Box, Flex } from "grid-styled";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { t, jt, ngettext, msgid } from "ttag";
-
-import PulseEditName from "./PulseEditName";
-import PulseEditCollection from "./PulseEditCollection";
-import PulseEditCards from "./PulseEditCards";
-import PulseEditChannels from "./PulseEditChannels";
-import PulseEditSkip from "./PulseEditSkip";
-import WhatsAPulse from "./WhatsAPulse";
 
 import ActionButton from "metabase/components/ActionButton";
 import Button from "metabase/components/Button";
 import DeleteModalWithConfirm from "metabase/components/DeleteModalWithConfirm";
 import Icon from "metabase/components/Icon";
-import * as MetabaseAnalytics from "metabase/lib/analytics";
-import ModalWithTrigger from "metabase/components/ModalWithTrigger";
 import ModalContent from "metabase/components/ModalContent";
+import ModalWithTrigger from "metabase/components/ModalWithTrigger";
 import Subhead from "metabase/components/type/Subhead";
 import Text from "metabase/components/type/Text";
-
+import Collections from "metabase/entities/collections";
+import * as MetabaseAnalytics from "metabase/lib/analytics";
 import { color } from "metabase/lib/colors";
-import MetabaseSettings from "metabase/lib/settings";
 import { pulseIsValid, cleanPulse, emailIsEnabled } from "metabase/lib/pulse";
+import MetabaseSettings from "metabase/lib/settings";
 import * as Urls from "metabase/lib/urls";
 
-import Collections from "metabase/entities/collections";
-
-import cx from "classnames";
+import PulseEditCards from "./PulseEditCards";
+import PulseEditChannels from "./PulseEditChannels";
+import PulseEditCollection from "./PulseEditCollection";
+import PulseEditName from "./PulseEditName";
+import PulseEditSkip from "./PulseEditSkip";
+import WhatsAPulse from "./WhatsAPulse";
 
 @Collections.load({
   id: (state, { pulse, initialCollectionId }) =>
@@ -114,7 +111,7 @@ export default class PulseEdit extends Component {
                 c.recipients.length,
               )}
             </strong>
-          )} ${<strong>{c.schedule_type}</strong>}`}
+          )} ${(<strong>{c.schedule_type}</strong>)}`}
           .
         </span>
       ) : c.channel_type === "slack" ? (

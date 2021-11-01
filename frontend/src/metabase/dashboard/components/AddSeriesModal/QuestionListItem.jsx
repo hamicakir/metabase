@@ -1,9 +1,10 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { t } from "ttag";
 
-import Tooltip from "metabase/components/Tooltip";
 import CheckBox from "metabase/components/CheckBox";
+import Tooltip from "metabase/components/Tooltip";
+
 import {
   QuestionListItemRoot,
   CheckboxContainer,

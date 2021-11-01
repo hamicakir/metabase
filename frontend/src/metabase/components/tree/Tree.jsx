@@ -1,7 +1,8 @@
-import React, { useState, useCallback } from "react";
 import PropTypes from "prop-types";
-import { TreeNodeList } from "./TreeNodeList";
+import React, { useState, useCallback } from "react";
+
 import { TreeNode } from "./TreeNode";
+import { TreeNodeList } from "./TreeNodeList";
 import { getInitialExpandedIds } from "./utils";
 
 const propTypes = {

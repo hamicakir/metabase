@@ -1,14 +1,14 @@
 /* eslint "react/prop-types": "error" */
-
-import React from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
+import React from "react";
+import { t, jt } from "ttag";
+
 import Card from "metabase/components/Card";
 import Icon from "metabase/components/Icon";
-import Text from "metabase/components/type/Text";
 import Link from "metabase/components/Link";
+import Text from "metabase/components/type/Text";
 import Sidebar from "metabase/dashboard/components/Sidebar";
-import cx from "classnames";
-import { t, jt } from "ttag";
 
 function NewPulseSidebar({
   onCancel,
@@ -26,7 +26,8 @@ function NewPulseSidebar({
         <Card
           flat
           className={cx("mt1 mb3", {
-            "cursor-pointer text-white-hover bg-brand-hover hover-parent hover--inherit": emailConfigured,
+            "cursor-pointer text-white-hover bg-brand-hover hover-parent hover--inherit":
+              emailConfigured,
           })}
           onClick={onNewEmailPulse}
         >
@@ -66,7 +67,8 @@ function NewPulseSidebar({
         <Card
           flat
           className={cx({
-            "cursor-pointer text-white-hover bg-brand-hover hover-parent hover--inherit": slackConfigured,
+            "cursor-pointer text-white-hover bg-brand-hover hover-parent hover--inherit":
+              slackConfigured,
           })}
           onClick={onNewSlackPulse}
         >

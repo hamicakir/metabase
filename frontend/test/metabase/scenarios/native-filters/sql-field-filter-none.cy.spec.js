@@ -5,8 +5,8 @@ import {
   filterWidget,
 } from "__support__/e2e/cypress";
 
-import * as SQLFilter from "./helpers/e2e-sql-filter-helpers";
 import * as FieldFilter from "./helpers/e2e-field-filter-helpers";
+import * as SQLFilter from "./helpers/e2e-sql-filter-helpers";
 
 describe("scenarios > filters > sql filters > field filter > None", () => {
   beforeEach(() => {

@@ -1,23 +1,20 @@
-import React from "react";
+import NoResults from "assets/img/no_results.svg";
+import cx from "classnames";
 import PropTypes from "prop-types";
+import React from "react";
 import { t } from "ttag";
 import _ from "underscore";
-import cx from "classnames";
 
-import { registerVisualization } from "metabase/visualizations/index";
-
-import { formatColumn, formatValue } from "metabase/lib/formatting";
-import { isColumnRightAligned } from "metabase/visualizations/lib/table";
-
-import Table from "metabase/visualizations/visualizations/Table";
-
+import CheckBox from "metabase/components/CheckBox";
 import EmptyState from "metabase/components/EmptyState";
 import Icon from "metabase/components/Icon";
-import CheckBox from "metabase/components/CheckBox";
-import { RemoveRowButton } from "./AuditTableVisualization.styled";
-import { getRowValuesByColumns, getColumnName } from "../lib/mode";
+import { formatColumn, formatValue } from "metabase/lib/formatting";
+import { registerVisualization } from "metabase/visualizations/index";
+import { isColumnRightAligned } from "metabase/visualizations/lib/table";
+import Table from "metabase/visualizations/visualizations/Table";
 
-import NoResults from "assets/img/no_results.svg";
+import { getRowValuesByColumns, getColumnName } from "../lib/mode";
+import { RemoveRowButton } from "./AuditTableVisualization.styled";
 
 const propTypes = {
   series: PropTypes.array,

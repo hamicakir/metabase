@@ -1,13 +1,13 @@
-import SortAction from "./SortAction";
+import AutomaticDashboardDrill from "./AutomaticDashboardDrill";
+import ColumnFilterDrill from "./ColumnFilterDrill";
+import CompareToRestDrill from "./CompareToRestDrill";
+import DashboardClickDrill from "./DashboardClickDrill";
+import FormatAction from "./FormatAction";
 import ObjectDetailDrill from "./ObjectDetailDrill";
 import QuickFilterDrill from "./QuickFilterDrill";
-import ColumnFilterDrill from "./ColumnFilterDrill";
+import SortAction from "./SortAction";
 import UnderlyingRecordsDrill from "./UnderlyingRecordsDrill";
-import AutomaticDashboardDrill from "./AutomaticDashboardDrill";
-import CompareToRestDrill from "./CompareToRestDrill";
 import ZoomDrill from "./ZoomDrill";
-import FormatAction from "./FormatAction";
-import DashboardClickDrill from "./DashboardClickDrill";
 
 export const getDefaultDrills = () => [
   ZoomDrill,

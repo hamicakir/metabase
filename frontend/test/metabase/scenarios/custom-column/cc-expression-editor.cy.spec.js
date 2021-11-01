@@ -38,10 +38,7 @@ describe("scenarios > question > custom column > expression editor", () => {
    *  - This gives it enough time to update the DOM. The same result can be achieved with `cy.wait(1)`
    */
   it("should not erase Custom column formula and Custom column name when expression is incomplete (metabase#16126)", () => {
-    cy.get("@formula")
-      .click()
-      .type("{movetoend}{backspace}")
-      .blur();
+    cy.get("@formula").click().type("{movetoend}{backspace}").blur();
     cy.findByText("Expected expression");
     cy.button("Done").should("be.disabled");
     cy.get("@formula").click(); /* See comment (1) above */

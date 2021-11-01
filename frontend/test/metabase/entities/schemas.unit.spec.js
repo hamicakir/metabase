@@ -1,9 +1,8 @@
+import { getStore } from "__support__/entities-store";
 import mock from "xhr-mock";
 
-import { getStore } from "__support__/entities-store";
-
-import Schemas from "metabase/entities/schemas";
 import Questions from "metabase/entities/questions";
+import Schemas from "metabase/entities/schemas";
 import { ROOT_COLLECTION_VIRTUAL_SCHEMA } from "metabase/lib/saved-questions";
 
 describe("schema entity", () => {
@@ -34,8 +33,8 @@ describe("schema entity", () => {
       },
     });
     expect(tables).toEqual({
-      "123": { id: 123, name: "foo" },
-      "234": { id: 234, name: "bar" },
+      123: { id: 123, name: "foo" },
+      234: { id: 234, name: "bar" },
     });
   });
 
@@ -79,8 +78,8 @@ describe("schema entity", () => {
       },
     });
     expect(tables).toEqual({
-      "123": { id: 123, name: "foo" },
-      "234": { id: 234, name: "bar" },
+      123: { id: 123, name: "foo" },
+      234: { id: 234, name: "bar" },
     });
   });
 

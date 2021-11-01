@@ -1,16 +1,15 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { Flex, Box } from "grid-styled";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { t } from "ttag";
-import * as MetabaseAnalytics from "metabase/lib/analytics";
+import _ from "underscore";
 
 import User from "metabase/entities/users";
+import * as MetabaseAnalytics from "metabase/lib/analytics";
 
-import StepTitle from "./StepTitle";
 import CollapsedStep from "./CollapsedStep";
-
-import _ from "underscore";
+import StepTitle from "./StepTitle";
 
 export default class UserStep extends Component {
   static propTypes = {

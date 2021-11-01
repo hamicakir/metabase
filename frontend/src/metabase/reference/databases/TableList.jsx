@@ -1,20 +1,18 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { t } from "ttag";
 
+import EmptyState from "metabase/components/EmptyState";
+import List from "metabase/components/List";
 import S from "metabase/components/List.css";
+import ListItem from "metabase/components/ListItem";
+import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
+import * as metadataActions from "metabase/redux/metadata";
 import R from "metabase/reference/Reference.css";
 
-import List from "metabase/components/List";
-import ListItem from "metabase/components/ListItem";
-import EmptyState from "metabase/components/EmptyState";
-
-import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
-
 import ReferenceHeader from "../components/ReferenceHeader";
-
 import {
   getDatabase,
   getTablesByDatabase,
@@ -22,8 +20,6 @@ import {
   getError,
   getLoading,
 } from "../selectors";
-
-import * as metadataActions from "metabase/redux/metadata";
 
 const emptyStateData = {
   message: t`Tables in this database will appear here as they're added`,
@@ -84,10 +80,7 @@ export const separateTablesBySchema = (
         : createListItem(table, index);
     });
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class TableList extends Component {
   static propTypes = {
     style: PropTypes.object.isRequired,

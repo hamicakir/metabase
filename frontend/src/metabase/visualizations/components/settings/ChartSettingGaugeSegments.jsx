@@ -1,15 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-
 import { t } from "ttag";
 import _ from "underscore";
 
-import { color, normal } from "metabase/lib/colors";
-
-import ColorPicker from "metabase/components/ColorPicker";
 import Button from "metabase/components/Button";
+import ColorPicker from "metabase/components/ColorPicker";
 import Icon from "metabase/components/Icon";
 import NumericInput from "metabase/components/NumericInput";
+import { color, normal } from "metabase/lib/colors";
 
 const ChartSettingGaugeSegments = ({ value: segments, onChange }) => {
   const onChangeProperty = (index, property, value) =>

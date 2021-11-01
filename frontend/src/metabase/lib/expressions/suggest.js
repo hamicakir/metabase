@@ -6,11 +6,7 @@ import {
   formatMetricName,
   formatSegmentName,
 } from "../expressions";
-
 import { partialMatch, enclosingFunction } from "./completer";
-
-import getHelpText from "./helper_text_strings";
-
 import {
   EXPRESSION_FUNCTIONS,
   AGGREGATION_FUNCTIONS,
@@ -18,6 +14,7 @@ import {
   getMBQLName,
   EDITOR_FK_SYMBOLS,
 } from "./config";
+import getHelpText from "./helper_text_strings";
 
 export function suggest({
   source,

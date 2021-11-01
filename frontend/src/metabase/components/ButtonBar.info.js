@@ -1,6 +1,7 @@
 import React from "react";
-import ButtonBar from "metabase/components/ButtonBar";
+
 import Button from "metabase/components/Button";
+import ButtonBar from "metabase/components/ButtonBar";
 
 export const component = ButtonBar;
 export const category = "layout";

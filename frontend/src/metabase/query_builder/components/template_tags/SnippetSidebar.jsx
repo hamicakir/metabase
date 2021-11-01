@@ -1,30 +1,30 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
+import React from "react";
 import { connect } from "react-redux";
 import { t } from "ttag";
-import cx from "classnames";
 import _ from "underscore";
 
+import type { Snippet } from "metabase-types/types/Snippet";
+
+import Icon from "metabase/components/Icon";
+import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
+import { canonicalCollectionId } from "metabase/entities/collections";
+import Search from "metabase/entities/search";
+import SnippetCollections from "metabase/entities/snippet-collections";
+import Snippets from "metabase/entities/snippets";
+import { color } from "metabase/lib/colors";
 import {
   PLUGIN_SNIPPET_SIDEBAR_PLUS_MENU_OPTIONS,
   PLUGIN_SNIPPET_SIDEBAR_ROW_RENDERERS,
   PLUGIN_SNIPPET_SIDEBAR_MODALS,
   PLUGIN_SNIPPET_SIDEBAR_HEADER_BUTTONS,
 } from "metabase/plugins";
-import Icon from "metabase/components/Icon";
-import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
 import SidebarContent from "metabase/query_builder/components/SidebarContent";
 import SidebarHeader from "metabase/query_builder/components/SidebarHeader";
+
 import SnippetRow from "./snippet-sidebar/SnippetRow";
-import { color } from "metabase/lib/colors";
-
-import Snippets from "metabase/entities/snippets";
-import SnippetCollections from "metabase/entities/snippet-collections";
-import { canonicalCollectionId } from "metabase/entities/collections";
-import Search from "metabase/entities/search";
-
-import type { Snippet } from "metabase-types/types/Snippet";
 
 type Props = {
   onClose: () => void,
@@ -307,12 +307,8 @@ export default class SnippetSidebar extends React.Component {
 @Snippets.loadList({ query: { archived: true }, wrapped: true })
 class ArchivedSnippets extends React.Component {
   render() {
-    const {
-      onBack,
-      snippets,
-      snippetCollections,
-      archivedSnippetCollections,
-    } = this.props;
+    const { onBack, snippets, snippetCollections, archivedSnippetCollections } =
+      this.props;
     const collectionsById = _.indexBy(
       snippetCollections.concat(archivedSnippetCollections),
       c => canonicalCollectionId(c.id),

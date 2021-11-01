@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
-import colors, { lighten } from "metabase/lib/colors";
+
 import Icon from "metabase/components/Icon";
+import colors, { lighten } from "metabase/lib/colors";
 
 const COLOR_SCHEMES = {
   admin: {

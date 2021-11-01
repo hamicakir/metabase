@@ -1,13 +1,12 @@
 /* eslint-disable react/prop-types */
-import React, { useMemo } from "react";
 import cx from "classnames";
+import React, { useMemo } from "react";
 
 import Icon from "metabase/components/Icon";
 import Popover from "metabase/components/Popover";
 import UserAvatar from "metabase/components/UserAvatar";
-
-import { color } from "metabase/lib/colors";
 import Typeahead from "metabase/hoc/Typeahead";
+import { color } from "metabase/lib/colors";
 
 import { AddRow } from "../AddRow";
 

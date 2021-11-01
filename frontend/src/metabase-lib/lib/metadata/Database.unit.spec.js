@@ -1,9 +1,9 @@
-import Database from "./Database";
-import Schema from "./Schema";
-import Metadata from "./Metadata";
-import Table from "./Table";
-import Base from "./Base";
 import Question from "../Question";
+import Base from "./Base";
+import Database from "./Database";
+import Metadata from "./Metadata";
+import Schema from "./Schema";
+import Table from "./Table";
 
 describe("Database", () => {
   describe("instantiation", () => {
@@ -213,10 +213,10 @@ describe("Database", () => {
         id: 123,
       });
 
-      Question.prototype.setDefaultQuery = jest.fn(function() {
+      Question.prototype.setDefaultQuery = jest.fn(function () {
         return this;
       });
-      Question.prototype.setDefaultDisplay = jest.fn(function() {
+      Question.prototype.setDefaultDisplay = jest.fn(function () {
         return this;
       });
 

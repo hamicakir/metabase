@@ -1,37 +1,27 @@
 /* eslint-disable react/prop-types */
 import d3 from "d3";
+import Humanize from "humanize-plus";
 import inflection from "inflection";
 import moment from "moment-timezone";
-import Humanize from "humanize-plus";
+import Mustache from "mustache";
 import React from "react";
+import ReactMarkdown from "react-markdown";
 import { msgid, ngettext } from "ttag";
 
-import Mustache from "mustache";
-import ReactMarkdown from "react-markdown";
+import type Field from "metabase-lib/lib/metadata/Field";
+
+import type { Moment } from "metabase-types/types";
+import type { Column, Value } from "metabase-types/types/Dataset";
+import type { DatetimeUnit } from "metabase-types/types/Query";
+import type { ClickObject } from "metabase-types/types/Visualization";
 
 import ExternalLink from "metabase/components/ExternalLink";
-
-import {
-  isCoordinate,
-  isDate,
-  isDateWithoutTime,
-  isEmail,
-  isLatitude,
-  isLongitude,
-  isNumber,
-  isTime,
-  isURL,
-} from "metabase/lib/schema_metadata";
-import { parseTime, parseTimestamp } from "metabase/lib/time";
-import { rangeForValue } from "metabase/lib/dataset";
-import { getFriendlyName } from "metabase/visualizations/lib/utils";
-import { decimalCount } from "metabase/visualizations/lib/numeric";
-
 import {
   clickBehaviorIsValid,
   getDataFromClicked,
 } from "metabase/lib/click-behavior";
-
+import { NULL_DISPLAY_VALUE, NULL_NUMERIC_VALUE } from "metabase/lib/constants";
+import { rangeForValue } from "metabase/lib/dataset";
 import type {
   DateStyle,
   TimeEnabled,
@@ -48,13 +38,20 @@ import {
   renderLinkTextForClick,
   renderLinkURLForClick,
 } from "metabase/lib/formatting/link";
-import { NULL_DISPLAY_VALUE, NULL_NUMERIC_VALUE } from "metabase/lib/constants";
-
-import type Field from "metabase-lib/lib/metadata/Field";
-import type { Column, Value } from "metabase-types/types/Dataset";
-import type { DatetimeUnit } from "metabase-types/types/Query";
-import type { Moment } from "metabase-types/types";
-import type { ClickObject } from "metabase-types/types/Visualization";
+import {
+  isCoordinate,
+  isDate,
+  isDateWithoutTime,
+  isEmail,
+  isLatitude,
+  isLongitude,
+  isNumber,
+  isTime,
+  isURL,
+} from "metabase/lib/schema_metadata";
+import { parseTime, parseTimestamp } from "metabase/lib/time";
+import { decimalCount } from "metabase/visualizations/lib/numeric";
+import { getFriendlyName } from "metabase/visualizations/lib/utils";
 
 // a one or two character string specifying the decimal and grouping separator characters
 export type NumberSeparators = ".," | ", " | ",." | "." | ".’";
@@ -577,7 +574,8 @@ export function formatTimeWithUnit(
 }
 
 // https://github.com/angular/angular.js/blob/v1.6.3/src/ng/directive/input.js#L27
-const EMAIL_ALLOW_LIST_REGEX = /^(?=.{1,254}$)(?=.{1,64}@)[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+(\.[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+)*@[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?(\.[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?)*$/;
+const EMAIL_ALLOW_LIST_REGEX =
+  /^(?=.{1,254}$)(?=.{1,64}@)[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+(\.[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+)*@[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?(\.[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?)*$/;
 
 export function formatEmail(
   value: Value,

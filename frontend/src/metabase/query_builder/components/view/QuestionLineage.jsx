@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-
 import { t } from "ttag";
 
-import Link from "metabase/components/Link";
 import Badge from "metabase/components/Badge";
+import Link from "metabase/components/Link";
 
 export default function QuestionLineage({
   question,

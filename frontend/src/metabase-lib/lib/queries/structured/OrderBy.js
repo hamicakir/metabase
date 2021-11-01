@@ -1,9 +1,10 @@
-import MBQLClause from "./MBQLClause";
-
-import type { OrderBy as OrderByObject } from "metabase-types/types/Query";
-import type StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
 import type Dimension from "metabase-lib/lib/Dimension";
 import type Field from "metabase-lib/lib/metadata/Field";
+import type StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
+
+import type { OrderBy as OrderByObject } from "metabase-types/types/Query";
+
+import MBQLClause from "./MBQLClause";
 
 export default class OrderBy extends MBQLClause {
   /**

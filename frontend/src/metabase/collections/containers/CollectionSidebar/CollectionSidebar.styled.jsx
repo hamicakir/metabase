@@ -1,12 +1,11 @@
-import styled, { css } from "styled-components";
 import { Box } from "grid-styled";
-
-import { space } from "metabase/styled-components/theme";
-import { color } from "metabase/lib/colors";
-import Icon from "metabase/components/Icon";
-import { breakpointMinSmall } from "metabase/styled-components/theme/media-queries";
+import styled, { css } from "styled-components";
 
 import { SIDEBAR_WIDTH } from "metabase/collections/constants";
+import Icon from "metabase/components/Icon";
+import { color } from "metabase/lib/colors";
+import { space } from "metabase/styled-components/theme";
+import { breakpointMinSmall } from "metabase/styled-components/theme/media-queries";
 
 export const LoadingContainer = styled.div`
   color: ${color("brand")};

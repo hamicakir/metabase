@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { space } from "styled-system";
 
-import { getDefaultSearchColor } from "metabase/nav/constants";
 import { color, lighten } from "metabase/lib/colors";
+import { getDefaultSearchColor } from "metabase/nav/constants";
 
 const getActiveSearchColor = () => lighten(color("nav"), 0.1);
 

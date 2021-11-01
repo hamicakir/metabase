@@ -1,6 +1,5 @@
-import React from "react";
-
 import { render, screen } from "@testing-library/react";
+import React from "react";
 
 import ClampedText from "metabase/components/ClampedText";
 
@@ -20,7 +19,7 @@ describe("ClampedText", () => {
 
   describe("and the text is greater than the height of the container", () => {
     beforeEach(() => {
-      getBoundingClientRectMock.mockImplementation(function() {
+      getBoundingClientRectMock.mockImplementation(function () {
         return {
           height: isTextEl(this) ? MORE_HEIGHT : LESS_HEIGHT,
         };
@@ -38,7 +37,7 @@ describe("ClampedText", () => {
 
   describe("and the text is less than the height of the container", () => {
     beforeEach(() => {
-      getBoundingClientRectMock.mockImplementation(function() {
+      getBoundingClientRectMock.mockImplementation(function () {
         return {
           height: isTextEl(this) ? LESS_HEIGHT : MORE_HEIGHT,
         };

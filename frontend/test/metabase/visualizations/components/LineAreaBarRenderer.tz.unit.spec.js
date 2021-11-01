@@ -1,8 +1,8 @@
-import "__support__/ui-mocks"; // included explicitly whereas with integrated tests it comes with __support__/integrated_tests
+// included explicitly whereas with integrated tests it comes with __support__/integrated_tests
 import testAcrossTimezones from "__support__/timezones";
-
-import _ from "underscore";
+import "__support__/ui-mocks";
 import moment from "moment-timezone";
+import _ from "underscore";
 
 import {
   NumberColumn,
@@ -145,13 +145,7 @@ describe("LineAreaBarRenderer-bar", () => {
     function sharedIntervalTests(interval, expectedFormat) {
       describe(`with ${interval}s`, () => {
         const rows = [
-          [
-            moment()
-              .tz(reportTz)
-              .startOf(interval)
-              .toISOString(true),
-            1,
-          ],
+          [moment().tz(reportTz).startOf(interval).toISOString(true), 1],
           [
             moment()
               .tz(reportTz)

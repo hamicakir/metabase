@@ -4,15 +4,14 @@ import { Link } from "react-router";
 import { t } from "ttag";
 
 import Icon from "metabase/components/Icon";
-import QuestionPicker from "metabase/containers/QuestionPicker";
+import LoadingSpinner from "metabase/components/LoadingSpinner";
 import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
 import SelectButton from "metabase/components/SelectButton";
-import LoadingSpinner from "metabase/components/LoadingSpinner";
-
+import QuestionPicker from "metabase/containers/QuestionPicker";
 import Questions from "metabase/entities/questions";
-import * as Urls from "metabase/lib/urls";
 import { formatDateTimeWithUnit } from "metabase/lib/formatting";
 import MetabaseSettings from "metabase/lib/settings";
+import * as Urls from "metabase/lib/urls";
 
 @Questions.load({
   id: (state, { tag }) => tag["card-id"],

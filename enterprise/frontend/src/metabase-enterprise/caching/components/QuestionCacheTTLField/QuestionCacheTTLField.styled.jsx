@@ -1,8 +1,10 @@
 import React from "react";
-import { t } from "ttag";
 import styled from "styled-components";
-import { space } from "metabase/styled-components/theme";
+import { t } from "ttag";
+
 import Radio from "metabase/components/Radio";
+import { space } from "metabase/styled-components/theme";
+
 import { CacheTTLField } from "../CacheTTLField";
 
 export function CacheTTLInput(props) {

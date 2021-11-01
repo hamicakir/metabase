@@ -1,17 +1,13 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import { Box, Flex } from "grid-styled";
+import React from "react";
 import { t } from "ttag";
-
-import colors from "metabase/lib/colors";
 
 import Button from "metabase/components/Button";
 import Link from "metabase/components/Link";
-
 import ModalWithTrigger from "metabase/components/ModalWithTrigger";
-
 import fitViewport from "metabase/hoc/FitViewPort";
-
+import colors from "metabase/lib/colors";
 import { SettingsApi } from "metabase/services";
 
 @fitViewport

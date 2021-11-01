@@ -1,20 +1,15 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
-
+import React, { Component } from "react";
 import _ from "underscore";
 
-import { isStructured } from "metabase/lib/query";
-
-import TimeGroupingPopover from "metabase/query_builder/components/TimeGroupingPopover";
 import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
 import SelectButton from "metabase/components/SelectButton";
+import { isStructured } from "metabase/lib/query";
+import TimeGroupingPopover from "metabase/query_builder/components/TimeGroupingPopover";
 
 // set the display automatically then run
 function updateAndRun(query) {
-  query
-    .question()
-    .setDefaultDisplay()
-    .update(null, { run: true });
+  query.question().setDefaultDisplay().update(null, { run: true });
 }
 
 export default class TimeseriesGroupingWidget extends Component {

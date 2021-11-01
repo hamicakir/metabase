@@ -1,20 +1,13 @@
 import React from "react";
-
-import { PLUGIN_LANDING_PAGE } from "metabase/plugins";
-
-import { Route } from "metabase/hoc/Title";
 import { Redirect, IndexRedirect, IndexRoute } from "react-router";
 import { routerActions } from "react-router-redux";
 import { UserAuthWrapper } from "redux-auth-wrapper";
 import { t } from "ttag";
 
-import { loadCurrentUser } from "metabase/redux/user";
-import MetabaseSettings from "metabase/lib/settings";
-
 import App from "metabase/App.jsx";
-
-import HomepageApp from "metabase/home/containers/HomepageApp";
-
+import getAccountRoutes from "metabase/account/routes";
+import CollectionPermissionsModal from "metabase/admin/permissions/components/CollectionPermissionsModal/CollectionPermissionsModal";
+import getAdminRoutes from "metabase/admin/routes";
 // auth containers
 import AuthApp from "metabase/auth/AuthApp";
 import ForgotPasswordApp from "metabase/auth/containers/ForgotPasswordApp";
@@ -22,73 +15,65 @@ import LoginApp from "metabase/auth/containers/LoginApp";
 import LogoutApp from "metabase/auth/containers/LogoutApp";
 import PasswordResetApp from "metabase/auth/containers/PasswordResetApp";
 
-/* Dashboards */
-import DashboardApp from "metabase/dashboard/containers/DashboardApp";
-import AutomaticDashboardApp from "metabase/dashboard/containers/AutomaticDashboardApp";
-
 /* Browse data */
 import BrowseApp from "metabase/browse/components/BrowseApp";
 import DatabaseBrowser from "metabase/browse/containers/DatabaseBrowser";
 import SchemaBrowser from "metabase/browse/containers/SchemaBrowser";
 import TableBrowser from "metabase/browse/containers/TableBrowser";
-
-import QueryBuilder from "metabase/query_builder/containers/QueryBuilder";
-
-import CollectionEdit from "metabase/collections/containers/CollectionEdit";
 import CollectionCreate from "metabase/collections/containers/CollectionCreate";
+import CollectionEdit from "metabase/collections/containers/CollectionEdit";
 import ArchiveCollectionModal from "metabase/components/ArchiveCollectionModal";
-import CollectionPermissionsModal from "metabase/admin/permissions/components/CollectionPermissionsModal/CollectionPermissionsModal";
-import UserCollectionList from "metabase/containers/UserCollectionList";
-
-import PulseEditApp from "metabase/pulse/containers/PulseEditApp";
-import SetupApp from "metabase/setup/containers/SetupApp";
-import PostSetupApp from "metabase/setup/containers/PostSetupApp";
-// new question
-import NewQueryOptions from "metabase/new_query/containers/NewQueryOptions";
-
+import CollectionLanding from "metabase/components/CollectionLanding/CollectionLanding";
 import CreateDashboardModal from "metabase/components/CreateDashboardModal";
-
 import { NotFound, Unauthorized } from "metabase/containers/ErrorPages";
-
-// Reference Metrics
-import MetricListContainer from "metabase/reference/metrics/MetricListContainer";
-import MetricDetailContainer from "metabase/reference/metrics/MetricDetailContainer";
-import MetricQuestionsContainer from "metabase/reference/metrics/MetricQuestionsContainer";
-import MetricRevisionsContainer from "metabase/reference/metrics/MetricRevisionsContainer";
-// Reference Segments
-import SegmentListContainer from "metabase/reference/segments/SegmentListContainer";
-import SegmentDetailContainer from "metabase/reference/segments/SegmentDetailContainer";
-import SegmentQuestionsContainer from "metabase/reference/segments/SegmentQuestionsContainer";
-import SegmentRevisionsContainer from "metabase/reference/segments/SegmentRevisionsContainer";
-import SegmentFieldListContainer from "metabase/reference/segments/SegmentFieldListContainer";
-import SegmentFieldDetailContainer from "metabase/reference/segments/SegmentFieldDetailContainer";
-// Reference Databases
-import DatabaseListContainer from "metabase/reference/databases/DatabaseListContainer";
-import DatabaseDetailContainer from "metabase/reference/databases/DatabaseDetailContainer";
-import TableListContainer from "metabase/reference/databases/TableListContainer";
-import TableDetailContainer from "metabase/reference/databases/TableDetailContainer";
-import TableQuestionsContainer from "metabase/reference/databases/TableQuestionsContainer";
-import FieldListContainer from "metabase/reference/databases/FieldListContainer";
-import FieldDetailContainer from "metabase/reference/databases/FieldDetailContainer";
-
-import getAccountRoutes from "metabase/account/routes";
-import getAdminRoutes from "metabase/admin/routes";
-
-import PublicQuestion from "metabase/public/containers/PublicQuestion";
-import PublicDashboard from "metabase/public/containers/PublicDashboard";
-import ArchiveDashboardModal from "metabase/dashboard/containers/ArchiveDashboardModal";
-import DashboardHistoryModal from "metabase/dashboard/components/DashboardHistoryModal";
-import DashboardMoveModal from "metabase/dashboard/components/DashboardMoveModal";
+import Overworld from "metabase/containers/Overworld";
+import UserCollectionList from "metabase/containers/UserCollectionList";
 import DashboardCopyModal from "metabase/dashboard/components/DashboardCopyModal";
 import DashboardDetailsModal from "metabase/dashboard/components/DashboardDetailsModal";
+import DashboardHistoryModal from "metabase/dashboard/components/DashboardHistoryModal";
+import DashboardMoveModal from "metabase/dashboard/components/DashboardMoveModal";
+import ArchiveDashboardModal from "metabase/dashboard/containers/ArchiveDashboardModal";
+import AutomaticDashboardApp from "metabase/dashboard/containers/AutomaticDashboardApp";
+
+/* Dashboards */
+import DashboardApp from "metabase/dashboard/containers/DashboardApp";
 import { ModalRoute } from "metabase/hoc/ModalRoute";
-
-import CollectionLanding from "metabase/components/CollectionLanding/CollectionLanding";
-import Overworld from "metabase/containers/Overworld";
-
+import { Route } from "metabase/hoc/Title";
 import ArchiveApp from "metabase/home/containers/ArchiveApp";
+import HomepageApp from "metabase/home/containers/HomepageApp";
 import SearchApp from "metabase/home/containers/SearchApp";
 import { trackPageView } from "metabase/lib/analytics";
+import MetabaseSettings from "metabase/lib/settings";
+// new question
+import NewQueryOptions from "metabase/new_query/containers/NewQueryOptions";
+import { PLUGIN_LANDING_PAGE } from "metabase/plugins";
+import PublicDashboard from "metabase/public/containers/PublicDashboard";
+import PublicQuestion from "metabase/public/containers/PublicQuestion";
+import PulseEditApp from "metabase/pulse/containers/PulseEditApp";
+import QueryBuilder from "metabase/query_builder/containers/QueryBuilder";
+import { loadCurrentUser } from "metabase/redux/user";
+import DatabaseDetailContainer from "metabase/reference/databases/DatabaseDetailContainer";
+// Reference Databases
+import DatabaseListContainer from "metabase/reference/databases/DatabaseListContainer";
+import FieldDetailContainer from "metabase/reference/databases/FieldDetailContainer";
+import FieldListContainer from "metabase/reference/databases/FieldListContainer";
+import TableDetailContainer from "metabase/reference/databases/TableDetailContainer";
+import TableListContainer from "metabase/reference/databases/TableListContainer";
+import TableQuestionsContainer from "metabase/reference/databases/TableQuestionsContainer";
+import MetricDetailContainer from "metabase/reference/metrics/MetricDetailContainer";
+// Reference Metrics
+import MetricListContainer from "metabase/reference/metrics/MetricListContainer";
+import MetricQuestionsContainer from "metabase/reference/metrics/MetricQuestionsContainer";
+import MetricRevisionsContainer from "metabase/reference/metrics/MetricRevisionsContainer";
+import SegmentDetailContainer from "metabase/reference/segments/SegmentDetailContainer";
+import SegmentFieldDetailContainer from "metabase/reference/segments/SegmentFieldDetailContainer";
+import SegmentFieldListContainer from "metabase/reference/segments/SegmentFieldListContainer";
+// Reference Segments
+import SegmentListContainer from "metabase/reference/segments/SegmentListContainer";
+import SegmentQuestionsContainer from "metabase/reference/segments/SegmentQuestionsContainer";
+import SegmentRevisionsContainer from "metabase/reference/segments/SegmentRevisionsContainer";
+import PostSetupApp from "metabase/setup/containers/PostSetupApp";
+import SetupApp from "metabase/setup/containers/SetupApp";
 
 const MetabaseIsSetup = UserAuthWrapper({
   predicate: authData => !authData.hasSetupToken,
@@ -340,7 +325,7 @@ export const getRoutes = store => (
     <Route
       path="/_internal"
       getChildRoutes={(partialNextState, callback) =>
-        require.ensure([], function(require) {
+        require.ensure([], function (require) {
           callback(null, [require("metabase/internal/routes").default]);
         })
       }

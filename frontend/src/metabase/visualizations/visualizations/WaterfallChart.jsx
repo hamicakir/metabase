@@ -1,15 +1,15 @@
+import { assocIn } from "icepick";
 import { t } from "ttag";
+
+import { color } from "metabase/lib/colors";
+
 import LineAreaBarChart from "../components/LineAreaBarChart";
 import { waterfallRenderer } from "../lib/LineAreaBarRenderer";
-import { assocIn } from "icepick";
-
 import {
   GRAPH_DATA_SETTINGS,
   GRAPH_AXIS_SETTINGS,
   GRAPH_DISPLAY_VALUES_SETTINGS,
 } from "../lib/settings/graph";
-
-import { color } from "metabase/lib/colors";
 
 export default class WaterfallChart extends LineAreaBarChart {
   static uiName = t`Waterfall`;

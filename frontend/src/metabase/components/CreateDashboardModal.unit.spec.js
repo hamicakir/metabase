@@ -1,9 +1,11 @@
-import React from "react";
-import { fireEvent, renderWithProviders, screen } from "__support__/ui";
 import userEvent from "@testing-library/user-event";
-import xhrMock from "xhr-mock";
 import { setupEnterpriseTest } from "__support__/enterprise";
+import { fireEvent, renderWithProviders, screen } from "__support__/ui";
+import React from "react";
+import xhrMock from "xhr-mock";
+
 import MetabaseSettings from "metabase/lib/settings";
+
 import CreateDashboardModal from "./CreateDashboardModal";
 
 function mockCachingEnabled(enabled = true) {

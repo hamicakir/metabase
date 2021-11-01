@@ -1,5 +1,6 @@
 // NOTE: this file is used on the frontend and backend and there are some
 // limitations. See frontend/src/metabase-shared/color_selector for details
+import type { Column } from "metabase-types/types/Dataset";
 
 import { alpha, getColorScale, roundColor } from "metabase/lib/colors";
 
@@ -7,7 +8,6 @@ const CELL_ALPHA = 0.65;
 const ROW_ALPHA = 0.2;
 const GRADIENT_ALPHA = 0.75;
 
-import type { Column } from "metabase-types/types/Dataset";
 // for simplicity wheb typing assume all values are numbers, since you can only pick numeric columns
 type Value = number;
 type Row = Value[];
@@ -93,7 +93,7 @@ export function makeCellBackgroundGetter(
   if (Object.keys(formatters).length === 0 && rowFormatters.length === 0) {
     return () => null;
   } else {
-    return function(value: Value, rowIndex: number, colName: ColumnName) {
+    return function (value: Value, rowIndex: number, colName: ColumnName) {
       if (formatters[colName]) {
         // const value = rows[rowIndex][colIndexes[colName]];
         for (let i = 0; i < formatters[colName].length; i++) {
@@ -138,10 +138,10 @@ export const OPERATOR_FORMATTER_FACTORIES: {
     typeof value === "number" && v >= value ? color : null,
   ">": (value, color) => v =>
     typeof value === "number" && v > value ? color : null,
-  "=": (value, color) => v => (v === value ? color : null),
-  "!=": (value, color) => v => (v !== value ? color : null),
-  "is-null": (_value, color) => v => (v === null ? color : null),
-  "not-null": (_value, color) => v => (v !== null ? color : null),
+  "=": (value, color) => v => v === value ? color : null,
+  "!=": (value, color) => v => v !== value ? color : null,
+  "is-null": (_value, color) => v => v === null ? color : null,
+  "not-null": (_value, color) => v => v !== null ? color : null,
   contains: (value, color) => v =>
     typeof value === "string" && typeof v === "string" && v.indexOf(value) >= 0
       ? color

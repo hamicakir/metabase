@@ -1,14 +1,14 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { t } from "ttag";
 
-import Icon from "metabase/components/Icon";
 import Ellipsified from "metabase/components/Ellipsified";
+import Icon from "metabase/components/Icon";
 import Link from "metabase/components/Link";
-import SidebarSection from "./SidebarSection";
+import { color } from "metabase/lib/colors";
 import * as Urls from "metabase/lib/urls";
 
-import { color } from "metabase/lib/colors";
+import SidebarSection from "./SidebarSection";
 
 export default class RecentViews extends Component {
   static propTypes = {

@@ -1,5 +1,12 @@
 import _ from "underscore";
 
+import Dimension, {
+  AggregationDimension,
+  FieldDimension,
+} from "metabase-lib/lib/Dimension";
+import type Question from "metabase-lib/lib/Question";
+import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
+
 import type {
   Value,
   Column,
@@ -7,13 +14,6 @@ import type {
   DatasetData,
 } from "metabase-types/types/Dataset";
 import type { Field as FieldReference } from "metabase-types/types/Query";
-
-import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
-import Dimension, {
-  AggregationDimension,
-  FieldDimension,
-} from "metabase-lib/lib/Dimension";
-import type Question from "metabase-lib/lib/Question";
 
 type ColumnSetting = {
   name: ColumnName,
@@ -46,9 +46,7 @@ export function fieldRefForColumn(column: Column): ?FieldReference {
   // NOTE: matching existing behavior of returning the unwrapped base dimension until we understand the implications of changing this
   return (
     column.field_ref &&
-    Dimension.parseMBQL(column.field_ref)
-      .baseDimension()
-      .mbql()
+    Dimension.parseMBQL(column.field_ref).baseDimension().mbql()
   );
 }
 

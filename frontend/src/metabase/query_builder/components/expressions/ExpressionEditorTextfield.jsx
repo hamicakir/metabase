@@ -1,11 +1,18 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import cx from "classnames";
+import memoize from "lodash.memoize";
 import PropTypes from "prop-types";
-
+import React from "react";
 import { t } from "ttag";
 import _ from "underscore";
-import cx from "classnames";
 
+import ExplicitSize from "metabase/components/ExplicitSize";
+import ExternalLink from "metabase/components/ExternalLink";
+import Icon from "metabase/components/Icon";
+import Popover from "metabase/components/Popover";
+import colors from "metabase/lib/colors";
+import { setCaretPosition, getSelectionPosition } from "metabase/lib/dom";
+import { getMBQLName, isExpression } from "metabase/lib/expressions";
 import { format } from "metabase/lib/expressions/format";
 import { processSource } from "metabase/lib/expressions/process";
 import {
@@ -14,13 +21,6 @@ import {
   TOKEN,
   OPERATOR as OP,
 } from "metabase/lib/expressions/tokenizer";
-import MetabaseSettings from "metabase/lib/settings";
-import colors from "metabase/lib/colors";
-
-import memoize from "lodash.memoize";
-
-import { setCaretPosition, getSelectionPosition } from "metabase/lib/dom";
-
 import {
   KEYCODE_ENTER,
   KEYCODE_ESCAPE,
@@ -29,17 +29,10 @@ import {
   KEYCODE_RIGHT,
   KEYCODE_DOWN,
 } from "metabase/lib/keyboard";
-
-import ExternalLink from "metabase/components/ExternalLink";
-import Icon from "metabase/components/Icon";
-import Popover from "metabase/components/Popover";
-import ExplicitSize from "metabase/components/ExplicitSize";
-
-import TokenizedInput from "./TokenizedInput";
-
-import { getMBQLName, isExpression } from "metabase/lib/expressions";
+import MetabaseSettings from "metabase/lib/settings";
 
 import ExpressionEditorSuggestions from "./ExpressionEditorSuggestions";
+import TokenizedInput from "./TokenizedInput";
 
 const HelpText = ({ helpText, width }) =>
   helpText ? (

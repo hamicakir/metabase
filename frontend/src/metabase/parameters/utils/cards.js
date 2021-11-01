@@ -2,9 +2,10 @@ import { assoc } from "icepick";
 
 import Question from "metabase-lib/lib/Question";
 
-import { areFieldFilterOperatorsEnabled } from "./feature-flag";
-import { getParameterTargetField } from "metabase/parameters/utils/targets";
 import { getValuePopulatedParameters } from "metabase/parameters/utils/parameter-values";
+import { getParameterTargetField } from "metabase/parameters/utils/targets";
+
+import { areFieldFilterOperatorsEnabled } from "./feature-flag";
 
 // NOTE: this should mirror `template-tag-parameters` in src/metabase/api/embed.clj
 export function getTemplateTagParameters(tags) {

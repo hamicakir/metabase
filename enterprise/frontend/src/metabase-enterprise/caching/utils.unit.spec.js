@@ -1,5 +1,6 @@
-import { msToSeconds, hoursToSeconds } from "metabase/lib/time";
 import MetabaseSettings from "metabase/lib/settings";
+import { msToSeconds, hoursToSeconds } from "metabase/lib/time";
+
 import { getQuestionsImplicitCacheTTL, validateCacheTTL } from "./utils";
 
 describe("validateCacheTTL", () => {

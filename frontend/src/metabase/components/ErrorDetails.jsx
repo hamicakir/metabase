@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
 import React from "react";
 import { t } from "ttag";
-import cx from "classnames";
 
 export default class ErrorDetails extends React.Component {
   state = {

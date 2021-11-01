@@ -1,7 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 
+import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
+
+import type { FieldOptions } from "metabase-types/types/Metadata";
+import type { OrderBy } from "metabase-types/types/Query";
+
 import Icon from "metabase/components/Icon";
+import FieldList from "metabase/query_builder/components/FieldList";
 
 import ClauseStep from "./ClauseStep";
 
@@ -49,12 +55,6 @@ export default function SortStep({
     />
   );
 }
-
-import FieldList from "metabase/query_builder/components/FieldList";
-
-import type { OrderBy } from "metabase-types/types/Query";
-import type { FieldOptions } from "metabase-types/types/Metadata";
-import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
 
 type Props = {
   sort?: OrderBy,

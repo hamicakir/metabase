@@ -1,24 +1,19 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { t } from "ttag";
 
-import S from "metabase/components/List.css";
-
-import List from "metabase/components/List";
-import ListItem from "metabase/components/ListItem";
 import AdminAwareEmptyState from "metabase/components/AdminAwareEmptyState";
-
+import List from "metabase/components/List";
+import S from "metabase/components/List.css";
+import ListItem from "metabase/components/ListItem";
 import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
+import MetabaseSettings from "metabase/lib/settings";
+import * as metadataActions from "metabase/redux/metadata";
 
 import ReferenceHeader from "../components/ReferenceHeader";
-
 import { getMetrics, getError, getLoading } from "../selectors";
-
-import MetabaseSettings from "metabase/lib/settings";
-
-import * as metadataActions from "metabase/redux/metadata";
 
 const emptyStateData = {
   title: t`Metrics are the official numbers that your team cares about`,
@@ -42,10 +37,7 @@ const mapDispatchToProps = {
   ...metadataActions,
 };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class MetricList extends Component {
   static propTypes = {
     style: PropTypes.object.isRequired,

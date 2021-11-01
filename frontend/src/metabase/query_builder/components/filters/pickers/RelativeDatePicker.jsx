@@ -1,15 +1,15 @@
-import React, { Component } from "react";
 import cx from "classnames";
-
-import NumericInput from "metabase/components/NumericInput";
-import DateUnitSelector from "../DateUnitSelector";
-
 import { assoc } from "icepick";
+import React, { Component } from "react";
 
 import type {
   TimeIntervalFilter,
   RelativeDatetimeUnit,
 } from "metabase-types/types/Query";
+
+import NumericInput from "metabase/components/NumericInput";
+
+import DateUnitSelector from "../DateUnitSelector";
 
 export const DATE_PERIODS: RelativeDatetimeUnit[] = [
   "day",

@@ -1,14 +1,13 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { t } from "ttag";
 
-import Tooltip from "metabase/components/Tooltip";
-import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
-import { DimensionPicker } from "metabase/query_builder/components/DimensionPicker";
 import Icon from "metabase/components/Icon";
+import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
+import Tooltip from "metabase/components/Tooltip";
+import { DimensionPicker } from "metabase/query_builder/components/DimensionPicker";
 
 import { getSelectedSubDimensionName } from "../utils";
-
 import {
   DimensionListItemRoot,
   DimensionListItemTitle,

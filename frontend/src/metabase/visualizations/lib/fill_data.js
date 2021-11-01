@@ -1,7 +1,6 @@
 // code for filling in the missing values in a set of "datas"
-
-import { t } from "ttag";
 import d3 from "d3";
+import { t } from "ttag";
 
 import {
   isTimeseries,
@@ -86,9 +85,7 @@ function fillMissingValuesInData(
       return rows;
     }
 
-    xValues = timeseriesScale(xInterval)
-      .domain(xDomain)
-      .ticks();
+    xValues = timeseriesScale(xInterval).domain(xDomain).ticks();
     getKey = m => m.toISOString();
   } else if (isQuantitative(settings) || isHistogram(settings)) {
     const count = Math.abs((xDomain[1] - xDomain[0]) / xInterval);

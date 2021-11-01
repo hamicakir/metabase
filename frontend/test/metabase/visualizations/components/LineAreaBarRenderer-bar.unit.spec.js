@@ -1,5 +1,6 @@
-import "__support__/ui-mocks"; // included explicitly whereas with e2e tests it comes with __support__/e2e
+import "__support__/ui-mocks";
 
+// included explicitly whereas with e2e tests it comes with __support__/e2e
 import {
   NumberColumn,
   StringColumn,
@@ -89,11 +90,11 @@ describe("LineAreaBarRenderer-bar", () => {
   let element;
   const qsa = selector => [...element.querySelectorAll(selector)];
 
-  beforeEach(function() {
+  beforeEach(function () {
     element = createFixture();
   });
 
-  afterEach(function() {
+  afterEach(function () {
     cleanupFixture(element);
   });
 

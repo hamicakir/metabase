@@ -1,18 +1,18 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { t } from "ttag";
 import _ from "underscore";
 
+import AccordionList from "metabase/components/AccordionList";
+import Grabber from "metabase/components/Grabber";
+import Icon from "metabase/components/Icon";
+import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
 import {
   SortableContainer,
   SortableElement,
   SortableHandle,
 } from "metabase/components/sortable";
-import AccordionList from "metabase/components/AccordionList";
-import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
-import Icon from "metabase/components/Icon";
-import Grabber from "metabase/components/Grabber";
 
 import ColumnItem from "./ColumnItem";
 

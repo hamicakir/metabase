@@ -1,10 +1,10 @@
-import React from "react";
 import { render } from "@testing-library/react";
-
-import { NumberColumn, DateTimeColumn } from "../__support__/visualizations";
+import React from "react";
 
 import Visualization from "metabase/visualizations/components/Visualization";
 import { getSettingsWidgetsForSeries } from "metabase/visualizations/lib/settings/visualization";
+
+import { NumberColumn, DateTimeColumn } from "../__support__/visualizations";
 
 const series = ({ rows, insights }) => {
   const cols = [

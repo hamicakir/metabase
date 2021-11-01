@@ -1,7 +1,6 @@
-import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-
 import { SAMPLE_DATASET } from "__support__/sample_dataset_fixture";
+import React from "react";
 
 import ChartSettingsSidebar from "metabase/query_builder/components/view/sidebars/ChartSettingsSidebar";
 

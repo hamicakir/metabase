@@ -1,13 +1,12 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-
 import { t } from "ttag";
 
 import Icon from "metabase/components/Icon";
-import Modal from "metabase/components/Modal";
 import Link from "metabase/components/Link";
-import Snippets from "metabase/entities/snippets";
+import Modal from "metabase/components/Modal";
 import SnippetCollections from "metabase/entities/snippet-collections";
+import Snippets from "metabase/entities/snippets";
 
 @SnippetCollections.loadList()
 export default class SnippetModal extends React.Component {

@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import React, { useState, useEffect } from "react";
 import { t } from "ttag";
 
+import BodyComponent from "metabase/components/BodyComponent";
+import Button from "metabase/components/Button";
+import Icon from "metabase/components/Icon";
 import { isCypressActive, isProduction } from "metabase/env";
 
-import BodyComponent from "metabase/components/BodyComponent";
-import Icon from "metabase/components/Icon";
-import Button from "metabase/components/Button";
 import { FullscreenCard, FixedCard } from "./AppErrorCard.styled";
 
 const CardComponent = isCypressActive ? FullscreenCard : FixedCard;

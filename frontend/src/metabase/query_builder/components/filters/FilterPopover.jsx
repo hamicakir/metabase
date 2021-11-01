@@ -1,24 +1,20 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
-
+import React, { Component } from "react";
 import { t } from "ttag";
 
-import { color } from "metabase/lib/colors";
-
-import DimensionList from "../DimensionList";
-import Icon from "metabase/components/Icon";
-
-import FilterPopoverHeader from "./FilterPopoverHeader";
-import FilterPopoverPicker from "./FilterPopoverPicker";
-import FilterPopoverFooter from "./FilterPopoverFooter";
-
-import ExpressionPopover from "metabase/query_builder/components/ExpressionPopover";
-import SidebarHeader from "metabase/query_builder/components/SidebarHeader";
-
+import type Dimension from "metabase-lib/lib/Dimension";
 import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
 import Filter from "metabase-lib/lib/queries/structured/Filter";
 
-import type Dimension from "metabase-lib/lib/Dimension";
+import Icon from "metabase/components/Icon";
+import { color } from "metabase/lib/colors";
+import ExpressionPopover from "metabase/query_builder/components/ExpressionPopover";
+import SidebarHeader from "metabase/query_builder/components/SidebarHeader";
+
+import DimensionList from "../DimensionList";
+import FilterPopoverFooter from "./FilterPopoverFooter";
+import FilterPopoverHeader from "./FilterPopoverHeader";
+import FilterPopoverPicker from "./FilterPopoverPicker";
 
 type Props = {
   query: StructuredQuery,

@@ -1,17 +1,17 @@
-import React, { useState } from "react";
 import PropTypes from "prop-types";
+import React, { useState } from "react";
 import { t } from "ttag";
 
-import TextInput from "metabase/components/TextInput";
 import Icon from "metabase/components/Icon";
+import TextInput from "metabase/components/TextInput";
 import { useDebouncedValue } from "metabase/hooks/use-debounced-value";
 import { SEARCH_DEBOUNCE_DURATION } from "metabase/lib/constants";
 
-import { DimensionListItem } from "./DimensionListItem";
 import {
   DimensionListTableName,
   DimensionListFilterContainer,
 } from "./DimensionList.styled";
+import { DimensionListItem } from "./DimensionListItem";
 import {
   filterItems,
   excludePinnedItems,

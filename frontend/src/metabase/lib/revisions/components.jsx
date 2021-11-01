@@ -1,10 +1,11 @@
-import React, { useMemo } from "react";
 import PropTypes from "prop-types";
+import React, { useMemo } from "react";
 import styled from "styled-components";
 import { t } from "ttag";
+
+import RawEntityLink from "metabase/entities/containers/EntityLink";
 import { color } from "metabase/lib/colors";
 import { capitalize } from "metabase/lib/formatting";
-import RawEntityLink from "metabase/entities/containers/EntityLink";
 
 export const EntityLink = styled(RawEntityLink)`
   color: ${color("brand")};

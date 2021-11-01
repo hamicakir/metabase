@@ -1,7 +1,8 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
 import { PLUGIN_MODERATION } from "metabase/plugins";
+
 import { HeaderButton } from "./SavedQuestionHeaderButton.styled";
 
 export default SavedQuestionHeaderButton;
@@ -14,10 +15,8 @@ SavedQuestionHeaderButton.propTypes = {
 };
 
 function SavedQuestionHeaderButton({ className, question, onClick, isActive }) {
-  const {
-    name: reviewIconName,
-    color: reviewIconColor,
-  } = PLUGIN_MODERATION.getStatusIconForQuestion(question);
+  const { name: reviewIconName, color: reviewIconColor } =
+    PLUGIN_MODERATION.getStatusIconForQuestion(question);
 
   return (
     <HeaderButton

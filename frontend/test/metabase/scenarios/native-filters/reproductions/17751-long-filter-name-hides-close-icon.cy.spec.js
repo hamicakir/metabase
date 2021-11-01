@@ -4,7 +4,6 @@ import {
   filterWidget,
   popover,
 } from "__support__/e2e/cypress";
-
 import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
 
 const { PRODUCTS } = SAMPLE_DATASET;
@@ -40,9 +39,7 @@ describe("issue 17751", () => {
   });
 
   it("should handle long filter values correctly with the visible 'close' icon  (metabase#17751)", () => {
-    filterWidget()
-      .find(".Icon-close")
-      .should("be.visible");
+    filterWidget().find(".Icon-close").should("be.visible");
 
     cy.findByText(inputValue).click();
 

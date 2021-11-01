@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 
+import SettingInput from "metabase/admin/settings/components/widgets/SettingInput.jsx";
 import Icon from "metabase/components/Icon";
 import LogoIcon from "metabase/components/LogoIcon";
-import SettingInput from "metabase/admin/settings/components/widgets/SettingInput.jsx";
-
 import { color } from "metabase/lib/colors";
 
 const LogoUpload = ({ setting, onChange, ...props }) => (

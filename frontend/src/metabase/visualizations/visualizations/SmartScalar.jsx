@@ -1,24 +1,20 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import { Box, Flex } from "grid-styled";
+import React from "react";
 import { t, jt } from "ttag";
 import _ from "underscore";
 
-import { isDate } from "metabase/lib/schema_metadata";
-import { formatNumber, formatValue } from "metabase/lib/formatting";
-import { color } from "metabase/lib/colors";
-
 import Icon from "metabase/components/Icon";
-
+import { color } from "metabase/lib/colors";
+import { formatNumber, formatValue } from "metabase/lib/formatting";
 import { formatBucketing } from "metabase/lib/query_time";
-
-import { columnSettings } from "metabase/visualizations/lib/settings/column";
-import { NoBreakoutError } from "metabase/visualizations/lib/errors";
-
+import { isDate } from "metabase/lib/schema_metadata";
 import ScalarValue, {
   ScalarWrapper,
   ScalarTitle,
 } from "metabase/visualizations/components/ScalarValue";
+import { NoBreakoutError } from "metabase/visualizations/lib/errors";
+import { columnSettings } from "metabase/visualizations/lib/settings/column";
 
 export default class Smart extends React.Component {
   static uiName = t`Trend`;
@@ -117,9 +113,7 @@ export default class Smart extends React.Component {
     const isSwapped = settings["scalar.switch_positive_negative"];
 
     // if the number is negative but thats been identified as a good thing (e.g. decreased latency somehow?)
-    const changeColor = (isSwapped
-    ? !isNegative
-    : isNegative)
+    const changeColor = (isSwapped ? !isNegative : isNegative)
       ? color("error")
       : color("success");
 

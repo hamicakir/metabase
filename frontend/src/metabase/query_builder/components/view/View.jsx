@@ -1,44 +1,38 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-import { t } from "ttag";
-
 import cx from "classnames";
-
-import ExplicitSize from "metabase/components/ExplicitSize";
-import Popover from "metabase/components/Popover";
-import DebouncedFrame from "metabase/components/DebouncedFrame";
-import Subhead from "metabase/components/type/Subhead";
-import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
-
-import NativeQueryEditor from "../NativeQueryEditor";
-import QueryVisualization from "../QueryVisualization";
-import DataReference from "../dataref/DataReference";
-import TagEditorSidebar from "../template_tags/TagEditorSidebar";
-import SnippetSidebar from "../template_tags/SnippetSidebar";
-import SavedQuestionIntroModal from "../SavedQuestionIntroModal";
-
-import AggregationPopover from "../AggregationPopover";
-import BreakoutPopover from "../BreakoutPopover";
-
-import QueryModals from "../QueryModals";
-import { ViewTitleHeader, ViewSubHeader } from "./ViewHeader";
-import NewQuestionHeader from "./NewQuestionHeader";
-import ViewFooter from "./ViewFooter";
-import ViewSidebar from "./ViewSidebar";
-import QuestionDataSelector from "./QuestionDataSelector";
-
-import ChartSettingsSidebar from "./sidebars/ChartSettingsSidebar";
-import ChartTypeSidebar from "./sidebars/ChartTypeSidebar";
-import SummarizeSidebar from "./sidebars/SummarizeSidebar/SummarizeSidebar";
-import FilterSidebar from "./sidebars/FilterSidebar";
-import QuestionDetailsSidebar from "./sidebars/QuestionDetailsSidebar";
-
+import React from "react";
 import { Motion, spring } from "react-motion";
+import { t } from "ttag";
 
 import NativeQuery from "metabase-lib/lib/queries/NativeQuery";
 import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
 
+import DebouncedFrame from "metabase/components/DebouncedFrame";
+import ExplicitSize from "metabase/components/ExplicitSize";
+import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
+import Popover from "metabase/components/Popover";
+import Subhead from "metabase/components/type/Subhead";
+
+import AggregationPopover from "../AggregationPopover";
+import BreakoutPopover from "../BreakoutPopover";
+import NativeQueryEditor from "../NativeQueryEditor";
+import QueryModals from "../QueryModals";
+import QueryVisualization from "../QueryVisualization";
+import SavedQuestionIntroModal from "../SavedQuestionIntroModal";
+import DataReference from "../dataref/DataReference";
+import SnippetSidebar from "../template_tags/SnippetSidebar";
+import TagEditorSidebar from "../template_tags/TagEditorSidebar";
+import NewQuestionHeader from "./NewQuestionHeader";
+import QuestionDataSelector from "./QuestionDataSelector";
 import QueryViewNotebook from "./View/QueryViewNotebook";
+import ViewFooter from "./ViewFooter";
+import { ViewTitleHeader, ViewSubHeader } from "./ViewHeader";
+import ViewSidebar from "./ViewSidebar";
+import ChartSettingsSidebar from "./sidebars/ChartSettingsSidebar";
+import ChartTypeSidebar from "./sidebars/ChartTypeSidebar";
+import FilterSidebar from "./sidebars/FilterSidebar";
+import QuestionDetailsSidebar from "./sidebars/QuestionDetailsSidebar";
+import SummarizeSidebar from "./sidebars/SummarizeSidebar/SummarizeSidebar";
 
 const DEFAULT_POPOVER_STATE = {
   aggregationIndex: null,

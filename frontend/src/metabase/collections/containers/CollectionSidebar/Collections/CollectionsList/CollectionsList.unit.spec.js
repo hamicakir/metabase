@@ -1,7 +1,8 @@
-import React from "react";
-import { renderWithProviders, screen } from "__support__/ui";
 import userEvent from "@testing-library/user-event";
 import { setupEnterpriseTest } from "__support__/enterprise";
+import { renderWithProviders, screen } from "__support__/ui";
+import React from "react";
+
 import CollectionsList from "./CollectionsList";
 
 describe("CollectionsList", () => {

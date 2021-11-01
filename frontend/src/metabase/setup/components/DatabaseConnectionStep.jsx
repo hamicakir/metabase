@@ -1,20 +1,20 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { t } from "ttag";
-import { updateIn } from "icepick";
-
 import { Box } from "grid-styled";
-import StepTitle from "./StepTitle";
-import CollapsedStep from "./CollapsedStep";
+import { updateIn } from "icepick";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { t } from "ttag";
 
-import { trackStructEvent } from "metabase/lib/analytics";
 import { DEFAULT_SCHEDULES } from "metabase/admin/databases/database";
 import Databases from "metabase/entities/databases";
+import { trackStructEvent } from "metabase/lib/analytics";
 import {
   trackAddDataLaterClicked,
   trackDatabaseSelected,
 } from "metabase/setup/tracking";
+
+import CollapsedStep from "./CollapsedStep";
+import StepTitle from "./StepTitle";
 
 export default class DatabaseConnectionStep extends Component {
   static propTypes = {
@@ -85,11 +85,8 @@ export default class DatabaseConnectionStep extends Component {
   };
 
   skipDatabase = () => {
-    const {
-      stepNumber,
-      selectedDatabaseEngine,
-      setDatabaseDetails,
-    } = this.props;
+    const { stepNumber, selectedDatabaseEngine, setDatabaseDetails } =
+      this.props;
 
     setDatabaseDetails({
       nextStep: stepNumber + 2,
@@ -112,13 +109,8 @@ export default class DatabaseConnectionStep extends Component {
   }
 
   render() {
-    const {
-      activeStep,
-      databaseDetails,
-      setActiveStep,
-      stepNumber,
-      formName,
-    } = this.props;
+    const { activeStep, databaseDetails, setActiveStep, stepNumber, formName } =
+      this.props;
     let stepText = t`Add your data`;
     if (activeStep > stepNumber) {
       stepText =

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { t } from "ttag";
 
 export default class LimitWidget extends Component {

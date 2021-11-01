@@ -1,10 +1,6 @@
-import Base from "./Base";
-
 import moment from "moment";
 
 import { memoize, createLookupByProperty } from "metabase-lib/lib/utils";
-
-import Dimension from "../Dimension";
 
 import { formatField, stripId } from "metabase/lib/formatting";
 import { getFieldValues } from "metabase/lib/query/field";
@@ -34,6 +30,9 @@ import {
   getFilterOperators,
 } from "metabase/lib/schema_metadata";
 
+import Dimension from "../Dimension";
+import Base from "./Base";
+
 /**
  * @typedef { import("./metadata").FieldValues } FieldValues
  */
@@ -61,9 +60,7 @@ export default class Field extends Base {
       displayName += this.table.displayName({ includeSchema }) + " → ";
     }
     if (includePath) {
-      displayName += this.path()
-        .map(formatField)
-        .join(": ");
+      displayName += this.path().map(formatField).join(": ");
     } else {
       displayName += formatField(this);
     }

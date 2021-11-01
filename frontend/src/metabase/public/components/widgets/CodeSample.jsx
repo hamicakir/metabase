@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-
-import Select, { Option } from "metabase/components/Select";
-import CopyButton from "metabase/components/CopyButton";
-
-import AceEditor from "metabase/components/TextEditor";
-
 import _ from "underscore";
 
+import CopyButton from "metabase/components/CopyButton";
+import Select, { Option } from "metabase/components/Select";
+import AceEditor from "metabase/components/TextEditor";
 import type { CodeSampleOption } from "metabase/public/lib/code";
 
 type Props = {

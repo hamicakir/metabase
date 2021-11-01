@@ -1,22 +1,19 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from "react";
-import { Link } from "react-router";
 import { connect } from "react-redux";
+import { Link } from "react-router";
 import { t } from "ttag";
 
+import Form from "metabase/containers/Form";
 import Settings from "metabase/lib/settings";
 import Utils from "metabase/lib/utils";
 import validate from "metabase/lib/validate";
-import Form from "metabase/containers/Form";
 
 import { login } from "../auth";
 
 const mapDispatchToProps = { login };
 
-@connect(
-  null,
-  mapDispatchToProps,
-)
+@connect(null, mapDispatchToProps)
 export default class LdapAndEmailForm extends Component {
   onSubmit = async credentials => {
     const { login, location } = this.props;

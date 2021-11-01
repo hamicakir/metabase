@@ -1,7 +1,7 @@
 import { DropTarget } from "react-dnd";
 
-import DropArea from "./DropArea";
 import { MoveableDragTypes } from ".";
+import DropArea from "./DropArea";
 
 const CollectionDropTarget = DropTarget(
   MoveableDragTypes,

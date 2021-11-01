@@ -1,12 +1,13 @@
-import LeafletMap from "./LeafletMap";
+import d3 from "d3";
 import L from "leaflet";
 import { t } from "ttag";
-import d3 from "d3";
 
 import { color } from "metabase/lib/colors";
 import { rangeForValue } from "metabase/lib/dataset";
 import { isNumeric, isMetric } from "metabase/lib/schema_metadata";
+
 import { computeNumericDataInverval } from "../lib/numeric";
+import LeafletMap from "./LeafletMap";
 
 const isValidCoordinatesColumn = column =>
   column.binning_info || (column.source === "native" && isNumeric(column));
@@ -91,7 +92,10 @@ export default class LeafletGridHeatMap extends LeafletMap {
             longitudeColumn,
             longitureValues,
           );
-          gridSquares[i].setBounds([[latMin, lonMin], [latMax, lonMax]]);
+          gridSquares[i].setBounds([
+            [latMin, lonMin],
+            [latMax, lonMax],
+          ]);
         }
       }
     } catch (err) {
@@ -101,7 +105,10 @@ export default class LeafletGridHeatMap extends LeafletMap {
   }
 
   _createGridSquare = index => {
-    const bounds = [[54.559322, -5.767822], [56.1210604, -3.02124]];
+    const bounds = [
+      [54.559322, -5.767822],
+      [56.1210604, -3.02124],
+    ];
     const gridSquare = L.rectangle(bounds, {
       color: "red",
       weight: 1,

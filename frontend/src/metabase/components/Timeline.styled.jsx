@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { color } from "metabase/lib/colors";
+
 import Icon from "metabase/components/Icon";
+import { color } from "metabase/lib/colors";
 
 export const TimelineContainer = styled.div`
   position: relative;

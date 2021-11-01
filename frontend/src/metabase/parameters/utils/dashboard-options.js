@@ -1,12 +1,13 @@
 import { t } from "ttag";
-import { areFieldFilterOperatorsEnabled } from "./feature-flag";
-import { getOperatorDisplayName } from "./operators";
+
 import {
   PARAMETER_OPERATOR_TYPES,
   LOCATION_OPTIONS,
   ID_OPTION,
   CATEGORY_OPTION,
 } from "../constants";
+import { areFieldFilterOperatorsEnabled } from "./feature-flag";
+import { getOperatorDisplayName } from "./operators";
 
 function buildTypedOperatorOptions(operatorType, sectionId, sectionName) {
   return PARAMETER_OPERATOR_TYPES[operatorType].map(operatorOption => {

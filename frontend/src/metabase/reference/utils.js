@@ -1,7 +1,7 @@
 import { assoc, assocIn, chain } from "icepick";
 
-import { titleize, humanize } from "metabase/lib/formatting";
 import { startNewCard } from "metabase/lib/card";
+import { titleize, humanize } from "metabase/lib/formatting";
 import { isPK } from "metabase/lib/types";
 import * as Urls from "metabase/lib/urls";
 

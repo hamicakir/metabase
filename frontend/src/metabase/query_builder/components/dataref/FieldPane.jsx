@@ -1,22 +1,23 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
+import inflection from "inflection";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import { t } from "ttag";
-import DetailPane from "./DetailPane";
-import QueryButton from "metabase/components/QueryButton";
-import UseForButton from "./UseForButton";
+import _ from "underscore";
 
-import { fetchTableMetadata, fetchFieldValues } from "metabase/redux/metadata";
-import { getMetadata } from "metabase/selectors/metadata";
+import Dimension from "metabase-lib/lib/Dimension";
+import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
+
+import QueryButton from "metabase/components/QueryButton";
 import { createCard } from "metabase/lib/card";
 import * as Q_DEPRECATED from "metabase/lib/query";
 import { isDimension, isSummable } from "metabase/lib/schema_metadata";
-import inflection from "inflection";
+import { fetchTableMetadata, fetchFieldValues } from "metabase/redux/metadata";
+import { getMetadata } from "metabase/selectors/metadata";
 
-import _ from "underscore";
-import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
-import { connect } from "react-redux";
-import Dimension from "metabase-lib/lib/Dimension";
+import DetailPane from "./DetailPane";
+import UseForButton from "./UseForButton";
 
 const mapDispatchToProps = {
   fetchTableMetadata,
@@ -26,10 +27,7 @@ const mapDispatchToProps = {
 const mapStateToProps = (state, props) => ({
   metadata: getMetadata(state, props),
 });
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class FieldPane extends Component {
   constructor(props, context) {
     super(props, context);

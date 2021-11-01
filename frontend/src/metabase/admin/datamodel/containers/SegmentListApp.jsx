@@ -2,12 +2,11 @@
 import React from "react";
 import { t } from "ttag";
 
-import Segment from "metabase/entities/segments";
 import SegmentItem from "metabase/admin/datamodel/components/SegmentItem";
 import FilteredToUrlTable from "metabase/admin/datamodel/hoc/FilteredToUrlTable";
-
 import Button from "metabase/components/Button";
 import Link from "metabase/components/Link";
+import Segment from "metabase/entities/segments";
 
 @Segment.loadList({ wrapped: true })
 @FilteredToUrlTable("segments")

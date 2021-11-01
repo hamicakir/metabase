@@ -41,9 +41,7 @@ describe("scenarios > question > custom column > error feedback", () => {
   });
 
   it("should catch unterminated string literals", () => {
-    cy.get("[contenteditable='true']")
-      .type('[Category] = "widget')
-      .blur();
+    cy.get("[contenteditable='true']").type('[Category] = "widget').blur();
 
     cy.findByText("Missing closing quotes");
   });
@@ -76,9 +74,7 @@ describe("scenarios > question > custom column > error feedback", () => {
   });
 
   it("should show the correct number of function arguments in a custom expression", () => {
-    cy.get("[contenteditable='true']")
-      .type("contains([Category])")
-      .blur();
+    cy.get("[contenteditable='true']").type("contains([Category])").blur();
 
     cy.contains(/^Function contains expects 2 arguments/i);
   });

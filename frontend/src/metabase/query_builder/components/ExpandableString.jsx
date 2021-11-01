@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
+import Humanize from "humanize-plus";
 import React, { Component } from "react";
 import { t } from "ttag";
-import Humanize from "humanize-plus";
 
 export default class ExpandableString extends Component {
   constructor(props, context) {

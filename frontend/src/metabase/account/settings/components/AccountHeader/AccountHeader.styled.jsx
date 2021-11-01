@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import colors from "metabase/lib/colors";
 
+import UserAvatar from "metabase/components/UserAvatar";
+import colors from "metabase/lib/colors";
 import {
   breakpointMinMedium,
   breakpointMinSmall,
   space,
 } from "metabase/styled-components/theme";
-import UserAvatar from "metabase/components/UserAvatar";
 
 export const AccountHeaderRoot = styled.div`
   display: flex;

@@ -1,22 +1,20 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import _ from "underscore";
 import { assoc, assocIn } from "icepick";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { t } from "ttag";
+import _ from "underscore";
 
-import RecipientPicker from "./RecipientPicker";
-
-import SchedulePicker from "metabase/components/SchedulePicker";
 import ActionButton from "metabase/components/ActionButton";
+import ChannelSetupMessage from "metabase/components/ChannelSetupMessage";
+import Icon from "metabase/components/Icon";
+import SchedulePicker from "metabase/components/SchedulePicker";
 import Select, { Option } from "metabase/components/Select";
 import Toggle from "metabase/components/Toggle";
-import Icon from "metabase/components/Icon";
-import ChannelSetupMessage from "metabase/components/ChannelSetupMessage";
-
 import * as MetabaseAnalytics from "metabase/lib/analytics";
-
 import { channelIsValid, createChannel } from "metabase/lib/pulse";
+
+import RecipientPicker from "./RecipientPicker";
 
 export const CHANNEL_ICONS = {
   email: "mail",
@@ -220,9 +218,10 @@ export default class PulseEditChannels extends Component {
             )}
             scheduleOptions={channelSpec.schedules}
             textBeforeInterval={t`Sent`}
-            textBeforeSendTime={t`${CHANNEL_NOUN_PLURAL[
-              channelSpec && channelSpec.type
-            ] || t`Messages`} will be sent at`}
+            textBeforeSendTime={t`${
+              CHANNEL_NOUN_PLURAL[channelSpec && channelSpec.type] ||
+              t`Messages`
+            } will be sent at`}
             onScheduleChange={this.onChannelScheduleChange.bind(this, index)}
           />
         )}

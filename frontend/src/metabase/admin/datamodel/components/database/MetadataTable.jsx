@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
-
-import ColumnsList from "./ColumnsList";
+import React, { Component } from "react";
 import { t } from "ttag";
+import _ from "underscore";
+
+import withTableMetadataLoaded from "metabase/admin/datamodel/hoc/withTableMetadataLoaded";
 import InputBlurChange from "metabase/components/InputBlurChange";
 import Databases from "metabase/entities/databases";
 import Tables from "metabase/entities/tables";
-import withTableMetadataLoaded from "metabase/admin/datamodel/hoc/withTableMetadataLoaded";
 
-import _ from "underscore";
-import cx from "classnames";
+import ColumnsList from "./ColumnsList";
 
 @Databases.load({ id: (state, { databaseId }) => databaseId, wrapped: true })
 @Tables.load({

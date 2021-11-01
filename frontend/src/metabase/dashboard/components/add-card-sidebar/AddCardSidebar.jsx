@@ -1,7 +1,8 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
 import Sidebar from "metabase/dashboard/components/Sidebar";
+
 import QuestionPicker from "./QuestionPicker";
 
 AddCardSidebar.propTypes = {

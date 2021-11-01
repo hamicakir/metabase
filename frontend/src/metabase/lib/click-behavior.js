@@ -1,13 +1,14 @@
-import _ from "underscore";
 import { getIn } from "icepick";
 import { t, ngettext, msgid } from "ttag";
+import _ from "underscore";
 
-import { isDate } from "metabase/lib/schema_metadata";
-import { parseTimestamp } from "metabase/lib/time";
-import { formatDateTimeForParameter } from "metabase/lib/formatting/date";
+import { TemplateTagDimension } from "metabase-lib/lib/Dimension";
 import Question from "metabase-lib/lib/Question";
 import { TemplateTagVariable } from "metabase-lib/lib/Variable";
-import { TemplateTagDimension } from "metabase-lib/lib/Dimension";
+
+import { formatDateTimeForParameter } from "metabase/lib/formatting/date";
+import { isDate } from "metabase/lib/schema_metadata";
+import { parseTimestamp } from "metabase/lib/time";
 import { isa, TYPE } from "metabase/lib/types";
 import {
   dimensionFilterForParameter,

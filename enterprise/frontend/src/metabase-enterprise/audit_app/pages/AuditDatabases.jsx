@@ -3,7 +3,6 @@ import React from "react";
 import AuditContent from "../components/AuditContent";
 import AuditDashboard from "../containers/AuditDashboard";
 import AuditTableWithSearch from "../containers/AuditTableWithSearch";
-
 import * as DatabasesCards from "../lib/cards/databases";
 
 type Props = {

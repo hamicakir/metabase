@@ -1,9 +1,9 @@
-import React from "react";
 import {
   renderWithProviders,
   screen,
   waitForElementToBeRemoved,
 } from "__support__/ui";
+import React from "react";
 import xhrMock from "xhr-mock";
 
 import RootCollectionLink from "./RootCollectionLink";

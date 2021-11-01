@@ -1,5 +1,5 @@
-import { handleActions, createAction } from "redux-actions";
 import { updateIn, assoc } from "icepick";
+import { handleActions, createAction } from "redux-actions";
 
 export const setRequestLoading = createAction(
   "metabase/requests/SET_REQUEST_LOADING",

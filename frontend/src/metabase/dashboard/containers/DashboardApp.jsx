@@ -2,15 +2,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { push } from "react-router-redux";
+
+import Dashboard from "metabase/dashboard/components/Dashboard/Dashboard";
+import Dashboards from "metabase/entities/dashboards";
 import fitViewport from "metabase/hoc/FitViewPort";
 import title from "metabase/hoc/Title";
 import titleWithLoadingTime from "metabase/hoc/TitleWithLoadingTime";
-
-import Dashboard from "metabase/dashboard/components/Dashboard/Dashboard";
-
-import { fetchDatabaseMetadata } from "metabase/redux/metadata";
+import { parseHashOptions } from "metabase/lib/browser";
+import * as Urls from "metabase/lib/urls";
 import { setErrorPage } from "metabase/redux/app";
+import { fetchDatabaseMetadata } from "metabase/redux/metadata";
+import { getDatabases, getMetadata } from "metabase/selectors/metadata";
+import { getUserIsAdmin } from "metabase/selectors/user";
 
+import * as dashboardActions from "../actions";
 import {
   getIsEditing,
   getIsSharing,
@@ -29,14 +34,6 @@ import {
   getSidebar,
   getShowAddQuestionSidebar,
 } from "../selectors";
-import { getDatabases, getMetadata } from "metabase/selectors/metadata";
-import { getUserIsAdmin } from "metabase/selectors/user";
-
-import * as dashboardActions from "../actions";
-import { parseHashOptions } from "metabase/lib/browser";
-import * as Urls from "metabase/lib/urls";
-
-import Dashboards from "metabase/entities/dashboards";
 
 const mapStateToProps = (state, props) => {
   return {
@@ -76,10 +73,7 @@ type DashboardAppState = {
   addCardOnLoad: number | null,
 };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 @fitViewport
 @title(({ dashboard }) => dashboard && dashboard.name)
 @titleWithLoadingTime("loadingStartTime")

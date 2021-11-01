@@ -1,4 +1,6 @@
 import React from "react";
+
+import { RevisionTitle } from "./components";
 import {
   REVISION_EVENT_ICON,
   getRevisionEventsForTimeline,
@@ -6,7 +8,6 @@ import {
   getChangedFields,
   isValidRevision,
 } from "./revisions";
-import { RevisionTitle } from "./components";
 
 const DEFAULT_TIMESTAMP = "2016-05-08T02:02:07.441Z";
 const DEFAULT_EPOCH_TIMESTAMP = new Date(DEFAULT_TIMESTAMP).valueOf();

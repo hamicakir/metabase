@@ -1,14 +1,13 @@
-import React from "react";
 import { render } from "@testing-library/react";
 import moment from "moment";
+import React from "react";
 
+import DateTime from "metabase/components/DateTime";
 import {
   DEFAULT_DATE_STYLE,
   DEFAULT_TIME_STYLE,
 } from "metabase/lib/formatting/date";
 import MetabaseSettings from "metabase/lib/settings";
-
-import DateTime from "metabase/components/DateTime";
 
 describe("DateTime", () => {
   const TEST_DATE = "2021-06-08T14:40:10";

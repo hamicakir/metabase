@@ -20,13 +20,13 @@ import type {
 
 import * as A from "./aggregation";
 import * as B from "./breakout";
+import * as E from "./expression";
+import * as FIELD from "./field";
+import * as FIELD_REF from "./field_ref";
 import * as F from "./filter";
 import * as J from "./join";
 import * as L from "./limit";
 import * as O from "./order_by";
-import * as E from "./expression";
-import * as FIELD from "./field";
-import * as FIELD_REF from "./field_ref";
 
 // AGGREGATION
 

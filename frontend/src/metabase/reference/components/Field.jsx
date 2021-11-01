@@ -1,20 +1,18 @@
 /* eslint "react/prop-types": "warn" */
-import React from "react";
+import cx from "classnames";
+import { getIn } from "icepick";
 import PropTypes from "prop-types";
+import React from "react";
 import { Link } from "react-router";
 import { t } from "ttag";
+
+import Icon from "metabase/components/Icon";
+import S from "metabase/components/List.css";
+import Select from "metabase/components/Select";
 import * as MetabaseCore from "metabase/lib/core";
 import { isFK } from "metabase/lib/types";
 
-import { getIn } from "icepick";
-
-import S from "metabase/components/List.css";
 import F from "./Field.css";
-
-import Select from "metabase/components/Select";
-import Icon from "metabase/components/Icon";
-
-import cx from "classnames";
 
 const Field = ({ field, foreignKeys, url, icon, isEditing, formField }) => (
   <div className={cx(S.item, "pt1", "border-top")}>

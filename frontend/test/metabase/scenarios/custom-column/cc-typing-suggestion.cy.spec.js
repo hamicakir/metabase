@@ -34,9 +34,7 @@ describe("scenarios > question > custom column > typing suggestion", () => {
 
     // Place the cursor between "is" and "empty"
     cy.get("[contenteditable='true']").type(
-      Array(13)
-        .fill("{leftarrow}")
-        .join(""),
+      Array(13).fill("{leftarrow}").join(""),
     );
 
     // accept the first suggested function, i.e. "length"

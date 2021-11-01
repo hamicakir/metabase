@@ -1,12 +1,11 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-
-import { createMembership, deleteMembership } from "../people";
-import { getGroupsWithoutMetabot, getUserMemberships } from "../selectors";
 
 import LoadingSpinner from "metabase/components/LoadingSpinner";
 
+import { createMembership, deleteMembership } from "../people";
+import { getGroupsWithoutMetabot, getUserMemberships } from "../selectors";
 import GroupSelect from "./GroupSelect";
 
 @connect(
@@ -31,18 +30,15 @@ export default class UserGroupSelect extends Component {
   };
 
   handleGroupChange = (group, isAdded) => {
-    const {
-      userId,
-      userMemberships,
-      createMembership,
-      deleteMembership,
-    } = this.props;
+    const { userId, userMemberships, createMembership, deleteMembership } =
+      this.props;
 
     if (isAdded) {
       createMembership({ groupId: group.id, userId });
     } else {
-      const membershipId = userMemberships.find(m => m.group_id === group.id)
-        .membership_id;
+      const membershipId = userMemberships.find(
+        m => m.group_id === group.id,
+      ).membership_id;
 
       deleteMembership({ membershipId });
     }

@@ -10,10 +10,7 @@ describe("admin > database > add > external databases", () => {
 
   it("should add Postgres database and redirect to listing", () => {
     cy.visit("/admin/databases/create");
-    cy.contains("Database type")
-      .closest(".Form-field")
-      .find("a")
-      .click();
+    cy.contains("Database type").closest(".Form-field").find("a").click();
     cy.contains("PostgreSQL").click({ force: true });
     cy.contains("Additional JDBC connection string options");
 
@@ -24,25 +21,18 @@ describe("admin > database > add > external databases", () => {
     typeAndBlurUsingLabel("Username", "metabase");
     typeAndBlurUsingLabel("Password", "metasample123");
 
-    cy.findByText("Save")
-      .should("not.be.disabled")
-      .click();
+    cy.findByText("Save").should("not.be.disabled").click();
 
     cy.wait("@createDatabase");
 
     cy.url().should("match", /\/admin\/databases\?created=\d+$/);
     cy.findByText("Your database has been added!");
-    modal()
-      .contains("I'm good thanks")
-      .click();
+    modal().contains("I'm good thanks").click();
   });
 
   it("should add Mongo database and redirect to listing", () => {
     cy.visit("/admin/databases/create");
-    cy.contains("Database type")
-      .closest(".Form-field")
-      .find("a")
-      .click();
+    cy.contains("Database type").closest(".Form-field").find("a").click();
     cy.contains("MongoDB").click({ force: true });
     cy.contains("Additional Mongo connection");
 
@@ -54,25 +44,18 @@ describe("admin > database > add > external databases", () => {
     typeAndBlurUsingLabel("Password", "metasample123");
     typeAndBlurUsingLabel("Authentication Database", "admin");
 
-    cy.findByText("Save")
-      .should("not.be.disabled")
-      .click();
+    cy.findByText("Save").should("not.be.disabled").click();
 
     cy.wait("@createDatabase");
 
     cy.url().should("match", /\/admin\/databases\?created=\d+$/);
     cy.findByText("Your database has been added!");
-    modal()
-      .contains("I'm good thanks")
-      .click();
+    modal().contains("I'm good thanks").click();
   });
 
   it("should add MySQL database and redirect to listing", () => {
     cy.visit("/admin/databases/create");
-    cy.contains("Database type")
-      .closest(".Form-field")
-      .find("a")
-      .click();
+    cy.contains("Database type").closest(".Form-field").find("a").click();
     cy.contains("MySQL").click({ force: true });
     cy.contains("Additional JDBC connection string options");
 
@@ -90,16 +73,12 @@ describe("admin > database > add > external databases", () => {
       "allowPublicKeyRetrieval=true",
     );
 
-    cy.findByText("Save")
-      .should("not.be.disabled")
-      .click();
+    cy.findByText("Save").should("not.be.disabled").click();
 
     cy.wait("@createDatabase");
 
     cy.url().should("match", /\/admin\/databases\?created=\d+$/);
     cy.contains("Your database has been added!");
-    modal()
-      .contains("I'm good thanks")
-      .click();
+    modal().contains("I'm good thanks").click();
   });
 });

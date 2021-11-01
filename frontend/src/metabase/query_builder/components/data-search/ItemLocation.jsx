@@ -1,17 +1,15 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import styled from "styled-components";
 import { jt } from "ttag";
 
-import * as Urls from "metabase/lib/urls";
 import Icon from "metabase/components/Icon";
 import Link from "metabase/components/Link";
-
-import Database from "metabase/entities/databases";
 import Collection from "metabase/entities/collections";
+import Database from "metabase/entities/databases";
 import Schema from "metabase/entities/schemas";
-
 import { color } from "metabase/lib/colors";
+import * as Urls from "metabase/lib/urls";
 
 export const ItemLocation = ({ item }) => {
   switch (item.model) {

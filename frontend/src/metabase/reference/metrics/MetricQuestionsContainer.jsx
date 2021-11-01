@@ -1,13 +1,12 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import MetricSidebar from "./MetricSidebar";
 import SidebarLayout from "metabase/components/SidebarLayout";
-import MetricQuestions from "metabase/reference/metrics/MetricQuestions";
-
+import Questions from "metabase/entities/questions";
 import * as metadataActions from "metabase/redux/metadata";
+import MetricQuestions from "metabase/reference/metrics/MetricQuestions";
 import * as actions from "metabase/reference/reference";
 
 import {
@@ -17,8 +16,7 @@ import {
   getDatabaseId,
   getIsEditing,
 } from "../selectors";
-
-import Questions from "metabase/entities/questions";
+import MetricSidebar from "./MetricSidebar";
 
 const mapStateToProps = (state, props) => ({
   user: getUser(state, props),
@@ -34,10 +32,7 @@ const mapDispatchToProps = {
   ...actions,
 };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class MetricQuestionsContainer extends Component {
   static propTypes = {
     params: PropTypes.object.isRequired,

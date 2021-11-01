@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 
+import Ellipsified from "metabase/components/Ellipsified";
 import Icon, { iconPropTypes } from "metabase/components/Icon";
 import Tooltip from "metabase/components/Tooltip";
-import Ellipsified from "metabase/components/Ellipsified";
-
-import cx from "classnames";
 
 import { IconContainer } from "./LegendItem.styled";
 

@@ -1,17 +1,16 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { t, jt } from "ttag";
-
-import * as Urls from "metabase/lib/urls";
 
 import Icon from "metabase/components/Icon";
 import Link from "metabase/components/Link";
-
-import Schema from "metabase/entities/schemas";
 import Database from "metabase/entities/databases";
+import Schema from "metabase/entities/schemas";
 import Table from "metabase/entities/tables";
-import { PLUGIN_COLLECTIONS } from "metabase/plugins";
+import * as Urls from "metabase/lib/urls";
 import { getTranslatedEntityName } from "metabase/nav/components/utils";
+import { PLUGIN_COLLECTIONS } from "metabase/plugins";
+
 import { CollectionBadge } from "./CollectionBadge";
 
 const searchResultPropTypes = {
@@ -38,9 +37,9 @@ export function InfoText({ result }) {
     case "table":
       return <TablePath result={result} />;
     case "segment":
-      return jt`Segment of ${<TableLink result={result} />}`;
+      return jt`Segment of ${(<TableLink result={result} />)}`;
     case "metric":
-      return jt`Metric for ${<TableLink result={result} />}`;
+      return jt`Metric for ${(<TableLink result={result} />)}`;
     default:
       return jt`${getTranslatedEntityName(result.model)} in ${formatCollection(
         result.getCollection(),

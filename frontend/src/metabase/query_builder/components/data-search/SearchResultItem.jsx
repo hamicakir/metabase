@@ -1,10 +1,9 @@
-import styled from "styled-components";
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
+import styled from "styled-components";
 
 import Icon from "metabase/components/Icon";
 import Text from "metabase/components/type/Text";
-
 import { color, lighten } from "metabase/lib/colors";
 
 import { ItemLocation } from "./ItemLocation";

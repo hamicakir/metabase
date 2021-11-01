@@ -1,10 +1,11 @@
 // Legacy "tableMetadata" etc
+import Dimension from "metabase-lib/lib/Dimension";
 
 import type { Database, DatabaseId } from "metabase-types/types/Database";
-import type { Table, TableId } from "metabase-types/types/Table";
 import type { Field, FieldId } from "metabase-types/types/Field";
-import type { Segment, SegmentId } from "metabase-types/types/Segment";
 import type { Metric, MetricId } from "metabase-types/types/Metric";
+import type { Segment, SegmentId } from "metabase-types/types/Segment";
+import type { Table, TableId } from "metabase-types/types/Table";
 
 export type Metadata = {
   databases: { [id: DatabaseId]: DatabaseMetadata },
@@ -88,8 +89,6 @@ export type FieldOptions = {
     fields: Field[],
   },
 };
-
-import Dimension from "metabase-lib/lib/Dimension";
 
 export type DimensionOptions = {
   count: number,

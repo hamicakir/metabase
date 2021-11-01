@@ -1,6 +1,7 @@
-import React from "react";
-import { ModerationReviewBanner } from "./ModerationReviewBanner";
 import { render, fireEvent } from "@testing-library/react";
+import React from "react";
+
+import { ModerationReviewBanner } from "./ModerationReviewBanner";
 
 const VERIFIED_ICON_SELECTOR = ".Icon-verified";
 const CLOSE_ICON_SELECTOR = ".Icon-close";

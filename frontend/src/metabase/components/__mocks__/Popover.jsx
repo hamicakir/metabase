@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
 import React from "react";
 
 import OnClickOutsideWrapper from "metabase/components/OnClickOutsideWrapper";
-import cx from "classnames";
 
 /**
  * A modified version of TestPopover for Jest/Enzyme tests.

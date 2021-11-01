@@ -1,6 +1,6 @@
-import { generateQueryDescription } from "metabase/lib/query/description";
-
 import { ORDERS } from "__support__/sample_dataset_fixture";
+
+import { generateQueryDescription } from "metabase/lib/query/description";
 
 const mockTableMetadata = {
   display_name: "Order",

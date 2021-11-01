@@ -1,4 +1,5 @@
 import MetabaseSettings from "metabase/lib/settings";
+
 import { getTemplateTagParameters } from "./cards";
 
 MetabaseSettings.get = jest.fn();

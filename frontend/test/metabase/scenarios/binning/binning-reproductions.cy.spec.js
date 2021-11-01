@@ -191,9 +191,7 @@ describe("binning related reproductions", () => {
       cy.findByText("18646").click();
     });
 
-    popover()
-      .findByText("Product ID")
-      .click();
+    popover().findByText("Product ID").click();
 
     popover().within(() => {
       cy.findByText("CREATED_AT")
@@ -209,9 +207,7 @@ describe("binning related reproductions", () => {
     cy.findByText(/Question \d/).click();
 
     popover().within(() => {
-      cy.findByText("CREATED_AT")
-        .closest(".List-item")
-        .findByText("by month");
+      cy.findByText("CREATED_AT").closest(".List-item").findByText("by month");
     });
   });
 

@@ -1,21 +1,21 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { push, replace } from "react-router-redux";
-
 import { t } from "ttag";
-import * as MetabaseAnalytics from "metabase/lib/analytics";
 
 import AdminEmptyText from "metabase/components/AdminEmptyText";
-import MetadataHeader from "../components/database/MetadataHeader";
-import MetadataTablePicker from "../components/database/MetadataTablePicker";
-import MetadataTable from "../components/database/MetadataTable";
-import MetadataSchema from "../components/database/MetadataSchema";
 import {
   metrics as Metrics,
   databases as Databases,
   fields as Fields,
 } from "metabase/entities";
+import * as MetabaseAnalytics from "metabase/lib/analytics";
+
+import MetadataHeader from "../components/database/MetadataHeader";
+import MetadataSchema from "../components/database/MetadataSchema";
+import MetadataTable from "../components/database/MetadataTable";
+import MetadataTablePicker from "../components/database/MetadataTablePicker";
 
 const propTypes = {
   databaseId: PropTypes.number,
@@ -53,10 +53,7 @@ const mapDispatchToProps = {
     Metrics.actions.setArchived({ id }, true, rest),
 };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 @Databases.load({
   id: (state, props) => props.databaseId,
   loadingAndErrorWrapper: false,

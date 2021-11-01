@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
 import Icon from "metabase/components/Icon";
+
 import FieldWidget from "./FieldWidget";
 import SelectionModule from "./SelectionModule";
 

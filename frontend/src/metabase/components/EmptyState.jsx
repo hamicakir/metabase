@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import { Box, Flex } from "grid-styled";
+import React from "react";
 
 import Button from "metabase/components/Button";
 import Icon from "metabase/components/Icon";

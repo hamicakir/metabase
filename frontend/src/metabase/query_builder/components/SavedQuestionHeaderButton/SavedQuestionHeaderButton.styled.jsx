@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { color } from "metabase/lib/colors";
 
 import Button from "metabase/components/Button";
+import { color } from "metabase/lib/colors";
 
 export const HeaderButton = styled(Button)`
   font-size: 1.25rem;

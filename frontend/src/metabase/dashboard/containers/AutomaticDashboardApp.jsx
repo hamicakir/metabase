@@ -1,36 +1,32 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-import { Box, Flex } from "grid-styled";
-import { t } from "ttag";
-import { connect } from "react-redux";
 import cx from "classnames";
+import { Box, Flex } from "grid-styled";
+import { dissoc } from "icepick";
+import React from "react";
+import { connect } from "react-redux";
+import { t } from "ttag";
 
-import title from "metabase/hoc/Title";
-import withToast from "metabase/hoc/Toast";
-import DashboardData from "metabase/dashboard/hoc/DashboardData";
-import { getValuePopulatedParameters } from "metabase/parameters/utils/parameter-values";
+import Dimension from "metabase-lib/lib/Dimension";
 
 import ActionButton from "metabase/components/ActionButton";
 import Button from "metabase/components/Button";
 import Card from "metabase/components/Card";
 import Icon from "metabase/components/Icon";
-import Filter from "metabase/query_builder/components/Filter";
 import Link from "metabase/components/Link";
 import Tooltip from "metabase/components/Tooltip";
-
 import { Dashboard } from "metabase/dashboard/containers/Dashboard";
-import Parameters from "metabase/parameters/components/Parameters/Parameters";
-
-import { getMetadata } from "metabase/selectors/metadata";
-
+import DashboardData from "metabase/dashboard/hoc/DashboardData";
 import Dashboards from "metabase/entities/dashboards";
-import * as Urls from "metabase/lib/urls";
+import title from "metabase/hoc/Title";
+import withToast from "metabase/hoc/Toast";
 import * as MetabaseAnalytics from "metabase/lib/analytics";
-import * as Q from "metabase/lib/query/query";
-import Dimension from "metabase-lib/lib/Dimension";
 import { color } from "metabase/lib/colors";
-
-import { dissoc } from "icepick";
+import * as Q from "metabase/lib/query/query";
+import * as Urls from "metabase/lib/urls";
+import Parameters from "metabase/parameters/components/Parameters/Parameters";
+import { getValuePopulatedParameters } from "metabase/parameters/utils/parameter-values";
+import Filter from "metabase/query_builder/components/Filter";
+import { getMetadata } from "metabase/selectors/metadata";
 
 const getDashboardId = (state, { params: { splat }, location: { hash } }) =>
   `/auto/dashboard/${splat}${hash.replace(/^#?/, "?")}`;
@@ -44,10 +40,7 @@ const mapDispatchToProps = {
   saveDashboard: Dashboards.actions.save,
 };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 @DashboardData
 @withToast
 @title(({ dashboard }) => dashboard && dashboard.name)

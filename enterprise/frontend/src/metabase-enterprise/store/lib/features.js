@@ -1,4 +1,5 @@
 import { t } from "ttag";
+
 import MetabaseSettings from "metabase/lib/settings";
 
 const FEATURES = {

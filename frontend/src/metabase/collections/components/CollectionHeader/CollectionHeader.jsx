@@ -1,16 +1,15 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import { Flex } from "grid-styled";
+import React from "react";
 import { t } from "ttag";
 
-import * as Urls from "metabase/lib/urls";
+import CollectionEditMenu from "metabase/collections/components/CollectionEditMenu";
 import { isPersonalCollection } from "metabase/collections/utils";
 import Icon, { IconWrapper } from "metabase/components/Icon";
 import Link from "metabase/components/Link";
-import PageHeading from "metabase/components/type/PageHeading";
 import Tooltip from "metabase/components/Tooltip";
-import CollectionEditMenu from "metabase/collections/components/CollectionEditMenu";
-
+import PageHeading from "metabase/components/type/PageHeading";
+import * as Urls from "metabase/lib/urls";
 import { PLUGIN_COLLECTION_COMPONENTS } from "metabase/plugins";
 
 import {

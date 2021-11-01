@@ -1,20 +1,19 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import cx from "classnames";
-import { t } from "ttag";
 import { Flex } from "grid-styled";
-import { DragSource, DropTarget } from "react-dnd";
-import _ from "underscore";
 import { assocIn } from "icepick";
-
+import React from "react";
+import { DragSource, DropTarget } from "react-dnd";
 import styled from "styled-components";
-import colors, { lighten } from "metabase/lib/colors";
-import Icon from "metabase/components/Icon";
-import Label from "metabase/components/type/Label";
-import Grabber from "metabase/components/Grabber";
-import Text from "metabase/components/type/Text";
-import Toggle from "metabase/components/Toggle";
+import { t } from "ttag";
+import _ from "underscore";
 
+import Grabber from "metabase/components/Grabber";
+import Icon from "metabase/components/Icon";
+import Toggle from "metabase/components/Toggle";
+import Label from "metabase/components/type/Label";
+import Text from "metabase/components/type/Text";
+import colors, { lighten } from "metabase/lib/colors";
 import {
   COLUMN_SHOW_TOTALS,
   COLUMN_SORT_ORDER,

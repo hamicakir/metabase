@@ -1,16 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import Question from "metabase-lib/lib/Question";
+// type annotations
+import type Metadata from "metabase-lib/lib/metadata/Metadata";
+
+import type { Card } from "metabase-types/types/Card";
+
 // things that will eventually load the quetsion
 import { deserializeCardFromUrl } from "metabase/lib/card";
 import { loadMetadataForCard } from "metabase/query_builder/actions";
 import { getMetadata } from "metabase/selectors/metadata";
-
-import Question from "metabase-lib/lib/Question";
-
-// type annotations
-import type Metadata from "metabase-lib/lib/metadata/Metadata";
-import type { Card } from "metabase-types/types/Card";
 
 type ChildProps = {
   loading: boolean,

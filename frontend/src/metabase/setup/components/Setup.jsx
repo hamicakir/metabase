@@ -1,26 +1,19 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { t } from "ttag";
-
-import { color } from "metabase/lib/colors";
-import { trackStructEvent } from "metabase/lib/analytics";
-import MetabaseSettings from "metabase/lib/settings";
-import { b64hash_to_utf8 } from "metabase/lib/encoding";
 
 import AddDatabaseHelpCard from "metabase/components/AddDatabaseHelpCard";
 import DriverWarning from "metabase/components/DriverWarning";
 import ExternalLink from "metabase/components/ExternalLink";
 import LogoIcon from "metabase/components/LogoIcon";
 import NewsletterForm from "metabase/components/NewsletterForm";
-
+import { trackStructEvent } from "metabase/lib/analytics";
+import { color } from "metabase/lib/colors";
+import { b64hash_to_utf8 } from "metabase/lib/encoding";
+import MetabaseSettings from "metabase/lib/settings";
 import DatabaseSchedulingStep from "metabase/setup/components/DatabaseSchedulingStep";
 
-import LanguageStep from "./LanguageStep";
-import UserStep from "./UserStep";
-import DatabaseConnectionStep from "./DatabaseConnectionStep";
-import PreferencesStep from "./PreferencesStep";
-import { AddDatabaseHelpCardHolder } from "./Setup.styled";
 import {
   COMPLETED_STEP_NUMBER,
   DATABASE_CONNECTION_STEP_NUMBER,
@@ -31,6 +24,11 @@ import {
   WELCOME_STEP_NUMBER,
 } from "../constants";
 import { trackStepSeen } from "../tracking";
+import DatabaseConnectionStep from "./DatabaseConnectionStep";
+import LanguageStep from "./LanguageStep";
+import PreferencesStep from "./PreferencesStep";
+import { AddDatabaseHelpCardHolder } from "./Setup.styled";
+import UserStep from "./UserStep";
 
 export default class Setup extends Component {
   static propTypes = {

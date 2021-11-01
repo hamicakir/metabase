@@ -1,10 +1,10 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { t } from "ttag";
-import * as MetabaseAnalytics from "metabase/lib/analytics";
 
 import Button from "metabase/components/Button";
 import ModalContent from "metabase/components/ModalContent";
+import * as MetabaseAnalytics from "metabase/lib/analytics";
 
 export default class RemoveFromDashboardModal extends Component {
   static propTypes = {

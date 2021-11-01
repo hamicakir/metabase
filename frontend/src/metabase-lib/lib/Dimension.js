@@ -1,7 +1,17 @@
 import { t, ngettext, msgid } from "ttag";
 import _ from "underscore";
 
+import type { IconName } from "metabase-types/types";
+import type {
+  ConcreteField,
+  LocalFieldReference,
+  ExpressionReference,
+  DatetimeUnit,
+} from "metabase-types/types/Query";
+
+import { infer, MONOTYPE } from "metabase/lib/expressions/typeinferencer";
 import { stripId, FK_SYMBOL } from "metabase/lib/formatting";
+import { DATETIME_UNITS, formatBucketing } from "metabase/lib/query_time";
 import { TYPE } from "metabase/lib/types";
 
 import Field from "./metadata/Field";
@@ -11,21 +21,8 @@ import type {
   Metadata,
   Query,
 } from "./metadata/Metadata";
-
-import type {
-  ConcreteField,
-  LocalFieldReference,
-  ExpressionReference,
-  DatetimeUnit,
-} from "metabase-types/types/Query";
-
-import type { IconName } from "metabase-types/types";
-
-import { DATETIME_UNITS, formatBucketing } from "metabase/lib/query_time";
-import type Aggregation from "./queries/structured/Aggregation";
 import StructuredQuery from "./queries/StructuredQuery";
-
-import { infer, MONOTYPE } from "metabase/lib/expressions/typeinferencer";
+import type Aggregation from "./queries/structured/Aggregation";
 
 /**
  * A dimension option returned by the query_metadata API
@@ -877,12 +874,7 @@ export class FieldDimension extends Dimension {
 
     if (this.fk()) {
       const fkDisplayName =
-        this.fk() &&
-        stripId(
-          this.fk()
-            .field()
-            .displayName(),
-        );
+        this.fk() && stripId(this.fk().field().displayName());
       displayName = `${fkDisplayName} ${FK_SYMBOL} ${displayName}`;
     } else if (this.joinAlias()) {
       displayName = `${this.joinAlias()} ${FK_SYMBOL} ${displayName}`;

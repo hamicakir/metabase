@@ -1,15 +1,15 @@
 /*
  * Shared component for Scalar and SmartScalar to make sure our number presentation stays in sync
  */
+
 /* eslint-disable react/prop-types */
-import React from "react";
 import cx from "classnames";
+import { Flex } from "grid-styled";
+import React from "react";
 
 import Ellipsified from "metabase/components/Ellipsified";
 import Icon from "metabase/components/Icon";
 import Tooltip from "metabase/components/Tooltip";
-
-import { Flex } from "grid-styled";
 
 export const ScalarWrapper = ({ children }) => (
   <Flex

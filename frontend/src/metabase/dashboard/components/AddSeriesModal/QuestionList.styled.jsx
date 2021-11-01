@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { color } from "metabase/lib/colors";
+
 import TextInput from "metabase/components/TextInput";
+import { color } from "metabase/lib/colors";
 
 export const QuestionListContainer = styled.div`
   padding-right: 0.5rem;

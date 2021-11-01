@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { t } from "ttag";
 import cx from "classnames";
+import PropTypes from "prop-types";
+import React from "react";
+import { t } from "ttag";
 
 import Button from "metabase/components/Button";
 
-import FilterOptions from "./FilterOptions";
 import { getOperator } from "../filters/pickers/DatePicker";
+import FilterOptions from "./FilterOptions";
 
 export default function FilterPopoverFooter({
   filter,

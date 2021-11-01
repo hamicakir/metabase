@@ -1,15 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-
-import AccordionList from "metabase/components/AccordionList";
-import Icon from "metabase/components/Icon";
-
 import _ from "underscore";
 
 import type {
   ParameterMappingUIOption,
   ParameterTarget,
 } from "metabase-types/types/Parameter";
+
+import AccordionList from "metabase/components/AccordionList";
+import Icon from "metabase/components/Icon";
 
 type Props = {
   target: ?ParameterTarget,

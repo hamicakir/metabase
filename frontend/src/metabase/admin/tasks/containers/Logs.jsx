@@ -1,20 +1,16 @@
+import moment from "moment";
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
-
-import { UtilApi } from "metabase/services";
-
-import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
-
 import reactAnsiStyle from "react-ansi-style";
 import "react-ansi-style/inject-css";
-
-import _ from "underscore";
-import moment from "moment";
+import ReactDOM from "react-dom";
 import { t } from "ttag";
+import _ from "underscore";
 
+import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
 import Select, { Option } from "metabase/components/Select";
-import { addCSSRule } from "metabase/lib/dom";
 import { color } from "metabase/lib/colors";
+import { addCSSRule } from "metabase/lib/dom";
+import { UtilApi } from "metabase/services";
 
 const ANSI_COLORS = {
   black: color("text-dark"),

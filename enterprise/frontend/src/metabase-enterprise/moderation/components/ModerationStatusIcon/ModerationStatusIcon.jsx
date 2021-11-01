@@ -1,10 +1,10 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
-import { color } from "metabase/lib/colors";
 import { getStatusIcon } from "metabase-enterprise/moderation/service";
 
 import Icon from "metabase/components/Icon";
+import { color } from "metabase/lib/colors";
 
 ModerationStatusIcon.propTypes = {
   status: PropTypes.string,

@@ -1,14 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { withRouter } from "react-router";
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
+import { t } from "ttag";
 import _ from "underscore";
 
-import * as Urls from "metabase/lib/urls";
-import { t } from "ttag";
-
-import Dashboard from "metabase/entities/dashboards";
 import CollapseSection from "metabase/components/CollapseSection";
+import Dashboard from "metabase/entities/dashboards";
+import * as Urls from "metabase/lib/urls";
 
 import { setDashboardAttributes } from "../actions";
 import { getDashboardComplete } from "../selectors";
@@ -22,10 +21,7 @@ const mapDispatchToProps = { setDashboardAttributes };
 const COLLAPSED_FIELDS = ["cache_ttl"];
 
 @withRouter
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 class DashboardDetailsModal extends React.Component {
   render() {
     const {

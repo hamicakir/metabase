@@ -1,15 +1,14 @@
 import React, { Component } from "react";
+import { t } from "ttag";
 
+import Confirm from "metabase/components/Confirm";
+import ExternalLink from "metabase/components/ExternalLink";
 import Icon from "metabase/components/Icon";
 import Link from "metabase/components/Link";
-import ExternalLink from "metabase/components/ExternalLink";
-import Confirm from "metabase/components/Confirm";
 import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
-import { t } from "ttag";
-import { CardApi, DashboardApi } from "metabase/services";
-import * as Urls from "metabase/lib/urls";
-
 import * as MetabaseAnalytics from "metabase/lib/analytics";
+import * as Urls from "metabase/lib/urls";
+import { CardApi, DashboardApi } from "metabase/services";
 
 type PublicLink = {
   id: string,

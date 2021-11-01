@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { t } from "ttag";
 
 import Button from "metabase/components/Button";
-
-import cx from "classnames";
 
 export default class RunButton extends Component {
   static propTypes = {

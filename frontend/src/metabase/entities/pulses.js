@@ -1,13 +1,14 @@
 import { t } from "ttag";
-import { createEntity, undo } from "metabase/lib/entities";
-import * as Urls from "metabase/lib/urls";
-import { color } from "metabase/lib/colors";
-import { PulseApi } from "metabase/services";
-import { addUndo } from "metabase/redux/undo";
+
 import {
   canonicalCollectionId,
   getCollectionType,
 } from "metabase/entities/collections";
+import { color } from "metabase/lib/colors";
+import { createEntity, undo } from "metabase/lib/entities";
+import * as Urls from "metabase/lib/urls";
+import { addUndo } from "metabase/redux/undo";
+import { PulseApi } from "metabase/services";
 
 export const UNSUBSCRIBE = "metabase/entities/pulses/unsubscribe";
 
@@ -56,12 +57,14 @@ const Pulses = createEntity({
       );
     },
 
-    unsubscribe: ({ id }) => async dispatch => {
-      await PulseApi.unsubscribe({ id });
-      dispatch(addUndo({ message: t`Successfully unsubscribed` }));
-      dispatch({ type: UNSUBSCRIBE, payload: { id } });
-      dispatch({ type: Pulses.actionTypes.INVALIDATE_LISTS_ACTION });
-    },
+    unsubscribe:
+      ({ id }) =>
+      async dispatch => {
+        await PulseApi.unsubscribe({ id });
+        dispatch(addUndo({ message: t`Successfully unsubscribed` }));
+        dispatch({ type: UNSUBSCRIBE, payload: { id } });
+        dispatch({ type: Pulses.actionTypes.INVALIDATE_LISTS_ACTION });
+      },
   },
 
   objectSelectors: {

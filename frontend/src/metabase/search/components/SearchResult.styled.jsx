@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
-import { color, lighten } from "metabase/lib/colors";
-
 import Link from "metabase/components/Link";
 import Text from "metabase/components/type/Text";
+import { color, lighten } from "metabase/lib/colors";
 import { space } from "metabase/styled-components/theme";
 
 function getColorForIconWrapper(props) {

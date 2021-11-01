@@ -1,15 +1,15 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
-
-import GuiQueryEditor from "metabase/query_builder/components/GuiQueryEditor";
-import Question from "metabase-lib/lib/Question";
 import {
   SAMPLE_DATASET,
   ORDERS,
   metadata,
 } from "__support__/sample_dataset_fixture";
+import React from "react";
 
+import Question from "metabase-lib/lib/Question";
 import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
+
+import GuiQueryEditor from "metabase/query_builder/components/GuiQueryEditor";
 
 const getGuiQueryEditor = query => (
   <GuiQueryEditor

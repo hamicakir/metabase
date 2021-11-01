@@ -1,18 +1,17 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
-
-import { getScrollX, getScrollY } from "metabase/lib/dom";
-
-import { CSSTransitionGroup } from "react-transition-group";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { Motion, spring } from "react-motion";
+import { CSSTransitionGroup } from "react-transition-group";
+import _ from "underscore";
 
 import SandboxedPortal from "metabase/components/SandboxedPortal";
-import OnClickOutsideWrapper from "./OnClickOutsideWrapper";
-import ModalContent from "./ModalContent";
+import routeless from "metabase/hoc/Routeless";
+import { getScrollX, getScrollY } from "metabase/lib/dom";
 
-import _ from "underscore";
+import ModalContent from "./ModalContent";
+import OnClickOutsideWrapper from "./OnClickOutsideWrapper";
 
 function getModalContent(props) {
   if (
@@ -108,8 +107,6 @@ export class WindowModal extends Component {
     );
   }
 }
-
-import routeless from "metabase/hoc/Routeless";
 
 export class FullPageModal extends Component {
   constructor(props) {

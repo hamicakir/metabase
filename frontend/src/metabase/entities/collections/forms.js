@@ -1,14 +1,13 @@
 import { createSelector } from "reselect";
 import { t } from "ttag";
 
-import { PLUGIN_COLLECTIONS } from "metabase/plugins";
-import { color } from "metabase/lib/colors";
-import { getUser } from "metabase/selectors/user";
-
 import {
   isPersonalCollection,
   isPersonalCollectionChild,
 } from "metabase/collections/utils";
+import { color } from "metabase/lib/colors";
+import { PLUGIN_COLLECTIONS } from "metabase/plugins";
+import { getUser } from "metabase/selectors/user";
 
 function createForm({ extraFields = [] } = {}) {
   return {

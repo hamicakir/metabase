@@ -1,12 +1,11 @@
+import { t } from "ttag";
 import _ from "underscore";
 
-import { t } from "ttag";
-import MetabaseSettings from "metabase/lib/settings";
-import { PLUGIN_ADMIN_USER_FORM_FIELDS } from "metabase/plugins";
-import validate from "metabase/lib/validate";
 import FormGroupsWidget from "metabase/components/form/widgets/FormGroupsWidget";
-
 import type { FormFieldDefinition } from "metabase/containers/Form";
+import MetabaseSettings from "metabase/lib/settings";
+import validate from "metabase/lib/validate";
+import { PLUGIN_ADMIN_USER_FORM_FIELDS } from "metabase/plugins";
 
 const DETAILS_FORM_FIELDS: () => FormFieldDefinition[] = () => [
   {

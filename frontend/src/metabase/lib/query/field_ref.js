@@ -1,11 +1,13 @@
 import _ from "underscore";
 
-import Field from "metabase-lib/lib/metadata/Field";
 import { FieldDimension } from "metabase-lib/lib/Dimension";
-import * as Table from "./table";
+import Field from "metabase-lib/lib/metadata/Field";
+
+import type { FieldId, FieldReference } from "metabase-types/types/Query";
 
 import { TYPE } from "metabase/lib/types";
-import type { FieldId, FieldReference } from "metabase-types/types/Query";
+
+import * as Table from "./table";
 
 export function isLocalField(field: FieldReference): boolean {
   return Array.isArray(field) && field[0] === "field";

@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
-import { color } from "metabase/lib/colors";
 import {
   MODERATION_STATUS,
   getStatusIcon,
 } from "metabase-enterprise/moderation/service";
 
+import Button from "metabase/components/Button";
+import { color } from "metabase/lib/colors";
+
 const { name: verifiedIconName, color: verifiedIconColor } = getStatusIcon(
   MODERATION_STATUS.verified,
 );
-
-import Button from "metabase/components/Button";
 
 export const Container = styled.div`
   display: flex;

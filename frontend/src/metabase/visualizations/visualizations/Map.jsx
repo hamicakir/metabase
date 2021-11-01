@@ -1,13 +1,10 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from "react";
 import { t } from "ttag";
-import ChoroplethMap, {
-  getColorplethColorScale,
-} from "../components/ChoroplethMap";
-import PinMap from "../components/PinMap";
-import LeafletGridHeatMap from "../components/LeafletGridHeatMap";
+import _ from "underscore";
 
-import { ChartSettingsError } from "metabase/visualizations/lib/errors";
+import ColorRangePicker from "metabase/components/ColorRangePicker";
+import { desaturated } from "metabase/lib/colors";
 import {
   isNumeric,
   isLatitude,
@@ -17,23 +14,23 @@ import {
   isState,
   isCountry,
 } from "metabase/lib/schema_metadata";
-import { isSameSeries } from "metabase/visualizations/lib/utils";
+import MetabaseSettings from "metabase/lib/settings";
+import { ChartSettingsError } from "metabase/visualizations/lib/errors";
+import { columnSettings } from "metabase/visualizations/lib/settings/column";
 import {
   metricSetting,
   dimensionSetting,
   fieldSetting,
 } from "metabase/visualizations/lib/settings/utils";
-import { columnSettings } from "metabase/visualizations/lib/settings/column";
+import { isSameSeries } from "metabase/visualizations/lib/utils";
 
-import MetabaseSettings from "metabase/lib/settings";
-
-import _ from "underscore";
+import ChoroplethMap, {
+  getColorplethColorScale,
+} from "../components/ChoroplethMap";
+import LeafletGridHeatMap from "../components/LeafletGridHeatMap";
+import PinMap from "../components/PinMap";
 
 const PIN_MAP_TYPES = new Set(["pin", "heat", "grid"]);
-
-import { desaturated } from "metabase/lib/colors";
-
-import ColorRangePicker from "metabase/components/ColorRangePicker";
 
 export default class Map extends Component {
   static uiName = t`Map`;

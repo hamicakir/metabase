@@ -1,22 +1,20 @@
 /* eslint-disable react/prop-types */
+import PropTypes from "prop-types";
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import PropTypes from "prop-types";
 import { t } from "ttag";
-
-import Icon from "metabase/components/Icon";
-import Tooltip from "metabase/components/Tooltip";
-import AccordionList from "metabase/components/AccordionList";
-
-import FieldList from "./FieldList";
-import QueryDefinitionTooltip from "./QueryDefinitionTooltip";
-import ExpressionPopover from "./ExpressionPopover";
-
-import * as AGGREGATION from "metabase/lib/query/aggregation";
+import _ from "underscore";
 
 import Aggregation from "metabase-lib/lib/queries/structured/Aggregation";
 
-import _ from "underscore";
+import AccordionList from "metabase/components/AccordionList";
+import Icon from "metabase/components/Icon";
+import Tooltip from "metabase/components/Tooltip";
+import * as AGGREGATION from "metabase/lib/query/aggregation";
+
+import ExpressionPopover from "./ExpressionPopover";
+import FieldList from "./FieldList";
+import QueryDefinitionTooltip from "./QueryDefinitionTooltip";
 
 const COMMON_SECTION_NAME = t`Common Metrics`;
 const BASIC_SECTION_NAME = t`Basic Metrics`;
@@ -181,13 +179,8 @@ export default class AggregationPopover extends Component {
   }
 
   render() {
-    let {
-      query,
-      dimension,
-      showCustom,
-      showMetrics,
-      alwaysExpanded,
-    } = this.props;
+    let { query, dimension, showCustom, showMetrics, alwaysExpanded } =
+      this.props;
 
     const table = query.table();
     const aggregationOperators = this._getAvailableAggregations();

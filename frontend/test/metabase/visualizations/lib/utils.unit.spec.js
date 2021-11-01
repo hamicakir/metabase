@@ -1,3 +1,5 @@
+import _ from "underscore";
+
 import {
   cardHasBecomeDirty,
   computeMaxDecimalsForValues,
@@ -6,8 +8,6 @@ import {
   getFriendlyName,
   getDefaultDimensionsAndMetrics,
 } from "metabase/visualizations/lib/utils";
-
-import _ from "underscore";
 
 // TODO Atte Keinänen 5/31/17 Rewrite tests using metabase-lib methods instead of a raw format
 
@@ -198,7 +198,11 @@ describe("metabase/visualization/lib/utils", () => {
   describe("computeMaxDecimalsForValues", () => {
     it("should correctly compute max decimals for normal numbers", () => {
       const options = { maximumSignificantDigits: 2 };
-      const testCases = [[[123, 321], 0], [[1.2, 321], 1], [[1, 0.123], 2]];
+      const testCases = [
+        [[123, 321], 0],
+        [[1.2, 321], 1],
+        [[1, 0.123], 2],
+      ];
       testCases.forEach(([values, decimals]) =>
         expect(computeMaxDecimalsForValues(values, options)).toBe(decimals),
       );

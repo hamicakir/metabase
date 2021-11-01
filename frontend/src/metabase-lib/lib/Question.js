@@ -1,43 +1,56 @@
-import _ from "underscore";
 import { assoc, assocIn, chain, dissoc, getIn } from "icepick";
+import _ from "underscore";
 
-// NOTE: the order of these matters due to circular dependency issues
-import StructuredQuery, {
-  STRUCTURED_QUERY_TEMPLATE,
-} from "metabase-lib/lib/queries/StructuredQuery";
-import NativeQuery, {
-  NATIVE_QUERY_TEMPLATE,
-} from "metabase-lib/lib/queries/NativeQuery";
-import AtomicQuery from "metabase-lib/lib/queries/AtomicQuery";
-import InternalQuery from "./queries/InternalQuery";
-
-import Query from "metabase-lib/lib/queries/Query";
-
-import Metadata from "metabase-lib/lib/metadata/Metadata";
-import Database from "metabase-lib/lib/metadata/Database";
-import Table from "metabase-lib/lib/metadata/Table";
-import Field from "metabase-lib/lib/metadata/Field";
-
+import {
+  ALERT_TYPE_PROGRESS_BAR_GOAL,
+  ALERT_TYPE_ROWS,
+  ALERT_TYPE_TIMESERIES_GOAL,
+} from "metabase-lib/lib/Alert";
 import {
   AggregationDimension,
   FieldDimension,
 } from "metabase-lib/lib/Dimension";
 import Mode from "metabase-lib/lib/Mode";
-import { isStandard } from "metabase/lib/query/filter";
-
+import Database from "metabase-lib/lib/metadata/Database";
+import Field from "metabase-lib/lib/metadata/Field";
+import Metadata from "metabase-lib/lib/metadata/Metadata";
+import Table from "metabase-lib/lib/metadata/Table";
+import AtomicQuery from "metabase-lib/lib/queries/AtomicQuery";
+import NativeQuery, {
+  NATIVE_QUERY_TEMPLATE,
+} from "metabase-lib/lib/queries/NativeQuery";
+import Query from "metabase-lib/lib/queries/Query";
+// NOTE: the order of these matters due to circular dependency issues
+import StructuredQuery, {
+  STRUCTURED_QUERY_TEMPLATE,
+} from "metabase-lib/lib/queries/StructuredQuery";
 import { memoize, sortObject } from "metabase-lib/lib/utils";
 
-// TODO: remove these dependencies
-import * as Urls from "metabase/lib/urls";
+import type {
+  Card as CardObject,
+  DatasetQuery,
+  VisualizationSettings,
+} from "metabase-types/types/Card";
+import type { DatabaseId } from "metabase-types/types/Database";
+import type { Dataset, Value } from "metabase-types/types/Dataset";
+import type {
+  Parameter as ParameterObject,
+  ParameterValues,
+} from "metabase-types/types/Parameter";
+import type { TableId } from "metabase-types/types/Table";
+import type { ClickObject } from "metabase-types/types/Visualization";
+
+import Questions from "metabase/entities/questions";
 import {
   findColumnIndexForColumnSetting,
   findColumnSettingIndexForColumn,
   syncTableColumnsToQuery,
 } from "metabase/lib/dataset";
+import { utf8_to_b64url } from "metabase/lib/encoding";
+import { isStandard } from "metabase/lib/query/filter";
+// TODO: remove these dependencies
+import * as Urls from "metabase/lib/urls";
 import { isTransientId } from "metabase/meta/Card";
-import { getValueAndFieldIdPopulatedParametersFromCard } from "metabase/parameters/utils/cards";
-import { parameterToMBQLFilter } from "metabase/parameters/utils/mbql";
-import { normalizeParameterValue } from "metabase/parameters/utils/parameter-values";
 import {
   aggregate,
   breakout,
@@ -47,29 +60,12 @@ import {
   pivot,
   toUnderlyingRecords,
 } from "metabase/modes/lib/actions";
+import { getValueAndFieldIdPopulatedParametersFromCard } from "metabase/parameters/utils/cards";
+import { parameterToMBQLFilter } from "metabase/parameters/utils/mbql";
+import { normalizeParameterValue } from "metabase/parameters/utils/parameter-values";
 import { CardApi, maybeUsePivotEndpoint, MetabaseApi } from "metabase/services";
-import Questions from "metabase/entities/questions";
 
-import type {
-  Parameter as ParameterObject,
-  ParameterValues,
-} from "metabase-types/types/Parameter";
-import type {
-  Card as CardObject,
-  DatasetQuery,
-  VisualizationSettings,
-} from "metabase-types/types/Card";
-import type { Dataset, Value } from "metabase-types/types/Dataset";
-import type { TableId } from "metabase-types/types/Table";
-import type { DatabaseId } from "metabase-types/types/Database";
-import type { ClickObject } from "metabase-types/types/Visualization";
-
-import {
-  ALERT_TYPE_PROGRESS_BAR_GOAL,
-  ALERT_TYPE_ROWS,
-  ALERT_TYPE_TIMESERIES_GOAL,
-} from "metabase-lib/lib/Alert";
-import { utf8_to_b64url } from "metabase/lib/encoding";
+import InternalQuery from "./queries/InternalQuery";
 
 type QuestionUpdateFn = (q: Question) => ?Promise<void>;
 
@@ -417,9 +413,7 @@ export default class Question {
   }
 
   setDefaultQuery() {
-    return this.query()
-      .setDefaultQuery()
-      .question();
+    return this.query().setDefaultQuery().question();
   }
 
   settings(): VisualizationSettings {

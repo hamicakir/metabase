@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
 import React, { Component } from "react";
+
+import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
+import type FilterWrapper from "metabase-lib/lib/queries/structured/Filter";
 
 import Icon from "metabase/components/Icon";
 import Popover from "metabase/components/Popover";
-import FilterPopover from "./FilterPopover";
 import Filter from "metabase/query_builder/components/Filter";
-
-import cx from "classnames";
-
-import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
 import type { FilterRenderer } from "metabase/query_builder/components/Filter";
-import type FilterWrapper from "metabase-lib/lib/queries/structured/Filter";
+
+import FilterPopover from "./FilterPopover";
 
 type Props = {
   query: StructuredQuery,

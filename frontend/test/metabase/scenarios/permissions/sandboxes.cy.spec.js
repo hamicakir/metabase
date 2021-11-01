@@ -11,7 +11,6 @@ import {
   visualize,
 } from "__support__/e2e/cypress";
 import { USER_GROUPS } from "__support__/e2e/cypress_data";
-
 import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
 
 const {
@@ -36,9 +35,7 @@ describeWithToken("formatting > sandboxes", () => {
     });
 
     it("should add key attributes to an existing user", () => {
-      cy.icon("ellipsis")
-        .last()
-        .click();
+      cy.icon("ellipsis").last().click();
       cy.findByText("Edit user").click();
       cy.findByText("Add an attribute").click();
       cy.findByPlaceholderText("Key").type("User ID");
@@ -212,13 +209,9 @@ describeWithToken("formatting > sandboxes", () => {
           .contains(/Orders?/)
           .click();
 
-        cy.get(".List-section-header")
-          .contains("User")
-          .click();
+        cy.get(".List-section-header").contains("User").click();
 
-        cy.get(".List-item")
-          .contains("ID")
-          .click();
+        cy.get(".List-item").contains("ID").click();
       });
 
       visualize();
@@ -339,9 +332,7 @@ describeWithToken("formatting > sandboxes", () => {
         // Drill-through
         cy.get(".Visualization").within(() => {
           // Click on the first bar in a graph (Category: "Doohickey")
-          cy.get(".bar")
-            .eq(0)
-            .click({ force: true });
+          cy.get(".bar").eq(0).click({ force: true });
         });
         cy.findByText("View these Orders").click();
 
@@ -415,9 +406,7 @@ describeWithToken("formatting > sandboxes", () => {
       // Drill-through
       cy.get(".Visualization").within(() => {
         // Click on the first bar in a graph (Category: "Doohickey")
-        cy.get(".bar")
-          .eq(0)
-          .click({ force: true });
+        cy.get(".bar").eq(0).click({ force: true });
       });
       cy.findByText("View these Orders").click();
 
@@ -488,9 +477,7 @@ describeWithToken("formatting > sandboxes", () => {
           expect(xhr.response.body.error).not.to.exist;
         });
 
-        cy.get(".cellData")
-          .contains("Awesome Concrete Shoes")
-          .click();
+        cy.get(".cellData").contains("Awesome Concrete Shoes").click();
         cy.findByText(/View details/i).click();
 
         cy.log(
@@ -589,9 +576,7 @@ describeWithToken("formatting > sandboxes", () => {
           cy.log(
             "It should show remapped Display Values instead of Product ID",
           );
-          cy.get(".cellData")
-            .contains("Awesome Concrete Shoes")
-            .click();
+          cy.get(".cellData").contains("Awesome Concrete Shoes").click();
           cy.findByText(/View details/i).click();
 
           cy.log(
@@ -716,9 +701,7 @@ describeWithToken("formatting > sandboxes", () => {
         // Drill-through
         cy.get(".Visualization").within(() => {
           // Click on the second bar in a graph (Category: "Widget")
-          cy.get(".bar")
-            .eq(1)
-            .click({ force: true });
+          cy.get(".bar").eq(1).click({ force: true });
         });
         cy.findByText("View these Orders").click();
 
@@ -817,16 +800,11 @@ describeWithToken("formatting > sandboxes", () => {
         .should("be.visible")
         .within(() => {
           // Remove the "Subtotal" column from within sidebar
-          cy.findByText("Subtotal")
-            .parent()
-            .find(".Icon-close")
-            .click();
+          cy.findByText("Subtotal").parent().find(".Icon-close").click();
         });
       cy.button("Done").click();
       // Rerun the query
-      cy.icon("play")
-        .last()
-        .click();
+      cy.icon("play").last().click();
 
       cy.wait("@dataset").then(xhr => {
         expect(xhr.response.body.error).not.to.exist;

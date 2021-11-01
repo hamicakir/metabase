@@ -1,8 +1,9 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { t } from "ttag";
 
 import FieldSet from "metabase/components/FieldSet";
+
 import QueryDefinition from "./QueryDefinition";
 
 export default class QueryDefinitionTooltip extends React.Component {

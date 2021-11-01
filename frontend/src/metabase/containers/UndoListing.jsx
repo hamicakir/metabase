@@ -1,21 +1,20 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
+import { Flex } from "grid-styled";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { space } from "styled-system";
-import { Flex } from "grid-styled";
 import { t } from "ttag";
-import { capitalize, inflect } from "metabase/lib/formatting";
-
-import { color } from "metabase/lib/colors";
-import { dismissUndo, performUndo } from "metabase/redux/undo";
-import { getUndos } from "metabase/selectors/undo";
 
 import BodyComponent from "metabase/components/BodyComponent";
 import Card from "metabase/components/Card";
 import Icon from "metabase/components/Icon";
 import Link from "metabase/components/Link";
+import { color } from "metabase/lib/colors";
+import { capitalize, inflect } from "metabase/lib/formatting";
+import { dismissUndo, performUndo } from "metabase/redux/undo";
+import { getUndos } from "metabase/selectors/undo";
 
 const mapStateToProps = (state, props) => ({
   undos: getUndos(state, props),
@@ -43,10 +42,7 @@ DefaultMessage.propTypes = {
   undo: PropTypes.object.isRequired,
 };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 @BodyComponent
 export default class UndoListing extends Component {
   static propTypes = {

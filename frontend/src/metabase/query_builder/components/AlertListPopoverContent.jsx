@@ -1,24 +1,24 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { t, jt } from "ttag";
 import _ from "underscore";
-import cx from "classnames";
 
-import { getQuestionAlerts } from "metabase/query_builder/selectors";
-import { getUser } from "metabase/selectors/user";
 import { deleteAlert, unsubscribeFromAlert } from "metabase/alert/alert";
+import Icon from "metabase/components/Icon";
+import Modal from "metabase/components/Modal";
 import {
   AM_PM_OPTIONS,
   DAY_OF_WEEK_OPTIONS,
   HOUR_OPTIONS,
 } from "metabase/components/SchedulePicker";
-import Icon from "metabase/components/Icon";
-import Modal from "metabase/components/Modal";
 import {
   CreateAlertModalContent,
   UpdateAlertModalContent,
 } from "metabase/query_builder/components/AlertModals";
+import { getQuestionAlerts } from "metabase/query_builder/selectors";
+import { getUser } from "metabase/selectors/user";
 
 @connect(
   state => ({ questionAlerts: getQuestionAlerts(state), user: getUser(state) }),
@@ -116,13 +116,10 @@ export default class AlertListPopoverContent extends Component {
   }
 }
 
-@connect(
-  state => ({ user: getUser(state) }),
-  {
-    unsubscribeFromAlert,
-    deleteAlert,
-  },
-)
+@connect(state => ({ user: getUser(state) }), {
+  unsubscribeFromAlert,
+  deleteAlert,
+})
 export class AlertListItem extends Component {
   props: {
     alert: any,
@@ -277,8 +274,10 @@ export class AlertScheduleText extends Component {
       return verbose ? "hourly" : "Hourly";
     } else if (scheduleType === "daily") {
       const hourOfDay = schedule.schedule_hour;
-      const hour = _.find(HOUR_OPTIONS, opt => opt.value === hourOfDay % 12)
-        .name;
+      const hour = _.find(
+        HOUR_OPTIONS,
+        opt => opt.value === hourOfDay % 12,
+      ).name;
       const amPm = _.find(
         AM_PM_OPTIONS,
         opt => opt.value === (hourOfDay >= 12 ? 1 : 0),
@@ -291,8 +290,10 @@ export class AlertScheduleText extends Component {
         DAY_OF_WEEK_OPTIONS,
         o => o.value === schedule.schedule_day,
       ).name;
-      const hour = _.find(HOUR_OPTIONS, opt => opt.value === hourOfDay % 12)
-        .name;
+      const hour = _.find(
+        HOUR_OPTIONS,
+        opt => opt.value === hourOfDay % 12,
+      ).name;
       const amPm = _.find(
         AM_PM_OPTIONS,
         opt => opt.value === (hourOfDay >= 12 ? 1 : 0),

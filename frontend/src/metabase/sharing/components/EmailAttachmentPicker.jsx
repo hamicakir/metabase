@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
-import _ from "underscore";
+import React, { Component } from "react";
 import { t } from "ttag";
+import _ from "underscore";
 
-import { SegmentedControl } from "metabase/components/SegmentedControl";
 import CheckBox from "metabase/components/CheckBox";
-import Label from "metabase/components/type/Label";
+import { SegmentedControl } from "metabase/components/SegmentedControl";
 import StackedCheckBox from "metabase/components/StackedCheckBox";
 import Toggle from "metabase/components/Toggle";
+import Label from "metabase/components/type/Label";
 
 export default class EmailAttachmentPicker extends Component {
   DEFAULT_ATTACHMENT_TYPE = "csv";

@@ -1,5 +1,4 @@
 import { restore, popover } from "__support__/e2e/cypress";
-
 import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
 
 const { ORDERS, PEOPLE } = SAMPLE_DATASET;
@@ -178,18 +177,14 @@ function sharedParametersTests(visitUrl) {
   it("should allow searching PEOPLE.ID by PEOPLE.NAME", () => {
     visitUrl();
     cy.contains("Id").click();
-    popover()
-      .find('[placeholder="Search by Name or enter an ID"]')
-      .type("Aly");
+    popover().find('[placeholder="Search by Name or enter an ID"]').type("Aly");
     popover().contains("Alycia McCullough - 2016");
   });
 
   it("should allow searching PEOPLE.NAME by PEOPLE.NAME", () => {
     visitUrl();
     cy.contains("Name").click();
-    popover()
-      .find('[placeholder="Search by Name"]')
-      .type("Aly");
+    popover().find('[placeholder="Search by Name"]').type("Aly");
     popover().contains("Alycia McCullough");
   });
 
@@ -203,9 +198,7 @@ function sharedParametersTests(visitUrl) {
   it("should allow searching ORDER.USER_ID by PEOPLE.NAME", () => {
     visitUrl();
     cy.contains("User").click();
-    popover()
-      .find('[placeholder="Search by Name or enter an ID"]')
-      .type("Aly");
+    popover().find('[placeholder="Search by Name or enter an ID"]').type("Aly");
     popover().contains("Alycia McCullough - 2016");
   });
 

@@ -1,6 +1,6 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { t } from "ttag";
 
 export default class WhatsAPulse extends Component {

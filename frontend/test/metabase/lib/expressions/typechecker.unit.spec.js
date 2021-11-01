@@ -1,7 +1,7 @@
-import { parse } from "metabase/lib/expressions/parser";
-import { ExpressionVisitor } from "metabase/lib/expressions/visitor";
 import { parseIdentifierString } from "metabase/lib/expressions/index";
+import { parse } from "metabase/lib/expressions/parser";
 import { compactSyntaxTree } from "metabase/lib/expressions/typechecker";
+import { ExpressionVisitor } from "metabase/lib/expressions/visitor";
 
 // Since the type checking is inserted as the last stage in the expression parser,
 // the whole tests must continue to pass (i.e. none of them should thrown

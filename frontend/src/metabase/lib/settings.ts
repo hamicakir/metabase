@@ -1,8 +1,9 @@
-import _ from "underscore";
+import moment from "moment";
 import { t, ngettext, msgid } from "ttag";
+import _ from "underscore";
+
 import { parseTimestamp } from "metabase/lib/time";
 import MetabaseUtils from "metabase/lib/utils";
-import moment from "moment";
 
 const n2w = (n: number) => MetabaseUtils.numberToWord(n);
 

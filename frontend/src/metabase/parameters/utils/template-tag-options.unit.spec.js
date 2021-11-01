@@ -1,5 +1,7 @@
 import _ from "underscore";
+
 import MetabaseSettings from "metabase/lib/settings";
+
 import { PARAMETER_OPERATOR_TYPES } from "../constants";
 import {
   getParameterOptions,

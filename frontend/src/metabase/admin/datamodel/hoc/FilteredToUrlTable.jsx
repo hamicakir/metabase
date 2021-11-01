@@ -1,20 +1,17 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
 import React from "react";
 import { connect } from "react-redux";
 import { push } from "react-router-redux";
-import cx from "classnames";
 import { t } from "ttag";
 
-import Tables from "metabase/entities/tables";
-import Icon from "metabase/components/Icon";
 import FieldSet from "metabase/components/FieldSet";
+import Icon from "metabase/components/Icon";
+import Tables from "metabase/entities/tables";
 import { DatabaseSchemaAndTableDataSelector } from "metabase/query_builder/components/DataSelector";
 
 const FilteredToUrlTable = propName => ComposedComponent =>
-  connect(
-    null,
-    { push },
-  )(
+  connect(null, { push })(
     class FilteredToUrlTable extends React.Component {
       constructor(props) {
         super(props);

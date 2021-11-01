@@ -1,12 +1,10 @@
-import _ from "underscore";
-import { t } from "ttag";
-
 import * as React from "react";
+import { t } from "ttag";
+import _ from "underscore";
 
-import { getComputedSettings, getSettingsWidgets } from "../settings";
+import type { Series } from "metabase-types/types/Visualization";
 
 import chartSettingNestedSettings from "metabase/visualizations/components/settings/ChartSettingNestedSettings";
-
 import type {
   SettingId,
   SettingDef,
@@ -16,7 +14,7 @@ import type {
   ExtraProps,
 } from "metabase/visualizations/lib/settings";
 
-import type { Series } from "metabase-types/types/Visualization";
+import { getComputedSettings, getSettingsWidgets } from "../settings";
 
 export type NestedObject = any;
 export type NestedObjectKey = string;
@@ -29,9 +27,9 @@ type NestedSettingDef = SettingDef & {
     series: Series,
     object: NestedObject,
   ) => SettingDefs,
-  getInheritedSettingsForObject?: (
-    object: NestedObject,
-  ) => { [key: string]: any },
+  getInheritedSettingsForObject?: (object: NestedObject) => {
+    [key: string]: any,
+  },
   component: React.ComponentClass,
   id?: SettingId,
 };

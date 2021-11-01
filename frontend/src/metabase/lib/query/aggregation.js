@@ -1,9 +1,6 @@
-import { noNullValues, add, update, remove, clear } from "./util";
-import * as FieldRef from "./field_ref";
-import { STANDARD_AGGREGATIONS } from "metabase/lib/expressions";
-
 import _ from "underscore";
 
+import type { MetricId } from "metabase-types/types/Metric";
 import type {
   AggregationClause,
   Aggregation,
@@ -11,7 +8,11 @@ import type {
   AggregationOptions,
   ConcreteField,
 } from "metabase-types/types/Query";
-import type { MetricId } from "metabase-types/types/Metric";
+
+import { STANDARD_AGGREGATIONS } from "metabase/lib/expressions";
+
+import * as FieldRef from "./field_ref";
+import { noNullValues, add, update, remove, clear } from "./util";
 
 // returns canonical list of Aggregations, i.e. with deprecated "rows" removed
 export function getAggregations(

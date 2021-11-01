@@ -1,5 +1,6 @@
 import { CstParser } from "chevrotain";
 
+import { isExpressionType, getFunctionArgType } from ".";
 import {
   lexer,
   allTokens,
@@ -24,8 +25,6 @@ import {
   isTokenType,
   RecoveryToken,
 } from "./lexer";
-
-import { isExpressionType, getFunctionArgType } from ".";
 import { typeCheck } from "./typechecker";
 
 export class ExpressionParser extends CstParser {

@@ -1,15 +1,14 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { findDOMNode } from "react-dom";
 import _ from "underscore";
-import cx from "classnames";
 
-import OnClickOutsideWrapper from "metabase/components/OnClickOutsideWrapper";
 import Icon from "metabase/components/Icon";
+import OnClickOutsideWrapper from "metabase/components/OnClickOutsideWrapper";
 import Popover from "metabase/components/Popover";
-import { TokenFieldAddon, TokenFieldItem } from "./TokenField.styled";
-
+import { isObscured } from "metabase/lib/dom";
 import {
   KEYCODE_ESCAPE,
   KEYCODE_ENTER,
@@ -19,7 +18,8 @@ import {
   KEYCODE_BACKSPACE,
   KEY_COMMA,
 } from "metabase/lib/keyboard";
-import { isObscured } from "metabase/lib/dom";
+
+import { TokenFieldAddon, TokenFieldItem } from "./TokenField.styled";
 
 const defaultStyleValue = {
   fontSize: 14,
@@ -250,11 +250,8 @@ export default class TokenField extends Component {
   };
 
   onInputChange = ({ target: { value } }) => {
-    const {
-      updateOnInputChange,
-      onInputChange,
-      parseFreeformValue,
-    } = this.props;
+    const { updateOnInputChange, onInputChange, parseFreeformValue } =
+      this.props;
 
     if (onInputChange) {
       value = onInputChange(value) || "";

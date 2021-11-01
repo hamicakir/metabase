@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
 import React, { Component } from "react";
-import styles from "./RefreshWidget.css";
+import { t } from "ttag";
 
+import Icon from "metabase/components/Icon";
 import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
 import Tooltip from "metabase/components/Tooltip";
-import Icon from "metabase/components/Icon";
 import ClockIcon from "metabase/components/icons/ClockIcon";
 import CountdownIcon from "metabase/components/icons/CountdownIcon";
-import { t } from "ttag";
-import cx from "classnames";
 
 import { DashboardHeaderButton } from "./DashboardHeader.styled";
+import styles from "./RefreshWidget.css";
 
 const OPTIONS = [
   { name: t`Off`, period: null },

@@ -1,32 +1,30 @@
+import { chain, assoc, getIn, assocIn, updateIn } from "icepick";
+import _ from "underscore";
+
+import type Question from "metabase-lib/lib/Question";
 import Database from "metabase-lib/lib/metadata/Database";
 import Table from "metabase-lib/lib/metadata/Table";
+import AtomicQuery from "metabase-lib/lib/queries/AtomicQuery";
 
-import { countLines } from "metabase/lib/string";
-import { humanize } from "metabase/lib/formatting";
-import Utils from "metabase/lib/utils";
+import type {
+  DatasetQuery,
+  NativeDatasetQuery,
+} from "metabase-types/types/Card";
+import type { DatabaseEngine, DatabaseId } from "metabase-types/types/Database";
+import type { TemplateTags, TemplateTag } from "metabase-types/types/Query";
 
 import {
   getEngineNativeAceMode,
   getEngineNativeType,
   getEngineNativeRequiresTable,
 } from "metabase/lib/engine";
-
-import { chain, assoc, getIn, assocIn, updateIn } from "icepick";
-import _ from "underscore";
-
-import type Question from "metabase-lib/lib/Question";
-import type {
-  DatasetQuery,
-  NativeDatasetQuery,
-} from "metabase-types/types/Card";
-import type { TemplateTags, TemplateTag } from "metabase-types/types/Query";
-import type { DatabaseEngine, DatabaseId } from "metabase-types/types/Database";
-
-import AtomicQuery from "metabase-lib/lib/queries/AtomicQuery";
+import { humanize } from "metabase/lib/formatting";
+import { countLines } from "metabase/lib/string";
+import Utils from "metabase/lib/utils";
 
 import Dimension, { TemplateTagDimension, FieldDimension } from "../Dimension";
-import Variable, { TemplateTagVariable } from "../Variable";
 import DimensionOptions from "../DimensionOptions";
+import Variable, { TemplateTagVariable } from "../Variable";
 
 type DimensionFilter = (dimension: Dimension) => boolean;
 type VariableFilter = (variable: Variable) => boolean;

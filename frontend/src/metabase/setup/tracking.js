@@ -1,4 +1,5 @@
 import { trackSchemaEvent } from "metabase/lib/analytics";
+
 import { STEPS } from "./constants";
 
 export const trackStepSeen = stepNumber => {

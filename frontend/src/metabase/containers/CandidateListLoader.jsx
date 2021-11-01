@@ -1,9 +1,9 @@
 import React from "react";
 import _ from "underscore";
 
-import { MetabaseApi, AutoApi } from "metabase/services";
-
 import type { DatabaseCandidates } from "metabase-types/types/Auto";
+
+import { MetabaseApi, AutoApi } from "metabase/services";
 
 type Props = {
   databaseId: number,

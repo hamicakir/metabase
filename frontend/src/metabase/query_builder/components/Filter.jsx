@@ -1,20 +1,18 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-
-import Value from "metabase/components/Value";
-
-import Dimension from "metabase-lib/lib/Dimension";
-
-import { generateTimeFilterValuesDescriptions } from "metabase/lib/query_time";
-import { hasFilterOptions } from "metabase/lib/query/filter";
-import { getFilterArgumentFormatOptions } from "metabase/lib/schema_metadata";
-
 import { t, ngettext, msgid } from "ttag";
 
-import type { Filter as FilterObject } from "metabase-types/types/Query";
-import type { Value as ValueType } from "metabase-types/types/Dataset";
+import Dimension from "metabase-lib/lib/Dimension";
 import Metadata from "metabase-lib/lib/metadata/Metadata";
 import FilterWrapper from "metabase-lib/lib/queries/structured/Filter";
+
+import type { Value as ValueType } from "metabase-types/types/Dataset";
+import type { Filter as FilterObject } from "metabase-types/types/Query";
+
+import Value from "metabase/components/Value";
+import { hasFilterOptions } from "metabase/lib/query/filter";
+import { generateTimeFilterValuesDescriptions } from "metabase/lib/query_time";
+import { getFilterArgumentFormatOptions } from "metabase/lib/schema_metadata";
 
 export type FilterRenderer = ({
   field?: React.Element,

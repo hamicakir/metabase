@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { t } from "ttag";
 import _ from "underscore";
 
-import ExpressionEditorTextfield from "./ExpressionEditorTextfield";
+import ExternalLink from "metabase/components/ExternalLink";
 import { isExpression } from "metabase/lib/expressions";
 import MetabaseSettings from "metabase/lib/settings";
 
-import ExternalLink from "metabase/components/ExternalLink";
+import ExpressionEditorTextfield from "./ExpressionEditorTextfield";
 
 // TODO: combine with ExpressionPopover
 export default class ExpressionWidget extends Component {

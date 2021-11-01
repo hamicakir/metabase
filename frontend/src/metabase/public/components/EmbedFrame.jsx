@@ -1,27 +1,24 @@
+import cx from "classnames";
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 
-import { IFRAMED, initializeIframeResizer } from "metabase/lib/dom";
-import { parseHashOptions } from "metabase/lib/browser";
-
-import MetabaseSettings from "metabase/lib/settings";
-import { getValuePopulatedParameters } from "metabase/parameters/utils/parameter-values";
+import type { DashboardWithCards } from "metabase-types/types/Dashboard";
+import type { Parameter } from "metabase-types/types/Parameter";
 
 import TitleAndDescription from "metabase/components/TitleAndDescription";
+import { parseHashOptions } from "metabase/lib/browser";
+import { IFRAMED, initializeIframeResizer } from "metabase/lib/dom";
+import MetabaseSettings from "metabase/lib/settings";
 import Parameters from "metabase/parameters/components/Parameters/Parameters";
-import LogoBadge from "./LogoBadge";
-
-import cx from "classnames";
+import { getValuePopulatedParameters } from "metabase/parameters/utils/parameter-values";
 
 import "./EmbedFrame.css";
+import LogoBadge from "./LogoBadge";
 
 const DEFAULT_OPTIONS = {
   bordered: IFRAMED,
   titled: true,
 };
-
-import type { DashboardWithCards } from "metabase-types/types/Dashboard";
-import type { Parameter } from "metabase-types/types/Parameter";
 
 type Props = {
   className?: string,

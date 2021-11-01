@@ -1,14 +1,17 @@
-import React, { Component } from "react";
+import { getIn } from "icepick";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { t } from "ttag";
-import { getIn } from "icepick";
 
+import Revision from "metabase/admin/datamodel/components/revisions/Revision";
+import EmptyState from "metabase/components/EmptyState";
 import S from "metabase/components/List.css";
-
-import * as metadataActions from "metabase/redux/metadata";
+import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
 import { assignUserColors } from "metabase/lib/formatting";
+import * as metadataActions from "metabase/redux/metadata";
 
+import ReferenceHeader from "../components/ReferenceHeader";
 import {
   getSegmentRevisions,
   getMetric,
@@ -18,11 +21,6 @@ import {
   getLoading,
   getError,
 } from "../selectors";
-
-import Revision from "metabase/admin/datamodel/components/revisions/Revision";
-import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
-import EmptyState from "metabase/components/EmptyState";
-import ReferenceHeader from "../components/ReferenceHeader";
 
 const emptyStateData = {
   message: t`There are no revisions for this segment`,
@@ -44,10 +42,7 @@ const mapDispatchToProps = {
   ...metadataActions,
 };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class SegmentRevisions extends Component {
   static propTypes = {
     style: PropTypes.object.isRequired,

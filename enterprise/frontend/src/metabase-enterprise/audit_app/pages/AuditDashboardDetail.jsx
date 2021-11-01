@@ -1,16 +1,13 @@
-import React from "react";
 import PropTypes from "prop-types";
-
-import AuditContent from "../components/AuditContent";
-import AuditDashboard from "../containers/AuditDashboard";
-import AuditTable from "../containers/AuditTable";
-
-import OpenInMetabase from "../components/OpenInMetabase";
+import React from "react";
 
 import Dashboard from "metabase/entities/dashboards";
-
 import * as Urls from "metabase/lib/urls";
 
+import AuditContent from "../components/AuditContent";
+import OpenInMetabase from "../components/OpenInMetabase";
+import AuditDashboard from "../containers/AuditDashboard";
+import AuditTable from "../containers/AuditTable";
 import * as DashboardCards from "../lib/cards/dashboard_detail";
 
 const tabPropTypes = {

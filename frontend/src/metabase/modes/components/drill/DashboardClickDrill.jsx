@@ -2,6 +2,12 @@ import { getIn } from "icepick";
 import _ from "underscore";
 
 import Question from "metabase-lib/lib/Question";
+
+import type {
+  ClickAction,
+  ClickActionProps,
+} from "metabase-types/types/Visualization";
+
 import { setOrUnsetParameterValues } from "metabase/dashboard/actions";
 import {
   getDataFromClicked,
@@ -9,11 +15,6 @@ import {
   formatSourceForTarget,
 } from "metabase/lib/click-behavior";
 import { renderLinkURLForClick } from "metabase/lib/formatting/link";
-
-import type {
-  ClickAction,
-  ClickActionProps,
-} from "metabase-types/types/Visualization";
 
 export default ({ question, clicked }: ClickActionProps): ClickAction[] => {
   const settings = (clicked && clicked.settings) || {};

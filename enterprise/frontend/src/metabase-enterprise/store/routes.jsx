@@ -4,8 +4,8 @@ import { t } from "ttag";
 
 import { Route } from "metabase/hoc/Title";
 
-import StoreActivate from "./containers/StoreActivate";
 import StoreAccount from "./containers/StoreAccount";
+import StoreActivate from "./containers/StoreActivate";
 
 export default function getRoutes() {
   return (

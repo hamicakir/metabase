@@ -1,31 +1,26 @@
 /* eslint-disable react/prop-types */
+import { Box, Flex } from "grid-styled";
 import React from "react";
-
+import styled from "styled-components";
 import { t } from "ttag";
 import _ from "underscore";
 
-import styled from "styled-components";
-
-import { color as c, lighten, darken } from "metabase/lib/colors";
-
-import Tooltip from "metabase/components/Tooltip";
-import Icon from "metabase/components/Icon";
 import Button from "metabase/components/Button";
 import ExpandingContent from "metabase/components/ExpandingContent";
-
-import { Box, Flex } from "grid-styled";
+import Icon from "metabase/components/Icon";
+import Tooltip from "metabase/components/Tooltip";
+import { color as c, lighten, darken } from "metabase/lib/colors";
 
 import NotebookStepPreview from "./NotebookStepPreview";
-
-import DataStep from "./steps/DataStep";
-import JoinStep from "./steps/JoinStep";
-import ExpressionStep from "./steps/ExpressionStep";
-import FilterStep from "./steps/FilterStep";
 import AggregateStep from "./steps/AggregateStep";
 import BreakoutStep from "./steps/BreakoutStep";
-import SummarizeStep from "./steps/SummarizeStep";
-import SortStep from "./steps/SortStep";
+import DataStep from "./steps/DataStep";
+import ExpressionStep from "./steps/ExpressionStep";
+import FilterStep from "./steps/FilterStep";
+import JoinStep from "./steps/JoinStep";
 import LimitStep from "./steps/LimitStep";
+import SortStep from "./steps/SortStep";
+import SummarizeStep from "./steps/SummarizeStep";
 
 // TODO
 const STEP_UI = {
@@ -104,17 +99,15 @@ export default class NotebookStep extends React.Component {
   };
 
   render() {
-    const {
-      step,
-      openStep,
-      isLastStep,
-      isLastOpened,
-      updateQuery,
-    } = this.props;
+    const { step, openStep, isLastStep, isLastOpened, updateQuery } =
+      this.props;
     const { showPreview } = this.state;
 
-    const { title, getColor, component: NotebookStepComponent } =
-      STEP_UI[step.type] || {};
+    const {
+      title,
+      getColor,
+      component: NotebookStepComponent,
+    } = STEP_UI[step.type] || {};
 
     const color = getColor();
     const canPreview = step.previewQuery && step.previewQuery.isValid();

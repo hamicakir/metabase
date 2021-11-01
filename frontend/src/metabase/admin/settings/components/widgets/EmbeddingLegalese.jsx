@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import * as MetabaseAnalytics from "metabase/lib/analytics";
 import { t } from "ttag";
+
 import ExternalLink from "metabase/components/ExternalLink";
+import * as MetabaseAnalytics from "metabase/lib/analytics";
 
 const EmbeddingLegalese = ({ onChange }) => (
   <div className="bordered rounded text-measure p4">

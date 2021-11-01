@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { color } from "metabase/lib/colors";
+
 import ActionButton from "metabase/components/ActionButton";
+import { color } from "metabase/lib/colors";
 
 export const RevertButton = styled(ActionButton).attrs({
   successClassName: "",

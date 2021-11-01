@@ -4,7 +4,6 @@ import {
   visitAlias,
   popover,
 } from "__support__/e2e/cypress";
-
 import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
 
 const { ORDERS, ORDERS_ID } = SAMPLE_DATASET;
@@ -119,14 +118,10 @@ describe.skip("scenarios > admin > datamodel > field", () => {
 
       // change to custom mapping
       cy.findByText("Use original value").click();
-      popover()
-        .findByText("Custom mapping")
-        .click();
+      popover().findByText("Custom mapping").click();
 
       // update text for nulls from "null" to "nothin"
-      cy.get("input[value=null]")
-        .clear()
-        .type("nothin");
+      cy.get("input[value=null]").clear().type("nothin");
       cy.findByText("Save").click();
       cy.findByText("Saved!");
 

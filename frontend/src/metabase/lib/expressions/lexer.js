@@ -1,6 +1,6 @@
 import { Lexer, createToken } from "chevrotain";
-import escape from "regexp.escape";
 import memoize from "lodash.memoize";
+import escape from "regexp.escape";
 
 import {
   FILTER_OPERATORS,

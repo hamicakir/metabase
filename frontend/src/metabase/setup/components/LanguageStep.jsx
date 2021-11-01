@@ -1,17 +1,15 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import cx from "classnames";
-import { t } from "ttag";
 import { Box } from "grid-styled";
-
-import MetabaseSettings from "metabase/lib/settings";
+import React from "react";
+import { t } from "ttag";
+import _ from "underscore";
 
 import Button from "metabase/components/Button";
+import MetabaseSettings from "metabase/lib/settings";
 
-import StepTitle from "./StepTitle";
 import CollapsedStep from "./CollapsedStep";
-
-import _ from "underscore";
+import StepTitle from "./StepTitle";
 
 export default class LanguageStep extends React.Component {
   constructor(props) {
@@ -25,12 +23,8 @@ export default class LanguageStep extends React.Component {
   }
 
   render() {
-    const {
-      activeStep,
-      stepNumber,
-      setActiveStep,
-      setLanguageDetails,
-    } = this.props;
+    const { activeStep, stepNumber, setActiveStep, setLanguageDetails } =
+      this.props;
     if (activeStep !== stepNumber) {
       return (
         <CollapsedStep

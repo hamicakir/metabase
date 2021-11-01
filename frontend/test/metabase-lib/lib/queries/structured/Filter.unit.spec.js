@@ -1,6 +1,6 @@
-import Filter from "metabase-lib/lib/queries/structured/Filter";
-
 import { ORDERS, PEOPLE } from "__support__/sample_dataset_fixture";
+
+import Filter from "metabase-lib/lib/queries/structured/Filter";
 
 const query = ORDERS.query();
 

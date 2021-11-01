@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import fitViewport from "metabase/hoc/FitViewPort";
+
 import Link from "metabase/components/Link";
-
 import LogoIcon from "metabase/components/LogoIcon";
-
 import Label from "metabase/components/type/Label";
 import Subhead from "metabase/components/type/Subhead";
+import fitViewport from "metabase/hoc/FitViewPort";
+import { slugify } from "metabase/lib/formatting";
+
+import COMPONENTS from "../lib/components-webpack";
 
 /*
     TODO - remove this in favor of explicit pages and imports until we can move to a static generator
@@ -24,9 +26,6 @@ export const CATEGORIES = {
   visualization: "Visualizations",
   search: "Search",
 };
-
-import COMPONENTS from "../lib/components-webpack";
-import { slugify } from "metabase/lib/formatting";
 
 const req = require.context(
   "metabase/internal/components",

@@ -1,21 +1,19 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import { Box } from "grid-styled";
+import React from "react";
 
-import * as Urls from "metabase/lib/urls";
-
+import CollectionLink from "metabase/collections/components/CollectionLink";
 import Icon from "metabase/components/Icon";
+import CollectionDropTarget from "metabase/containers/dnd/CollectionDropTarget";
+import * as Urls from "metabase/lib/urls";
+import { PLUGIN_COLLECTIONS } from "metabase/plugins";
+
 import {
   CollectionListIcon,
   ChildrenContainer,
   ExpandCollectionButton,
   LabelContainer,
 } from "./CollectionsList.styled";
-
-import CollectionLink from "metabase/collections/components/CollectionLink";
-import CollectionDropTarget from "metabase/containers/dnd/CollectionDropTarget";
-
-import { PLUGIN_COLLECTIONS } from "metabase/plugins";
 
 const IRREGULAR_COLLECTION_ICON_SIZE = 14;
 

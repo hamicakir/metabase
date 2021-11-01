@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
-import React, { useMemo } from "react";
-import { t } from "ttag";
 import cx from "classnames";
 import { Box, Flex } from "grid-styled";
+import React, { useMemo } from "react";
+import { t } from "ttag";
 
-import EntityMenu from "metabase/components/EntityMenu";
-import Swapper from "metabase/components/Swapper";
 import CheckBox from "metabase/components/CheckBox";
 import Ellipsified from "metabase/components/Ellipsified";
+import EntityMenu from "metabase/components/EntityMenu";
 import Icon from "metabase/components/Icon";
+import Swapper from "metabase/components/Swapper";
 
 import { EntityIconWrapper, EntityItemWrapper } from "./EntityItem.styled";
 

@@ -1,7 +1,3 @@
-import { areFieldFilterOperatorsEnabled } from "./feature-flag";
-import { getOperatorDisplayName } from "./operators";
-import { fieldFilterForParameter } from "./filters";
-
 import {
   OPTIONS_WITH_OPERATOR_SUBTYPES,
   PARAMETER_OPERATOR_TYPES,
@@ -9,6 +5,9 @@ import {
   ID_OPTION,
   CATEGORY_OPTION,
 } from "../constants";
+import { areFieldFilterOperatorsEnabled } from "./feature-flag";
+import { fieldFilterForParameter } from "./filters";
+import { getOperatorDisplayName } from "./operators";
 
 export function getParameterOptions() {
   return [

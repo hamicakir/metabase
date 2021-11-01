@@ -1,16 +1,15 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
+import { Box } from "grid-styled";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { t } from "ttag";
 
-import { Box } from "grid-styled";
-import StepTitle from "./StepTitle";
-import CollapsedStep from "./CollapsedStep";
 import Icon from "metabase/components/Icon";
-
 import Databases from "metabase/entities/databases";
-
 import * as MetabaseAnalytics from "metabase/lib/analytics";
+
+import CollapsedStep from "./CollapsedStep";
+import StepTitle from "./StepTitle";
 
 export default class DatabaseSchedulingStep extends Component {
   static propTypes = {
@@ -36,12 +35,8 @@ export default class DatabaseSchedulingStep extends Component {
   };
 
   render() {
-    const {
-      activeStep,
-      databaseDetails,
-      setActiveStep,
-      stepNumber,
-    } = this.props;
+    const { activeStep, databaseDetails, setActiveStep, stepNumber } =
+      this.props;
 
     const stepText = t`Control automatic scans`;
 

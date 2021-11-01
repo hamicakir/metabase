@@ -1,56 +1,48 @@
 import React from "react";
-import { Route } from "metabase/hoc/Title";
 import { IndexRoute, IndexRedirect } from "react-router";
 import { t } from "ttag";
 
+import DatabaseEditApp from "metabase/admin/databases/containers/DatabaseEditApp";
+//  DB Add / list
+import DatabaseListApp from "metabase/admin/databases/containers/DatabaseListApp";
+// Metadata / Data model
+import DataModelApp from "metabase/admin/datamodel/containers/DataModelApp";
+import FieldApp from "metabase/admin/datamodel/containers/FieldApp";
+import MetadataEditorApp from "metabase/admin/datamodel/containers/MetadataEditorApp";
+import MetricApp from "metabase/admin/datamodel/containers/MetricApp";
+import MetricListApp from "metabase/admin/datamodel/containers/MetricListApp";
+import RevisionHistoryApp from "metabase/admin/datamodel/containers/RevisionHistoryApp";
+import SegmentApp from "metabase/admin/datamodel/containers/SegmentApp";
+import SegmentListApp from "metabase/admin/datamodel/containers/SegmentListApp";
+import TableSettingsApp from "metabase/admin/datamodel/containers/TableSettingsApp";
+import AdminPeopleApp from "metabase/admin/people/containers/AdminPeopleApp";
+import EditUserModal from "metabase/admin/people/containers/EditUserModal";
+import GroupDetailApp from "metabase/admin/people/containers/GroupDetailApp";
+import GroupsListingApp from "metabase/admin/people/containers/GroupsListingApp";
+import NewUserModal from "metabase/admin/people/containers/NewUserModal";
+// People
+import PeopleListingApp from "metabase/admin/people/containers/PeopleListingApp";
+import UserActivationModal from "metabase/admin/people/containers/UserActivationModal";
+import UserPasswordResetModal from "metabase/admin/people/containers/UserPasswordResetModal";
+import UserSuccessModal from "metabase/admin/people/containers/UserSuccessModal";
+// Permissions
+import getAdminPermissionsRoutes from "metabase/admin/permissions/routes";
+// Settings
+import SettingsEditorApp from "metabase/admin/settings/containers/SettingsEditorApp";
+import Help from "metabase/admin/tasks/containers/Help";
+import JobInfoApp from "metabase/admin/tasks/containers/JobInfoApp";
+import JobTriggersModal from "metabase/admin/tasks/containers/JobTriggersModal";
+import Logs from "metabase/admin/tasks/containers/Logs";
+import TaskModal from "metabase/admin/tasks/containers/TaskModal";
+import TasksApp from "metabase/admin/tasks/containers/TasksApp";
+import TroubleshootingApp from "metabase/admin/tasks/containers/TroubleshootingApp";
+import { withBackground } from "metabase/hoc/Background";
+import { ModalRoute } from "metabase/hoc/ModalRoute";
+import { Route } from "metabase/hoc/Title";
 import {
   PLUGIN_ADMIN_ROUTES,
   PLUGIN_ADMIN_USER_MENU_ROUTES,
 } from "metabase/plugins";
-
-import { withBackground } from "metabase/hoc/Background";
-import { ModalRoute } from "metabase/hoc/ModalRoute";
-
-import NewUserModal from "metabase/admin/people/containers/NewUserModal";
-import UserSuccessModal from "metabase/admin/people/containers/UserSuccessModal";
-import UserPasswordResetModal from "metabase/admin/people/containers/UserPasswordResetModal";
-import EditUserModal from "metabase/admin/people/containers/EditUserModal";
-import UserActivationModal from "metabase/admin/people/containers/UserActivationModal";
-
-// Settings
-import SettingsEditorApp from "metabase/admin/settings/containers/SettingsEditorApp";
-
-//  DB Add / list
-import DatabaseListApp from "metabase/admin/databases/containers/DatabaseListApp";
-import DatabaseEditApp from "metabase/admin/databases/containers/DatabaseEditApp";
-
-// Metadata / Data model
-import DataModelApp from "metabase/admin/datamodel/containers/DataModelApp";
-import MetadataEditorApp from "metabase/admin/datamodel/containers/MetadataEditorApp";
-import MetricListApp from "metabase/admin/datamodel/containers/MetricListApp";
-import MetricApp from "metabase/admin/datamodel/containers/MetricApp";
-import SegmentListApp from "metabase/admin/datamodel/containers/SegmentListApp";
-import SegmentApp from "metabase/admin/datamodel/containers/SegmentApp";
-import RevisionHistoryApp from "metabase/admin/datamodel/containers/RevisionHistoryApp";
-import AdminPeopleApp from "metabase/admin/people/containers/AdminPeopleApp";
-import FieldApp from "metabase/admin/datamodel/containers/FieldApp";
-import TableSettingsApp from "metabase/admin/datamodel/containers/TableSettingsApp";
-
-import TroubleshootingApp from "metabase/admin/tasks/containers/TroubleshootingApp";
-import TasksApp from "metabase/admin/tasks/containers/TasksApp";
-import TaskModal from "metabase/admin/tasks/containers/TaskModal";
-import JobInfoApp from "metabase/admin/tasks/containers/JobInfoApp";
-import JobTriggersModal from "metabase/admin/tasks/containers/JobTriggersModal";
-import Logs from "metabase/admin/tasks/containers/Logs";
-import Help from "metabase/admin/tasks/containers/Help";
-
-// People
-import PeopleListingApp from "metabase/admin/people/containers/PeopleListingApp";
-import GroupsListingApp from "metabase/admin/people/containers/GroupsListingApp";
-import GroupDetailApp from "metabase/admin/people/containers/GroupDetailApp";
-
-// Permissions
-import getAdminPermissionsRoutes from "metabase/admin/permissions/routes";
 
 const getRoutes = (store, IsAdmin) => (
   <Route

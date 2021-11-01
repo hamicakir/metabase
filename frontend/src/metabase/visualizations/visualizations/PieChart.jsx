@@ -1,32 +1,31 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
+import d3 from "d3";
 import React, { Component } from "react";
-import styles from "./PieChart.css";
 import { t } from "ttag";
-import ChartTooltip from "../components/ChartTooltip";
-import ChartWithLegend from "../components/ChartWithLegend";
+import _ from "underscore";
 
+import type { VisualizationProps } from "metabase-types/types/Visualization";
+
+import { color, getColorsForValues } from "metabase/lib/colors";
+import { formatValue } from "metabase/lib/formatting";
 import {
   ChartSettingsError,
   MinRowsError,
 } from "metabase/visualizations/lib/errors";
-import {
-  getFriendlyName,
-  computeMaxDecimalsForValues,
-} from "metabase/visualizations/lib/utils";
+import { columnSettings } from "metabase/visualizations/lib/settings/column";
 import {
   metricSetting,
   dimensionSetting,
 } from "metabase/visualizations/lib/settings/utils";
-import { columnSettings } from "metabase/visualizations/lib/settings/column";
+import {
+  getFriendlyName,
+  computeMaxDecimalsForValues,
+} from "metabase/visualizations/lib/utils";
 
-import { formatValue } from "metabase/lib/formatting";
-
-import { color, getColorsForValues } from "metabase/lib/colors";
-
-import cx from "classnames";
-
-import d3 from "d3";
-import _ from "underscore";
+import ChartTooltip from "../components/ChartTooltip";
+import ChartWithLegend from "../components/ChartWithLegend";
+import styles from "./PieChart.css";
 
 const MAX_PIE_SIZE = 550;
 
@@ -38,8 +37,6 @@ const SLICE_THRESHOLD = 0.025; // approx 1 degree in percentage
 const OTHER_SLICE_MIN_PERCENTAGE = 0.003;
 
 const PERCENT_REGEX = /percent/i;
-
-import type { VisualizationProps } from "metabase-types/types/Visualization";
 
 export default class PieChart extends Component {
   constructor(props: VisualizationProps) {

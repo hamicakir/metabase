@@ -1,18 +1,17 @@
+import { Flex } from "grid-styled";
 import React from "react";
 import { Link } from "react-router";
-
-import Icon from "metabase/components/Icon";
-import MetabotLogo from "metabase/components/MetabotLogo";
-import Select, { Option } from "metabase/components/Select";
-import { Grid, GridItem } from "metabase/components/Grid";
-import Card from "metabase/components/Card";
-import { Flex } from "grid-styled";
-import { color } from "metabase/lib/colors";
-
 import { t } from "ttag";
 import _ from "underscore";
 
 import type { DatabaseCandidates, Candidate } from "metabase-types/types/Auto";
+
+import Card from "metabase/components/Card";
+import { Grid, GridItem } from "metabase/components/Grid";
+import Icon from "metabase/components/Icon";
+import MetabotLogo from "metabase/components/MetabotLogo";
+import Select, { Option } from "metabase/components/Select";
+import { color } from "metabase/lib/colors";
 
 const DEFAULT_TITLE = t`Hi, Metabot here.`;
 const DEFAULT_DESCRIPTION = "";

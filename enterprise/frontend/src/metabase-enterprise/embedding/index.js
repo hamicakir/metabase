@@ -1,12 +1,12 @@
+import { updateIn } from "icepick";
 import React from "react";
 import { jt, t } from "ttag";
-import { updateIn } from "icepick";
 
-import MetabaseSettings from "metabase/lib/settings";
 import { hasPremiumFeature } from "metabase-enterprise/settings";
-import { PLUGIN_ADMIN_SETTINGS_UPDATES } from "metabase/plugins";
 
 import EmbeddingLevel from "metabase/admin/settings/components/widgets/EmbeddingLevel";
+import MetabaseSettings from "metabase/lib/settings";
+import { PLUGIN_ADMIN_SETTINGS_UPDATES } from "metabase/plugins";
 
 if (hasPremiumFeature("embedding")) {
   MetabaseSettings.hideEmbedBranding = () => true;

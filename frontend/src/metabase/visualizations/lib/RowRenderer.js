@@ -1,5 +1,4 @@
 /// Logic for rendering a rows chart.
-
 import crossfilter from "crossfilter";
 import d3 from "d3";
 import dc from "dc";
@@ -7,6 +6,7 @@ import { t } from "ttag";
 
 import { formatValue } from "metabase/lib/formatting";
 
+import { checkXAxisLabelOverlap } from "./LineAreaBarPostRender";
 import {
   initChart,
   forceSortedGroup,
@@ -14,7 +14,6 @@ import {
   formatNull,
 } from "./renderer_utils";
 import { getFriendlyName } from "./utils";
-import { checkXAxisLabelOverlap } from "./LineAreaBarPostRender";
 
 const ROW_GAP = 5;
 const ROW_MAX_HEIGHT = 30;
@@ -90,7 +89,7 @@ export default function rowRenderer(
     }
 
     if (onVisualizationClick) {
-      chart.selectAll(".row rect").on("click", function(d) {
+      chart.selectAll(".row rect").on("click", function (d) {
         onVisualizationClick({
           value: d.value,
           column: cols[1],

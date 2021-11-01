@@ -1,10 +1,10 @@
-import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
+import React, { useState, useRef } from "react";
 
-import Label from "metabase/components/type/Label";
-import Tooltip from "metabase/components/Tooltip";
-import Modal from "metabase/components/Modal";
 import ConfirmContent from "metabase/components/ConfirmContent";
+import Modal from "metabase/components/Modal";
+import Tooltip from "metabase/components/Tooltip";
+import Label from "metabase/components/type/Label";
 
 import { PermissionsSelect } from "../PermissionsSelect";
 import {

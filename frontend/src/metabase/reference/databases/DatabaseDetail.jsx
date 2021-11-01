@@ -1,16 +1,18 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { reduxForm } from "redux-form";
 import { push } from "react-router-redux";
+import { reduxForm } from "redux-form";
 import { t } from "ttag";
+
 import List from "metabase/components/List";
 import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
-
+import * as metadataActions from "metabase/redux/metadata";
+import Detail from "metabase/reference/components/Detail";
 import EditHeader from "metabase/reference/components/EditHeader";
 import EditableReferenceHeader from "metabase/reference/components/EditableReferenceHeader";
-import Detail from "metabase/reference/components/Detail";
+import * as actions from "metabase/reference/reference";
 
 import {
   getDatabase,
@@ -23,9 +25,6 @@ import {
   getIsFormulaExpanded,
   getForeignKeys,
 } from "../selectors";
-
-import * as metadataActions from "metabase/redux/metadata";
-import * as actions from "metabase/reference/reference";
 
 const mapStateToProps = (state, props) => {
   const entity = getDatabase(state, props) || {};
@@ -55,10 +54,7 @@ const validate = (values, props) => {
   return {};
 };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 @reduxForm({
   form: "details",
   fields: [

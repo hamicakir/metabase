@@ -1,7 +1,5 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
-
-import { MODAL_TYPES } from "metabase/query_builder/constants";
+import React from "react";
 
 import QuestionActionButtons, {
   EDIT_TESTID,
@@ -10,6 +8,7 @@ import QuestionActionButtons, {
   CLONE_TESTID,
   ARCHIVE_TESTID,
 } from "metabase/query_builder/components/QuestionActionButtons";
+import { MODAL_TYPES } from "metabase/query_builder/constants";
 
 const testIdActionPairs = [
   [EDIT_TESTID, MODAL_TYPES.EDIT],

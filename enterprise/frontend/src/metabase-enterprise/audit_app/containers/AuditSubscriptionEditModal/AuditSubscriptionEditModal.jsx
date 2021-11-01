@@ -1,9 +1,11 @@
 import { connect } from "react-redux";
 import { push } from "react-router-redux";
-import _ from "underscore";
 import { t } from "ttag";
+import _ from "underscore";
+
 import Pulses from "metabase/entities/pulses";
 import Users from "metabase/entities/users";
+
 import AuditNotificationEditModal from "../../components/AuditNotificationEditModal";
 
 const mapStateToProps = (state, { pulse }) => ({
@@ -24,8 +26,5 @@ export default _.compose(
     id: (state, props) => Number.parseInt(props.params.pulseId),
   }),
   Users.loadList(),
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
 )(AuditNotificationEditModal);

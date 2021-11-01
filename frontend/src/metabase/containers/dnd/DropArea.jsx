@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import cx from "classnames";
+import React from "react";
 
 const DropTargetBackgroundAndBorder = ({
   highlighted,
@@ -50,13 +50,8 @@ export default class DropArea extends React.Component {
   }
 
   render() {
-    const {
-      connectDropTarget,
-      children,
-      className,
-      style,
-      ...props
-    } = this.props;
+    const { connectDropTarget, children, className, style, ...props } =
+      this.props;
     return this.state.show
       ? connectDropTarget(
           <div className={cx("relative", className)} style={style}>

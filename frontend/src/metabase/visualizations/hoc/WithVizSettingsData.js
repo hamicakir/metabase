@@ -3,9 +3,9 @@ import React from "react";
 import { connect } from "react-redux";
 import _ from "underscore";
 
-import { getUserAttributes } from "metabase/selectors/user";
-import Questions from "metabase/entities/questions";
 import Dashboards from "metabase/entities/dashboards";
+import Questions from "metabase/entities/questions";
+import { getUserAttributes } from "metabase/selectors/user";
 
 // This HOC give access to data referenced in viz settings.
 // We use it to fetch and select entities needed for dashboard drill actions (e.g. clicking through to a question)

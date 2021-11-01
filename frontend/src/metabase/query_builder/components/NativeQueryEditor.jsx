@@ -1,47 +1,48 @@
 /*global ace*/
+
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
-import cx from "classnames";
 import "ace/ace";
 import "ace/ext-language_tools";
-import "ace/mode-sql";
+import "ace/mode-json";
 import "ace/mode-mysql";
 import "ace/mode-pgsql";
+import "ace/mode-sql";
 import "ace/mode-sqlserver";
-import "ace/mode-json";
-import "ace/snippets/text";
-import "ace/snippets/sql";
+import "ace/snippets/json";
 import "ace/snippets/mysql";
 import "ace/snippets/pgsql";
+import "ace/snippets/sql";
 import "ace/snippets/sqlserver";
-import "ace/snippets/json";
-import _ from "underscore";
+import "ace/snippets/text";
+import cx from "classnames";
+import React, { Component } from "react";
 import { ResizableBox } from "react-resizable";
+import _ from "underscore";
 
-import { isEventOverElement } from "metabase/lib/dom";
-import { delay } from "metabase/lib/promise";
-import { SQLBehaviour } from "metabase/lib/ace/sql_behaviour";
-import ExplicitSize from "metabase/components/ExplicitSize";
-
-import Snippets from "metabase/entities/snippets";
-import SnippetCollections from "metabase/entities/snippet-collections";
-import SnippetModal from "metabase/query_builder/components/template_tags/SnippetModal";
-import Parameters from "metabase/parameters/components/Parameters/Parameters";
 import Question from "metabase-lib/lib/Question";
 import NativeQuery from "metabase-lib/lib/queries/NativeQuery";
-import NativeQueryEditorSidebar from "./NativeQueryEditor/NativeQueryEditorSidebar";
-import VisibilityToggler from "./NativeQueryEditor/VisibilityToggler";
-import RightClickPopover from "./NativeQueryEditor/RightClickPopover";
-import DataSourceSelectors from "./NativeQueryEditor/DataSourceSelectors";
 
-import "./NativeQueryEditor.css";
-
+import type { LocationDescriptor } from "metabase-types/types";
 import type { DatasetQuery } from "metabase-types/types/Card";
 import type { DatabaseId } from "metabase-types/types/Database";
-import type { TableId } from "metabase-types/types/Table";
 import type { ParameterId } from "metabase-types/types/Parameter";
-import type { LocationDescriptor } from "metabase-types/types";
+import type { TableId } from "metabase-types/types/Table";
+
+import ExplicitSize from "metabase/components/ExplicitSize";
+import SnippetCollections from "metabase/entities/snippet-collections";
+import Snippets from "metabase/entities/snippets";
+import { SQLBehaviour } from "metabase/lib/ace/sql_behaviour";
+import { isEventOverElement } from "metabase/lib/dom";
+import { delay } from "metabase/lib/promise";
+import Parameters from "metabase/parameters/components/Parameters/Parameters";
 import type { RunQueryParams } from "metabase/query_builder/actions";
+import SnippetModal from "metabase/query_builder/components/template_tags/SnippetModal";
+
+import "./NativeQueryEditor.css";
+import DataSourceSelectors from "./NativeQueryEditor/DataSourceSelectors";
+import NativeQueryEditorSidebar from "./NativeQueryEditor/NativeQueryEditorSidebar";
+import RightClickPopover from "./NativeQueryEditor/RightClickPopover";
+import VisibilityToggler from "./NativeQueryEditor/VisibilityToggler";
 
 type AutoCompleteResult = [string, string, string];
 type AceEditor = any; // TODO;
@@ -265,10 +266,7 @@ export default class NativeQueryEditor extends Component {
     const selectedText = this._editor?.getSelectedText();
 
     if (selectedText) {
-      const temporaryCard = query
-        .setQueryText(selectedText)
-        .question()
-        .card();
+      const temporaryCard = query.setQueryText(selectedText).question().card();
 
       runQuestionQuery({
         overrideWithCard: temporaryCard,
@@ -349,7 +347,7 @@ export default class NativeQueryEditor extends Component {
           // HACK: call this.props.autocompleteResultsFn rather than caching the prop since it might change
           const results = await this.props.autocompleteResultsFn(prefix);
           // transform results of the API call into what ACE expects
-          const js_results = results.map(function(result) {
+          const js_results = results.map(function (result) {
             return {
               name: result[0],
               value: result[0],

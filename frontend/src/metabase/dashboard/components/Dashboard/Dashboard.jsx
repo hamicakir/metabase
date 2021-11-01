@@ -1,11 +1,12 @@
 // TODO: merge with metabase/dashboard/containers/Dashboard.jsx
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import _ from "underscore";
 
 import DashboardControls from "../../hoc/DashboardControls";
-import { DashboardSidebars } from "../DashboardSidebars";
+import DashboardGrid from "../DashboardGrid";
 import DashboardHeader from "../DashboardHeader";
+import { DashboardSidebars } from "../DashboardSidebars";
 import {
   CardsContainer,
   DashboardStyled,
@@ -15,9 +16,8 @@ import {
   ParametersAndCardsContainer,
   ParametersWidgetContainer,
 } from "./Dashboard.styled";
-import DashboardGrid from "../DashboardGrid";
-import ParametersWidget from "./ParametersWidget/ParametersWidget";
 import DashboardEmptyState from "./DashboardEmptyState/DashboardEmptyState";
+import ParametersWidget from "./ParametersWidget/ParametersWidget";
 import { updateParametersWidgetStickiness } from "./stickyParameters";
 
 const SCROLL_THROTTLE_INTERVAL = 1000 / 24;

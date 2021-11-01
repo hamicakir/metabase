@@ -1,6 +1,6 @@
 import type { ISO8601Time } from ".";
-import type { FieldId } from "./Field";
 import type { DatasetQuery } from "./Card";
+import type { FieldId } from "./Field";
 import type { DatetimeUnit, FieldLiteral, Field } from "./Query";
 
 export type ColumnName = string;

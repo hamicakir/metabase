@@ -1,7 +1,8 @@
 import { t } from "ttag";
+
 import { createEntity, undo } from "metabase/lib/entities";
-import { AlertApi } from "metabase/services";
 import { addUndo } from "metabase/redux/undo";
+import { AlertApi } from "metabase/services";
 
 export const UNSUBSCRIBE = "metabase/entities/alerts/unsubscribe";
 
@@ -23,12 +24,14 @@ const Alerts = createEntity({
       );
     },
 
-    unsubscribe: ({ id }) => async dispatch => {
-      await AlertApi.unsubscribe({ id });
-      dispatch(addUndo({ message: t`Successfully unsubscribed` }));
-      dispatch({ type: UNSUBSCRIBE, payload: { id } });
-      dispatch({ type: Alerts.actionTypes.INVALIDATE_LISTS_ACTION });
-    },
+    unsubscribe:
+      ({ id }) =>
+      async dispatch => {
+        await AlertApi.unsubscribe({ id });
+        dispatch(addUndo({ message: t`Successfully unsubscribed` }));
+        dispatch({ type: UNSUBSCRIBE, payload: { id } });
+        dispatch({ type: Alerts.actionTypes.INVALIDATE_LISTS_ACTION });
+      },
 
     setChannels: ({ id }, channels, opts) => {
       return Alerts.actions.update(

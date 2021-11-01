@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 
+import Icon from "metabase/components/Icon";
 import Label from "metabase/components/type/Label";
 import { color } from "metabase/lib/colors";
-import Icon from "metabase/components/Icon";
 
 export const ItemTitle = styled(Label)`
   margin: 0;

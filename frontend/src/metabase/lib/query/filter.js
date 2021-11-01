@@ -1,13 +1,3 @@
-import { op, args, noNullValues, add, update, remove, clear } from "./util";
-import { isValidField } from "./field_ref";
-import {
-  STANDARD_FILTERS,
-  FILTER_OPERATORS,
-  isLiteral,
-} from "metabase/lib/expressions";
-
-import { STRING, getOperatorByTypeAndName } from "metabase/lib/schema_metadata";
-
 import _ from "underscore";
 
 import type {
@@ -15,6 +5,16 @@ import type {
   Filter,
   FilterOptions,
 } from "metabase-types/types/Query";
+
+import {
+  STANDARD_FILTERS,
+  FILTER_OPERATORS,
+  isLiteral,
+} from "metabase/lib/expressions";
+import { STRING, getOperatorByTypeAndName } from "metabase/lib/schema_metadata";
+
+import { isValidField } from "./field_ref";
+import { op, args, noNullValues, add, update, remove, clear } from "./util";
 
 // returns canonical list of Filters
 export function getFilters(filter: ?FilterClause): Filter[] {

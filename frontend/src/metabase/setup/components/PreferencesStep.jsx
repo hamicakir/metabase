@@ -1,16 +1,16 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { t, jt } from "ttag";
 import { Box } from "grid-styled";
-import * as MetabaseAnalytics from "metabase/lib/analytics";
-import MetabaseSettings from "metabase/lib/settings";
-import Toggle from "metabase/components/Toggle";
-
-import StepTitle from "./StepTitle";
-import CollapsedStep from "./CollapsedStep";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { t, jt } from "ttag";
 
 import ExternalLink from "metabase/components/ExternalLink";
+import Toggle from "metabase/components/Toggle";
+import * as MetabaseAnalytics from "metabase/lib/analytics";
+import MetabaseSettings from "metabase/lib/settings";
+
+import CollapsedStep from "./CollapsedStep";
+import StepTitle from "./StepTitle";
 
 export default class PreferencesStep extends Component {
   state = { errorMessage: null };

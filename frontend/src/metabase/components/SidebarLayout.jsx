@@ -1,6 +1,6 @@
 /* eslint "react/prop-types": "warn" */
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
 import fitViewport from "metabase/hoc/FitViewPort";
 

@@ -1,23 +1,19 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-
-import { t, jt } from "ttag";
-import Link from "metabase/components/Link";
-
+import NoResults from "assets/img/no_results.svg";
 import { Box, Flex } from "grid-styled";
-
-import Search from "metabase/entities/search";
+import PropTypes from "prop-types";
+import React, { useState } from "react";
+import { t, jt } from "ttag";
 
 import Card from "metabase/components/Card";
 import EmptyState from "metabase/components/EmptyState";
-import SearchResult from "metabase/search/components/SearchResult";
-import Subhead from "metabase/components/type/Subhead";
-
-import { color } from "metabase/lib/colors";
 import Icon from "metabase/components/Icon";
-import NoResults from "assets/img/no_results.svg";
+import Link from "metabase/components/Link";
 import PaginationControls from "metabase/components/PaginationControls";
+import Subhead from "metabase/components/type/Subhead";
+import Search from "metabase/entities/search";
 import { usePagination } from "metabase/hooks/use-pagination";
+import { color } from "metabase/lib/colors";
+import SearchResult from "metabase/search/components/SearchResult";
 
 const PAGE_PADDING = [1, 2, 4];
 

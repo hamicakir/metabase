@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
-import { color } from "metabase/lib/colors";
-import { breakpointMaxMedium } from "metabase/styled-components/theme/media-queries";
-
 import EntityItem from "metabase/components/EntityItem";
 import Icon from "metabase/components/Icon";
 import Link from "metabase/components/Link";
+import { color } from "metabase/lib/colors";
+import { breakpointMaxMedium } from "metabase/styled-components/theme/media-queries";
 
 const LAST_EDITED_BY_INDEX = 3;
 const LAST_EDITED_AT_INDEX = 4;

@@ -1,14 +1,13 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { t } from "ttag";
 
-import { isAdminGroup, isDefaultGroup } from "metabase/lib/groups";
-import Icon from "metabase/components/Icon";
-import AdminEmptyText from "metabase/components/AdminEmptyText";
 import AdminContentTable from "metabase/components/AdminContentTable";
+import AdminEmptyText from "metabase/components/AdminEmptyText";
+import Icon from "metabase/components/Icon";
 import PaginationControls from "metabase/components/PaginationControls";
-
 import User from "metabase/entities/users";
+import { isAdminGroup, isDefaultGroup } from "metabase/lib/groups";
 
 import AddMemberRow from "./AddMemberRow";
 

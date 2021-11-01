@@ -122,9 +122,7 @@ describe("scenarios > question > download", () => {
         cy.visit(`/question/${questionId}`);
         cy.contains(/open editor/i).click();
         cy.get(".ace_editor").type("{movetoend} "); // Adds a space at the end of the query to make it "dirty"
-        cy.icon("play")
-          .first()
-          .click();
+        cy.icon("play").first().click();
         cy.icon("download").click();
 
         cy.wrap(testCases).each(testCase => {

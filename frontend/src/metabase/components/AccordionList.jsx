@@ -1,15 +1,14 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-
 import cx from "classnames";
-import _ from "underscore";
 import { getIn } from "icepick";
-import { color } from "metabase/lib/colors";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { List, CellMeasurer, CellMeasurerCache } from "react-virtualized";
+import _ from "underscore";
 
 import Icon from "metabase/components/Icon";
-import LoadingSpinner from "metabase/components/LoadingSpinner";
 import ListSearchField from "metabase/components/ListSearchField";
-import { List, CellMeasurer, CellMeasurerCache } from "react-virtualized";
+import LoadingSpinner from "metabase/components/LoadingSpinner";
+import { color } from "metabase/lib/colors";
 
 export default class AccordionList extends Component {
   constructor(props, context) {

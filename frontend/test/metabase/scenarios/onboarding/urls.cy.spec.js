@@ -1,4 +1,5 @@
 import { restore } from "__support__/e2e/cypress";
+
 import { SAVED_QUESTIONS_VIRTUAL_DB_ID } from "metabase/lib/saved-questions";
 
 describe("URLs", () => {

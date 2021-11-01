@@ -1,21 +1,24 @@
-import _ from "underscore";
-import { t } from "ttag";
 import { createSelector } from "reselect";
+import { t } from "ttag";
+import _ from "underscore";
 
-import { color } from "metabase/lib/colors";
-import { createEntity, undo } from "metabase/lib/entities";
-import { SnippetCollectionSchema } from "metabase/schema";
 import NormalCollections, {
   canonicalCollectionId,
   getExpandedCollectionsById,
 } from "metabase/entities/collections";
+import { color } from "metabase/lib/colors";
+import { createEntity, undo } from "metabase/lib/entities";
+import { SnippetCollectionSchema } from "metabase/schema";
 
 const SnippetCollections = createEntity({
   name: "snippetCollections",
   schema: SnippetCollectionSchema,
 
-  api: _.mapObject(NormalCollections.api, f => (first, ...rest) =>
-    f({ ...first, namespace: "snippets" }, ...rest),
+  api: _.mapObject(
+    NormalCollections.api,
+    f =>
+      (first, ...rest) =>
+        f({ ...first, namespace: "snippets" }, ...rest),
   ),
 
   displayNameOne: t`snippet collection`,

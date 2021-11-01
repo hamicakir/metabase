@@ -1,19 +1,15 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
-
+import React, { Component } from "react";
 import { CSSTransitionGroup } from "react-transition-group";
+import { t } from "ttag";
 
-import Form, { FormField, FormFooter } from "metabase/containers/Form";
 import ModalContent from "metabase/components/ModalContent";
 import Radio from "metabase/components/Radio";
-
+import Form, { FormField, FormFooter } from "metabase/containers/Form";
 import * as Q_DEPRECATED from "metabase/lib/query";
 import { generateQueryDescription } from "metabase/lib/query/description";
-
 import validate from "metabase/lib/validate";
-
-import { t } from "ttag";
 
 import "./SaveQuestionModal.css";
 
@@ -75,12 +71,8 @@ export default class SaveQuestionModal extends Component {
   };
 
   render() {
-    const {
-      card,
-      originalCard,
-      initialCollectionId,
-      tableMetadata,
-    } = this.props;
+    const { card, originalCard, initialCollectionId, tableMetadata } =
+      this.props;
 
     const isStructured = Q_DEPRECATED.isStructured(card.dataset_query);
 
@@ -173,8 +165,9 @@ const SaveTypeInput = ({ field, originalCard }) => (
     {...field}
     options={[
       {
-        name: t`Replace original question, "${originalCard &&
-          originalCard.name}"`,
+        name: t`Replace original question, "${
+          originalCard && originalCard.name
+        }"`,
         value: "overwrite",
       },
       { name: t`Save as new question`, value: "create" },

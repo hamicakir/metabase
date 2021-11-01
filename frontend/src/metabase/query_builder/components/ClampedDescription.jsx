@@ -1,9 +1,9 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { t } from "ttag";
 
-import ClampedText from "metabase/components/ClampedText";
 import { TextButton } from "metabase/components/Button.styled";
+import ClampedText from "metabase/components/ClampedText";
 
 ClampedDescription.propTypes = {
   className: PropTypes.string,

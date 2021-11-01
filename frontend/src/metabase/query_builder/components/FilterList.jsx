@@ -2,13 +2,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import Filter from "./Filter";
-import { filterWidgetFilterRenderer } from "./filters/FilterWidget";
+import type { Filter as FilterType } from "metabase-types/types/Query";
 
 import { getMetadata } from "metabase/selectors/metadata";
 
-import type { Filter as FilterType } from "metabase-types/types/Query";
+import Filter from "./Filter";
 import type { FilterRenderer } from "./Filter";
+import { filterWidgetFilterRenderer } from "./filters/FilterWidget";
 
 type Props = {
   filters: Array<FilterType>,

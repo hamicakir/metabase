@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-
-import { t } from "ttag";
 import { Flex, Box } from "grid-styled";
+import React from "react";
+import { t } from "ttag";
 
 import AggregateStep from "./AggregateStep";
 import BreakoutStep from "./BreakoutStep";

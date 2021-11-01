@@ -1,18 +1,18 @@
-import React from "react";
-import { renderWithProviders, screen } from "__support__/ui";
 import userEvent from "@testing-library/user-event";
-import mock from "xhr-mock";
-
-import SaveQuestionModal from "metabase/containers/SaveQuestionModal";
-import Question from "metabase-lib/lib/Question";
-import MetabaseSettings from "metabase/lib/settings";
-
+import { setupEnterpriseTest } from "__support__/enterprise";
 import {
   SAMPLE_DATASET,
   ORDERS,
   metadata,
 } from "__support__/sample_dataset_fixture";
-import { setupEnterpriseTest } from "__support__/enterprise";
+import { renderWithProviders, screen } from "__support__/ui";
+import React from "react";
+import mock from "xhr-mock";
+
+import Question from "metabase-lib/lib/Question";
+
+import SaveQuestionModal from "metabase/containers/SaveQuestionModal";
+import MetabaseSettings from "metabase/lib/settings";
 
 function mockCachingEnabled(enabled = true) {
   const original = MetabaseSettings.get.bind(MetabaseSettings);

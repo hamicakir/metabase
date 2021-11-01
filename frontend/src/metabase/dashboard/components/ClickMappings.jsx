@@ -1,22 +1,21 @@
 /* eslint-disable react/prop-types */
+import { getIn, assocIn, dissocIn } from "icepick";
 import React from "react";
 import { connect } from "react-redux";
-import _ from "underscore";
 import { t } from "ttag";
-import { getIn, assocIn, dissocIn } from "icepick";
+import _ from "underscore";
+
+import Question from "metabase-lib/lib/Question";
 
 import Icon from "metabase/components/Icon";
 import Select from "metabase/components/Select";
-
-import Question from "metabase-lib/lib/Question";
-import MetabaseSettings from "metabase/lib/settings";
-import { isPivotGroupColumn } from "metabase/lib/data_grid";
+import { getParameters } from "metabase/dashboard/selectors";
 import { getTargetsWithSourceFilters } from "metabase/lib/click-behavior";
-import { GTAPApi } from "metabase/services";
-
+import { isPivotGroupColumn } from "metabase/lib/data_grid";
+import MetabaseSettings from "metabase/lib/settings";
 import { loadMetadataForQuery } from "metabase/redux/metadata";
 import { getMetadata } from "metabase/selectors/metadata";
-import { getParameters } from "metabase/dashboard/selectors";
+import { GTAPApi } from "metabase/services";
 
 @loadQuestionMetadata((state, props) => (props.isDash ? null : props.object))
 @withUserAttributes

@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 
 import Popover from "metabase/components/Popover";
 
-import Clearable from "./Clearable";
 import BreakoutPopover from "./BreakoutPopover";
+import Clearable from "./Clearable";
 
 // NOTE: lots of duplication between AggregationWidget and BreakoutWidget
 
@@ -46,13 +46,8 @@ export default class BreakoutWidget extends Component {
   };
 
   render() {
-    const {
-      breakout,
-      query,
-      enableSubDimensions,
-      className,
-      children,
-    } = this.props;
+    const { breakout, query, enableSubDimensions, className, children } =
+      this.props;
 
     const breakoutOptions =
       this.props.breakoutOptions || query.breakoutOptions();

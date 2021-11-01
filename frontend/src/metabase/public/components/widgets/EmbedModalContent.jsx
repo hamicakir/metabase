@@ -1,20 +1,22 @@
+import { titleize } from "inflection";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { titleize } from "inflection";
 import { t } from "ttag";
 
+import type { Parameter, ParameterId } from "metabase-types/types/Parameter";
+
 import Icon from "metabase/components/Icon";
-
-import SharingPane from "./SharingPane";
-import AdvancedEmbedPane from "./AdvancedEmbedPane";
-
+import * as MetabaseAnalytics from "metabase/lib/analytics";
+import { color } from "metabase/lib/colors";
 import {
   getSignedPreviewUrl,
   getUnsignedPreviewUrl,
   getSignedToken,
 } from "metabase/public/lib/embed";
-import { color } from "metabase/lib/colors";
-
+import type {
+  EmbeddableResource,
+  EmbeddingParams,
+} from "metabase/public/lib/types";
 import {
   getSiteUrl,
   getEmbeddingSecretKey,
@@ -23,13 +25,8 @@ import {
 } from "metabase/selectors/settings";
 import { getUserIsAdmin } from "metabase/selectors/user";
 
-import * as MetabaseAnalytics from "metabase/lib/analytics";
-
-import type { Parameter, ParameterId } from "metabase-types/types/Parameter";
-import type {
-  EmbeddableResource,
-  EmbeddingParams,
-} from "metabase/public/lib/types";
+import AdvancedEmbedPane from "./AdvancedEmbedPane";
+import SharingPane from "./SharingPane";
 
 export type Pane = "preview" | "code";
 export type EmbedType = null | "simple" | "application";

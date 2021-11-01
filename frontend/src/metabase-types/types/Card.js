@@ -1,9 +1,8 @@
 // TODO: Re-enable Flow after updating it, we maybe hit this with our dataset query types:
 // https://github.com/facebook/flow/issues/1663
-
 import type { DatabaseId } from "./Database";
-import type { StructuredQuery, NativeQuery } from "./Query";
 import type { Parameter, ParameterInstance } from "./Parameter";
+import type { StructuredQuery, NativeQuery } from "./Query";
 
 export type CardId = number;
 

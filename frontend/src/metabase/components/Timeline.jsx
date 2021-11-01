@@ -1,6 +1,7 @@
-import React, { useMemo } from "react";
 import PropTypes from "prop-types";
+import React, { useMemo } from "react";
 import _ from "underscore";
+
 import { getRelativeTime } from "metabase/lib/time";
 
 import {
@@ -53,13 +54,8 @@ function Timeline({ className, items = [], renderFooter }) {
       className={className}
     >
       {sortedFormattedItems.map((item, index) => {
-        const {
-          icon,
-          title,
-          description,
-          timestamp,
-          formattedTimestamp,
-        } = item;
+        const { icon, title, description, timestamp, formattedTimestamp } =
+          item;
         const key = item.key == null ? index : item.key;
         const isNotLastEvent = index !== sortedFormattedItems.length - 1;
         const iconProps = _.isObject(icon)

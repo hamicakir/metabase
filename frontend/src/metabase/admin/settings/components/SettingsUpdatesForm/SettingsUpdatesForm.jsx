@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import PropTypes from "prop-types";
+import React from "react";
 
 import MetabaseSettings from "metabase/lib/settings";
-import SettingsSetting from "../SettingsSetting";
 
+import SettingsSetting from "../SettingsSetting";
 import VersionUpdateNotice from "./VersionUpdateNotice/VersionUpdateNotice";
 
 export default function SettingsUpdatesForm({ elements, updateSetting }) {

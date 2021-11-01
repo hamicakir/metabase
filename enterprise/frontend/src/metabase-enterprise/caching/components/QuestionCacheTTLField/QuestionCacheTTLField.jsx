@@ -1,7 +1,9 @@
+import PropTypes from "prop-types";
 import React, { useEffect, useMemo, useState } from "react";
 import { t } from "ttag";
-import PropTypes from "prop-types";
+
 import { duration } from "metabase/lib/formatting";
+
 import { getQuestionsImplicitCacheTTL } from "../../utils";
 import {
   CacheTTLInput,

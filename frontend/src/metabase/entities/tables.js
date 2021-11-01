@@ -1,3 +1,12 @@
+import { createSelector } from "reselect";
+import _ from "underscore";
+
+import Fields from "metabase/entities/fields";
+import Metrics from "metabase/entities/metrics";
+import Questions from "metabase/entities/questions";
+import Segments from "metabase/entities/segments";
+import { GET, PUT } from "metabase/lib/api";
+import { color } from "metabase/lib/colors";
 import { createEntity } from "metabase/lib/entities";
 import {
   createThunkAction,
@@ -6,28 +15,14 @@ import {
   withCachedDataAndRequestState,
   withNormalize,
 } from "metabase/lib/redux";
-import _ from "underscore";
-
-import * as Urls from "metabase/lib/urls";
-import { color } from "metabase/lib/colors";
-
-import { createSelector } from "reselect";
-
-import { MetabaseApi } from "metabase/services";
-import { TableSchema } from "metabase/schema";
-
-import Metrics from "metabase/entities/metrics";
-import Segments from "metabase/entities/segments";
-import Fields from "metabase/entities/fields";
-import Questions from "metabase/entities/questions";
-
-import { GET, PUT } from "metabase/lib/api";
 import {
   convertSavedQuestionToVirtualTable,
   getQuestionVirtualTableId,
 } from "metabase/lib/saved-questions";
-
+import * as Urls from "metabase/lib/urls";
+import { TableSchema } from "metabase/schema";
 import { getMetadata } from "metabase/selectors/metadata";
+import { MetabaseApi } from "metabase/services";
 
 const listTables = GET("/api/table");
 const listTablesForDatabase = async (...args) =>
@@ -81,28 +76,31 @@ const Tables = createEntity({
         ({ id }) => [...Tables.getObjectStatePath(id), "fetchMetadata"],
       ),
       withNormalize(TableSchema),
-    )(({ id }, options = {}) => (dispatch, getState) =>
-      MetabaseApi.table_query_metadata({
-        tableId: id,
-        ...options.params,
-      }),
+    )(
+      ({ id }, options = {}) =>
+        (dispatch, getState) =>
+          MetabaseApi.table_query_metadata({
+            tableId: id,
+            ...options.params,
+          }),
     ),
 
     // like fetchMetadata but also loads tables linked by foreign key
     fetchMetadataAndForeignTables: createThunkAction(
       FETCH_TABLE_METADATA,
-      ({ id }, options = {}) => async (dispatch, getState) => {
-        await dispatch(Tables.actions.fetchMetadata({ id }, options));
-        // fetch foreign key linked table's metadata as well
-        const table = Tables.selectors[
-          options.selectorName || "getObjectUnfiltered"
-        ](getState(), { entityId: id });
-        await Promise.all(
-          getTableForeignKeyTableIds(table).map(id =>
-            dispatch(Tables.actions.fetchMetadata({ id }, options)),
-          ),
-        );
-      },
+      ({ id }, options = {}) =>
+        async (dispatch, getState) => {
+          await dispatch(Tables.actions.fetchMetadata({ id }, options));
+          // fetch foreign key linked table's metadata as well
+          const table = Tables.selectors[
+            options.selectorName || "getObjectUnfiltered"
+          ](getState(), { entityId: id });
+          await Promise.all(
+            getTableForeignKeyTableIds(table).map(id =>
+              dispatch(Tables.actions.fetchMetadata({ id }, options)),
+            ),
+          );
+        },
     ),
 
     fetchForeignKeys: compose(
@@ -118,8 +116,9 @@ const Tables = createEntity({
     }),
 
     setFieldOrder: compose(withAction(UPDATE_TABLE_FIELD_ORDER))(
-      ({ id }, fieldOrder) => (dispatch, getState) =>
-        updateFieldOrder({ id, fieldOrder }, { bodyParamName: "fieldOrder" }),
+      ({ id }, fieldOrder) =>
+        (dispatch, getState) =>
+          updateFieldOrder({ id, fieldOrder }, { bodyParamName: "fieldOrder" }),
     ),
   },
 

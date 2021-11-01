@@ -1,6 +1,7 @@
-import React, { useMemo } from "react";
 import PropTypes from "prop-types";
+import React, { useMemo } from "react";
 import _ from "underscore";
+
 import {
   SegmentedList,
   SegmentedItem,

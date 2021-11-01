@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
 import React from "react";
 import { t } from "ttag";
-import cx from "classnames";
-
-import SidebarContent from "metabase/query_builder/components/SidebarContent";
-import FilterPopover from "metabase/query_builder/components/filters/FilterPopover";
 
 import { color } from "metabase/lib/colors";
+import SidebarContent from "metabase/query_builder/components/SidebarContent";
+import FilterPopover from "metabase/query_builder/components/filters/FilterPopover";
 
 /** FilterSidebar operates on filters from topLevelFilters */
 export default class FilterSidebar extends React.Component {

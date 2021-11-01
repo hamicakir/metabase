@@ -6,12 +6,11 @@ import { t } from "ttag";
 import Card from "metabase/components/Card";
 import Icon from "metabase/components/Icon";
 import OnClickOutsideWrapper from "metabase/components/OnClickOutsideWrapper";
-
 import MetabaseSettings from "metabase/lib/settings";
 
+import RecentsList from "./RecentsList";
 import { SearchInput, SearchWrapper } from "./SearchBar.styled";
 import { SearchResults } from "./SearchResults";
-import RecentsList from "./RecentsList";
 
 const ALLOWED_SEARCH_FOCUS_ELEMENTS = new Set(["BODY", "A"]);
 

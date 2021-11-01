@@ -1,24 +1,18 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { push } from "react-router-redux";
-import cx from "classnames";
+import _ from "underscore";
 
-import { IFRAMED } from "metabase/lib/dom";
+import type { Dashboard } from "metabase-types/types/Dashboard";
+import type { Parameter } from "metabase-types/types/Parameter";
 
 import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
+import * as dashboardActions from "metabase/dashboard/actions";
+import { getDashboardActions } from "metabase/dashboard/components/DashboardActions";
 import DashboardGrid from "metabase/dashboard/components/DashboardGrid";
 import DashboardControls from "metabase/dashboard/hoc/DashboardControls";
-import { getDashboardActions } from "metabase/dashboard/components/DashboardActions";
-import EmbedFrame from "../components/EmbedFrame";
-import title from "metabase/hoc/Title";
-
-import { fetchDatabaseMetadata } from "metabase/redux/metadata";
-import { setErrorPage } from "metabase/redux/app";
-import { getMetadata } from "metabase/selectors/metadata";
-
-import PublicMode from "metabase/modes/components/modes/PublicMode";
-
 import {
   getDashboardComplete,
   getCardData,
@@ -26,18 +20,18 @@ import {
   getParameters,
   getParameterValues,
 } from "metabase/dashboard/selectors";
-
-import * as dashboardActions from "metabase/dashboard/actions";
-
+import title from "metabase/hoc/Title";
+import { IFRAMED } from "metabase/lib/dom";
+import PublicMode from "metabase/modes/components/modes/PublicMode";
+import { setErrorPage } from "metabase/redux/app";
+import { fetchDatabaseMetadata } from "metabase/redux/metadata";
+import { getMetadata } from "metabase/selectors/metadata";
 import {
   setPublicDashboardEndpoints,
   setEmbedDashboardEndpoints,
 } from "metabase/services";
 
-import type { Dashboard } from "metabase-types/types/Dashboard";
-import type { Parameter } from "metabase-types/types/Parameter";
-
-import _ from "underscore";
+import EmbedFrame from "../components/EmbedFrame";
 
 const mapStateToProps = (state, props) => {
   return {
@@ -84,10 +78,7 @@ type Props = {
   setErrorPage: (error: { status: number }) => void,
 };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 @title(({ dashboard }) => dashboard && dashboard.name)
 @DashboardControls
 // NOTE: this should use DashboardData HoC

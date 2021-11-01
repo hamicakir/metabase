@@ -1,14 +1,13 @@
-import React, { useCallback } from "react";
 import PropTypes from "prop-types";
+import React, { useCallback } from "react";
 import { t } from "ttag";
 import _ from "underscore";
 
-import Form from "metabase/containers/Form";
-import ModalContent from "metabase/components/ModalContent";
 import CollapseSection from "metabase/components/CollapseSection";
-
-import { PLUGIN_CACHING } from "metabase/plugins";
+import ModalContent from "metabase/components/ModalContent";
+import Form from "metabase/containers/Form";
 import Questions from "metabase/entities/questions";
+import { PLUGIN_CACHING } from "metabase/plugins";
 
 const COLLAPSED_FIELDS = ["cache_ttl"];
 

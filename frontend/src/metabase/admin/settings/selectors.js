@@ -1,9 +1,19 @@
-import _ from "underscore";
 import { createSelector } from "reselect";
-import MetabaseSettings from "metabase/lib/settings";
 import { t } from "ttag";
+import _ from "underscore";
+
+import MetabaseSettings from "metabase/lib/settings";
+import { PLUGIN_ADMIN_SETTINGS_UPDATES } from "metabase/plugins";
+import { UtilApi } from "metabase/services";
+
+import SettingsEmailForm from "./components/SettingsEmailForm";
+import SettingsSetupList from "./components/SettingsSetupList";
+import SettingsSlackForm from "./components/SettingsSlackForm";
+import SettingsUpdatesForm from "./components/SettingsUpdatesForm/SettingsUpdatesForm";
 import CustomGeoJSONWidget from "./components/widgets/CustomGeoJSONWidget";
-import SiteUrlWidget from "./components/widgets/SiteUrlWidget";
+import EmbeddingLegalese from "./components/widgets/EmbeddingLegalese";
+import EmbeddingLevel from "./components/widgets/EmbeddingLevel";
+import FormattingWidget from "./components/widgets/FormattingWidget";
 import HttpsOnlyWidget from "./components/widgets/HttpsOnlyWidget";
 import {
   PublicLinksDashboardListing,
@@ -12,16 +22,7 @@ import {
   EmbeddedDashboardListing,
 } from "./components/widgets/PublicLinksListing";
 import SecretKeyWidget from "./components/widgets/SecretKeyWidget";
-import EmbeddingLegalese from "./components/widgets/EmbeddingLegalese";
-import EmbeddingLevel from "./components/widgets/EmbeddingLevel";
-import FormattingWidget from "./components/widgets/FormattingWidget";
-import SettingsUpdatesForm from "./components/SettingsUpdatesForm/SettingsUpdatesForm";
-import SettingsEmailForm from "./components/SettingsEmailForm";
-import SettingsSetupList from "./components/SettingsSetupList";
-import SettingsSlackForm from "./components/SettingsSlackForm";
-
-import { UtilApi } from "metabase/services";
-import { PLUGIN_ADMIN_SETTINGS_UPDATES } from "metabase/plugins";
+import SiteUrlWidget from "./components/widgets/SiteUrlWidget";
 
 // This allows plugins to update the settings sections
 function updateSectionsWithPlugins(sections) {
@@ -404,52 +405,43 @@ export const getSettings = createSelector(
     ),
 );
 
-export const getSettingValues = createSelector(
-  getSettings,
-  settings => {
-    const settingValues = {};
-    for (const setting of settings) {
-      settingValues[setting.key] = setting.value;
-    }
-    return settingValues;
-  },
-);
+export const getSettingValues = createSelector(getSettings, settings => {
+  const settingValues = {};
+  for (const setting of settings) {
+    settingValues[setting.key] = setting.value;
+  }
+  return settingValues;
+});
 
-export const getNewVersionAvailable = createSelector(
-  getSettings,
-  settings => {
-    return MetabaseSettings.newVersionAvailable(settings);
-  },
-);
+export const getNewVersionAvailable = createSelector(getSettings, settings => {
+  return MetabaseSettings.newVersionAvailable(settings);
+});
 
-export const getSections = createSelector(
-  getSettings,
-  settings => {
-    if (!settings || _.isEmpty(settings)) {
-      return {};
-    }
+export const getSections = createSelector(getSettings, settings => {
+  if (!settings || _.isEmpty(settings)) {
+    return {};
+  }
 
-    const settingsByKey = _.groupBy(settings, "key");
-    const sectionsWithAPISettings = {};
-    for (const [slug, section] of Object.entries(SECTIONS)) {
-      const settings = section.settings.map(function(setting) {
-        const apiSetting =
-          settingsByKey[setting.key] && settingsByKey[setting.key][0];
-        if (apiSetting) {
-          return {
-            placeholder: apiSetting.default,
-            ...apiSetting,
-            ...setting,
-          };
-        } else {
-          return setting;
-        }
-      });
-      sectionsWithAPISettings[slug] = { ...section, settings };
-    }
-    return sectionsWithAPISettings;
-  },
-);
+  const settingsByKey = _.groupBy(settings, "key");
+  const sectionsWithAPISettings = {};
+  for (const [slug, section] of Object.entries(SECTIONS)) {
+    const settings = section.settings.map(function (setting) {
+      const apiSetting =
+        settingsByKey[setting.key] && settingsByKey[setting.key][0];
+      if (apiSetting) {
+        return {
+          placeholder: apiSetting.default,
+          ...apiSetting,
+          ...setting,
+        };
+      } else {
+        return setting;
+      }
+    });
+    sectionsWithAPISettings[slug] = { ...section, settings };
+  }
+  return sectionsWithAPISettings;
+});
 
 export const getActiveSectionName = (state, props) => props.params.splat;
 

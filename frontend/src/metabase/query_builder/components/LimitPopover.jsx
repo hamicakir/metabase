@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-
-import { t } from "ttag";
 import cx from "classnames";
+import React from "react";
+import { t } from "ttag";
+
 import Input from "metabase/components/Input";
 import Radio from "metabase/components/Radio";
-import { HARD_ROW_LIMIT } from "metabase/lib/query";
 import { formatNumber } from "metabase/lib/formatting";
+import { HARD_ROW_LIMIT } from "metabase/lib/query";
 
 const CustomRowLimit = ({ limit, onChangeLimit, onClose }) => {
   return (

@@ -1,28 +1,26 @@
-import React, { Component } from "react";
+import moment from "moment";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { t, ngettext, msgid } from "ttag";
-import moment from "moment";
 import _ from "underscore";
-
-import { color } from "metabase/lib/colors";
-import * as Urls from "metabase/lib/urls";
 
 import EntityMenu from "metabase/components/EntityMenu";
 import Icon from "metabase/components/Icon";
 import Link from "metabase/components/Link";
+import PaginationControls from "metabase/components/PaginationControls";
 import Tooltip from "metabase/components/Tooltip";
 import UserAvatar from "metabase/components/UserAvatar";
-import PaginationControls from "metabase/components/PaginationControls";
-import { getUser } from "metabase/selectors/user";
-
-import User from "metabase/entities/users";
 import Group from "metabase/entities/groups";
+import User from "metabase/entities/users";
+import { color } from "metabase/lib/colors";
+import * as Urls from "metabase/lib/urls";
+import { PLUGIN_ADMIN_USER_MENU_ITEMS } from "metabase/plugins";
+import { getUser } from "metabase/selectors/user";
 
 import UserGroupSelect from "../components/UserGroupSelect";
 import { USER_STATUS } from "../constants";
 import { loadMemberships } from "../people";
-import { PLUGIN_ADMIN_USER_MENU_ITEMS } from "metabase/plugins";
 
 @Group.loadList({
   reload: true,
@@ -95,15 +93,8 @@ export default class PeopleList extends Component {
   }
 
   render() {
-    const {
-      user,
-      users,
-      groups,
-      query,
-      metadata,
-      onNextPage,
-      onPreviousPage,
-    } = this.props;
+    const { user, users, groups, query, metadata, onNextPage, onPreviousPage } =
+      this.props;
     const { total } = metadata;
 
     const { page, pageSize, status } = query;

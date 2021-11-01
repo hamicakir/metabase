@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import _ from "underscore";
 
 import Button from "metabase/components/Button";
-
-import _ from "underscore";
 
 type Mapping = {
   [key: string]: any,

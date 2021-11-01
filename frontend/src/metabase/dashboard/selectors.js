@@ -1,16 +1,5 @@
-import _ from "underscore";
-
 import { createSelector } from "reselect";
-
-import { getMetadata } from "metabase/selectors/metadata";
-
-import {
-  getMappingsByParameter as _getMappingsByParameter,
-  getDashboardParametersWithFieldMetadata,
-} from "metabase/parameters/utils/dashboards";
-import { getParameterMappingOptions as _getParameterMappingOptions } from "metabase/parameters/utils/mapping-options";
-
-import { SIDEBAR_NAME } from "metabase/dashboard/constants";
+import _ from "underscore";
 
 import type { CardId, Card } from "metabase-types/types/Card";
 import type { DashCardId } from "metabase-types/types/Dashboard";
@@ -20,6 +9,14 @@ import type {
   ParameterMapping,
   ParameterMappingUIOption,
 } from "metabase-types/types/Parameter";
+
+import { SIDEBAR_NAME } from "metabase/dashboard/constants";
+import {
+  getMappingsByParameter as _getMappingsByParameter,
+  getDashboardParametersWithFieldMetadata,
+} from "metabase/parameters/utils/dashboards";
+import { getParameterMappingOptions as _getParameterMappingOptions } from "metabase/parameters/utils/mapping-options";
+import { getMetadata } from "metabase/selectors/metadata";
 
 export type AugmentedParameterMapping = ParameterMapping & {
   dashcard_id: DashCardId,
@@ -97,14 +94,11 @@ export const getIsDirty = createSelector(
     ),
 );
 
-export const getEditingParameterId = createSelector(
-  [getSidebar],
-  sidebar => {
-    return sidebar.name === SIDEBAR_NAME.editParameter
-      ? sidebar.props?.parameterId
-      : null;
-  },
-);
+export const getEditingParameterId = createSelector([getSidebar], sidebar => {
+  return sidebar.name === SIDEBAR_NAME.editParameter
+    ? sidebar.props?.parameterId
+    : null;
+});
 
 export const getIsEditingParameter = createSelector(
   [getEditingParameterId],

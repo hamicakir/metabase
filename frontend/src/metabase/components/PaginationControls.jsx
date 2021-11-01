@@ -1,10 +1,10 @@
-import React from "react";
 import PropTypes from "prop-types";
-import { t } from "ttag";
+import React from "react";
 import styled from "styled-components";
+import { t } from "ttag";
 
-import colors from "metabase/lib/colors";
 import Icon, { IconWrapper } from "metabase/components/Icon";
+import colors from "metabase/lib/colors";
 
 export default function PaginationControls({
   page,

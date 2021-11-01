@@ -1,14 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
 import { getIn } from "icepick";
+import PropTypes from "prop-types";
+import React from "react";
 import { t } from "ttag";
+
+import Select from "metabase/components/Select";
 import * as MetabaseCore from "metabase/lib/core";
 import { isNumericBaseType } from "metabase/lib/schema_metadata";
 import { isFK } from "metabase/lib/types";
-
-import Select from "metabase/components/Select";
-
 import D from "metabase/reference/components/Detail.css";
 
 const FieldTypeDetail = ({

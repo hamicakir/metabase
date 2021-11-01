@@ -1,7 +1,8 @@
 import _ from "underscore";
 
-import { COMPACT_CURRENCY_OPTIONS } from "metabase/lib/formatting";
 import { moveToFront } from "metabase/lib/dom";
+import { COMPACT_CURRENCY_OPTIONS } from "metabase/lib/formatting";
+
 import { isHistogramBar, xValueForWaterfallTotal } from "./renderer_utils";
 
 /*
@@ -61,10 +62,7 @@ export function onRenderValueLabels(
   const barCount = displays.filter(isBarLike).length;
   if (barCount > 0) {
     barWidth = parseFloat(
-      chart
-        .svg()
-        .select("rect.bar")[0][0]
-        .getAttribute("width"),
+      chart.svg().select("rect.bar")[0][0].getAttribute("width"),
     );
   }
 
@@ -99,7 +97,10 @@ export function onRenderValueLabels(
         if (!isStacked) {
           return [[x, yp + yn, 1]];
         } else if (yp !== yn) {
-          return [[x, yp, 2], [x, yn, 2]];
+          return [
+            [x, yp, 2],
+            [x, yn, 2],
+          ];
         } else {
           return [[x, yp, 1]];
         }
@@ -378,10 +379,5 @@ export function onRenderValueLabels(
     ),
   );
 
-  moveToFront(
-    chart
-      .svg()
-      .select(".value-labels")
-      .node().parentNode,
-  );
+  moveToFront(chart.svg().select(".value-labels").node().parentNode);
 }

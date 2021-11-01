@@ -1,12 +1,13 @@
-import React from "react";
 import PropTypes from "prop-types";
-
+import React from "react";
 import { t } from "ttag";
 
+import Icon from "metabase/components/Icon";
 import {
   allEngines,
   engineSupersedesMap,
 } from "metabase/entities/databases/forms";
+import MetabaseSettings from "metabase/lib/settings";
 
 import {
   CardContent,
@@ -16,9 +17,6 @@ import {
   WarningIcon,
   WarningParagraph,
 } from "./DriverWarning.styled";
-
-import Icon from "metabase/components/Icon";
-import MetabaseSettings from "metabase/lib/settings";
 
 const propTypes = {
   engine: PropTypes.string.isRequired,
@@ -38,9 +36,7 @@ function getSupersedesWarningContent(
   return (
     <div>
       <WarningParagraph>
-        {t`This is our new ${
-          allEngines[newDriver]["driver-name"]
-        } driver, which is faster and more reliable.`}
+        {t`This is our new ${allEngines[newDriver]["driver-name"]} driver, which is faster and more reliable.`}
       </WarningParagraph>
 
       <WarningParagraph hasMargin>
@@ -65,9 +61,9 @@ function getSupersededByWarningContent(engine, onChangeEngine) {
       <WarningParagraph hasMargin>
         {t`We recommend that you upgrade to the`}
         &nbsp;
-        <Link onClick={() => onChangeEngine(engine)}>{t`new ${
-          allEngines[engine]["driver-name"]
-        } driver`}</Link>
+        <Link
+          onClick={() => onChangeEngine(engine)}
+        >{t`new ${allEngines[engine]["driver-name"]} driver`}</Link>
         {t`, which is faster and more reliable.`}
       </WarningParagraph>
       <Link href={driverUpgradeHelpLink} target={"_blank"}>

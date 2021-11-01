@@ -1,16 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import { connect } from "react-redux";
 import { t } from "ttag";
 
-import { connect } from "react-redux";
 import { updateLdapSettings } from "metabase/admin/settings/settings";
 
 import SettingsBatchForm from "./SettingsBatchForm";
 
-@connect(
-  null,
-  { updateSettings: updateLdapSettings },
-)
+@connect(null, { updateSettings: updateLdapSettings })
 export default class SettingsLdapForm extends React.Component {
   render() {
     return (

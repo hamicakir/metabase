@@ -1,28 +1,23 @@
 /* eslint-disable react/prop-types */
+import { Flex } from "grid-styled";
 import React from "react";
-import { withRouter } from "react-router";
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
 import { t, jt } from "ttag";
 
-import { Flex } from "grid-styled";
 import Icon from "metabase/components/Icon";
 import CollectionMoveModal from "metabase/containers/CollectionMoveModal";
-
+import Collection, { ROOT_COLLECTION } from "metabase/entities/collections";
+import Dashboards from "metabase/entities/dashboards";
 import { color } from "metabase/lib/colors";
 import * as Urls from "metabase/lib/urls";
-
-import Dashboards from "metabase/entities/dashboards";
-import Collection, { ROOT_COLLECTION } from "metabase/entities/collections";
 
 const mapDispatchToProps = {
   setDashboardCollection: Dashboards.actions.setCollection,
 };
 
 @withRouter
-@connect(
-  null,
-  mapDispatchToProps,
-)
+@connect(null, mapDispatchToProps)
 class DashboardMoveModal extends React.Component {
   render() {
     const { params, onClose, setDashboardCollection } = this.props;

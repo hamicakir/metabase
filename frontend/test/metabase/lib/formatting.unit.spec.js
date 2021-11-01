@@ -1,6 +1,7 @@
-import { isElementOfType } from "react-dom/test-utils";
 import moment from "moment-timezone";
+import { isElementOfType } from "react-dom/test-utils";
 
+import ExternalLink from "metabase/components/ExternalLink";
 import {
   capitalize,
   formatNumber,
@@ -10,7 +11,6 @@ import {
   formatTimeWithUnit,
   slugify,
 } from "metabase/lib/formatting";
-import ExternalLink from "metabase/components/ExternalLink";
 import { TYPE } from "metabase/lib/types";
 
 describe("formatting", () => {

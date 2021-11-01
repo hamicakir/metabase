@@ -1,14 +1,14 @@
-import React, { useState, useMemo, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
-import { t } from "ttag";
+import React, { useState, useMemo, useEffect, useCallback } from "react";
 import { AutoSizer, List } from "react-virtualized";
+import { t } from "ttag";
 
-import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
-import Icon from "metabase/components/Icon";
-import * as MetabaseAnalytics from "metabase/lib/analytics";
-import { useDebouncedValue } from "metabase/hooks/use-debounced-value";
-import { SEARCH_DEBOUNCE_DURATION } from "metabase/lib/constants";
 import EmptyState from "metabase/components/EmptyState";
+import Icon from "metabase/components/Icon";
+import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
+import { useDebouncedValue } from "metabase/hooks/use-debounced-value";
+import * as MetabaseAnalytics from "metabase/lib/analytics";
+import { SEARCH_DEBOUNCE_DURATION } from "metabase/lib/constants";
 
 import {
   LoadMoreButton,
@@ -65,10 +65,7 @@ export const QuestionList = React.memo(function QuestionList({
   const filteredQuestions = useMemo(() => {
     const filterText = debouncedSearchText.toLowerCase();
     const filteredQuestions = questions.filter(question =>
-      question
-        .displayName()
-        .toLowerCase()
-        .includes(filterText),
+      question.displayName().toLowerCase().includes(filterText),
     );
 
     filteredQuestions.sort((a, b) => {

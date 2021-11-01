@@ -1,36 +1,32 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
+import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
 import { t } from "ttag";
-import cx from "classnames";
 import _ from "underscore";
 
-import { SAVED_QUESTIONS_VIRTUAL_DB_ID } from "metabase/lib/saved-questions";
-
-import ListSearchField from "metabase/components/ListSearchField";
+import AccordionList from "metabase/components/AccordionList";
 import ExternalLink from "metabase/components/ExternalLink";
 import Icon from "metabase/components/Icon";
-import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
-import AccordionList from "metabase/components/AccordionList";
+import ListSearchField from "metabase/components/ListSearchField";
 import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
-
-import MetabaseSettings from "metabase/lib/settings";
-
+import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
 import Databases from "metabase/entities/databases";
 import Schemas from "metabase/entities/schemas";
 import Tables from "metabase/entities/tables";
+import { SAVED_QUESTIONS_VIRTUAL_DB_ID } from "metabase/lib/saved-questions";
+import MetabaseSettings from "metabase/lib/settings";
+import { getSchemaName } from "metabase/schema";
+import { getMetadata } from "metabase/selectors/metadata";
+
+import "./DataSelector.css";
 import {
   SearchResults,
   convertSearchResultToTableLikeItem,
   isSavedQuestion,
 } from "./data-search";
 import SavedQuestionPicker from "./saved-question-picker/SavedQuestionPicker";
-
-import { getMetadata } from "metabase/selectors/metadata";
-import { getSchemaName } from "metabase/schema";
-
-import "./DataSelector.css";
 
 const MIN_SEARCH_LENGTH = 2;
 
@@ -351,12 +347,8 @@ export class UnconnectedDataSelector extends Component {
   async componentDidUpdate() {
     // this logic cleans up invalid states, e.x. if a selectedSchema's database
     // doesn't match selectedDatabase we clear it and go to the SCHEMA_STEP
-    const {
-      selectedDatabase,
-      selectedSchema,
-      selectedTable,
-      selectedField,
-    } = this.state;
+    const { selectedDatabase, selectedSchema, selectedTable, selectedField } =
+      this.state;
     const invalidSchema =
       selectedDatabase &&
       selectedSchema &&
@@ -750,11 +742,8 @@ export class UnconnectedDataSelector extends Component {
   };
 
   render() {
-    const {
-      searchText,
-      isSavedQuestionPickerShown,
-      selectedTable,
-    } = this.state;
+    const { searchText, isSavedQuestionPickerShown, selectedTable } =
+      this.state;
     const { canChangeDatabase, selectedDatabaseId } = this.props;
     const currentDatabaseId = canChangeDatabase ? null : selectedDatabaseId;
 

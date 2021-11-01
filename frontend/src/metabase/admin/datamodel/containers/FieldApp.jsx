@@ -3,59 +3,54 @@
  *
  * TODO Atte Keinänen 7/6/17: This uses the standard metadata API; we should migrate also other parts of admin section
  */
+
 /* eslint-disable react/prop-types */
+import { is_coerceable, coercions_for_type } from "cljs/metabase.types";
 import React from "react";
-import { Link } from "react-router";
 import { connect } from "react-redux";
-
-import _ from "underscore";
+import { Link } from "react-router";
 import { t } from "ttag";
-import { humanizeCoercionStrategy } from "./humanizeCoercionStrategy";
+import _ from "underscore";
 
-// COMPONENTS
+// LIB
+import Metadata from "metabase-lib/lib/metadata/Metadata";
 
-import Icon from "metabase/components/Icon";
-import InputBlurChange from "metabase/components/InputBlurChange";
-import Select from "metabase/components/Select";
-import SaveStatus from "metabase/components/SaveStatus";
-import Breadcrumbs from "metabase/components/Breadcrumbs";
-import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
+import type { DatabaseId } from "metabase-types/types/Database";
+import type { ColumnSettings as ColumnSettingsType } from "metabase-types/types/Dataset";
+import type { FieldId } from "metabase-types/types/Field";
+import type { TableId } from "metabase-types/types/Table";
 
 import AdminLayout from "metabase/components/AdminLayout";
+import Breadcrumbs from "metabase/components/Breadcrumbs";
+// COMPONENTS
+import Icon from "metabase/components/Icon";
+import InputBlurChange from "metabase/components/InputBlurChange";
 import { LeftNavPane, LeftNavPaneItem } from "metabase/components/LeftNavPane";
+import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
+import SaveStatus from "metabase/components/SaveStatus";
+import Select from "metabase/components/Select";
+import Databases from "metabase/entities/databases";
+import Fields from "metabase/entities/fields";
+import Tables from "metabase/entities/tables";
+import { has_field_values_options } from "metabase/lib/core";
+import { isCurrency } from "metabase/lib/schema_metadata";
+import { isFK } from "metabase/lib/types";
+// SELECTORS
+import { getMetadata } from "metabase/selectors/metadata";
+import ColumnSettings from "metabase/visualizations/components/ColumnSettings";
+import { getGlobalSettingsForColumn } from "metabase/visualizations/lib/settings/column";
+
+import FieldRemapping from "../components/FieldRemapping";
 import Section, { SectionHeader } from "../components/Section";
 import SelectSeparator from "../components/SelectSeparator";
-
-import { is_coerceable, coercions_for_type } from "cljs/metabase.types";
-import { isFK } from "metabase/lib/types";
-
+import UpdateCachedFieldValues from "../components/UpdateCachedFieldValues";
 import {
   FieldVisibilityPicker,
   SemanticTypeAndTargetPicker,
 } from "../components/database/ColumnItem";
-import FieldRemapping from "../components/FieldRemapping";
-import UpdateCachedFieldValues from "../components/UpdateCachedFieldValues";
-import ColumnSettings from "metabase/visualizations/components/ColumnSettings";
-
-// SELECTORS
-import { getMetadata } from "metabase/selectors/metadata";
-
 // ACTIONS
 import { rescanFieldValues, discardFieldValues } from "../field";
-
-// LIB
-import Metadata from "metabase-lib/lib/metadata/Metadata";
-import { has_field_values_options } from "metabase/lib/core";
-import { getGlobalSettingsForColumn } from "metabase/visualizations/lib/settings/column";
-import { isCurrency } from "metabase/lib/schema_metadata";
-
-import type { ColumnSettings as ColumnSettingsType } from "metabase-types/types/Dataset";
-import type { DatabaseId } from "metabase-types/types/Database";
-import type { TableId } from "metabase-types/types/Table";
-import type { FieldId } from "metabase-types/types/Field";
-import Databases from "metabase/entities/databases";
-import Tables from "metabase/entities/tables";
-import Fields from "metabase/entities/fields";
+import { humanizeCoercionStrategy } from "./humanizeCoercionStrategy";
 
 const mapStateToProps = (state, props) => {
   const databaseId = parseInt(props.params.databaseId);
@@ -82,10 +77,7 @@ const mapDispatchToProps = {
   discardFieldValues,
 };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class FieldApp extends React.Component {
   state = {
     tab: "general",
@@ -150,11 +142,13 @@ export default class FieldApp extends React.Component {
     ]);
   }
 
-  linkWithSaveStatus = (saveMethod: Function) => async (...args: any[]) => {
-    this.saveStatusRef.current && this.saveStatusRef.current.setSaving();
-    await saveMethod(...args);
-    this.saveStatusRef.current && this.saveStatusRef.current.setSaved();
-  };
+  linkWithSaveStatus =
+    (saveMethod: Function) =>
+    async (...args: any[]) => {
+      this.saveStatusRef.current && this.saveStatusRef.current.setSaving();
+      await saveMethod(...args);
+      this.saveStatusRef.current && this.saveStatusRef.current.setSaved();
+    };
 
   onUpdateFieldProperties = this.linkWithSaveStatus(async fieldProps => {
     const { field } = this.props;

@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getValues } from "redux-form";
 import { goBack } from "react-router-redux";
+import { getValues } from "redux-form";
 
 import Collection from "metabase/entities/collections";
 import { PLUGIN_COLLECTIONS } from "metabase/plugins";
@@ -26,10 +26,7 @@ const mapDispatchToProps = {
   goBack,
 };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class CollectionCreate extends Component {
   render() {
     const { form, initialCollectionId, goBack } = this.props;

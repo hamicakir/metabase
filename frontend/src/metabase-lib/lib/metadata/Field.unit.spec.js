@@ -1,9 +1,9 @@
-import Field from "./Field";
-import Table from "./Table";
-import Schema from "./Schema";
-import Metadata from "./Metadata";
-import Base from "./Base";
 import Dimension from "../Dimension";
+import Base from "./Base";
+import Field from "./Field";
+import Metadata from "./Metadata";
+import Schema from "./Schema";
+import Table from "./Table";
 
 describe("Field", () => {
   describe("instantiation", () => {

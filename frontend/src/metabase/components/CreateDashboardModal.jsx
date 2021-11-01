@@ -1,14 +1,13 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { push } from "react-router-redux";
 
-import * as Urls from "metabase/lib/urls";
-
 import Collection from "metabase/entities/collections";
 import Dashboard from "metabase/entities/dashboards";
+import * as Urls from "metabase/lib/urls";
 
 const mapStateToProps = (state, props) => ({
   initialCollectionId: Collection.selectors.getInitialCollectionId(
@@ -22,10 +21,7 @@ const mapDispatchToProps = {
 };
 
 @withRouter
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class CreateDashboardModal extends Component {
   static propTypes = {
     onSaved: PropTypes.func,

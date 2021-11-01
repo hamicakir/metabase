@@ -1,5 +1,4 @@
 import { ORDERS, PEOPLE } from "__support__/sample_dataset_fixture";
-
 import { assocIn } from "icepick";
 import moment from "moment";
 
@@ -13,10 +12,7 @@ function getActionProps(query, value) {
       value: 42,
       dimensions: [
         {
-          column: query
-            .breakouts()[0]
-            .dimension()
-            .column(),
+          column: query.breakouts()[0].dimension().column(),
           value: value,
         },
       ],

@@ -1,12 +1,11 @@
-import styled from "styled-components";
 import { Box } from "grid-styled";
+import styled from "styled-components";
 
-import { color } from "metabase/lib/colors";
-import { space } from "metabase/styled-components/theme";
-
+import { SIDEBAR_SPACER } from "metabase/collections/constants";
 import GenericIcon from "metabase/components/Icon";
 import GenericLink from "metabase/components/Link";
-import { SIDEBAR_SPACER } from "metabase/collections/constants";
+import { color } from "metabase/lib/colors";
+import { space } from "metabase/styled-components/theme";
 
 export const Container = styled(Box)`
   margin-top: auto;

@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from "react";
-
 import { connect } from "react-redux";
 import { goBack, push } from "react-router-redux";
 
-import * as Urls from "metabase/lib/urls";
 import Collection from "metabase/entities/collections";
+import * as Urls from "metabase/lib/urls";
 
 function mapStateToProps(state, props) {
   return {
@@ -53,7 +52,4 @@ class CollectionEdit extends Component {
   }
 }
 
-export default connect(
-  null,
-  mapDispatchToProps,
-)(CollectionEdit);
+export default connect(null, mapDispatchToProps)(CollectionEdit);

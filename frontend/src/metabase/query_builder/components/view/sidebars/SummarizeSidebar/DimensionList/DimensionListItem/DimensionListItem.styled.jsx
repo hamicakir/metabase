@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
-import { color, alpha } from "metabase/lib/colors";
 
 import Icon from "metabase/components/Icon";
+import { color, alpha } from "metabase/lib/colors";
 
 export const SubDimensionButton = styled.button`
   text-align: left;

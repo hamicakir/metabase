@@ -5,7 +5,6 @@ import {
   popover,
   filterWidget,
 } from "__support__/e2e/cypress";
-
 import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
 
 const { PEOPLE, PEOPLE_ID } = SAMPLE_DATASET;
@@ -100,15 +99,10 @@ describe("issue 18061", () => {
 
       cy.window().then(w => (w.beforeReload = true));
 
-      cy.icon("filter")
-        .parent()
-        .contains("1")
-        .click();
+      cy.icon("filter").parent().contains("1").click();
       cy.findByText("ID is less than 3").click();
 
-      popover()
-        .find("input")
-        .type("{backspace}2");
+      popover().find("input").type("{backspace}2");
 
       cy.button("Update filter").click();
 
@@ -155,8 +149,6 @@ describe("issue 18061", () => {
 
 function addFilter(filter) {
   filterWidget().click();
-  popover()
-    .contains(filter)
-    .click();
+  popover().contains(filter).click();
   cy.button("Add filter").click();
 }

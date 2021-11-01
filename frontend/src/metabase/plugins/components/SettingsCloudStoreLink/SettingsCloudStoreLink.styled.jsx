@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { color } from "metabase/lib/colors";
+
 import ExternalLink from "metabase/components/ExternalLink";
 import Icon from "metabase/components/Icon";
+import { color } from "metabase/lib/colors";
 
 export const Description = styled.p`
   color: ${color("text-dark")};

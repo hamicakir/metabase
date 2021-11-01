@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import { createSelector } from "reselect";
 import _ from "underscore";
 
-import entityType from "./EntityType";
 import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
+
+import entityType from "./EntityType";
 
 export type Props = {
   // Entity ID, such as a database ID
@@ -157,11 +158,13 @@ export default class EntityObjectLoader extends React.Component {
   };
 }
 
-export const entityObjectLoader = (eolProps: Props) =>
+export const entityObjectLoader =
+  (eolProps: Props) =>
   // eslint-disable-line react/display-name
   (ComposedComponent: any) =>
-    // eslint-disable-next-line react/display-name
-    (props: Props) => (
+  // eslint-disable-next-line react/display-name
+  (props: Props) =>
+    (
       <EntityObjectLoader {...props} {...eolProps}>
         {childProps => (
           <ComposedComponent

@@ -1,7 +1,9 @@
-import React, { useCallback, useRef, useState } from "react";
 import PropTypes from "prop-types";
+import React, { useCallback, useRef, useState } from "react";
 import { t } from "ttag";
+
 import Popover from "metabase/components/Popover";
+
 import {
   LegendLink,
   LegendLinkContainer,

@@ -1,14 +1,13 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import { Box, Flex } from "grid-styled";
-
-import { color } from "metabase/lib/colors";
+import React from "react";
 
 import Icon from "metabase/components/Icon";
 import Text from "metabase/components/type/Text";
-
+import { color } from "metabase/lib/colors";
 import { PLUGIN_COLLECTIONS, PLUGIN_MODERATION } from "metabase/plugins";
 
+import { InfoText } from "./InfoText";
 import {
   IconWrapper,
   ResultLink,
@@ -18,7 +17,6 @@ import {
   ContextText,
   ContextContainer,
 } from "./SearchResult.styled";
-import { InfoText } from "./InfoText";
 
 const DEFAULT_ICON_SIZE = 20;
 

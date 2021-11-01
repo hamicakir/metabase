@@ -1,27 +1,23 @@
 /* eslint-disable react/prop-types */
+import { Box } from "grid-styled";
 import React from "react";
 import { connect } from "react-redux";
 import { t } from "ttag";
-import { Box } from "grid-styled";
 
-import { getXraysEnabled } from "metabase/selectors/settings";
-import { getMetadata } from "metabase/selectors/metadata";
-
-import Table from "metabase/entities/tables";
-
-import { SAVED_QUESTIONS_VIRTUAL_DB_ID } from "metabase/lib/saved-questions";
-import { color } from "metabase/lib/colors";
-import * as Urls from "metabase/lib/urls";
-
+import BrowseHeader from "metabase/browse/components/BrowseHeader";
+import { ANALYTICS_CONTEXT, ITEM_WIDTHS } from "metabase/browse/constants";
 import Card from "metabase/components/Card";
-import Database from "metabase/entities/databases";
 import EntityItem from "metabase/components/EntityItem";
 import { Grid, GridItem } from "metabase/components/Grid";
 import Icon from "metabase/components/Icon";
 import Link from "metabase/components/Link";
-
-import BrowseHeader from "metabase/browse/components/BrowseHeader";
-import { ANALYTICS_CONTEXT, ITEM_WIDTHS } from "metabase/browse/constants";
+import Database from "metabase/entities/databases";
+import Table from "metabase/entities/tables";
+import { color } from "metabase/lib/colors";
+import { SAVED_QUESTIONS_VIRTUAL_DB_ID } from "metabase/lib/saved-questions";
+import * as Urls from "metabase/lib/urls";
+import { getMetadata } from "metabase/selectors/metadata";
+import { getXraysEnabled } from "metabase/selectors/settings";
 
 function getDatabaseId(props) {
   const { params } = props;

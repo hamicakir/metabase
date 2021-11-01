@@ -1,8 +1,10 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { msToMinutes, msToHours } from "metabase/lib/time";
+import React from "react";
+
 import MetabaseSettings from "metabase/lib/settings";
+import { msToMinutes, msToHours } from "metabase/lib/time";
+
 import { QuestionCacheTTLField } from "./QuestionCacheTTLField";
 
 const TEN_MINUTES = 10 * 60 * 1000;

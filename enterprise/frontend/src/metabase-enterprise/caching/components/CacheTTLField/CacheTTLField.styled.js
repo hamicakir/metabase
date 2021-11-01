@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
-import { color } from "metabase/lib/colors";
+
 import NumericInput from "metabase/components/NumericInput";
+import { color } from "metabase/lib/colors";
 
 export const CacheTTLFieldContainer = styled.div`
   display: flex;

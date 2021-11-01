@@ -1,16 +1,16 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { connect } from "react-redux";
 
-import { getLatestModerationReview } from "metabase-enterprise/moderation/service";
-import { getIsModerator } from "metabase-enterprise/moderation/selectors";
 import {
   verifyCard,
   removeCardReview,
 } from "metabase-enterprise/moderation/actions";
+import { getIsModerator } from "metabase-enterprise/moderation/selectors";
+import { getLatestModerationReview } from "metabase-enterprise/moderation/service";
 
-import { BorderedModerationActions } from "./QuestionModerationSection.styled";
 import ModerationReviewBanner from "../ModerationReviewBanner/ModerationReviewBanner";
+import { BorderedModerationActions } from "./QuestionModerationSection.styled";
 
 const mapStateToProps = (state, props) => ({
   isModerator: getIsModerator(state, props),

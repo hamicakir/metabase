@@ -1,10 +1,11 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import styled from "styled-components";
 import { t } from "ttag";
 
 import Icon from "metabase/components/Icon";
 import Tooltip from "metabase/components/Tooltip";
+
 import { NotebookCell } from "./NotebookCell";
 
 export const FieldPickerContentContainer = styled.div`

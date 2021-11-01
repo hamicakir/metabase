@@ -1,12 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
-import styled from "styled-components";
+import PropTypes from "prop-types";
+import React from "react";
 import {
   SortableContainer as OriginalSortableContainer,
   SortableElement,
   SortableHandle,
 } from "react-sortable-hoc";
+import styled from "styled-components";
+
 import "./sortable.css";
 
 const SortableContainerWrapper = styled.div`

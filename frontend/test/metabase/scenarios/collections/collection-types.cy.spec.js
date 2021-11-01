@@ -263,9 +263,7 @@ function testOfficialQuestionBadgeInRegularDashboard(expectBadge = true) {
 }
 
 function openCollection(collectionName) {
-  sidebar()
-    .findByText(collectionName)
-    .click();
+  sidebar().findByText(collectionName).click();
 }
 
 function editCollection() {
@@ -282,11 +280,7 @@ function expandCollectionChildren(collectionName) {
 }
 
 function getSidebarCollectionChildrenFor(collectionName) {
-  return sidebar()
-    .findByText(collectionName)
-    .closest("a")
-    .parent()
-    .parent();
+  return sidebar().findByText(collectionName).closest("a").parent().parent();
 }
 
 function setOfficial(official = true) {

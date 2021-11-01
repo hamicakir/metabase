@@ -1,10 +1,12 @@
+import userEvent from "@testing-library/user-event";
+import { setupEnterpriseTest } from "__support__/enterprise";
+import { fireEvent, renderWithProviders, screen } from "__support__/ui";
 import React from "react";
 import _ from "underscore";
-import { fireEvent, renderWithProviders, screen } from "__support__/ui";
-import userEvent from "@testing-library/user-event";
 import xhrMock from "xhr-mock";
-import { setupEnterpriseTest } from "__support__/enterprise";
+
 import MetabaseSettings from "metabase/lib/settings";
+
 import DashboardDetailsModal from "./DashboardDetailsModal";
 
 const DASHBOARD = {

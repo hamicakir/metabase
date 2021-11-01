@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { t } from "ttag";
 import cx from "classnames";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { t } from "ttag";
 import _ from "underscore";
 
-import ModalContent from "metabase/components/ModalContent";
 import CheckBox from "metabase/components/CheckBox";
+import ModalContent from "metabase/components/ModalContent";
 
 import { CheckboxLabel } from "./DeleteModalWithConfirm.styled";
 

@@ -1,17 +1,16 @@
 import styled from "styled-components";
-import { PLUGIN_COLLECTIONS } from "metabase/plugins";
+
+import { CollectionIcon } from "metabase/collections/components/CollectionIcon";
+import { SIDEBAR_SPACER } from "metabase/collections/constants";
+import IconButtonWrapper from "metabase/components/IconButtonWrapper";
 import {
   ROOT_COLLECTION,
   PERSONAL_COLLECTIONS,
 } from "metabase/entities/collections";
-import { CollectionIcon } from "metabase/collections/components/CollectionIcon";
+import { color } from "metabase/lib/colors";
+import { PLUGIN_COLLECTIONS } from "metabase/plugins";
 
 const { isRegularCollection } = PLUGIN_COLLECTIONS;
-
-import { SIDEBAR_SPACER } from "metabase/collections/constants";
-import { color } from "metabase/lib/colors";
-
-import IconButtonWrapper from "metabase/components/IconButtonWrapper";
 
 function getOpacity(collection) {
   if (

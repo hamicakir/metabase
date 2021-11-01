@@ -1,27 +1,29 @@
 /* eslint-disable react/prop-types */
+
 /* eslint-disable react/no-string-refs */
-import React from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
+import React from "react";
+import type { Children } from "react";
 import ReactDOM from "react-dom";
 import { t } from "ttag";
 
-import AggregationWidget from "./AggregationWidget";
-import BreakoutWidget from "./BreakoutWidget";
-import ExtendedOptions from "./ExtendedOptions";
-import FilterWidgetList from "./filters/FilterWidgetList";
-import FilterPopover from "./filters/FilterPopover";
+import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
+
+import type { DatasetQuery } from "metabase-types/types/Card";
+import type { Aggregation, Breakout } from "metabase-types/types/Query";
+
 import Icon from "metabase/components/Icon";
 import IconBorder from "metabase/components/IconBorder";
 import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
 import { DatabaseSchemaAndTableDataSelector } from "metabase/query_builder/components/DataSelector";
 
-import cx from "classnames";
+import AggregationWidget from "./AggregationWidget";
+import BreakoutWidget from "./BreakoutWidget";
+import ExtendedOptions from "./ExtendedOptions";
+import FilterPopover from "./filters/FilterPopover";
+import FilterWidgetList from "./filters/FilterWidgetList";
 
-import type { DatasetQuery } from "metabase-types/types/Card";
-import type { Aggregation, Breakout } from "metabase-types/types/Query";
-import type { Children } from "react";
-
-import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
 export type GuiQueryEditorFeatures = {
   filter?: boolean,
   aggregation?: boolean,
@@ -180,12 +182,8 @@ export default class GuiQueryEditor extends React.Component {
   }
 
   renderAggregation() {
-    const {
-      query,
-      features,
-      setDatasetQuery,
-      supportMultipleAggregations,
-    } = this.props;
+    const { query, features, setDatasetQuery, supportMultipleAggregations } =
+      this.props;
 
     if (!features.aggregation) {
       return;

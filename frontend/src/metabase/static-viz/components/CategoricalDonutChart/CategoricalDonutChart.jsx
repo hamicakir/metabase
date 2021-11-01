@@ -1,9 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { t } from "ttag";
 import { Group } from "@visx/group";
 import { Pie } from "@visx/shape";
 import { Text } from "@visx/text";
+import PropTypes from "prop-types";
+import React from "react";
+import { t } from "ttag";
+
 import { formatNumber } from "../../lib/numbers";
 
 const propTypes = {

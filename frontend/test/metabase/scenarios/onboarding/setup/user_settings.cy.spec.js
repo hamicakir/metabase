@@ -1,6 +1,7 @@
 // Migrated from frontend/test/metabase/user/UserSettings.integ.spec.js
 import { restore } from "__support__/e2e/cypress";
 import { USERS } from "__support__/e2e/cypress_data";
+
 const { first_name, last_name, email, password } = USERS.normal;
 
 const CURRENT_USER = {
@@ -44,10 +45,7 @@ describe("user > settings", () => {
     cy.server();
     cy.route("GET", "/api/permissions/membership").as("membership");
     cy.visit("/account/profile");
-    cy.findByDisplayValue(first_name)
-      .click()
-      .clear()
-      .type("John");
+    cy.findByDisplayValue(first_name).click().clear().type("John");
     cy.findByText("Update").click();
     cy.findByDisplayValue("John");
 

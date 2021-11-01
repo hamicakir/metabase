@@ -1,5 +1,5 @@
-import React, { useCallback, useState } from "react";
 import PropTypes from "prop-types";
+import React, { useCallback, useState } from "react";
 
 import { HeaderContainer, Header, ToggleIcon } from "./CollapseSection.styled";
 

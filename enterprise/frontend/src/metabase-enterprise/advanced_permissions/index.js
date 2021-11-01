@@ -1,7 +1,8 @@
 import { t } from "ttag";
 
-import { hasPremiumFeature } from "metabase-enterprise/settings";
 import { DataPermissionsHelp } from "metabase-enterprise/advanced_permissions/components/DataPermissionsHelp/DataPermissionsHelp";
+import { hasPremiumFeature } from "metabase-enterprise/settings";
+
 import { PLUGIN_ADVANCED_PERMISSIONS } from "metabase/plugins";
 
 const BLOCK_PERMISSION_OPTION = {
@@ -19,8 +20,10 @@ if (hasPremiumFeature("advanced_permissions")) {
       ? [...options, BLOCK_PERMISSION_OPTION]
       : options;
 
-  PLUGIN_ADVANCED_PERMISSIONS.addTablePermissionOptions = addBlockPermissionWhenSelected;
-  PLUGIN_ADVANCED_PERMISSIONS.addSchemaPermissionOptions = addBlockPermissionWhenSelected;
+  PLUGIN_ADVANCED_PERMISSIONS.addTablePermissionOptions =
+    addBlockPermissionWhenSelected;
+  PLUGIN_ADVANCED_PERMISSIONS.addSchemaPermissionOptions =
+    addBlockPermissionWhenSelected;
   PLUGIN_ADVANCED_PERMISSIONS.addDatabasePermissionOptions = options => [
     ...options,
     BLOCK_PERMISSION_OPTION,

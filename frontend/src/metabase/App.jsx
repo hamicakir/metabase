@@ -1,20 +1,18 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import ScrollToTop from "metabase/hoc/ScrollToTop";
-import Navbar from "metabase/nav/containers/Navbar";
 
-import { IFRAMED, initializeIframeResizer } from "metabase/lib/dom";
-
-import UndoListing from "metabase/containers/UndoListing";
 import AppErrorCard from "metabase/components/AppErrorCard/AppErrorCard";
-
 import {
   Archived,
   NotFound,
   GenericError,
   Unauthorized,
 } from "metabase/containers/ErrorPages";
+import UndoListing from "metabase/containers/UndoListing";
+import ScrollToTop from "metabase/hoc/ScrollToTop";
+import { IFRAMED, initializeIframeResizer } from "metabase/lib/dom";
+import Navbar from "metabase/nav/containers/Navbar";
 
 const mapStateToProps = (state, props) => ({
   errorPage: state.app.errorPage,

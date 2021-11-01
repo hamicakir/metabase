@@ -1,25 +1,14 @@
-import { t } from "ttag";
+import { currency } from "cljs/metabase.shared.util.currency";
 import moment from "moment";
+import { t } from "ttag";
 import _ from "underscore";
 
-import { nestedSettings } from "./nested";
-import ChartNestedSettingColumns from "metabase/visualizations/components/settings/ChartNestedSettingColumns";
+import type { VisualizationSettings } from "metabase-types/types/Card";
+import type { Column } from "metabase-types/types/Dataset";
+import type { DatetimeUnit } from "metabase-types/types/Query";
+import type { Series } from "metabase-types/types/Visualization";
 
 import { keyForColumn } from "metabase/lib/dataset";
-import {
-  isDate,
-  isNumber,
-  isCoordinate,
-  isCurrency,
-  isDateWithoutTime,
-} from "metabase/lib/schema_metadata";
-
-// HACK: cyclical dependency causing errors in unit tests
-// import { getVisualizationRaw } from "metabase/visualizations";
-function getVisualizationRaw(...args) {
-  return require("metabase/visualizations").getVisualizationRaw(...args);
-}
-
 import {
   formatColumn,
   numberFormatterForOptions,
@@ -29,15 +18,25 @@ import {
   hasDay,
   hasHour,
 } from "metabase/lib/formatting/date";
-
-import { currency } from "cljs/metabase.shared.util.currency";
+import type { DateStyle, TimeStyle } from "metabase/lib/formatting/date";
+import {
+  isDate,
+  isNumber,
+  isCoordinate,
+  isCurrency,
+  isDateWithoutTime,
+} from "metabase/lib/schema_metadata";
+import MetabaseSettings from "metabase/lib/settings";
+import ChartNestedSettingColumns from "metabase/visualizations/components/settings/ChartNestedSettingColumns";
 
 import type { Settings, SettingDef } from "../settings";
-import type { DateStyle, TimeStyle } from "metabase/lib/formatting/date";
-import type { DatetimeUnit } from "metabase-types/types/Query";
-import type { Column } from "metabase-types/types/Dataset";
-import type { Series } from "metabase-types/types/Visualization";
-import type { VisualizationSettings } from "metabase-types/types/Card";
+import { nestedSettings } from "./nested";
+
+// HACK: cyclical dependency causing errors in unit tests
+// import { getVisualizationRaw } from "metabase/visualizations";
+function getVisualizationRaw(...args) {
+  return require("metabase/visualizations").getVisualizationRaw(...args);
+}
 
 type ColumnSettings = Settings;
 
@@ -69,8 +68,6 @@ export function columnSettings({
     ...def,
   });
 }
-
-import MetabaseSettings from "metabase/lib/settings";
 
 export function getGlobalSettingsForColumn(column: Column) {
   const columnSettings = {};

@@ -1,13 +1,14 @@
 /* eslint "react/prop-types": "warn" */
-import React from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router";
-import S from "./List.css";
-import Icon from "./Icon";
-import Ellipsified from "./Ellipsified";
-
 import cx from "classnames";
+import PropTypes from "prop-types";
+import React from "react";
+import { Link } from "react-router";
+
 import Card from "metabase/components/Card";
+
+import Ellipsified from "./Ellipsified";
+import Icon from "./Icon";
+import S from "./List.css";
 
 //TODO: extend this to support functionality required for questions
 const ListItem = ({ index, name, description, placeholder, url, icon }) => (

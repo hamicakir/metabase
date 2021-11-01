@@ -93,10 +93,7 @@ describeWithToken("scenarios > sharing > approved domains (EE)", () => {
 });
 
 function addEmailRecipient(email) {
-  cy.get("input")
-    .click()
-    .type(`${email}`)
-    .blur();
+  cy.get("input").click().type(`${email}`).blur();
 }
 
 function setAllowedDomains() {

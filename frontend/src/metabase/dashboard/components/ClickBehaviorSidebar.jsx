@@ -1,38 +1,35 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
+import { getIn } from "icepick";
 import React from "react";
 import { t, jt, ngettext, msgid } from "ttag";
-import { getIn } from "icepick";
 import _ from "underscore";
-import cx from "classnames";
-
-import { color, darken } from "metabase/lib/colors";
 
 import AccordionList from "metabase/components/AccordionList";
 import Button from "metabase/components/Button";
 import Icon from "metabase/components/Icon";
-import ModalWithTrigger from "metabase/components/ModalWithTrigger";
-import ModalContent from "metabase/components/ModalContent";
 import InputBlurChange from "metabase/components/InputBlurChange";
+import ModalContent from "metabase/components/ModalContent";
+import ModalWithTrigger from "metabase/components/ModalWithTrigger";
 import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
-
-import Dashboards from "metabase/entities/dashboards";
 import DashboardPicker from "metabase/containers/DashboardPicker";
-import Questions from "metabase/entities/questions";
 import QuestionPicker from "metabase/containers/QuestionPicker";
-import Sidebar from "metabase/dashboard/components/Sidebar";
 import ClickMappings, {
   withUserAttributes,
   clickTargetObjectType,
   isMappableColumn,
 } from "metabase/dashboard/components/ClickMappings";
-
+import Sidebar from "metabase/dashboard/components/Sidebar";
+import Dashboards from "metabase/entities/dashboards";
+import Questions from "metabase/entities/questions";
 import {
   hasActionsMenu,
   isTableDisplay,
   clickBehaviorIsValid,
 } from "metabase/lib/click-behavior";
-import { getIconForField } from "metabase/lib/schema_metadata";
+import { color, darken } from "metabase/lib/colors";
 import { keyForColumn } from "metabase/lib/dataset";
+import { getIconForField } from "metabase/lib/schema_metadata";
 
 const clickBehaviorOptions = [
   { value: "menu", icon: "popover" },
@@ -325,12 +322,8 @@ class ClickBehaviorSidebar extends React.Component {
   };
 
   render() {
-    const {
-      dashboard,
-      dashcard,
-      parameters,
-      hideClickBehaviorSidebar,
-    } = this.props;
+    const { dashboard, dashcard, parameters, hideClickBehaviorSidebar } =
+      this.props;
     const { selectedColumn } = this.state;
 
     const clickBehavior = this.getClickBehavior() || { type: "menu" };

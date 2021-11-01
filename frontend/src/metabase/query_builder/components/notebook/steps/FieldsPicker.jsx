@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-
 import { t } from "ttag";
 
-import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
 import CheckBox from "metabase/components/CheckBox";
+import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
 import StackedCheckBox from "metabase/components/StackedCheckBox";
 
 export default function FieldsPicker({

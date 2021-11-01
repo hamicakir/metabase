@@ -1,27 +1,25 @@
+import "ace/mode-clojure";
+import "ace/mode-html";
+import "ace/mode-javascript";
+import "ace/mode-jsx";
+import "ace/mode-ruby";
 import React, { Component } from "react";
+import { t, jt } from "ttag";
 
 import ExternalLink from "metabase/components/ExternalLink";
-import CodeSample from "./CodeSample";
-import { t, jt } from "ttag";
+import "metabase/lib/ace/theme-metabase";
+import type {
+  EmbeddableResource,
+  EmbeddingParams,
+} from "metabase/public/lib/types";
+
 import {
   getPublicEmbedOptions,
   getSignedEmbedOptions,
   getSignTokenOptions,
 } from "../../lib/code";
-
-import "metabase/lib/ace/theme-metabase";
-
-import "ace/mode-clojure";
-import "ace/mode-javascript";
-import "ace/mode-ruby";
-import "ace/mode-html";
-import "ace/mode-jsx";
-
+import CodeSample from "./CodeSample";
 import type { EmbedType, DisplayOptions } from "./EmbedModalContent";
-import type {
-  EmbeddableResource,
-  EmbeddingParams,
-} from "metabase/public/lib/types";
 
 type Props = {
   className: string,

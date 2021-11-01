@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import PropTypes from "prop-types";
+import React, { useState } from "react";
 
 import Icon from "metabase/components/Icon";
 import Tooltip from "metabase/components/Tooltip";

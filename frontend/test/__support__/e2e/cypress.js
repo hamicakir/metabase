@@ -1,10 +1,11 @@
-require("cypress-grep")();
-
-import "@testing-library/cypress/add-commands";
-import "cypress-real-events/support";
 import "@cypress/skip-test/support";
 import "@percy/cypress";
+import "@testing-library/cypress/add-commands";
+import "cypress-real-events/support";
+
 import "./commands";
+
+require("cypress-grep")();
 
 export const version = require("../../../../version.json");
 

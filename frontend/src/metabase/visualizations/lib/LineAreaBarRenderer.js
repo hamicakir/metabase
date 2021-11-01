@@ -1,20 +1,23 @@
 import crossfilter from "crossfilter";
 import d3 from "d3";
 import dc from "dc";
-import _ from "underscore";
 import { assocIn, updateIn } from "icepick";
 import { t } from "ttag";
-import { lighten } from "metabase/lib/colors";
+import _ from "underscore";
 
 import Question from "metabase-lib/lib/Question";
 
-import {
-  computeSplit,
-  computeMaxDecimalsForValues,
-  getFriendlyName,
-  colorShades,
-} from "./utils";
+import type { VisualizationProps } from "metabase-types/types/Visualization";
 
+import { lighten } from "metabase/lib/colors";
+import { isStructured } from "metabase/meta/Card";
+import {
+  updateDateTimeFilter,
+  updateNumericFilter,
+} from "metabase/modes/lib/actions";
+import { keyForSingleSeries } from "metabase/visualizations/lib/settings/series";
+
+import lineAndBarOnRender from "./LineAreaBarPostRender";
 import {
   applyChartTimeseriesXAxis,
   applyChartQuantitativeXAxis,
@@ -22,15 +25,11 @@ import {
   applyChartYAxis,
   getYValueFormatter,
 } from "./apply_axis";
-
 import { setupTooltips } from "./apply_tooltips";
-import { getTrendDataPointsFromInsight } from "./trends";
-
 import fillMissingValuesInDatas from "./fill_data";
-import { NULL_DIMENSION_WARNING, unaggregatedDataWarning } from "./warnings";
-
-import { keyForSingleSeries } from "metabase/visualizations/lib/settings/series";
-
+import { lineAddons } from "./graph/addons";
+import { initBrush } from "./graph/brush";
+import { stack, stackOffsetDiverging } from "./graph/stack";
 import {
   forceSortedGroupsOfGroups,
   initChart, // TODO - probably better named something like `initChartParent`
@@ -55,21 +54,14 @@ import {
   hasClickBehavior,
   replaceNullValuesForOrdinal,
 } from "./renderer_utils";
-
-import lineAndBarOnRender from "./LineAreaBarPostRender";
-
-import { isStructured } from "metabase/meta/Card";
-
+import { getTrendDataPointsFromInsight } from "./trends";
 import {
-  updateDateTimeFilter,
-  updateNumericFilter,
-} from "metabase/modes/lib/actions";
-
-import { lineAddons } from "./graph/addons";
-import { initBrush } from "./graph/brush";
-import { stack, stackOffsetDiverging } from "./graph/stack";
-
-import type { VisualizationProps } from "metabase-types/types/Visualization";
+  computeSplit,
+  computeMaxDecimalsForValues,
+  getFriendlyName,
+  colorShades,
+} from "./utils";
+import { NULL_DIMENSION_WARNING, unaggregatedDataWarning } from "./warnings";
 
 const BAR_PADDING_RATIO = 0.2;
 const DEFAULT_INTERPOLATION = "linear";
@@ -331,7 +323,7 @@ function getYAxisSplitLeftAndRight(series, yAxisSplit, yExtents) {
 }
 
 function getIsSplitYAxis(left, right) {
-  return right && right.series.length && (left && left.series.length > 0);
+  return right && right.series.length && left && left.series.length > 0;
 }
 
 function getYAxisProps(props, yExtents, datas) {
@@ -495,7 +487,7 @@ function setChartColor({ series, settings, chartType }, chart, groups, index) {
   }
 
   if (chartType === "waterfall") {
-    chart.on("pretransition", function(chart) {
+    chart.on("pretransition", function (chart) {
       chart
         .selectAll("g.stack._0 rect.bar")
         .style("fill", "transparent")
@@ -552,7 +544,7 @@ function getCharts(
         .svg()
         // shift bar/line and dots
         .selectAll(".stack, .dc-tooltip")
-        .each(function() {
+        .each(function () {
           this.setAttribute("transform", `translate(${spacing / 2}, 0)`);
         });
     });
@@ -622,21 +614,26 @@ function addGoalChartAndGetOnGoalHover(
   }
 
   const goalValue = settings["graph.goal_value"];
-  const goalData = [[xDomain[0], goalValue], [xDomain[1], goalValue]];
+  const goalData = [
+    [xDomain[0], goalValue],
+    [xDomain[1], goalValue],
+  ];
   const goalDimension = crossfilter(goalData).dimension(d => d[0]);
 
   // Take the last point rather than summing in case xDomain[0] === xDomain[1], e.x. when the chart
   // has just a single row / datapoint
-  const goalGroup = goalDimension
-    .group()
-    .reduce((p, d) => d[1], (p, d) => p, () => 0);
+  const goalGroup = goalDimension.group().reduce(
+    (p, d) => d[1],
+    (p, d) => p,
+    () => 0,
+  );
   const goalIndex = charts.length;
 
   const goalChart = dc
     .lineChart(parent)
     .dimension(goalDimension)
     .group(goalGroup)
-    .on("renderlet", function(chart) {
+    .on("renderlet", function (chart) {
       // remove "sub" class so the goal is not used in voronoi computation
       chart
         .select(".sub._" + goalIndex)
@@ -691,16 +688,18 @@ function addTrendlineChart(
 
       // Take the last point rather than summing in case xDomain[0] === xDomain[1], e.x. when the chart
       // has just a single row / datapoint
-      const trendGroup = trendDimension
-        .group()
-        .reduce((p, d) => d[1], (p, d) => p, () => 0);
+      const trendGroup = trendDimension.group().reduce(
+        (p, d) => d[1],
+        (p, d) => p,
+        () => 0,
+      );
       const trendIndex = charts.length;
 
       const trendChart = dc
         .lineChart(parent)
         .dimension(trendDimension)
         .group(trendGroup)
-        .on("renderlet", function(chart) {
+        .on("renderlet", function (chart) {
           // remove "sub" class so the trend is not used in voronoi computation
           chart
             .select(".sub._" + trendIndex)
@@ -737,7 +736,7 @@ function applyYAxisSettings(parent, { yLeftSplit, yRightSplit }) {
 
 // TODO - better name
 function doGroupedBarStuff(parent) {
-  parent.on("renderlet.grouped-bar", function(chart) {
+  parent.on("renderlet.grouped-bar", function (chart) {
     // HACK: dc.js doesn't support grouped bar charts so we need to manually resize/reposition them
     // https://github.com/dc-js/dc.js/issues/558
     const barCharts = chart
@@ -768,7 +767,7 @@ function doGroupedBarStuff(parent) {
 
 // TODO - better name
 function doHistogramBarStuff(parent) {
-  parent.on("renderlet.histogram-bar", function(chart) {
+  parent.on("renderlet.histogram-bar", function (chart) {
     // manually size bars to fill space, minus 1 pixel padding
     const barCharts = chart
       .selectAll(".sub rect:first-child")[0]
@@ -839,11 +838,8 @@ export default function lineAreaBar(
     xAxisProps.xValues = datas.map(data => data[0][0]);
   } // TODO - what is this for?
 
-  const {
-    dimension,
-    groups,
-    yExtents,
-  } = getDimensionsAndGroupsAndUpdateSeriesDisplayNames(props, datas, warn);
+  const { dimension, groups, yExtents } =
+    getDimensionsAndGroupsAndUpdateSeriesDisplayNames(props, datas, warn);
 
   const yAxisProps = getYAxisProps(props, yExtents, datas);
 

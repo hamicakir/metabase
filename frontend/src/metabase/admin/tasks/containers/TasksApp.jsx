@@ -1,16 +1,15 @@
 /* eslint-disable react/prop-types */
+import { Box, Flex } from "grid-styled";
 import React from "react";
 import { t } from "ttag";
-import { Box, Flex } from "grid-styled";
 
-import Database from "metabase/entities/databases";
-import Task from "metabase/entities/tasks";
-
-import PaginationControls from "metabase/components/PaginationControls";
 import AdminHeader from "metabase/components/AdminHeader";
 import Icon from "metabase/components/Icon";
 import Link from "metabase/components/Link";
+import PaginationControls from "metabase/components/PaginationControls";
 import Tooltip from "metabase/components/Tooltip";
+import Database from "metabase/entities/databases";
+import Task from "metabase/entities/tasks";
 
 // Please preserve the following 2 @ calls in this order.
 // Otherwise @Database.loadList overrides pagination props

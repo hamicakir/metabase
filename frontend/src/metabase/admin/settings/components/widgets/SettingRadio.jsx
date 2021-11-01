@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
 import React from "react";
 
 import Radio from "metabase/components/Radio";
-import cx from "classnames";
 
 const SettingRadio = ({ setting, onChange, disabled }) => (
   <Radio

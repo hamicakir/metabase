@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
 import React from "react";
+import { IndexLink } from "react-router";
 import { t } from "ttag";
 
-import { IndexLink } from "react-router";
 import Link from "metabase/components/Link";
-import cx from "classnames";
 
 type Props = {
   className?: string,

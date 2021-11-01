@@ -1,21 +1,21 @@
 import React from "react";
-
-import ToggleLarge from "metabase/components/ToggleLarge";
-import Button from "metabase/components/Button";
-import ActionButton from "metabase/components/ActionButton";
 import { t } from "ttag";
-import AdvancedSettingsPane from "./AdvancedSettingsPane";
-import PreviewPane from "./PreviewPane";
-import EmbedCodePane from "./EmbedCodePane";
+import _ from "underscore";
 
 import type { Parameter, ParameterId } from "metabase-types/types/Parameter";
-import type { Pane, EmbedType, DisplayOptions } from "./EmbedModalContent";
+
+import ActionButton from "metabase/components/ActionButton";
+import Button from "metabase/components/Button";
+import ToggleLarge from "metabase/components/ToggleLarge";
 import type {
   EmbeddableResource,
   EmbeddingParams,
 } from "metabase/public/lib/types";
 
-import _ from "underscore";
+import AdvancedSettingsPane from "./AdvancedSettingsPane";
+import EmbedCodePane from "./EmbedCodePane";
+import type { Pane, EmbedType, DisplayOptions } from "./EmbedModalContent";
+import PreviewPane from "./PreviewPane";
 
 type Props = {
   className?: string,

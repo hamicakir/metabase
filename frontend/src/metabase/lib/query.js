@@ -1,8 +1,9 @@
 import _ from "underscore";
+
 import Utils from "metabase/lib/utils";
 
-import * as QUERY from "./query/query";
 import * as FieldRef from "./query/field_ref";
+import * as QUERY from "./query/query";
 
 export * from "./query/query";
 export * from "./query/field_ref";

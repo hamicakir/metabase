@@ -1,10 +1,9 @@
-import styled from "styled-components";
 import { Flex } from "grid-styled";
-
-import { color } from "metabase/lib/colors";
-import { breakpointMinSmall, space } from "metabase/styled-components/theme";
+import styled from "styled-components";
 
 import Icon from "metabase/components/Icon";
+import { color } from "metabase/lib/colors";
+import { breakpointMinSmall, space } from "metabase/styled-components/theme";
 
 export const Container = styled(Flex)`
   justify-content: space-between;

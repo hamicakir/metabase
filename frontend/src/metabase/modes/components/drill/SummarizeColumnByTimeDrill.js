@@ -1,17 +1,19 @@
 import React from "react";
 import { t } from "ttag";
+
 import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
-import { fieldRefForColumn } from "metabase/lib/dataset";
-import {
-  getAggregationOperator,
-  isCompatibleAggregationOperatorForField,
-} from "metabase/lib/schema_metadata";
-import { capitalize } from "metabase/lib/formatting";
 
 import type {
   ClickAction,
   ClickActionProps,
 } from "metabase-types/types/Visualization";
+
+import { fieldRefForColumn } from "metabase/lib/dataset";
+import { capitalize } from "metabase/lib/formatting";
+import {
+  getAggregationOperator,
+  isCompatibleAggregationOperatorForField,
+} from "metabase/lib/schema_metadata";
 
 export default ({
   question,

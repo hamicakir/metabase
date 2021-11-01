@@ -1,6 +1,8 @@
-import * as Card from "metabase/meta/Card";
-
 import { assocIn, dissoc } from "icepick";
+import { parse } from "url";
+
+import { deserializeCardFromUrl } from "metabase/lib/card";
+import * as Card from "metabase/meta/Card";
 import { getMetadata } from "metabase/selectors/metadata";
 
 describe("metabase/meta/Card", () => {
@@ -80,7 +82,7 @@ describe("metabase/meta/Card", () => {
           card,
           metadata,
           parameters,
-          { "1": "bar" },
+          { 1: "bar" },
           parameterMappings,
         );
         expect(parseUrl(url)).toEqual({
@@ -140,7 +142,7 @@ describe("metabase/meta/Card", () => {
           card,
           metadata,
           parameters,
-          { "1": "bar" },
+          { 1: "bar" },
           parameterMappings,
         );
         expect(parseUrl(url)).toEqual({
@@ -164,7 +166,7 @@ describe("metabase/meta/Card", () => {
           cardWithOnlyOriginalCardId,
           metadata,
           parameters,
-          { "1": "bar" },
+          { 1: "bar" },
           parameterMappings,
         );
         expect(parseUrl(url)).toEqual({
@@ -183,7 +185,7 @@ describe("metabase/meta/Card", () => {
           card,
           metadata,
           parameters,
-          { "5": 123 },
+          { 5: 123 },
           parameterMappings,
         );
         expect(parseUrl(url)).toEqual({
@@ -202,7 +204,7 @@ describe("metabase/meta/Card", () => {
           card,
           metadata,
           parameters,
-          { "3": "2017-05" },
+          { 3: "2017-05" },
           parameterMappings,
         );
 
@@ -224,7 +226,7 @@ describe("metabase/meta/Card", () => {
           card,
           metadata,
           parameters,
-          { "4": "2017-05" },
+          { 4: "2017-05" },
           parameterMappings,
         );
         expect(parseUrl(url)).toEqual({
@@ -247,9 +249,6 @@ describe("metabase/meta/Card", () => {
     });
   });
 });
-
-import { parse } from "url";
-import { deserializeCardFromUrl } from "metabase/lib/card";
 
 function parseUrl(url) {
   const parsed = parse(url, true);

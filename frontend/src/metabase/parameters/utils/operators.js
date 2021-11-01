@@ -1,4 +1,3 @@
-import { getParameterType, getParameterSubType } from "./parameter-type";
 import {
   doesOperatorExist,
   getOperatorByTypeAndName,
@@ -6,6 +5,8 @@ import {
   STRING,
   PRIMARY_KEY,
 } from "metabase/lib/schema_metadata";
+
+import { getParameterType, getParameterSubType } from "./parameter-type";
 
 export function getOperatorDisplayName(option, operatorType, sectionName) {
   if (operatorType === "date" || operatorType === "number") {

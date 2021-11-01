@@ -1,14 +1,12 @@
 import React, { Component } from "react";
-
 import { connect } from "react-redux";
 import { replace } from "react-router-redux";
-
-import * as MetabaseAnalytics from "metabase/lib/analytics";
-import { parseHashOptions, stringifyHashOptions } from "metabase/lib/browser";
-
 import screenfull from "screenfull";
 
 import type { LocationDescriptor } from "metabase-types/types";
+
+import * as MetabaseAnalytics from "metabase/lib/analytics";
+import { parseHashOptions, stringifyHashOptions } from "metabase/lib/browser";
 
 type Props = {
   dashboardId: string,
@@ -32,10 +30,7 @@ const TICK_PERIOD = 1; // seconds
  * It should probably be in Redux?
  */
 export default (ComposedComponent: React.Class) =>
-  connect(
-    null,
-    { replace },
-  )(
+  connect(null, { replace })(
     class extends Component {
       static displayName =
         "DashboardControls[" +

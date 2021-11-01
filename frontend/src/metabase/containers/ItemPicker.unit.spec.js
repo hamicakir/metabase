@@ -1,12 +1,13 @@
-import React from "react";
+import userEvent from "@testing-library/user-event";
 import {
   renderWithProviders,
   screen,
   waitForElementToBeRemoved,
   within,
 } from "__support__/ui";
-import userEvent from "@testing-library/user-event";
+import React from "react";
 import xhrMock from "xhr-mock";
+
 import ItemPicker from "./ItemPicker";
 
 function collection({

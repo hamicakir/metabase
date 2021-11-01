@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
-import { PLUGIN_AUTH_PROVIDERS } from "metabase/plugins";
-
 import React from "react";
 import { t } from "ttag";
 
 import LdapAndEmailForm from "metabase/auth/components/LdapAndEmailForm";
+import { PLUGIN_AUTH_PROVIDERS } from "metabase/plugins";
 
 const EmailButton = ({ children }) => (
   <div className="pt2 cursor-pointer text-grey-1 text-right">{t`Sign in with email`}</div>

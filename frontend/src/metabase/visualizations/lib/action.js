@@ -1,8 +1,8 @@
-import { open } from "metabase/lib/dom";
-
 import _ from "underscore";
 
 import type { ClickAction } from "metabase-types/types/Visualization";
+
+import { open } from "metabase/lib/dom";
 
 type PerformActionProps = {
   dispatch: Function,

@@ -1,20 +1,17 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-
 import cx from "classnames";
+import { Box, Flex } from "grid-styled";
+import React from "react";
+import { Motion, spring } from "react-motion";
 import _ from "underscore";
 
-import { isReducedMotionPreferred } from "metabase/lib/dom";
-
-import Icon from "metabase/components/Icon";
-import Button from "metabase/components/Button";
-import { Box, Flex } from "grid-styled";
-import { Motion, spring } from "react-motion";
-
-import QuestionResultLoader from "metabase/containers/QuestionResultLoader";
-import Visualization from "metabase/visualizations/components/Visualization";
-
 import Question from "metabase-lib/lib/Question";
+
+import Button from "metabase/components/Button";
+import Icon from "metabase/components/Icon";
+import QuestionResultLoader from "metabase/containers/QuestionResultLoader";
+import { isReducedMotionPreferred } from "metabase/lib/dom";
+import Visualization from "metabase/visualizations/components/Visualization";
 
 class NotebookStepPreview extends React.Component {
   constructor(props) {

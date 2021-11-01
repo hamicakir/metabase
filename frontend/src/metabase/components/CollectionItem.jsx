@@ -1,9 +1,8 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
 import Card from "metabase/components/Card";
 import Ellipsified from "metabase/components/Ellipsified";
-
 import { getCollectionIcon } from "metabase/entities/collections";
 
 import {

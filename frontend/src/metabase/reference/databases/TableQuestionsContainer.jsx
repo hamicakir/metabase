@@ -1,13 +1,12 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import TableSidebar from "./TableSidebar";
 import SidebarLayout from "metabase/components/SidebarLayout";
-
-import TableQuestions from "metabase/reference/databases/TableQuestions";
+import Questions from "metabase/entities/questions";
 import * as metadataActions from "metabase/redux/metadata";
+import TableQuestions from "metabase/reference/databases/TableQuestions";
 import * as actions from "metabase/reference/reference";
 
 import {
@@ -16,8 +15,7 @@ import {
   getDatabaseId,
   getIsEditing,
 } from "../selectors";
-
-import Questions from "metabase/entities/questions";
+import TableSidebar from "./TableSidebar";
 
 const mapStateToProps = (state, props) => ({
   database: getDatabase(state, props),
@@ -32,10 +30,7 @@ const mapDispatchToProps = {
   ...actions,
 };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class TableQuestionsContainer extends Component {
   static propTypes = {
     params: PropTypes.object.isRequired,

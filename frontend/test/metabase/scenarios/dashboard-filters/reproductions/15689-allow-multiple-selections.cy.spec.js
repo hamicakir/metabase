@@ -58,18 +58,10 @@ describe("issue 15689", () => {
     cy.findByText("AK").click();
     cy.findByText("CA").click();
 
-    cy.icon("close")
-      .as("close")
-      .should("have.length", 2);
+    cy.icon("close").as("close").should("have.length", 2);
 
-    cy.get("@close")
-      .first()
-      .closest("li")
-      .contains("AK");
+    cy.get("@close").first().closest("li").contains("AK");
 
-    cy.get("@close")
-      .last()
-      .closest("li")
-      .contains("CA");
+    cy.get("@close").last().closest("li").contains("CA");
   });
 });

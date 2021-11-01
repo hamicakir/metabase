@@ -1,8 +1,7 @@
 /* eslint-disable */
+import { ORDERS } from "__support__/sample_dataset_fixture";
 
 import QuickFilterDrill from "metabase/modes/components/drill/QuickFilterDrill";
-
-import { ORDERS } from "__support__/sample_dataset_fixture";
 
 describe("QuickFilterDrill", () => {
   it("should not be valid for top level actions", () => {

@@ -1,13 +1,12 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import BaseSidebar from "metabase/reference/guide/BaseSidebar";
 import SidebarLayout from "metabase/components/SidebarLayout";
-import DatabaseList from "metabase/reference/databases/DatabaseList";
-
 import * as metadataActions from "metabase/redux/metadata";
+import DatabaseList from "metabase/reference/databases/DatabaseList";
+import BaseSidebar from "metabase/reference/guide/BaseSidebar";
 import * as actions from "metabase/reference/reference";
 
 import { getDatabaseId, getIsEditing } from "../selectors";
@@ -22,10 +21,7 @@ const mapDispatchToProps = {
   ...actions,
 };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class DatabaseListContainer extends Component {
   static propTypes = {
     params: PropTypes.object.isRequired,

@@ -1,36 +1,32 @@
 /* eslint "react/prop-types": "warn" */
-
-import React, { Component } from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { t } from "ttag";
+import _ from "underscore";
 
-import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
 import Icon from "metabase/components/Icon";
-import DateSingleWidget from "./widgets/DateSingleWidget";
-import DateRangeWidget from "./widgets/DateRangeWidget";
-import DateRelativeWidget from "./widgets/DateRelativeWidget";
-import DateMonthYearWidget from "./widgets/DateMonthYearWidget";
-import DateQuarterYearWidget from "./widgets/DateQuarterYearWidget";
-import DateAllOptionsWidget from "./widgets/DateAllOptionsWidget";
-import TextWidget from "./widgets/TextWidget";
-import ParameterFieldWidget from "./widgets/ParameterFieldWidget/ParameterFieldWidget";
+import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
 import Tooltip from "metabase/components/Tooltip";
-
+import { isDashboardParameterWithoutMapping } from "metabase/parameters/utils/dashboards";
+import { deriveFieldOperatorFromParameter } from "metabase/parameters/utils/operators";
+import { getParameterIconName } from "metabase/parameters/utils/ui";
 import { fetchField, fetchFieldValues } from "metabase/redux/metadata";
 import {
   getMetadata,
   makeGetMergedParameterFieldValues,
 } from "metabase/selectors/metadata";
 
-import { getParameterIconName } from "metabase/parameters/utils/ui";
-import { deriveFieldOperatorFromParameter } from "metabase/parameters/utils/operators";
-import { isDashboardParameterWithoutMapping } from "metabase/parameters/utils/dashboards";
-
 import S from "./ParameterWidget.css";
-
-import cx from "classnames";
-import _ from "underscore";
+import DateAllOptionsWidget from "./widgets/DateAllOptionsWidget";
+import DateMonthYearWidget from "./widgets/DateMonthYearWidget";
+import DateQuarterYearWidget from "./widgets/DateQuarterYearWidget";
+import DateRangeWidget from "./widgets/DateRangeWidget";
+import DateRelativeWidget from "./widgets/DateRelativeWidget";
+import DateSingleWidget from "./widgets/DateSingleWidget";
+import ParameterFieldWidget from "./widgets/ParameterFieldWidget/ParameterFieldWidget";
+import TextWidget from "./widgets/TextWidget";
 
 const DATE_WIDGETS = {
   "date/single": DateSingleWidget,
@@ -55,10 +51,7 @@ const mapDispatchToProps = {
   fetchField,
 };
 
-@connect(
-  makeMapStateToProps,
-  mapDispatchToProps,
-)
+@connect(makeMapStateToProps, mapDispatchToProps)
 export default class ParameterValueWidget extends Component {
   static propTypes = {
     parameter: PropTypes.object.isRequired,

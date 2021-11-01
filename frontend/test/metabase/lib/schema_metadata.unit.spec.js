@@ -16,7 +16,6 @@ import {
   getFilterOperators,
   isFuzzyOperator,
 } from "metabase/lib/schema_metadata";
-
 import { TYPE } from "metabase/lib/types";
 
 describe("schema_metadata", () => {

@@ -1,28 +1,29 @@
 /* eslint-disable react/prop-types */
+import { updateIn } from "icepick";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
-import Visualization from "metabase/visualizations/components/Visualization";
-import QueryDownloadWidget from "metabase/query_builder/components/QueryDownloadWidget";
-import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
-import ExplicitSize from "metabase/components/ExplicitSize";
-import EmbedFrame from "../components/EmbedFrame";
-import title from "metabase/hoc/Title";
 
 import type { Card } from "metabase-types/types/Card";
 import type { Dataset } from "metabase-types/types/Dataset";
 import type { ParameterValues } from "metabase-types/types/Parameter";
 
-import {
-  getParameterValuesBySlug,
-  getParameterValuesByIdFromQueryParams,
-} from "metabase/parameters/utils/parameter-values";
+import ExplicitSize from "metabase/components/ExplicitSize";
+import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
+import title from "metabase/hoc/Title";
 import { applyParameters } from "metabase/meta/Card";
+import PublicMode from "metabase/modes/components/modes/PublicMode";
 import {
   getParametersFromCard,
   getValueAndFieldIdPopulatedParametersFromCard,
 } from "metabase/parameters/utils/cards";
-
+import {
+  getParameterValuesBySlug,
+  getParameterValuesByIdFromQueryParams,
+} from "metabase/parameters/utils/parameter-values";
+import QueryDownloadWidget from "metabase/query_builder/components/QueryDownloadWidget";
+import { setErrorPage } from "metabase/redux/app";
+import { addParamValues, addFields } from "metabase/redux/metadata";
+import { getMetadata } from "metabase/selectors/metadata";
 import {
   PublicApi,
   EmbedApi,
@@ -30,14 +31,9 @@ import {
   setEmbedQuestionEndpoints,
   maybeUsePivotEndpoint,
 } from "metabase/services";
+import Visualization from "metabase/visualizations/components/Visualization";
 
-import { setErrorPage } from "metabase/redux/app";
-import { addParamValues, addFields } from "metabase/redux/metadata";
-import { getMetadata } from "metabase/selectors/metadata";
-
-import PublicMode from "metabase/modes/components/modes/PublicMode";
-
-import { updateIn } from "icepick";
+import EmbedFrame from "../components/EmbedFrame";
 
 type Props = {
   params: { uuid?: string, token?: string },
@@ -65,10 +61,7 @@ const mapDispatchToProps = {
   addFields,
 };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 @title(({ card }) => card && card.name)
 @ExplicitSize()
 export default class PublicQuestion extends Component {
@@ -170,14 +163,20 @@ export default class PublicQuestion extends Component {
       let newResult;
       if (token) {
         // embeds apply parameter values server-side
-        newResult = await maybeUsePivotEndpoint(EmbedApi.cardQuery, card)({
+        newResult = await maybeUsePivotEndpoint(
+          EmbedApi.cardQuery,
+          card,
+        )({
           token,
           ...getParameterValuesBySlug(parameters, parameterValues),
         });
       } else if (uuid) {
         // public links currently apply parameters client-side
         const datasetQuery = applyParameters(card, parameters, parameterValues);
-        newResult = await maybeUsePivotEndpoint(PublicApi.cardQuery, card)({
+        newResult = await maybeUsePivotEndpoint(
+          PublicApi.cardQuery,
+          card,
+        )({
           uuid,
           parameters: JSON.stringify(datasetQuery.parameters),
         });

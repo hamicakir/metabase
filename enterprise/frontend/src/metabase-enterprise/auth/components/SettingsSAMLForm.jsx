@@ -1,31 +1,24 @@
 /* eslint-disable react/prop-types */
+import { Box } from "grid-styled";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { t } from "ttag";
 import _ from "underscore";
-import { Box } from "grid-styled";
 
+import GroupMappingsWidget from "metabase/admin/settings/components/widgets/GroupMappingsWidget";
 import { updateSettings } from "metabase/admin/settings/settings";
 import { settingToFormField } from "metabase/admin/settings/utils";
-
+import Breadcrumbs from "metabase/components/Breadcrumbs";
+import CopyWidget from "metabase/components/CopyWidget";
 import Form, {
   FormField,
   FormSubmit,
   FormMessage,
   FormSection,
 } from "metabase/containers/Form";
-
-import Breadcrumbs from "metabase/components/Breadcrumbs";
-import CopyWidget from "metabase/components/CopyWidget";
-
-import GroupMappingsWidget from "metabase/admin/settings/components/widgets/GroupMappingsWidget";
-
 import MetabaseSettings from "metabase/lib/settings";
 
-@connect(
-  null,
-  { updateSettings },
-)
+@connect(null, { updateSettings })
 export default class SettingsSAMLForm extends Component {
   render() {
     const { elements, settingValues, updateSettings } = this.props;

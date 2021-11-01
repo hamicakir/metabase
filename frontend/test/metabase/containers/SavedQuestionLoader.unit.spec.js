@@ -1,13 +1,13 @@
-import React from "react";
 import { render } from "@testing-library/react";
+import React from "react";
 
 import Question from "metabase-lib/lib/Question";
-import { delay } from "metabase/lib/promise";
-import { CardApi } from "metabase/services";
 
 // import the un-connected component so we can test its internal logic sans
 // redux
 import { SavedQuestionLoader } from "metabase/containers/SavedQuestionLoader";
+import { delay } from "metabase/lib/promise";
+import { CardApi } from "metabase/services";
 
 describe("SavedQuestionLoader", () => {
   let loadQuestionSpy, loadMetadataSpy, mockChild;

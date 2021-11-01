@@ -1,30 +1,28 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { t, jt } from "ttag";
 import _ from "underscore";
 
-import TokenField from "metabase/components/TokenField";
-import ValueComponent from "metabase/components/Value";
-import LoadingSpinner from "metabase/components/LoadingSpinner";
-
-import AutoExpanding from "metabase/hoc/AutoExpanding";
-
-import { DashboardApi, MetabaseApi } from "metabase/services";
-import { addRemappings, fetchFieldValues } from "metabase/redux/metadata";
-import { defer } from "metabase/lib/promise";
-import { stripId } from "metabase/lib/formatting";
-
-import Fields from "metabase/entities/fields";
-
 import type Field from "metabase-lib/lib/metadata/Field";
-import type { FieldId } from "metabase-types/types/Field";
-import type { Value } from "metabase-types/types/Dataset";
-import type { FormattingOptions } from "metabase/lib/formatting";
-import type { LayoutRendererProps } from "metabase/components/TokenField";
+
 import type { DashboardWithCards } from "metabase-types/types/Dashboard";
+import type { Value } from "metabase-types/types/Dataset";
+import type { FieldId } from "metabase-types/types/Field";
 import type { Parameter } from "metabase-types/types/Parameter";
+
+import LoadingSpinner from "metabase/components/LoadingSpinner";
+import TokenField from "metabase/components/TokenField";
+import type { LayoutRendererProps } from "metabase/components/TokenField";
+import ValueComponent from "metabase/components/Value";
+import Fields from "metabase/entities/fields";
+import AutoExpanding from "metabase/hoc/AutoExpanding";
+import { stripId } from "metabase/lib/formatting";
+import type { FormattingOptions } from "metabase/lib/formatting";
+import { defer } from "metabase/lib/promise";
+import { addRemappings, fetchFieldValues } from "metabase/redux/metadata";
+import { DashboardApi, MetabaseApi } from "metabase/services";
 
 const MAX_SEARCH_RESULTS = 100;
 
@@ -510,9 +508,7 @@ export class FieldValuesWidget extends Component {
             return option.some(
               value =>
                 value != null &&
-                String(value)
-                  .toLowerCase()
-                  .includes(lowerCaseFilterString),
+                String(value).toLowerCase().includes(lowerCaseFilterString),
             );
           }}
           onInputChange={this.onInputChange}
@@ -582,7 +578,4 @@ const OptionsMessage = ({ message }) => (
 
 OptionsMessage.propTypes = optionsMessagePropTypes;
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(FieldValuesWidget);
+export default connect(mapStateToProps, mapDispatchToProps)(FieldValuesWidget);

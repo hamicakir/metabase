@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 
-import AuditContent from "../components/AuditContent";
-import AuditTable from "../containers/AuditTable";
-
 import EntityName from "metabase/entities/containers/EntityName";
 
+import AuditContent from "../components/AuditContent";
+import AuditTable from "../containers/AuditTable";
 import * as DatabaseDetailCards from "../lib/cards/database_detail";
 
 type Props = {

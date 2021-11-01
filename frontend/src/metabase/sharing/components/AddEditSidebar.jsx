@@ -1,35 +1,31 @@
 /* eslint "react/prop-types": "error" */
-
-import React from "react";
-import PropTypes from "prop-types";
-import _ from "underscore";
 import cx from "classnames";
-import { t, jt, ngettext, msgid } from "ttag";
+import PropTypes from "prop-types";
+import React from "react";
 import { connect } from "react-redux";
+import { t, jt, ngettext, msgid } from "ttag";
+import _ from "underscore";
 
 import DeleteModalWithConfirm from "metabase/components/DeleteModalWithConfirm";
-import EmailAttachmentPicker from "metabase/sharing/components/EmailAttachmentPicker";
 import ExternalLink from "metabase/components/ExternalLink";
 import Icon from "metabase/components/Icon";
-import Text from "metabase/components/type/Text";
 import ModalWithTrigger from "metabase/components/ModalWithTrigger";
-import RecipientPicker from "metabase/pulse/components/RecipientPicker";
 import SchedulePicker from "metabase/components/SchedulePicker";
-import SendTestPulse from "metabase/components/SendTestPulse";
-import Sidebar from "metabase/dashboard/components/Sidebar";
-import Toggle from "metabase/components/Toggle";
 import Select, { Option } from "metabase/components/Select";
-
-import { dashboardPulseIsValid } from "metabase/lib/pulse";
-import MetabaseSettings from "metabase/lib/settings";
-import { conjunct } from "metabase/lib/formatting";
-
-import { PLUGIN_DASHBOARD_SUBSCRIPTION_PARAMETERS_SECTION_OVERRIDE } from "metabase/plugins";
-
+import SendTestPulse from "metabase/components/SendTestPulse";
+import Toggle from "metabase/components/Toggle";
+import Text from "metabase/components/type/Text";
+import Sidebar from "metabase/dashboard/components/Sidebar";
 import {
   getDefaultParametersById,
   getParameters,
 } from "metabase/dashboard/selectors";
+import { conjunct } from "metabase/lib/formatting";
+import { dashboardPulseIsValid } from "metabase/lib/pulse";
+import MetabaseSettings from "metabase/lib/settings";
+import { PLUGIN_DASHBOARD_SUBSCRIPTION_PARAMETERS_SECTION_OVERRIDE } from "metabase/plugins";
+import RecipientPicker from "metabase/pulse/components/RecipientPicker";
+import EmailAttachmentPicker from "metabase/sharing/components/EmailAttachmentPicker";
 
 const mapStateToProps = (state, props) => {
   return {
@@ -46,12 +42,10 @@ const CHANNEL_NOUN_PLURAL = {
   slack: t`Slack messages`,
 };
 
-export const AddEditEmailSidebar = connect(mapStateToProps)(
-  _AddEditEmailSidebar,
-);
-export const AddEditSlackSidebar = connect(mapStateToProps)(
-  _AddEditSlackSidebar,
-);
+export const AddEditEmailSidebar =
+  connect(mapStateToProps)(_AddEditEmailSidebar);
+export const AddEditSlackSidebar =
+  connect(mapStateToProps)(_AddEditSlackSidebar);
 
 function _AddEditEmailSidebar({
   pulse,
@@ -121,9 +115,9 @@ function _AddEditEmailSidebar({
           )}
           scheduleOptions={channelSpec.schedules}
           textBeforeInterval={t`Sent`}
-          textBeforeSendTime={t`${CHANNEL_NOUN_PLURAL[
-            channelSpec && channelSpec.type
-          ] || t`Messages`} will be sent at`}
+          textBeforeSendTime={t`${
+            CHANNEL_NOUN_PLURAL[channelSpec && channelSpec.type] || t`Messages`
+          } will be sent at`}
           onScheduleChange={(newSchedule, changedProp) =>
             onChannelScheduleChange(newSchedule, changedProp)
           }
@@ -245,7 +239,7 @@ function getConfirmItems(pulse) {
               c.recipients.length,
             )}
           </strong>
-        )} ${<strong key="type">{c.schedule_type}</strong>}`}
+        )} ${(<strong key="type">{c.schedule_type}</strong>)}`}
         .
       </span>
     ) : c.channel_type === "slack" ? (
@@ -319,9 +313,9 @@ function _AddEditSlackSidebar({
           )}
           scheduleOptions={channelSpec.schedules}
           textBeforeInterval={t`Sent`}
-          textBeforeSendTime={t`${CHANNEL_NOUN_PLURAL[
-            channelSpec && channelSpec.type
-          ] || t`Messages`} will be sent at`}
+          textBeforeSendTime={t`${
+            CHANNEL_NOUN_PLURAL[channelSpec && channelSpec.type] || t`Messages`
+          } will be sent at`}
           onScheduleChange={(newSchedule, changedProp) =>
             onChannelScheduleChange(newSchedule, changedProp)
           }

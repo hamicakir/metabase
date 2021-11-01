@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
 import React from "react";
 
 import Icon from "metabase/components/Icon";
-
-import cx from "classnames";
 
 const ActionIcon = ({ icon, onClick }) => (
   <Icon

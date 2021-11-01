@@ -1,18 +1,16 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
-
-import MetabaseSettings from "metabase/lib/settings";
-
-import "leaflet/dist/leaflet.css";
-import "./LeafletMap.css";
-
 import L from "leaflet";
 import "leaflet-draw";
-
+import "leaflet/dist/leaflet.css";
+import React, { Component } from "react";
 import _ from "underscore";
 
 import Question from "metabase-lib/lib/Question";
+
+import MetabaseSettings from "metabase/lib/settings";
 import { updateLatLonFilter } from "metabase/modes/lib/actions";
+
+import "./LeafletMap.css";
 
 export default class LeafletMap extends Component {
   constructor(props) {
@@ -100,10 +98,16 @@ export default class LeafletMap extends Component {
       } else {
         // compute ideal lat and lon zoom separately and use the lesser zoom to ensure the bounds are visible
         const latZoom = this.map.getBoundsZoom(
-          L.latLngBounds([[bounds.getSouth(), 0], [bounds.getNorth(), 0]]),
+          L.latLngBounds([
+            [bounds.getSouth(), 0],
+            [bounds.getNorth(), 0],
+          ]),
         );
         const lonZoom = this.map.getBoundsZoom(
-          L.latLngBounds([[0, bounds.getWest()], [0, bounds.getEast()]]),
+          L.latLngBounds([
+            [0, bounds.getWest()],
+            [0, bounds.getEast()],
+          ]),
         );
         const zoom = Math.min(latZoom, lonZoom);
         // NOTE: unclear why calling `fitBounds` twice is sometimes required to get it to work

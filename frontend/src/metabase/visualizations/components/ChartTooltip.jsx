@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 
 import TooltipPopover from "metabase/components/TooltipPopover";
-
-import { getFriendlyName } from "metabase/visualizations/lib/utils";
 import { formatValue } from "metabase/lib/formatting";
+import { getFriendlyName } from "metabase/visualizations/lib/utils";
 
 export default class ChartTooltip extends Component {
   static propTypes = {

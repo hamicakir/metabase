@@ -2,9 +2,9 @@
 import React from "react";
 import { t, jt } from "ttag";
 
-import { color } from "metabase/lib/colors";
 import ExternalLink from "metabase/components/ExternalLink";
 import Link from "metabase/components/Link";
+import { color } from "metabase/lib/colors";
 
 const SERVICE_ACCOUNT_DOCS_URL =
   "https://developers.google.com/identity/protocols/OAuth2ServiceAccount";

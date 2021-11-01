@@ -3,8 +3,8 @@ import React from "react";
 import { DragLayer } from "react-dnd";
 import _ from "underscore";
 
-import BodyComponent from "metabase/components/BodyComponent";
 import BaseItemsTable from "metabase/collections/components/BaseItemsTable";
+import BodyComponent from "metabase/components/BodyComponent";
 
 // NOTE: our version of react-hot-loader doesn't play nice with react-dnd's DragLayer,
 // so we exclude files named `*DragLayer.jsx` in webpack.config.js
@@ -19,13 +19,8 @@ import BaseItemsTable from "metabase/collections/components/BaseItemsTable";
 @BodyComponent
 export default class ItemsDragLayer extends React.Component {
   render() {
-    const {
-      isDragging,
-      currentOffset,
-      selectedItems,
-      pinnedItems,
-      item,
-    } = this.props;
+    const { isDragging, currentOffset, selectedItems, pinnedItems, item } =
+      this.props;
     if (!isDragging || !currentOffset) {
       return null;
     }

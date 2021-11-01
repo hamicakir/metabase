@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import { Flex } from "grid-styled";
+import React from "react";
+
 import Icon from "metabase/components/Icon";
 import colors from "metabase/lib/colors";
 

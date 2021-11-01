@@ -1,18 +1,18 @@
-import Dimension, {
-  FieldDimension,
-  TemplateTagDimension,
-} from "metabase-lib/lib/Dimension";
-import Field from "metabase-lib/lib/metadata/Field";
-import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
-import NativeQuery from "metabase-lib/lib/queries/NativeQuery";
-import Question from "metabase-lib/lib/Question";
-
 import {
   metadata,
   ORDERS,
   PRODUCTS,
   SAMPLE_DATASET,
 } from "__support__/sample_dataset_fixture";
+
+import Dimension, {
+  FieldDimension,
+  TemplateTagDimension,
+} from "metabase-lib/lib/Dimension";
+import Question from "metabase-lib/lib/Question";
+import Field from "metabase-lib/lib/metadata/Field";
+import NativeQuery from "metabase-lib/lib/queries/NativeQuery";
+import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
 
 const PRODUCT_CATEGORY_FIELD_ID = 21;
 

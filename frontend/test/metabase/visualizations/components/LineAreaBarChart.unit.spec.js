@@ -1,9 +1,7 @@
 // TODO: To be replaced by an e2e test which doesn't require hardcoding the card objects
-
 // HACK: Needed because of conflicts caused by circular dependencies
-import "metabase/visualizations/components/Visualization";
-
 import LineAreaBarChart from "metabase/visualizations/components/LineAreaBarChart.jsx";
+import "metabase/visualizations/components/Visualization";
 
 const millisecondCard = {
   card: {
@@ -379,7 +377,13 @@ const numberCard = {
     public_uuid: null,
   },
   data: {
-    rows: [[1, 59], [2, 77], [3, 64], [4, 550], [5, 328]],
+    rows: [
+      [1, 59],
+      [2, 77],
+      [3, 64],
+      [4, 550],
+      [5, 328],
+    ],
     columns: ["RATING", "count"],
     native_form: {
       query:

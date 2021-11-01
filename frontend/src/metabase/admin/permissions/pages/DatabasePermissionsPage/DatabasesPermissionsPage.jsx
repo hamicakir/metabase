@@ -1,28 +1,27 @@
-import React, { useCallback } from "react";
 import PropTypes from "prop-types";
-import { bindActionCreators } from "redux";
+import React, { useCallback } from "react";
+import { connect } from "react-redux";
 import { push } from "react-router-redux";
+import { bindActionCreators } from "redux";
 import { t } from "ttag";
 import _ from "underscore";
-import { connect } from "react-redux";
 
+import {
+  PermissionsEditor,
+  PermissionsEditorEmptyState,
+  permissionEditorPropTypes,
+} from "../../components/PermissionsEditor";
+import {
+  PermissionsSidebar,
+  permissionSidebarPropTypes,
+} from "../../components/PermissionsSidebar";
+import { updateDataPermission } from "../../permissions";
 import {
   getGroupsDataPermissionEditor,
   getDataFocusSidebar,
   getIsLoadingDatabaseTables,
   getLoadingDatabaseTablesError,
 } from "../../selectors/data-permissions";
-import { updateDataPermission } from "../../permissions";
-
-import {
-  PermissionsSidebar,
-  permissionSidebarPropTypes,
-} from "../../components/PermissionsSidebar";
-import {
-  PermissionsEditor,
-  PermissionsEditorEmptyState,
-  permissionEditorPropTypes,
-} from "../../components/PermissionsEditor";
 import {
   DATABASES_BASE_PATH,
   getDatabaseFocusPermissionsUrl,
@@ -142,9 +141,6 @@ function DatabasesPermissionsPage({
 
 DatabasesPermissionsPage.propTypes = propTypes;
 
-export default _.compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
-)(DatabasesPermissionsPage);
+export default _.compose(connect(mapStateToProps, mapDispatchToProps))(
+  DatabasesPermissionsPage,
+);

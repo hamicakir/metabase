@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import Select, { Option } from "metabase/components/Select";
-
 import cx from "classnames";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 
 import type {
   FilterOperator,
   FilterOperatorName,
 } from "metabase-types/types/Metadata";
+
+import Select, { Option } from "metabase/components/Select";
 
 type Props = {
   operator: string,

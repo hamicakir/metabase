@@ -1,11 +1,10 @@
 /* eslint "react/prop-types": "warn" */
-import React from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
-
-import S from "./LabelIcon.css";
+import React from "react";
 
 import Icon from "./Icon";
-import cx from "classnames";
+import S from "./LabelIcon.css";
 
 const LabelIcon = ({ icon, size = 18, className, style }) =>
   icon.charAt(0) === "#" ? (

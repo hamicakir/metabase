@@ -1,16 +1,17 @@
+import { t } from "ttag";
+
+import type { VisualizationSettings } from "metabase-types/types/Card";
+import type { Series } from "metabase-types/types/Visualization";
+
+import { normalizeFieldRef } from "metabase/lib/dataset";
+import { getVisualizationRaw } from "metabase/visualizations";
+
 import {
   getComputedSettings,
   getSettingsWidgets,
   getPersistableDefaultSettings,
 } from "../settings";
-
-import { getVisualizationRaw } from "metabase/visualizations";
-import { normalizeFieldRef } from "metabase/lib/dataset";
-import { t } from "ttag";
-
 import type { Settings, SettingDefs, WidgetDef } from "../settings";
-import type { Series } from "metabase-types/types/Visualization";
-import type { VisualizationSettings } from "metabase-types/types/Card";
 
 const COMMON_SETTINGS = {
   "card.title": {

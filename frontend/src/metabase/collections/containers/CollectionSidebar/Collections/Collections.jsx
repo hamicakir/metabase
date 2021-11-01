@@ -1,7 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import CollectionsList from "./CollectionsList/CollectionsList";
 import { Box } from "grid-styled";
+import PropTypes from "prop-types";
+import React from "react";
 
 import {
   nonPersonalOrArchivedCollection,
@@ -9,6 +8,7 @@ import {
 } from "metabase/collections/utils";
 
 import { Container } from "./Collections.styled";
+import CollectionsList from "./CollectionsList/CollectionsList";
 
 const propTypes = {
   collectionId: PropTypes.number,

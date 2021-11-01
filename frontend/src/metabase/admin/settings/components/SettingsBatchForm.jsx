@@ -1,18 +1,18 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
+import Collapse from "react-collapse";
 import { connect } from "react-redux";
+import { t } from "ttag";
 import _ from "underscore";
 
-import Collapse from "react-collapse";
-import { t } from "ttag";
 import Breadcrumbs from "metabase/components/Breadcrumbs";
 import Button from "metabase/components/Button";
 import DisclosureTriangle from "metabase/components/DisclosureTriangle";
 import MetabaseUtils from "metabase/lib/utils";
-import SettingsSetting from "./SettingsSetting";
 
 import { updateSettings as defaultUpdateSettings } from "../settings";
+import SettingsSetting from "./SettingsSetting";
 
 const VALIDATIONS = {
   email: {
@@ -117,14 +117,14 @@ export default class SettingsBatchForm extends Component {
 
     // Validate form only if LDAP is enabled
     if (!enabledKey || formData[enabledKey]) {
-      elements.forEach(function(element) {
+      elements.forEach(function (element) {
         // test for required elements
         if (element.required && MetabaseUtils.isEmpty(formData[element.key])) {
           valid = false;
         }
 
         if (element.validations) {
-          element.validations.forEach(function(validation) {
+          element.validations.forEach(function (validation) {
             validationErrors[element.key] = this.validateElement(
               validation,
               formData[element.key],

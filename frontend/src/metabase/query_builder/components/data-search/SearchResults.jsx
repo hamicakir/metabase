@@ -1,11 +1,11 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
 import { t } from "ttag";
 
 import Icon from "metabase/components/Icon";
-import { DEFAULT_SEARCH_LIMIT } from "metabase/lib/constants";
 import Search from "metabase/entities/search";
+import { DEFAULT_SEARCH_LIMIT } from "metabase/lib/constants";
 
 import { SearchResultItem } from "./SearchResultItem";
 

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
 import PropTypes from "prop-types";
+import React, { useState } from "react";
 
 import QuestionDetailsSidebarPanel from "metabase/query_builder/components/view/sidebars/QuestionDetailsSidebarPanel";
+
 import { SIDEBAR_VIEWS } from "./constants";
 
 QuestionDetailsSidebar.propTypes = {

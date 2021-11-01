@@ -1,19 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import PropTypes from "prop-types";
+import React from "react";
 
-import NumberPicker from "./NumberPicker";
-import SelectPicker from "./SelectPicker";
-import TextPicker from "./TextPicker";
+import type Filter from "metabase-lib/lib/queries/structured/Filter";
 
 import FieldValuesWidget from "metabase/components/FieldValuesWidget";
-
 import {
   getFilterArgumentFormatOptions,
   isFuzzyOperator,
 } from "metabase/lib/schema_metadata";
 
-import type Filter from "metabase-lib/lib/queries/structured/Filter";
+import NumberPicker from "./NumberPicker";
+import SelectPicker from "./SelectPicker";
+import TextPicker from "./TextPicker";
 
 type Props = {
   filter: Filter,

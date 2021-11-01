@@ -1,12 +1,10 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
 import React, { Component } from "react";
+import { t, ngettext, msgid } from "ttag";
+import _ from "underscore";
 
 import Icon from "metabase/components/Icon";
-import { t, ngettext, msgid } from "ttag";
-
-import _ from "underscore";
-import cx from "classnames";
-
 import { regexpEscape } from "metabase/lib/string";
 
 export default class MetadataSchemaList extends Component {

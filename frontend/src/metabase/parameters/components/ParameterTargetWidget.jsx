@@ -1,17 +1,17 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-
-import PopoverWithTrigger from "metabase/components/PopoverWithTrigger.jsx";
-import ParameterTargetList from "../components/ParameterTargetList";
-import SelectButton from "metabase/components/SelectButton";
-
-import _ from "underscore";
 import cx from "classnames";
+import React from "react";
+import _ from "underscore";
 
 import type {
   ParameterMappingUIOption,
   ParameterTarget,
 } from "metabase-types/types/Parameter";
+
+import PopoverWithTrigger from "metabase/components/PopoverWithTrigger.jsx";
+import SelectButton from "metabase/components/SelectButton";
+
+import ParameterTargetList from "../components/ParameterTargetList";
 
 type Props = {
   target: ?ParameterTarget,
@@ -37,13 +37,8 @@ export default class ParameterTargetWidget extends React.Component {
   };
 
   render() {
-    const {
-      target,
-      onChange,
-      mappingOptions,
-      placeholder,
-      children,
-    } = this.props;
+    const { target, onChange, mappingOptions, placeholder, children } =
+      this.props;
 
     const disabled = mappingOptions.length === 0;
     const selected = _.find(mappingOptions, o => _.isEqual(o.target, target));

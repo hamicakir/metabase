@@ -1,24 +1,22 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
+import Color from "color";
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { t } from "ttag";
-import { formatValue } from "metabase/lib/formatting";
-import { isNumeric } from "metabase/lib/schema_metadata";
+import _ from "underscore";
+
+import type { VisualizationProps } from "metabase-types/types/Visualization";
+
 import Icon from "metabase/components/Icon";
 import IconBorder from "metabase/components/IconBorder";
 import { color } from "metabase/lib/colors";
-
-import _ from "underscore";
-
+import { formatValue } from "metabase/lib/formatting";
+import { isNumeric } from "metabase/lib/schema_metadata";
 import { columnSettings } from "metabase/visualizations/lib/settings/column";
-
-import Color from "color";
-import cx from "classnames";
 
 const BORDER_RADIUS = 5;
 const MAX_BAR_HEIGHT = 65;
-
-import type { VisualizationProps } from "metabase-types/types/Visualization";
 
 export default class Progress extends Component {
   constructor(props: VisualizationProps) {
@@ -146,14 +144,8 @@ export default class Progress extends Component {
     const goal = settings["progress.goal"] || 0;
 
     const mainColor = settings["progress.color"];
-    const lightColor = Color(mainColor)
-      .lighten(0.25)
-      .rgb()
-      .string();
-    const darkColor = Color(mainColor)
-      .darken(0.3)
-      .rgb()
-      .string();
+    const lightColor = Color(mainColor).lighten(0.25).rgb().string();
+    const darkColor = Color(mainColor).darken(0.3).rgb().string();
 
     const progressColor = mainColor;
     const restColor = value > goal ? darkColor : lightColor;

@@ -1,24 +1,22 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-
-import { t } from "ttag";
-import _ from "underscore";
 import cx from "classnames";
 import { Flex } from "grid-styled";
-
-import SelectButton from "metabase/components/SelectButton";
-import Select from "metabase/components/Select";
-import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
-import FieldList from "metabase/query_builder/components/FieldList";
-import InputBlurChange from "metabase/components/InputBlurChange";
-import ButtonWithStatus from "metabase/components/ButtonWithStatus";
-
-import SelectSeparator from "../components/SelectSeparator";
-
-import * as MetabaseAnalytics from "metabase/lib/analytics";
+import React from "react";
+import { t } from "ttag";
+import _ from "underscore";
 
 import Dimension, { FieldDimension } from "metabase-lib/lib/Dimension";
 import Question from "metabase-lib/lib/Question";
+
+import ButtonWithStatus from "metabase/components/ButtonWithStatus";
+import InputBlurChange from "metabase/components/InputBlurChange";
+import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
+import Select from "metabase/components/Select";
+import SelectButton from "metabase/components/SelectButton";
+import * as MetabaseAnalytics from "metabase/lib/analytics";
+import FieldList from "metabase/query_builder/components/FieldList";
+
+import SelectSeparator from "../components/SelectSeparator";
 
 const MAP_OPTIONS = {
   original: { type: "original", name: t`Use original value` },
@@ -170,12 +168,8 @@ export default class FieldRemapping extends React.Component {
   };
 
   onForeignKeyFieldChange = async foreignKeyClause => {
-    const {
-      table,
-      field,
-      fetchTableMetadata,
-      updateFieldDimension,
-    } = this.props;
+    const { table, field, fetchTableMetadata, updateFieldDimension } =
+      this.props;
 
     this.clearEditingStates();
 
@@ -340,12 +334,14 @@ export class ValueRemappings extends React.Component {
   componentDidUpdate(prevProps) {
     const { remappings } = this.props;
     if (
-      !// check if the Maps are different
-      (
-        prevProps.remappings &&
-        remappings &&
-        prevProps.remappings.size === remappings.size &&
-        [...remappings].every(([k, v]) => prevProps.remappings.get(k) === v)
+      !(
+        // check if the Maps are different
+        (
+          prevProps.remappings &&
+          remappings &&
+          prevProps.remappings.size === remappings.size &&
+          [...remappings].every(([k, v]) => prevProps.remappings.get(k) === v)
+        )
       )
     ) {
       this._updateEditingRemappings(remappings);

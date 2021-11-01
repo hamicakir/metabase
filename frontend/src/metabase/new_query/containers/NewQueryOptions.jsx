@@ -1,28 +1,20 @@
 /* eslint-disable react/prop-types */
+import { Box } from "grid-styled";
 import React, { Component } from "react";
-
 import { connect } from "react-redux";
 import { push } from "react-router-redux";
-
 import { t } from "ttag";
 
-import fitViewport from "metabase/hoc/FitViewPort";
-
-import { Box } from "grid-styled";
 import { Grid, GridItem } from "metabase/components/Grid";
-
-import NewQueryOption from "metabase/new_query/components/NewQueryOption";
-import NoDatabasesEmptyState from "metabase/reference/databases/NoDatabasesEmptyState";
-
+import Database from "metabase/entities/databases";
+import fitViewport from "metabase/hoc/FitViewPort";
 import * as Urls from "metabase/lib/urls";
-
+import NewQueryOption from "metabase/new_query/components/NewQueryOption";
 import {
   getHasDataAccess,
   getHasNativeWrite,
 } from "metabase/new_query/selectors";
-
-import Database from "metabase/entities/databases";
-
+import NoDatabasesEmptyState from "metabase/reference/databases/NoDatabasesEmptyState";
 import type { NestedObjectKey } from "metabase/visualizations/lib/settings/nested";
 
 type Props = {
@@ -45,10 +37,7 @@ const mapDispatchToProps = {
 const PAGE_PADDING = [1, 4];
 
 @fitViewport
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class NewQueryOptions extends Component {
   props: Props;
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import Heading from "metabase/components/type/Heading";
 import Icon from "metabase/components/Icon";
+import Heading from "metabase/components/type/Heading";
 
 const SIZES = [12, 16];
 

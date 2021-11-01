@@ -1,17 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import S from "./UsefulQuestions.css";
-import D from "metabase/reference/components/Detail.css";
+import Metadata from "metabase-lib/lib/metadata/Metadata";
+
 import L from "metabase/components/List.css";
+import { fetchTableMetadata } from "metabase/redux/metadata";
+import D from "metabase/reference/components/Detail.css";
+import FieldToGroupBy from "metabase/reference/components/FieldToGroupBy";
+import { getMetadata } from "metabase/selectors/metadata";
 
 import { getQuestionUrl } from "../utils";
-
-import FieldToGroupBy from "metabase/reference/components/FieldToGroupBy";
-
-import { fetchTableMetadata } from "metabase/redux/metadata";
-import { getMetadata } from "metabase/selectors/metadata";
-import Metadata from "metabase-lib/lib/metadata/Metadata";
+import S from "./UsefulQuestions.css";
 
 const mapDispatchToProps = {
   fetchTableMetadata,
@@ -21,10 +20,7 @@ const mapStateToProps = (state, props) => ({
   metadata: getMetadata(state, props),
 });
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class FieldsToGroupBy extends Component {
   props: {
     fields: Object,
@@ -36,14 +32,8 @@ export default class FieldsToGroupBy extends Component {
   };
 
   render() {
-    const {
-      fields,
-      databaseId,
-      metric,
-      title,
-      onChangeLocation,
-      metadata,
-    } = this.props;
+    const { fields, databaseId, metric, title, onChangeLocation, metadata } =
+      this.props;
 
     return (
       <div>

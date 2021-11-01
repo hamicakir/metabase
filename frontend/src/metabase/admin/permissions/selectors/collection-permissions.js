@@ -1,15 +1,15 @@
+import { getIn } from "icepick";
 import { createSelector } from "reselect";
 import { t } from "ttag";
-import { getIn } from "icepick";
 import _ from "underscore";
 
-import Group from "metabase/entities/groups";
+import { nonPersonalOrArchivedCollection } from "metabase/collections/utils";
 import Collections, {
   getCollectionIcon,
   ROOT_COLLECTION,
 } from "metabase/entities/collections";
+import Group from "metabase/entities/groups";
 import SnippetCollections from "metabase/entities/snippet-collections";
-import { nonPersonalOrArchivedCollection } from "metabase/collections/utils";
 import { isAdminGroup, isDefaultGroup } from "metabase/lib/groups";
 
 import { COLLECTION_OPTIONS } from "../constants/collections-permissions";

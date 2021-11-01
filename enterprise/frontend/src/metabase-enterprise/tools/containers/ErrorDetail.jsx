@@ -1,19 +1,19 @@
+import { getIn } from "icepick";
+import PropTypes from "prop-types";
 import React from "react";
-
 import { connect } from "react-redux";
 import { push } from "react-router-redux";
-import { getMetadata } from "metabase/selectors/metadata";
-
 import { t } from "ttag";
-import PropTypes from "prop-types";
-import { getIn } from "icepick";
 
-import { formatColumn, formatValue } from "metabase/lib/formatting";
-import { CardApi } from "metabase/services";
+import Question from "metabase-lib/lib/Question";
+
 import Button from "metabase/components/Button";
 import Link from "metabase/components/Link";
-import Question from "metabase-lib/lib/Question";
 import { QuestionResultLoader } from "metabase/containers/QuestionResultLoader";
+import { formatColumn, formatValue } from "metabase/lib/formatting";
+import { getMetadata } from "metabase/selectors/metadata";
+import { CardApi } from "metabase/services";
+
 import { columnNameToUrl } from "../../audit_app/lib/mode";
 
 function idxToUrl(resRow, resCols, nameToResCol, colName) {
@@ -170,10 +170,7 @@ const mapDispatchToProps = {
   },
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(ErrorDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(ErrorDetail);
 
 ErrorDetail.propTypes = {
   params: PropTypes.object,

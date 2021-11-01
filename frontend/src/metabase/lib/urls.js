@@ -1,8 +1,10 @@
 import slugg from "slugg";
+
+import Question from "metabase-lib/lib/Question";
+
 import { serializeCardForUrl } from "metabase/lib/card";
 import { SAVED_QUESTIONS_VIRTUAL_DB_ID } from "metabase/lib/saved-questions";
 import MetabaseSettings from "metabase/lib/settings";
-import Question from "metabase-lib/lib/Question";
 
 function appendSlug(path, slug) {
   return slug ? `${path}-${slug}` : path;

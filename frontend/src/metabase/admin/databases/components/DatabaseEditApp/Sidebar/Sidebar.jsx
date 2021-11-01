@@ -1,12 +1,12 @@
-import React, { useRef } from "react";
-import PropTypes from "prop-types";
 import { Box } from "grid-styled";
+import PropTypes from "prop-types";
+import React, { useRef } from "react";
 import { t } from "ttag";
 
 import DeleteDatabaseModal from "metabase/admin/databases/components/DeleteDatabaseModal.jsx";
 import ActionButton from "metabase/components/ActionButton";
-import ModalWithTrigger from "metabase/components/ModalWithTrigger";
 import ConfirmContent from "metabase/components/ConfirmContent";
+import ModalWithTrigger from "metabase/components/ModalWithTrigger";
 
 const propTypes = {
   database: PropTypes.object.isRequired,

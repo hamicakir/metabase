@@ -1,7 +1,6 @@
 import ItemSelect from "./ItemSelect";
-
-import QuestionPicker from "./QuestionPicker";
 import QuestionName from "./QuestionName";
+import QuestionPicker from "./QuestionPicker";
 
 const QuestionSelect = ItemSelect(QuestionPicker, QuestionName, "question");
 

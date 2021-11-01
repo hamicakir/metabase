@@ -1,15 +1,9 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { t } from "ttag";
 import cx from "classnames";
 import moment from "moment";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { t } from "ttag";
 import _ from "underscore";
-
-import SpecificDatePicker from "./SpecificDatePicker";
-import RelativeDatePicker, { DATE_PERIODS } from "./RelativeDatePicker";
-import DateOperatorSelector from "../DateOperatorSelector";
-import DateUnitSelector from "../DateUnitSelector";
-import Calendar from "metabase/components/Calendar";
 
 import { FieldDimension } from "metabase-lib/lib/Dimension";
 
@@ -22,6 +16,13 @@ import type {
   ForeignFieldReference,
   ExpressionReference,
 } from "metabase-types/types/Query";
+
+import Calendar from "metabase/components/Calendar";
+
+import DateOperatorSelector from "../DateOperatorSelector";
+import DateUnitSelector from "../DateUnitSelector";
+import RelativeDatePicker, { DATE_PERIODS } from "./RelativeDatePicker";
+import SpecificDatePicker from "./SpecificDatePicker";
 
 const singleDatePickerPropTypes = {
   className: PropTypes.string,
@@ -320,9 +321,8 @@ export const EMPTINESS_OPERATORS: Operator[] = [
   },
 ];
 
-export const ALL_OPERATORS: Operator[] = DATE_OPERATORS.concat(
-  EMPTINESS_OPERATORS,
-);
+export const ALL_OPERATORS: Operator[] =
+  DATE_OPERATORS.concat(EMPTINESS_OPERATORS);
 
 export function getOperator(
   filter: FieldFilter,
@@ -374,13 +374,8 @@ export default class DatePicker extends Component {
   }
 
   render() {
-    const {
-      className,
-      filter,
-      onFilterChange,
-      includeAllTime,
-      isSidebar,
-    } = this.props;
+    const { className, filter, onFilterChange, includeAllTime, isSidebar } =
+      this.props;
 
     let { operators } = this.state;
 

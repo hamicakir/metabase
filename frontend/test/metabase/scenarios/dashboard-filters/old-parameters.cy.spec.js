@@ -1,4 +1,5 @@
 import { popover, restore, mockSessionProperty } from "__support__/e2e/cypress";
+
 // NOTE: some overlap with parameters-embedded.cy.spec.js
 
 describe("scenarios > dashboard > parameters", () => {
@@ -40,14 +41,10 @@ describe("scenarios > dashboard > parameters", () => {
     });
 
     cy.findByText("No default").click();
-    cy.findByPlaceholderText("Search by City")
-      .click()
-      .type("B");
+    cy.findByPlaceholderText("Search by City").click().type("B");
     cy.findByText("Baker").click();
     cy.findByText("Add filter").click();
-    cy.get(".Button--primary")
-      .contains("Done")
-      .click();
+    cy.get(".Button--primary").contains("Done").click();
 
     cy.findByText("Save").click();
     cy.findByText("You're editing this dashboard.").should("not.exist");
@@ -75,9 +72,7 @@ describe("scenarios > dashboard > parameters", () => {
     cy.findByText("You're editing this dashboard.").should("not.exist");
 
     cy.findByText("Category").click();
-    cy.findByPlaceholderText("Search by Name")
-      .click()
-      .type("bb");
+    cy.findByPlaceholderText("Search by Name").click().type("bb");
     cy.findByText("Abbie Parisian").click();
     cy.findByText("Add filter").click();
 

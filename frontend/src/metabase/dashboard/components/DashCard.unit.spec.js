@@ -1,14 +1,14 @@
-// we mock ExplicitSize in register-visualizations for all tests, we need to
-// undo it just for this test
-jest.unmock("metabase/components/ExplicitSize");
-
-import React from "react";
 import { render } from "@testing-library/react";
 import { assocIn } from "icepick";
+import React from "react";
 
 import DashCard, {
   WrappedVisualization,
 } from "metabase/dashboard/components/DashCard";
+
+// we mock ExplicitSize in register-visualizations for all tests, we need to
+// undo it just for this test
+jest.unmock("metabase/components/ExplicitSize");
 
 jest.mock(WrappedVisualization);
 

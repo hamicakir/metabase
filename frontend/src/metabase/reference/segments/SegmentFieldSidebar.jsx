@@ -1,12 +1,12 @@
 /* eslint "react/prop-types": "warn" */
-import React from "react";
-import PropTypes from "prop-types";
-import S from "metabase/components/Sidebar.css";
-import { t } from "ttag";
-import Breadcrumbs from "metabase/components/Breadcrumbs";
-import SidebarItem from "metabase/components/SidebarItem";
-
 import cx from "classnames";
+import PropTypes from "prop-types";
+import React from "react";
+import { t } from "ttag";
+
+import Breadcrumbs from "metabase/components/Breadcrumbs";
+import S from "metabase/components/Sidebar.css";
+import SidebarItem from "metabase/components/SidebarItem";
 
 const SegmentFieldSidebar = ({ segment, field, style, className }) => (
   <div className={cx(S.sidebar, className)} style={style}>

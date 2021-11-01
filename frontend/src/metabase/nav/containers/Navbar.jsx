@@ -1,38 +1,34 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
+import cx from "classnames";
+import { Flex, Box } from "grid-styled";
 import PropTypes from "prop-types";
-
-import { PLUGIN_ADMIN_NAV_ITEMS } from "metabase/plugins";
-
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { push } from "react-router-redux";
-
-import cx from "classnames";
 import { t } from "ttag";
-import { Flex, Box } from "grid-styled";
 
-import * as Urls from "metabase/lib/urls";
-import { color, darken } from "metabase/lib/colors";
-import MetabaseSettings from "metabase/lib/settings";
-
-import Icon, { IconWrapper } from "metabase/components/Icon";
+import CreateDashboardModal from "metabase/components/CreateDashboardModal";
 import EntityMenu from "metabase/components/EntityMenu";
+import Icon, { IconWrapper } from "metabase/components/Icon";
 import Link from "metabase/components/Link";
 import LogoIcon from "metabase/components/LogoIcon";
 import Modal from "metabase/components/Modal";
-
+import Database from "metabase/entities/databases";
+import { color, darken } from "metabase/lib/colors";
+import MetabaseSettings from "metabase/lib/settings";
+import * as Urls from "metabase/lib/urls";
 import ProfileLink from "metabase/nav/components/ProfileLink";
 import SearchBar from "metabase/nav/components/SearchBar";
-
-import CreateDashboardModal from "metabase/components/CreateDashboardModal";
-
-import { getPath, getContext, getUser } from "../selectors";
+import StoreLink from "metabase/nav/components/StoreLink";
+import { getDefaultSearchColor } from "metabase/nav/constants";
 import {
   getHasDataAccess,
   getHasNativeWrite,
   getPlainNativeQuery,
 } from "metabase/new_query/selectors";
-import Database from "metabase/entities/databases";
+import { PLUGIN_ADMIN_NAV_ITEMS } from "metabase/plugins";
+
+import { getPath, getContext, getUser } from "../selectors";
 
 const mapStateToProps = (state, props) => ({
   path: getPath(state, props),
@@ -42,9 +38,6 @@ const mapStateToProps = (state, props) => ({
   hasDataAccess: getHasDataAccess(state),
   hasNativeWrite: getHasNativeWrite(state),
 });
-
-import { getDefaultSearchColor } from "metabase/nav/constants";
-import StoreLink from "metabase/nav/components/StoreLink";
 
 const mapDispatchToProps = {
   onChangeLocation: push,
@@ -76,10 +69,7 @@ const MODAL_NEW_DASHBOARD = "MODAL_NEW_DASHBOARD";
   // set this to false to prevent a potential spinner on the main nav
   loadingAndErrorWrapper: false,
 })
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class Navbar extends Component {
   state = {
     modal: null,

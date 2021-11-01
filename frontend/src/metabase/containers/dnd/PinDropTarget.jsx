@@ -1,7 +1,7 @@
 import { DropTarget } from "react-dnd";
 
-import DropArea from "./DropArea";
 import { PinnableDragTypes } from ".";
+import DropArea from "./DropArea";
 
 const PinDropTarget = DropTarget(
   PinnableDragTypes,

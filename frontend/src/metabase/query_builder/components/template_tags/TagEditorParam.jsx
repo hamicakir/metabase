@@ -1,26 +1,26 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from "react";
-import { t } from "ttag";
-import _ from "underscore";
 import { connect } from "react-redux";
 import { Link } from "react-router";
-
-import Toggle from "metabase/components/Toggle";
-import InputBlurChange from "metabase/components/InputBlurChange";
-import Select, { Option } from "metabase/components/Select";
-import ParameterValueWidget from "metabase/parameters/components/ParameterValueWidget";
-
-import { getParameterOptionsForField } from "metabase/parameters/utils/template-tag-options";
-import type { TemplateTag } from "metabase-types/types/Query";
-import type { Database } from "metabase-types/types/Database";
+import { t } from "ttag";
+import _ from "underscore";
 
 import Field from "metabase-lib/lib/metadata/Field";
+import Metadata from "metabase-lib/lib/metadata/Metadata";
+
+import type { Database } from "metabase-types/types/Database";
+import type { FieldId } from "metabase-types/types/Field";
+import type { TemplateTag } from "metabase-types/types/Query";
+
+import InputBlurChange from "metabase/components/InputBlurChange";
+import Select, { Option } from "metabase/components/Select";
+import Toggle from "metabase/components/Toggle";
+import MetabaseSettings from "metabase/lib/settings";
+import ParameterValueWidget from "metabase/parameters/components/ParameterValueWidget";
+import { getParameterOptionsForField } from "metabase/parameters/utils/template-tag-options";
+import { SchemaTableAndFieldDataSelector } from "metabase/query_builder/components/DataSelector";
 import { fetchField } from "metabase/redux/metadata";
 import { getMetadata } from "metabase/selectors/metadata";
-import { SchemaTableAndFieldDataSelector } from "metabase/query_builder/components/DataSelector";
-import Metadata from "metabase-lib/lib/metadata/Metadata";
-import MetabaseSettings from "metabase/lib/settings";
-import type { FieldId } from "metabase-types/types/Field";
 
 type Props = {
   tag: TemplateTag,
@@ -32,10 +32,7 @@ type Props = {
   fetchField: FieldId => void,
 };
 
-@connect(
-  state => ({ metadata: getMetadata(state) }),
-  { fetchField },
-)
+@connect(state => ({ metadata: getMetadata(state) }), { fetchField })
 export default class TagEditorParam extends Component {
   props: Props;
 
@@ -251,7 +248,8 @@ export default class TagEditorParam extends Component {
         </div>
 
         {((tag.type !== "dimension" && tag.required) ||
-          (tag.type === "dimension" || tag["widget-type"])) && (
+          tag.type === "dimension" ||
+          tag["widget-type"]) && (
           <div className="pb3">
             <h4 className="text-medium pb1">{t`Default filter widget value`}</h4>
             <ParameterValueWidget

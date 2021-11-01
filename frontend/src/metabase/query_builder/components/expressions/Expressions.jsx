@@ -1,11 +1,11 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
-import _ from "underscore";
+import React, { Component } from "react";
 import { t } from "ttag";
+import _ from "underscore";
+
 import Icon from "metabase/components/Icon";
 import IconBorder from "metabase/components/IconBorder";
 import Tooltip from "metabase/components/Tooltip";
-
 import { format } from "metabase/lib/expressions/format";
 
 export default class Expressions extends Component {
@@ -21,12 +21,8 @@ export default class Expressions extends Component {
   };
 
   render() {
-    const {
-      expressions,
-      query,
-      onAddExpression,
-      onEditExpression,
-    } = this.props;
+    const { expressions, query, onAddExpression, onEditExpression } =
+      this.props;
 
     const sortedNames = _.sortBy(_.keys(expressions), _.identity);
     return (

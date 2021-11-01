@@ -1,15 +1,15 @@
-import React, { Component } from "react";
+import cx from "classnames";
+import moment from "moment";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { t } from "ttag";
 
 import Calendar from "metabase/components/Calendar";
-import InputBlurChange from "metabase/components/InputBlurChange";
-import Icon from "metabase/components/Icon";
 import ExpandingContent from "metabase/components/ExpandingContent";
-import HoursMinutesInput from "./HoursMinutesInput";
+import Icon from "metabase/components/Icon";
+import InputBlurChange from "metabase/components/InputBlurChange";
 
-import moment from "moment";
-import cx from "classnames";
+import HoursMinutesInput from "./HoursMinutesInput";
 
 const DATE_FORMAT = "YYYY-MM-DD";
 const DATE_TIME_FORMAT = "YYYY-MM-DDTHH:mm:ss";

@@ -1,6 +1,5 @@
-import Question from "metabase-lib/lib/Question";
-
 import { ExpressionDimension } from "metabase-lib/lib/Dimension";
+import Question from "metabase-lib/lib/Question";
 
 import {
   dimensionFilterForParameter,

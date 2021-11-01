@@ -1,23 +1,20 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
-import { Link } from "react-router";
+import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router";
 import { t } from "ttag";
+import _ from "underscore";
 
+import { prepareAnalyticsValue } from "metabase/admin/settings/utils";
+import AdminLayout from "metabase/components/AdminLayout";
+import { NotFound } from "metabase/containers/ErrorPages";
 import title from "metabase/hoc/Title";
 import * as MetabaseAnalytics from "metabase/lib/analytics";
 import MetabaseSettings from "metabase/lib/settings";
-import AdminLayout from "metabase/components/AdminLayout";
-import { NotFound } from "metabase/containers/ErrorPages";
 
 import SettingsSetting from "../components/SettingsSetting";
-
-import { prepareAnalyticsValue } from "metabase/admin/settings/utils";
-
-import _ from "underscore";
-import cx from "classnames";
-
 import {
   getSettings,
   getSettingValues,
@@ -45,10 +42,7 @@ const mapDispatchToProps = {
   reloadSettings,
 };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 @title(({ activeSection }) => activeSection && activeSection.name)
 export default class SettingsEditorApp extends Component {
   layout = null; // the reference to AdminLayout

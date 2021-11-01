@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { t } from "ttag";
 
-import Modal from "metabase/components/Modal";
 import ConfirmContent from "metabase/components/ConfirmContent";
+import Modal from "metabase/components/Modal";
 
 export const useLeaveConfirmation = ({
   router,

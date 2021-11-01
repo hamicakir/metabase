@@ -1,16 +1,20 @@
-import React, { useState } from "react";
 import PropTypes from "prop-types";
-import _ from "underscore";
-import { t } from "ttag";
+import React, { useState } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
 import { push } from "react-router-redux";
+import { t } from "ttag";
+import _ from "underscore";
 
 import Button from "metabase/components/Button";
-import fitViewport from "metabase/hoc/FitViewPort";
+import Icon from "metabase/components/Icon";
 import Modal from "metabase/components/Modal";
 import ModalContent from "metabase/components/ModalContent";
+import fitViewport from "metabase/hoc/FitViewPort";
 
-import { PermissionsTabs } from "./PermissionsTabs";
+import { useLeaveConfirmation } from "../../hooks/use-leave-confirmation";
+import { clearSaveError } from "../../permissions";
+import { PermissionsEditBar } from "./PermissionsEditBar";
 import {
   FullHeightContainer,
   TabsContainer,
@@ -20,11 +24,7 @@ import {
   PermissionPageSidebar,
   CloseSidebarButton,
 } from "./PermissionsPageLayout.styled";
-import { PermissionsEditBar } from "./PermissionsEditBar";
-import { useLeaveConfirmation } from "../../hooks/use-leave-confirmation";
-import { withRouter } from "react-router";
-import { clearSaveError } from "../../permissions";
-import Icon from "metabase/components/Icon";
+import { PermissionsTabs } from "./PermissionsTabs";
 
 const mapDispatchToProps = {
   navigateToTab: tab => push(`/admin/permissions/${tab}`),
@@ -134,10 +134,7 @@ function PermissionsPageLayout({
 PermissionsPageLayout.propTypes = propTypes;
 
 export default _.compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
   fitViewport,
   withRouter,
 )(PermissionsPageLayout);

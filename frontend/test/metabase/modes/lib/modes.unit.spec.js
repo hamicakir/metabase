@@ -1,8 +1,8 @@
-import { getMode } from "metabase/modes/lib/modes";
+import { ORDERS } from "__support__/sample_dataset_fixture";
+
 import ObjectMode from "metabase/modes/components/modes/ObjectMode";
 import SegmentMode from "metabase/modes/components/modes/SegmentMode";
-
-import { ORDERS } from "__support__/sample_dataset_fixture";
+import { getMode } from "metabase/modes/lib/modes";
 
 describe("modes", () => {
   describe("getMode", () => {

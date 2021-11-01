@@ -4,7 +4,6 @@ import {
   createAction,
   createThunkAction,
 } from "metabase/lib/redux";
-
 import { MetabaseApi, RevisionsApi } from "metabase/services";
 
 export const UPDATE_PREVIEW_SUMMARY =
@@ -24,7 +23,9 @@ export const FETCH_REVISIONS = "metabase/admin/datamodel/FETCH_REVISIONS";
 
 export const fetchRevisions = createThunkAction(
   FETCH_REVISIONS,
-  ({ entity, id }) => async () => RevisionsApi.get({ entity, id }),
+  ({ entity, id }) =>
+    async () =>
+      RevisionsApi.get({ entity, id }),
 );
 
 // reducers

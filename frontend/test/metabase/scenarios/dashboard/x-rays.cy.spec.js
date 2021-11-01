@@ -1,14 +1,8 @@
 import { restore, visitQuestionAdhoc } from "__support__/e2e/cypress";
 import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
 
-const {
-  ORDERS,
-  ORDERS_ID,
-  PRODUCTS,
-  PRODUCTS_ID,
-  PEOPLE,
-  PEOPLE_ID,
-} = SAMPLE_DATASET;
+const { ORDERS, ORDERS_ID, PRODUCTS, PRODUCTS_ID, PEOPLE, PEOPLE_ID } =
+  SAMPLE_DATASET;
 
 describe("scenarios > x-rays", () => {
   beforeEach(() => {
@@ -99,9 +93,7 @@ describe("scenarios > x-rays", () => {
       cy.get(".List-item-title")
         .contains(/Source/i)
         .click();
-      cy.get(".bar")
-        .first()
-        .click({ force: true });
+      cy.get(".bar").first().click({ force: true });
       cy.findByText(action).click();
       cy.wait("@xray").then(xhr => {
         expect(xhr.response.body.cause).not.to.exist;
@@ -127,9 +119,7 @@ describe("scenarios > x-rays", () => {
         display: "bar",
       });
 
-      cy.get(".bar")
-        .first()
-        .click();
+      cy.get(".bar").first().click();
       cy.findByText(action).click();
       cy.wait("@xray");
       cy.contains("null").should("not.exist");

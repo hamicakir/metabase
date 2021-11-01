@@ -1,6 +1,7 @@
 import "core-js/stable";
-import "regenerator-runtime/runtime";
 import "number-to-locale-string";
+import "regenerator-runtime/runtime";
+
 import "metabase/css/index.css";
 
 window.MetabaseBootstrap = {

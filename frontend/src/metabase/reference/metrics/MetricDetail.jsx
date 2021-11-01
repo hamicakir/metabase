@@ -1,22 +1,21 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { reduxForm } from "redux-form";
 import { push } from "react-router-redux";
+import { reduxForm } from "redux-form";
 import { t } from "ttag";
 import _ from "underscore";
 
 import List from "metabase/components/List";
 import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
-
+import * as metadataActions from "metabase/redux/metadata";
+import Detail from "metabase/reference/components/Detail";
 import EditHeader from "metabase/reference/components/EditHeader";
 import EditableReferenceHeader from "metabase/reference/components/EditableReferenceHeader";
-import Detail from "metabase/reference/components/Detail";
 import FieldsToGroupBy from "metabase/reference/components/FieldsToGroupBy";
 import Formula from "metabase/reference/components/Formula";
-
-import { getQuestionUrl } from "../utils";
+import * as actions from "metabase/reference/reference";
 
 import {
   getMetric,
@@ -28,9 +27,7 @@ import {
   getIsFormulaExpanded,
   getForeignKeys,
 } from "../selectors";
-
-import * as metadataActions from "metabase/redux/metadata";
-import * as actions from "metabase/reference/reference";
+import { getQuestionUrl } from "../utils";
 
 const mapStateToProps = (state, props) => {
   const entity = getMetric(state, props) || {};
@@ -64,10 +61,7 @@ const validate = (values, props) =>
     ? { revision_message: t`Please enter a revision message` }
     : {};
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 @reduxForm({
   form: "details",
   fields: [

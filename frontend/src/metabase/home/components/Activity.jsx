@@ -1,17 +1,15 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { Link } from "react-router";
-
-import _ from "underscore";
 import { t } from "ttag";
-
-import { color } from "metabase/lib/colors";
+import _ from "underscore";
 
 import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
+import { color } from "metabase/lib/colors";
+import * as Urls from "metabase/lib/urls";
+
 import ActivityItem from "./ActivityItem";
 import ActivityStory from "./ActivityStory";
-
-import * as Urls from "metabase/lib/urls";
 
 export default class Activity extends Component {
   constructor(props, context) {

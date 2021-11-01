@@ -1,14 +1,12 @@
-import styled from "styled-components";
-
 // import Box to get its spacing props, p, m, etc
 import { Box } from "grid-styled";
-
+import styled from "styled-components";
 // gives us top, left, bottom, right props
 import { top, left, bottom, right } from "styled-system";
 
 export const Position = styled(Box)`
-    ${top}
-    ${left}
+  ${top}
+  ${left}
     ${bottom}
     ${right}
 `;

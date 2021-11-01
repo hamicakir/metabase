@@ -1,30 +1,23 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-
-import Tables from "metabase/entities/tables";
+import { t, ngettext, msgid } from "ttag";
+import _ from "underscore";
 
 import Icon from "metabase/components/Icon";
-
-import { t, ngettext, msgid } from "ttag";
-
-import _ from "underscore";
-import cx from "classnames";
-
-import { regexpEscape } from "metabase/lib/string";
+import Tables from "metabase/entities/tables";
 import { color } from "metabase/lib/colors";
+import { regexpEscape } from "metabase/lib/string";
 
-@connect(
-  null,
-  {
-    setVisibilityForTables: (tables, visibility_type) =>
-      Tables.actions.bulkUpdate({
-        ids: tables.map(t => t.id),
-        visibility_type,
-      }),
-  },
-)
+@connect(null, {
+  setVisibilityForTables: (tables, visibility_type) =>
+    Tables.actions.bulkUpdate({
+      ids: tables.map(t => t.id),
+      visibility_type,
+    }),
+})
 export default class MetadataTableList extends Component {
   constructor(props, context) {
     super(props, context);

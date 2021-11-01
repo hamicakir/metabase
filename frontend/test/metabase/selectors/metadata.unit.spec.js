@@ -1,17 +1,17 @@
-import Metadata from "metabase-lib/lib/metadata/Metadata";
-import Database from "metabase-lib/lib/metadata/Database";
-import Schema from "metabase-lib/lib/metadata/Schema";
-import Table from "metabase-lib/lib/metadata/Table";
-import Field from "metabase-lib/lib/metadata/Field";
-import Metric from "metabase-lib/lib/metadata/Metric";
-import Segment from "metabase-lib/lib/metadata/Segment";
-
 import {
   metadata, // connected graph,
   state, // the original non connected metadata objects,
   SAMPLE_DATASET,
   ORDERS,
 } from "__support__/sample_dataset_fixture";
+
+import Database from "metabase-lib/lib/metadata/Database";
+import Field from "metabase-lib/lib/metadata/Field";
+import Metadata from "metabase-lib/lib/metadata/Metadata";
+import Metric from "metabase-lib/lib/metadata/Metric";
+import Schema from "metabase-lib/lib/metadata/Schema";
+import Segment from "metabase-lib/lib/metadata/Segment";
+import Table from "metabase-lib/lib/metadata/Table";
 
 import {
   copyObjects,

@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import styled from "styled-components";
 import { Link } from "react-router";
+import styled from "styled-components";
 
 import Icon from "metabase/components/Icon";
-
 import { color } from "metabase/lib/colors";
 
 const Item = styled.div`

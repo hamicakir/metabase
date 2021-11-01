@@ -1,19 +1,18 @@
 /* eslint-disable react/prop-types */
+import { Flex } from "grid-styled";
 import React from "react";
 import { connect } from "react-redux";
 import { goBack } from "react-router-redux";
 import { t } from "ttag";
-import { Flex } from "grid-styled";
-
-import User from "metabase/entities/users";
-import { clearTemporaryPassword } from "../people";
-import { getUserTemporaryPassword } from "../selectors";
-
-import MetabaseSettings from "metabase/lib/settings";
 
 import Button from "metabase/components/Button";
 import ModalContent from "metabase/components/ModalContent";
 import PasswordReveal from "metabase/components/PasswordReveal";
+import User from "metabase/entities/users";
+import MetabaseSettings from "metabase/lib/settings";
+
+import { clearTemporaryPassword } from "../people";
+import { getUserTemporaryPassword } from "../selectors";
 
 @User.load({
   id: (state, props) => props.params.userId,

@@ -36,31 +36,19 @@ export function setAdHocFilter({
   includeCurrent = false,
 } = {}) {
   if (condition) {
-    cy.get(".AdminSelect")
-      .contains("Previous")
-      .click();
+    cy.get(".AdminSelect").contains("Previous").click();
 
-    popover()
-      .last()
-      .contains(condition)
-      .click();
+    popover().last().contains(condition).click();
   }
 
   if (quantity) {
-    cy.findByPlaceholderText("30")
-      .clear()
-      .type(quantity);
+    cy.findByPlaceholderText("30").clear().type(quantity);
   }
 
   if (timeBucket) {
-    cy.get(".AdminSelect")
-      .contains("Days")
-      .click();
+    cy.get(".AdminSelect").contains("Days").click();
 
-    popover()
-      .last()
-      .contains(timeBucket)
-      .click();
+    popover().last().contains(timeBucket).click();
   }
 
   includeCurrent && cy.findByText(/^Include/).click();

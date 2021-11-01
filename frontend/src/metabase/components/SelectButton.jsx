@@ -1,10 +1,9 @@
 /* eslint "react/prop-types": "warn" */
-import React from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
+import React from "react";
 
 import Icon from "metabase/components/Icon";
-
-import cx from "classnames";
 
 const SelectButton = ({ className, style, children, hasValue = true }) => (
   <div

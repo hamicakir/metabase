@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from "react";
-import _ from "underscore";
 import { t } from "ttag";
+import _ from "underscore";
+
+import Dimension, { FieldDimension } from "metabase-lib/lib/Dimension";
 
 import AccordionList from "metabase/components/AccordionList";
 import Icon from "metabase/components/Icon";
 import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
 import Tooltip from "metabase/components/Tooltip";
 
-import Dimension, { FieldDimension } from "metabase-lib/lib/Dimension";
 import { DimensionPicker } from "./DimensionPicker";
 
 // import type { Section } from "metabase/components/AccordionList";

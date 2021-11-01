@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
 import { Box } from "grid-styled";
+import PropTypes from "prop-types";
+import React from "react";
 import { t } from "ttag";
 
-import { DEFAULT_SEARCH_LIMIT } from "metabase/lib/constants";
-import Search from "metabase/entities/search";
-import SearchResult from "metabase/search/components/SearchResult";
 import EmptyState from "metabase/components/EmptyState";
+import Search from "metabase/entities/search";
+import { DEFAULT_SEARCH_LIMIT } from "metabase/lib/constants";
+import SearchResult from "metabase/search/components/SearchResult";
 
 const propTypes = {
   searchText: PropTypes.string,

@@ -1,10 +1,11 @@
+import { metadata, PRODUCTS } from "__support__/sample_dataset_fixture";
+
 import {
   dateParameterValueToMBQL,
   stringParameterValueToMBQL,
   numberParameterValueToMBQL,
   parameterToMBQLFilter,
 } from "./mbql";
-import { metadata, PRODUCTS } from "__support__/sample_dataset_fixture";
 
 describe("parameters/utils/mbql", () => {
   describe("dateParameterValueToMBQL", () => {

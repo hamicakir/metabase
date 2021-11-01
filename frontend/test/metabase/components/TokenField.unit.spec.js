@@ -1,12 +1,11 @@
 /* eslint-disable react/display-name */
-/* eslint-disable react/prop-types */
 
-import React from "react";
+/* eslint-disable react/prop-types */
 import { render, screen, fireEvent, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import React from "react";
 
 import TokenField from "metabase/components/TokenField";
-
 import {
   KEYCODE_DOWN,
   KEYCODE_TAB,
@@ -65,7 +64,7 @@ describe("TokenField", () => {
   beforeAll(() => {
     // temporarily until JSDOM updates
     if (!global.Element.prototype.closest) {
-      global.Element.prototype.closest = function(selector) {
+      global.Element.prototype.closest = function (selector) {
         let element = this;
         while (element) {
           if (element.matches(selector)) {

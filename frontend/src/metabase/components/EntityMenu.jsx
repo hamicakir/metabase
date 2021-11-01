@@ -1,10 +1,10 @@
+import cx from "classnames";
 import React, { Component } from "react";
 import { Motion, spring } from "react-motion";
-import cx from "classnames";
 
 import Card from "metabase/components/Card";
-import EntityMenuTrigger from "metabase/components/EntityMenuTrigger";
 import EntityMenuItem from "metabase/components/EntityMenuItem";
+import EntityMenuTrigger from "metabase/components/EntityMenuTrigger";
 import Popover from "metabase/components/Popover";
 
 type EntityMenuOption = {

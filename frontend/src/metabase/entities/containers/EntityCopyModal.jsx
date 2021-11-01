@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import { dissoc } from "icepick";
+import React from "react";
 import { t } from "ttag";
 
-import EntityForm from "metabase/entities/containers/EntityForm";
 import ModalContent from "metabase/components/ModalContent";
+import EntityForm from "metabase/entities/containers/EntityForm";
 
 const EntityCopyModal = ({
   entityType,

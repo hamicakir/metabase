@@ -1,21 +1,18 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-import PropTypes from "prop-types";
-import { Box } from "grid-styled";
-
-import { t } from "ttag";
-import { parse as urlParse } from "url";
-import querystring from "querystring";
-
-import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
-import Icon from "metabase/components/Icon";
-import DownloadButton from "metabase/components/DownloadButton";
-import Tooltip from "metabase/components/Tooltip";
-
-import * as Urls from "metabase/lib/urls";
-
-import _ from "underscore";
 import cx from "classnames";
+import { Box } from "grid-styled";
+import PropTypes from "prop-types";
+import querystring from "querystring";
+import React from "react";
+import { t } from "ttag";
+import _ from "underscore";
+import { parse as urlParse } from "url";
+
+import DownloadButton from "metabase/components/DownloadButton";
+import Icon from "metabase/components/Icon";
+import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
+import Tooltip from "metabase/components/Tooltip";
+import * as Urls from "metabase/lib/urls";
 
 const EXPORT_FORMATS = Urls.exportFormats;
 

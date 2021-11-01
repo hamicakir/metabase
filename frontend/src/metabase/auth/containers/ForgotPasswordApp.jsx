@@ -2,15 +2,14 @@
 import React, { Component } from "react";
 import { t } from "ttag";
 
-import Form from "metabase/containers/Form";
-import Icon from "metabase/components/Icon";
-import BackToLogin from "../components/BackToLogin";
 import AuthLayout from "metabase/auth/components/AuthLayout";
-
+import Icon from "metabase/components/Icon";
+import Form from "metabase/containers/Form";
 import MetabaseSettings from "metabase/lib/settings";
 import validate from "metabase/lib/validate";
-
 import { SessionApi } from "metabase/services";
+
+import BackToLogin from "../components/BackToLogin";
 
 export default class ForgotPasswordApp extends Component {
   state = {

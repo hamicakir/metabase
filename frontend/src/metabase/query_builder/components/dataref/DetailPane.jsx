@@ -1,10 +1,11 @@
 /* eslint "react/prop-types": "warn" */
-import React from "react";
-import PropTypes from "prop-types";
-import { t } from "ttag";
 import cx from "classnames";
-import Icon from "metabase/components/Icon";
+import PropTypes from "prop-types";
+import React from "react";
+import { t } from "ttag";
+
 import Card from "metabase/components/Card";
+import Icon from "metabase/components/Icon";
 
 const DetailPane = ({ name, description, extra, values }) => (
   <div className="ml1">

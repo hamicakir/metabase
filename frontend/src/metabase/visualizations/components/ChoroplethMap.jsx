@@ -1,27 +1,24 @@
 /* eslint-disable react/prop-types */
+import Color from "color";
+import d3 from "d3";
 import React, { Component } from "react";
+import ss from "simple-statistics";
 import { t } from "ttag";
+import _ from "underscore";
+
 import LoadingSpinner from "metabase/components/LoadingSpinner";
-
-import { isMetric, isString } from "metabase/lib/schema_metadata";
-import { MinColumnsError } from "metabase/visualizations/lib/errors";
-import MetabaseSettings from "metabase/lib/settings";
-
 import { formatValue } from "metabase/lib/formatting";
-
-import ChartWithLegend from "./ChartWithLegend";
-import LegacyChoropleth from "./LegacyChoropleth";
-import LeafletChoropleth from "./LeafletChoropleth";
-
+import { isMetric, isString } from "metabase/lib/schema_metadata";
+import MetabaseSettings from "metabase/lib/settings";
+import { MinColumnsError } from "metabase/visualizations/lib/errors";
 import {
   computeMinimalBounds,
   getCanonicalRowKey,
 } from "metabase/visualizations/lib/mapping";
 
-import d3 from "d3";
-import ss from "simple-statistics";
-import _ from "underscore";
-import Color from "color";
+import ChartWithLegend from "./ChartWithLegend";
+import LeafletChoropleth from "./LeafletChoropleth";
+import LegacyChoropleth from "./LegacyChoropleth";
 
 // TODO COLOR
 const HEAT_MAP_COLORS = ["#C4E4FF", "#81C5FF", "#51AEFF", "#1E96FF", "#0061B5"];
@@ -31,13 +28,9 @@ export function getColorplethColorScale(
   color,
   { lightness = 92, darken = 0.2, darkenLast = 0.3, saturate = 0.1 } = {},
 ) {
-  const lightColor = Color(color)
-    .lightness(lightness)
-    .saturate(saturate);
+  const lightColor = Color(color).lightness(lightness).saturate(saturate);
 
-  const darkColor = Color(color)
-    .darken(darken)
-    .saturate(saturate);
+  const darkColor = Color(color).darken(darken).saturate(saturate);
 
   const scale = d3.scale
     .linear()
@@ -183,10 +176,16 @@ export default class ChoroplethMap extends Component {
     // projectionFrame is the lng/lat of the top left and bottom right corners
     if (settings["map.region"] === "us_states") {
       projection = d3.geo.albersUsa();
-      projectionFrame = [[-135.0, 46.6], [-69.1, 21.7]];
+      projectionFrame = [
+        [-135.0, 46.6],
+        [-69.1, 21.7],
+      ];
     } else if (settings["map.region"] === "world_countries") {
       projection = d3.geo.mercator();
-      projectionFrame = [[-170, 78], [180, -60]];
+      projectionFrame = [
+        [-170, 78],
+        [180, -60],
+      ];
     } else {
       projection = null;
     }

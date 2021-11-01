@@ -1,13 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { t } from "ttag";
 import { Flex, Box } from "grid-styled";
+import PropTypes from "prop-types";
+import React from "react";
+import { t } from "ttag";
 
 import HostingInfoLink from "metabase/admin/settings/components/widgets/HostingInfoLink";
+import ExternalLink from "metabase/components/ExternalLink";
 import Icon from "metabase/components/Icon";
 import Text from "metabase/components/type/Text";
-
-import ExternalLink from "metabase/components/ExternalLink";
 import MetabaseSettings from "metabase/lib/settings";
 
 export default function VersionUpdateNotice() {

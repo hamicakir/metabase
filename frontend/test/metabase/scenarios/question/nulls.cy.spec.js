@@ -1,5 +1,4 @@
 import { restore, openOrdersTable, popover } from "__support__/e2e/cypress";
-
 import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
 
 const { ORDERS, ORDERS_ID } = SAMPLE_DATASET;
@@ -171,9 +170,7 @@ describe("scenarios > question > null", () => {
       // Open the context menu that lets us apply filter using this column directly
       .click({ force: true });
 
-    popover()
-      .contains("=")
-      .click();
+    popover().contains("=").click();
 
     cy.findByText("39.72");
     // This row ([id] 3) had the `discount` column value and should be filtered out now

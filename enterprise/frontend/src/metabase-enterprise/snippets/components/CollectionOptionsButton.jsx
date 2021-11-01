@@ -2,11 +2,11 @@
 import React from "react";
 import { t } from "ttag";
 
-import MetabaseSettings from "metabase/lib/settings";
-import { canonicalCollectionId } from "metabase/entities/collections";
-import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
 import AccordionList from "metabase/components/AccordionList";
 import Icon from "metabase/components/Icon";
+import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
+import { canonicalCollectionId } from "metabase/entities/collections";
+import MetabaseSettings from "metabase/lib/settings";
 
 const ICON_SIZE = 16;
 

@@ -1,13 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { t } from "ttag";
 import cx from "classnames";
-
-import PinDropTarget from "metabase/containers/dnd/PinDropTarget";
-
-import Icon from "metabase/components/Icon";
+import PropTypes from "prop-types";
+import React from "react";
+import { t } from "ttag";
 
 import { ANALYTICS_CONTEXT } from "metabase/collections/constants";
+import Icon from "metabase/components/Icon";
+import PinDropTarget from "metabase/containers/dnd/PinDropTarget";
 
 import BaseItemsTable from "./BaseItemsTable";
 

@@ -1,3 +1,12 @@
+import { t } from "ttag";
+
+import { hasPremiumFeature } from "metabase-enterprise/settings";
+import {
+  getIsWhitelabeled,
+  getHasCustomLogo,
+} from "metabase-enterprise/settings/selectors";
+
+import MetabaseSettings from "metabase/lib/settings";
 import {
   PLUGIN_APP_INIT_FUCTIONS,
   PLUGIN_LANDING_PAGE,
@@ -6,18 +15,9 @@ import {
   PLUGIN_SELECTORS,
 } from "metabase/plugins";
 
-import { t } from "ttag";
-
-import { hasPremiumFeature } from "metabase-enterprise/settings";
-import {
-  getIsWhitelabeled,
-  getHasCustomLogo,
-} from "metabase-enterprise/settings/selectors";
-import MetabaseSettings from "metabase/lib/settings";
-
 import ColorSchemeWidget from "./components/ColorSchemeWidget";
-import LogoUpload from "./components/LogoUpload";
 import LogoIcon from "./components/LogoIcon";
+import LogoUpload from "./components/LogoUpload";
 import {
   updateColors,
   enabledApplicationNameReplacement,

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { push } from "react-router-redux";
 import { connect } from "react-redux";
+import { push } from "react-router-redux";
 import { t } from "ttag";
 
 import Radio from "metabase/components/Radio";
@@ -10,10 +10,7 @@ const mapDispatchToProps = {
   onChangeTab: tab => push(`/admin/datamodel/${tab}`),
 };
 
-@connect(
-  null,
-  mapDispatchToProps,
-)
+@connect(null, mapDispatchToProps)
 export default class DataModelApp extends React.Component {
   render() {
     const {

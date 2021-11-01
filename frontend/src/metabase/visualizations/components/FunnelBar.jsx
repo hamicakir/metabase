@@ -1,11 +1,10 @@
+import { assocIn } from "icepick";
 import React, { Component } from "react";
 
-import BarChart from "metabase/visualizations/visualizations/BarChart";
+import type { VisualizationProps } from "metabase-types/types/Visualization";
 
 import { getComputedSettingsForSeries } from "metabase/visualizations/lib/settings/visualization";
-import { assocIn } from "icepick";
-
-import type { VisualizationProps } from "metabase-types/types/Visualization";
+import BarChart from "metabase/visualizations/visualizations/BarChart";
 
 export default class FunnelBar extends Component {
   props: VisualizationProps;

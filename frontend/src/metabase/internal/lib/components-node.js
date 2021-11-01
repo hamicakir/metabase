@@ -1,7 +1,6 @@
 /*eslint-env node */
-
-import path from "path";
 import fs from "fs";
+import path from "path";
 
 const normalizedPath = path.join(__dirname, "..", "..", "components");
 

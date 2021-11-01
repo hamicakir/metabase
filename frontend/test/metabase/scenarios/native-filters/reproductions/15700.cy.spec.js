@@ -4,8 +4,8 @@ import {
   openNativeEditor,
 } from "__support__/e2e/cypress";
 
-import * as SQLFilter from "../helpers/e2e-sql-filter-helpers";
 import * as FieldFilter from "../helpers/e2e-field-filter-helpers";
+import * as SQLFilter from "../helpers/e2e-sql-filter-helpers";
 
 ["old", "new"].forEach(test => {
   const isFeatureFlagTurnedOn = test === "old" ? false : true;

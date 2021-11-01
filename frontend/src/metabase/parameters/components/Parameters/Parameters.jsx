@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
+import querystring from "querystring";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import querystring from "querystring";
 
 import ParametersList from "metabase/parameters/components/ParametersList";
 import { getParameterValuesBySlug } from "metabase/parameters/utils/parameter-values";

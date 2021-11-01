@@ -1,17 +1,17 @@
 /* eslint-disable react/no-string-refs */
+import cx from "classnames";
 import React from "react";
 import { t } from "ttag";
-import cx from "classnames";
+
+import Icon from "metabase/components/Icon";
+import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
+import Tooltip from "metabase/components/Tooltip";
+import FullscreenIcon from "metabase/components/icons/FullscreenIcon";
+import NightModeIcon from "metabase/components/icons/NightModeIcon";
+import RefreshWidget from "metabase/dashboard/components/RefreshWidget";
+import MetabaseSettings from "metabase/lib/settings";
 
 import DashboardSharingEmbeddingModal from "../containers/DashboardSharingEmbeddingModal.jsx";
-import FullscreenIcon from "metabase/components/icons/FullscreenIcon";
-import Icon from "metabase/components/Icon";
-import MetabaseSettings from "metabase/lib/settings";
-import NightModeIcon from "metabase/components/icons/NightModeIcon";
-import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
-import RefreshWidget from "metabase/dashboard/components/RefreshWidget";
-import Tooltip from "metabase/components/Tooltip";
-
 import { DashboardHeaderButton } from "./DashboardHeader.styled";
 
 export const getDashboardActions = (

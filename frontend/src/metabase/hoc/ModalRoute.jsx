@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Route } from "react-router";
 import { push } from "react-router-redux";
-import { connect } from "react-redux";
+
 import Modal from "metabase/components/Modal";
 
 export const getParentPath = (route, location) => {
@@ -15,13 +16,11 @@ export const getParentPath = (route, location) => {
 };
 
 const ModalWithRoute = (ComposedModal, modalProps = {}) =>
-  connect(
-    null,
-    { onChangeLocation: push },
-  )(
+  connect(null, { onChangeLocation: push })(
     class extends Component {
-      static displayName = `ModalWithRoute[${ComposedModal.displayName ||
-        ComposedModal.name}]`;
+      static displayName = `ModalWithRoute[${
+        ComposedModal.displayName || ComposedModal.name
+      }]`;
 
       onClose = () => {
         const { location, route } = this.props;

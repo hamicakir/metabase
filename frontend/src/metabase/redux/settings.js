@@ -1,24 +1,23 @@
-import MetabaseSettings from "metabase/lib/settings";
-
 import {
   handleActions,
   createThunkAction,
   combineReducers,
 } from "metabase/lib/redux";
-
+import MetabaseSettings from "metabase/lib/settings";
 import { SessionApi } from "metabase/services";
 
 export const REFRESH_SITE_SETTINGS = "metabase/settings/REFRESH_SITE_SETTINGS";
 
 export const refreshSiteSettings = createThunkAction(
   REFRESH_SITE_SETTINGS,
-  ({ locale } = {}) => async (dispatch, getState) => {
-    const settings = await SessionApi.properties(null, {
-      headers: locale ? { "X-Metabase-Locale": locale } : {},
-    });
-    MetabaseSettings.setAll(settings);
-    return settings;
-  },
+  ({ locale } = {}) =>
+    async (dispatch, getState) => {
+      const settings = await SessionApi.properties(null, {
+        headers: locale ? { "X-Metabase-Locale": locale } : {},
+      });
+      MetabaseSettings.setAll(settings);
+      return settings;
+    },
 );
 
 const values = handleActions(

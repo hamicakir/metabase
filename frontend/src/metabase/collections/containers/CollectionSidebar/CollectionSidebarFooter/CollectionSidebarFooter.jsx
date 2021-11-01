@@ -1,9 +1,10 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { t } from "ttag";
 
-import * as Urls from "metabase/lib/urls";
 import { PERSONAL_COLLECTIONS } from "metabase/entities/collections";
+import * as Urls from "metabase/lib/urls";
+
 import CollectionsList from "../Collections/CollectionsList/CollectionsList";
 import { Container, Icon, Link } from "./CollectionSidebarFooter.styled";
 

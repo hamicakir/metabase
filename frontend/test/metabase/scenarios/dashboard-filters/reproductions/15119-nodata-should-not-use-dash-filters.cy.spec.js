@@ -53,9 +53,7 @@ describe("issue 15119", () => {
       },
     );
 
-    filterWidget()
-      .contains("Category")
-      .click();
+    filterWidget().contains("Category").click();
 
     cy.findByPlaceholderText("Search the list").type("Gizmo");
     cy.button("Add filter").click();

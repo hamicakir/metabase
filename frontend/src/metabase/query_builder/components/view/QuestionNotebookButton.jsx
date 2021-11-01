@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-
-import { t } from "ttag";
 import cx from "classnames";
+import React from "react";
+import { t } from "ttag";
 
-import Tooltip from "metabase/components/Tooltip";
 import Button from "metabase/components/Button";
+import Tooltip from "metabase/components/Tooltip";
 
 export default function QuestionNotebookButton({
   className,

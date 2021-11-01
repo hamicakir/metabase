@@ -1,18 +1,16 @@
 import { normalize } from "normalizr";
+import { createSelector } from "reselect";
 import _ from "underscore";
 
-import { createEntity } from "metabase/lib/entities";
-import * as Urls from "metabase/lib/urls";
-import { color } from "metabase/lib/colors";
-import { fetchData, createThunkAction } from "metabase/lib/redux";
-
-import { MetabaseApi } from "metabase/services";
-import { DatabaseSchema } from "metabase/schema";
 import Fields from "metabase/entities/fields";
 import Schemas from "metabase/entities/schemas";
-
+import { color } from "metabase/lib/colors";
+import { createEntity } from "metabase/lib/entities";
+import { fetchData, createThunkAction } from "metabase/lib/redux";
+import * as Urls from "metabase/lib/urls";
+import { DatabaseSchema } from "metabase/schema";
 import { getMetadata, getFields } from "metabase/selectors/metadata";
-import { createSelector } from "reselect";
+import { MetabaseApi } from "metabase/services";
 
 import forms from "./databases/forms";
 
@@ -37,27 +35,31 @@ const Databases = createEntity({
   objectActions: {
     fetchDatabaseMetadata: createThunkAction(
       FETCH_DATABASE_METADATA,
-      ({ id }, { reload = false, params } = {}) => (dispatch, getState) =>
-        fetchData({
-          dispatch,
-          getState,
-          requestStatePath: ["metadata", "databases", id],
-          existingStatePath: ["metadata", "databases", id],
-          getData: async () => {
-            const databaseMetadata = await MetabaseApi.db_metadata({
-              dbId: id,
-              ...params,
-            });
-            return normalize(databaseMetadata, DatabaseSchema);
-          },
-          reload,
-        }),
+      ({ id }, { reload = false, params } = {}) =>
+        (dispatch, getState) =>
+          fetchData({
+            dispatch,
+            getState,
+            requestStatePath: ["metadata", "databases", id],
+            existingStatePath: ["metadata", "databases", id],
+            getData: async () => {
+              const databaseMetadata = await MetabaseApi.db_metadata({
+                dbId: id,
+                ...params,
+              });
+              return normalize(databaseMetadata, DatabaseSchema);
+            },
+            reload,
+          }),
     ),
 
     fetchIdfields: createThunkAction(
       FETCH_DATABASE_IDFIELDS,
-      ({ id }) => async () =>
-        normalize(await MetabaseApi.db_idfields({ dbId: id }), [Fields.schema]),
+      ({ id }) =>
+        async () =>
+          normalize(await MetabaseApi.db_idfields({ dbId: id }), [
+            Fields.schema,
+          ]),
     ),
 
     fetchSchemas: ({ id }) => Schemas.actions.fetchList({ dbId: id }),

@@ -1,14 +1,14 @@
 import React from "react";
 import { t, jt } from "ttag";
 
-import MetabaseSettings from "metabase/lib/settings";
+import CacheFieldValuesScheduleWidget from "metabase/admin/databases/components/widgets/CacheFieldValuesScheduleWidget";
+import MetadataSyncScheduleWidget from "metabase/admin/databases/components/widgets/MetadataSyncScheduleWidget";
 import ExternalLink from "metabase/components/ExternalLink";
+import MetabaseSettings from "metabase/lib/settings";
 import { PLUGIN_CACHING } from "metabase/plugins";
+
 import getFieldsForBigQuery from "./big-query-fields";
 import getFieldsForMongo from "./mongo-fields";
-
-import MetadataSyncScheduleWidget from "metabase/admin/databases/components/widgets/MetadataSyncScheduleWidget";
-import CacheFieldValuesScheduleWidget from "metabase/admin/databases/components/widgets/CacheFieldValuesScheduleWidget";
 
 const DATABASE_DETAIL_OVERRIDES = {
   "tunnel-enabled": () => ({
@@ -378,7 +378,7 @@ const forms = {
           hidden: !engine || !details["let-user-control-scheduling"],
         },
       ].filter(Boolean),
-    normalize: function(database) {
+    normalize: function (database) {
       if (!database.details["let-user-control-scheduling"]) {
         // TODO Atte Keinänen 8/15/17: Implement engine-specific scheduling defaults
         return {

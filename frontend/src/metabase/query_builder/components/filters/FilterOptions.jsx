@@ -1,13 +1,12 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
-
+import React, { Component } from "react";
 import { t, jt } from "ttag";
-import { getFilterOptions, setFilterOptions } from "metabase/lib/query/filter";
+
+import type { FieldFilter } from "metabase-types/types/Query";
 
 import CheckBox from "metabase/components/CheckBox";
 import * as MetabaseAnalytics from "metabase/lib/analytics";
-
-import type { FieldFilter } from "metabase-types/types/Query";
+import { getFilterOptions, setFilterOptions } from "metabase/lib/query/filter";
 
 const OPTION_NAMES = {
   "include-current": filter => {

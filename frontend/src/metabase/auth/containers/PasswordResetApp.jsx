@@ -1,19 +1,16 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router";
 import { t, jt } from "ttag";
 
 import AuthLayout from "metabase/auth/components/AuthLayout";
-import Form from "metabase/containers/Form";
 import Icon from "metabase/components/Icon";
-
-import MetabaseSettings from "metabase/lib/settings";
-import * as MetabaseAnalytics from "metabase/lib/analytics";
-
-import { SessionApi } from "metabase/services";
-
+import Form from "metabase/containers/Form";
 import Users from "metabase/entities/users";
+import * as MetabaseAnalytics from "metabase/lib/analytics";
+import MetabaseSettings from "metabase/lib/settings";
+import { SessionApi } from "metabase/services";
 
 const mapStateToProps = (state, props) => {
   return {

@@ -1,19 +1,18 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { t, jt } from "ttag";
 import _ from "underscore";
-
-import Form, {
-  FormField,
-  FormSubmit,
-  FormMessage,
-} from "metabase/containers/Form";
 
 import { updateSettings } from "metabase/admin/settings/settings";
 import { settingToFormField } from "metabase/admin/settings/utils";
 import Breadcrumbs from "metabase/components/Breadcrumbs";
 import ExternalLink from "metabase/components/ExternalLink";
+import Form, {
+  FormField,
+  FormSubmit,
+  FormMessage,
+} from "metabase/containers/Form";
 import MetabaseSettings from "metabase/lib/settings";
 
 const settingsGoogleFormPropTypes = {
@@ -22,10 +21,7 @@ const settingsGoogleFormPropTypes = {
   updateSettings: PropTypes.func,
 };
 
-@connect(
-  null,
-  { updateSettings },
-)
+@connect(null, { updateSettings })
 export default class SettingsGoogleForm extends Component {
   render() {
     const { elements, settingValues, updateSettings } = this.props;

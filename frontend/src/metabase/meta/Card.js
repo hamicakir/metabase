@@ -1,16 +1,9 @@
-import _ from "underscore";
 import { assoc, updateIn } from "icepick";
+import _ from "underscore";
 
-import { getParametersFromCard } from "metabase/parameters/utils/cards";
-import { parameterToMBQLFilter } from "metabase/parameters/utils/mbql";
-import { normalizeParameterValue } from "metabase/parameters/utils/parameter-values";
+import type Metadata from "metabase-lib/lib/metadata/Metadata";
+import type Table from "metabase-lib/lib/metadata/Table";
 
-import * as Query from "metabase/lib/query/query";
-import * as Q_DEPRECATED from "metabase/lib/query"; // legacy
-import Utils from "metabase/lib/utils";
-import * as Urls from "metabase/lib/urls";
-
-import type { StructuredQuery } from "metabase-types/types/Query";
 import type {
   Card,
   DatasetQuery,
@@ -22,8 +15,16 @@ import type {
   ParameterMapping,
   ParameterValues,
 } from "metabase-types/types/Parameter";
-import type Metadata from "metabase-lib/lib/metadata/Metadata";
-import type Table from "metabase-lib/lib/metadata/Table";
+import type { StructuredQuery } from "metabase-types/types/Query";
+
+import * as Q_DEPRECATED from "metabase/lib/query";
+import * as Query from "metabase/lib/query/query";
+import * as Urls from "metabase/lib/urls";
+// legacy
+import Utils from "metabase/lib/utils";
+import { getParametersFromCard } from "metabase/parameters/utils/cards";
+import { parameterToMBQLFilter } from "metabase/parameters/utils/mbql";
+import { normalizeParameterValue } from "metabase/parameters/utils/parameter-values";
 
 // TODO Atte Keinänen 6/5/17 Should these be moved to corresponding metabase-lib classes?
 // Is there any reason behind keeping them in a central place?

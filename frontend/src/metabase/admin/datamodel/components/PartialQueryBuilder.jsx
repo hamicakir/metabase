@@ -1,17 +1,17 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
+import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import cx from "classnames";
 import { t } from "ttag";
 import _ from "underscore";
 
 import Question from "metabase-lib/lib/Question";
 
-import { getMetadata } from "metabase/selectors/metadata";
 import Tables from "metabase/entities/tables";
-import GuiQueryEditor from "metabase/query_builder/components/GuiQueryEditor";
 import * as Urls from "metabase/lib/urls";
+import GuiQueryEditor from "metabase/query_builder/components/GuiQueryEditor";
+import { getMetadata } from "metabase/selectors/metadata";
 
 import withTableMetadataLoaded from "../hoc/withTableMetadataLoaded";
 

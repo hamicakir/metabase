@@ -1,9 +1,10 @@
-import { getQuestionSteps } from "metabase/query_builder/components/notebook/lib/steps";
 import {
   SAMPLE_DATASET,
   ORDERS,
   PRODUCTS,
 } from "__support__/sample_dataset_fixture";
+
+import { getQuestionSteps } from "metabase/query_builder/components/notebook/lib/steps";
 
 const rawDataQuery = {
   "source-table": ORDERS.id,
@@ -34,10 +35,7 @@ const postAggregationFilterQuery = {
 
 const getQuestionStepsForMBQLQuery = query =>
   getQuestionSteps(
-    SAMPLE_DATASET.question()
-      .query()
-      .setQuery(query)
-      .question(),
+    SAMPLE_DATASET.question().query().setQuery(query).question(),
   );
 
 describe("new query", () => {

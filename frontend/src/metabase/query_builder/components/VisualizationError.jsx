@@ -1,14 +1,14 @@
 /* eslint "react/prop-types": "warn" */
-
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { t } from "ttag";
-import { getIn } from "icepick";
 import cx from "classnames";
+import { getIn } from "icepick";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { t } from "ttag";
 
-import MetabaseSettings from "metabase/lib/settings";
-import ErrorMessage from "metabase/components/ErrorMessage";
 import ErrorDetails from "metabase/components/ErrorDetails";
+import ErrorMessage from "metabase/components/ErrorMessage";
+import MetabaseSettings from "metabase/lib/settings";
+
 import {
   QueryError,
   QueryErrorIcon,
@@ -58,7 +58,7 @@ export function adjustPositions(error, origSql) {
     adjustmentLength += newLinePos + 2;
   }
 
-  return error.replace(/Position: (\d+)/, function(_, p1) {
+  return error.replace(/Position: (\d+)/, function (_, p1) {
     return "Position: " + (parseInt(p1) - adjustmentLength);
   });
 }

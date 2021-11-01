@@ -1,19 +1,17 @@
-import MBQLClause from "./MBQLClause";
-
 import { t } from "ttag";
 
-import { TYPE } from "metabase/lib/types";
-
-import * as AGGREGATION from "metabase/lib/query/aggregation";
-
-import { AggregationDimension } from "../../Dimension";
-
-import type { Aggregation as AggregationObject } from "metabase-types/types/Query";
-import type StructuredQuery from "../StructuredQuery";
-import type Dimension from "../../Dimension";
+import type { FieldId } from "metabase-types/types/Field";
 import type { AggregationOperator } from "metabase-types/types/Metadata";
 import type { MetricId } from "metabase-types/types/Metric";
-import type { FieldId } from "metabase-types/types/Field";
+import type { Aggregation as AggregationObject } from "metabase-types/types/Query";
+
+import * as AGGREGATION from "metabase/lib/query/aggregation";
+import { TYPE } from "metabase/lib/types";
+
+import { AggregationDimension } from "../../Dimension";
+import type Dimension from "../../Dimension";
+import type StructuredQuery from "../StructuredQuery";
+import MBQLClause from "./MBQLClause";
 
 const INTEGER_AGGREGATIONS = new Set(["count", "cum-count", "distinct"]);
 
@@ -45,9 +43,7 @@ export default class Aggregation extends MBQLClause {
   }
 
   canRemove() {
-    return this.remove()
-      .clean()
-      .isValid();
+    return this.remove().clean().isValid();
   }
 
   /**

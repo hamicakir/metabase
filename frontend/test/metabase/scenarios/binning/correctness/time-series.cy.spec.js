@@ -152,9 +152,7 @@ describe("scenarios > binning > correctness > time series", () => {
 });
 
 function openPopoverFromDefaultBucketSize(name, bucket) {
-  getBinningButtonForDimension({ name })
-    .should("have.text", bucket)
-    .click();
+  getBinningButtonForDimension({ name }).should("have.text", bucket).click();
 }
 
 function getTitle(title) {
@@ -168,12 +166,8 @@ function getVisualization(binningType) {
 }
 
 function assertOnXYAxisLabels() {
-  cy.get(".y-axis-label")
-    .invoke("text")
-    .should("eq", "Count");
-  cy.get(".x-axis-label")
-    .invoke("text")
-    .should("eq", "Created At");
+  cy.get(".y-axis-label").invoke("text").should("eq", "Count");
+  cy.get(".x-axis-label").invoke("text").should("eq", "Created At");
 }
 
 function assertOnXAxisTicks(values) {
@@ -193,8 +187,5 @@ function assertOnTimeSeriesFooter(regex) {
     .first()
     .invoke("text")
     .should("eq", "All Time");
-  cy.get(".AdminSelect-content")
-    .last()
-    .invoke("text")
-    .should("match", regex);
+  cy.get(".AdminSelect-content").last().invoke("text").should("match", regex);
 }

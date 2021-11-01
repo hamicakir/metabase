@@ -1,9 +1,8 @@
 import { createAction } from "redux-actions";
-import { createThunkAction } from "metabase/lib/redux";
 
 import * as MetabaseAnalytics from "metabase/lib/analytics";
+import { createThunkAction } from "metabase/lib/redux";
 import MetabaseSettings from "metabase/lib/settings";
-
 import { SetupApi, UtilApi } from "metabase/services";
 
 // action constants
@@ -24,30 +23,32 @@ export const setUserDetails = createAction(SET_USER_DETAILS);
 export const setDatabaseDetails = createAction(SET_DATABASE_DETAILS);
 export const setAllowTracking = createAction(SET_ALLOW_TRACKING);
 
-export const validateDatabase = createThunkAction(VALIDATE_DATABASE, function(
-  database,
-) {
-  return async function(dispatch, getState) {
-    return await SetupApi.validate_db({
-      token: MetabaseSettings.get("setup-token"),
-      // NOTE: the validate endpoint calls this `details` but it's actually an object containing `engine` and `details`
-      details: database,
-    });
-  };
-});
+export const validateDatabase = createThunkAction(
+  VALIDATE_DATABASE,
+  function (database) {
+    return async function (dispatch, getState) {
+      return await SetupApi.validate_db({
+        token: MetabaseSettings.get("setup-token"),
+        // NOTE: the validate endpoint calls this `details` but it's actually an object containing `engine` and `details`
+        details: database,
+      });
+    };
+  },
+);
 
-export const validatePassword = createThunkAction(VALIDATE_PASSWORD, function(
-  password,
-) {
-  return async function(dispatch, getState) {
-    return await UtilApi.password_check({
-      password: password,
-    });
-  };
-});
+export const validatePassword = createThunkAction(
+  VALIDATE_PASSWORD,
+  function (password) {
+    return async function (dispatch, getState) {
+      return await UtilApi.password_check({
+        password: password,
+      });
+    };
+  },
+);
 
-export const submitSetup = createThunkAction(SUBMIT_SETUP, function() {
-  return async function(dispatch, getState) {
+export const submitSetup = createThunkAction(SUBMIT_SETUP, function () {
+  return async function (dispatch, getState) {
     const {
       setup: { allowTracking, databaseDetails, userDetails, languageDetails },
     } = getState();
@@ -77,11 +78,12 @@ export const submitSetup = createThunkAction(SUBMIT_SETUP, function() {
   };
 });
 
-export const completeSetup = createAction(COMPLETE_SETUP, function(
-  apiResponse,
-) {
-  // clear setup token from settings
-  MetabaseSettings.set("setup-token", null);
+export const completeSetup = createAction(
+  COMPLETE_SETUP,
+  function (apiResponse) {
+    // clear setup token from settings
+    MetabaseSettings.set("setup-token", null);
 
-  return true;
-});
+    return true;
+  },
+);

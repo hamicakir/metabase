@@ -9,17 +9,10 @@ import {
   visitQuestionAdhoc,
   visualize,
 } from "__support__/e2e/cypress";
-
 import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
 
-const {
-  ORDERS,
-  ORDERS_ID,
-  PRODUCTS,
-  PRODUCTS_ID,
-  REVIEWS,
-  REVIEWS_ID,
-} = SAMPLE_DATASET;
+const { ORDERS, ORDERS_ID, PRODUCTS, PRODUCTS_ID, REVIEWS, REVIEWS_ID } =
+  SAMPLE_DATASET;
 
 describe("scenarios > question > filter", () => {
   beforeEach(() => {
@@ -110,9 +103,7 @@ describe("scenarios > question > filter", () => {
           cy.findByText("Category").click();
         });
       cy.log("Failing to show dropdown in v0.36.0 through v.0.37.0");
-      popover()
-        .contains("Gadget")
-        .click();
+      popover().contains("Gadget").click();
       cy.findByText("Add filter").click();
       cy.url().should("contain", "?category=Gadget");
       cy.findByText("Ergonomic Silk Coat");
@@ -183,9 +174,7 @@ describe("scenarios > question > filter", () => {
 
       cy.findByPlaceholderText("Category").click();
       // It will fail at this point until the issue is fixed because popover never appears
-      popover()
-        .contains("Gadget")
-        .click();
+      popover().contains("Gadget").click();
       cy.findByText("Add filter").click();
       cy.url().should("contain", "?category=Gadget");
       cy.findByText("Ergonomic Silk Coat");
@@ -282,12 +271,8 @@ describe("scenarios > question > filter", () => {
     // Add filter as remapped Product ID (Product name)
     openOrdersTable();
     cy.findByText("Filter").click();
-    cy.get(".List-item-title")
-      .contains("Product ID")
-      .click();
-    cy.get(".scroll-y")
-      .contains("Aerodynamic Linen Coat")
-      .click();
+    cy.get(".List-item-title").contains("Product ID").click();
+    cy.get(".scroll-y").contains("Aerodynamic Linen Coat").click();
     cy.findByText("Add filter").click();
 
     cy.log("Reported failing on v0.36.4 and v0.36.5.1");
@@ -347,10 +332,7 @@ describe("scenarios > question > filter", () => {
     });
 
     // Test shows two filter collapsed - click on number 2 to expand and show filter names
-    cy.icon("filter")
-      .parent()
-      .contains("2")
-      .click();
+    cy.icon("filter").parent().contains("2").click();
 
     cy.findByText(AGGREGATED_FILTER);
 
@@ -379,9 +361,7 @@ describe("scenarios > question > filter", () => {
     });
 
     cy.log("Should not display error prematurely");
-    cy.get("[contenteditable='true']")
-      .click()
-      .type("ontains(");
+    cy.get("[contenteditable='true']").click().type("ontains(");
     cy.findByText(/Checks to see if string1 contains string2 within it./i);
     cy.button("Done").should("not.be.disabled");
     cy.get(".text-error").should("not.exist");
@@ -522,14 +502,9 @@ describe("scenarios > question > filter", () => {
     });
     cy.findByText("Filter").click();
     cy.findByText("Custom Expression").click();
-    cy.get("[contenteditable='true']")
-      .as("inputField")
-      .click()
-      .type("su");
+    cy.get("[contenteditable='true']").as("inputField").click().type("su");
     popover().contains(/Sum of Total/i);
-    cy.get("@inputField")
-      .click()
-      .type("m");
+    cy.get("@inputField").click().type("m");
     popover().contains(/Sum of Total/i);
   });
 
@@ -542,9 +517,7 @@ describe("scenarios > question > filter", () => {
       .click()
       .clear()
       .type("NOT IsNull([Rating])", { delay: 50 });
-    cy.button("Done")
-      .should("not.be.disabled")
-      .click();
+    cy.button("Done").should("not.be.disabled").click();
 
     cy.get(".QueryBuilder .Icon-add").click();
 
@@ -553,9 +526,7 @@ describe("scenarios > question > filter", () => {
       .click()
       .clear()
       .type("NOT IsEmpty([Reviewer])", { delay: 50 });
-    cy.button("Done")
-      .should("not.be.disabled")
-      .click();
+    cy.button("Done").should("not.be.disabled").click();
 
     // check that filter is applied and rows displayed
     visualize();
@@ -700,12 +671,8 @@ describe("scenarios > question > filter", () => {
     cy.findByText("Filter").click();
     cy.findByText("Custom Expression").click();
 
-    cy.get("[contenteditable='true']")
-      .click()
-      .type("3.14159");
-    cy.button("Done")
-      .should("not.be.disabled")
-      .click();
+    cy.get("[contenteditable='true']").click().type("3.14159");
+    cy.button("Done").should("not.be.disabled").click();
     cy.findByText("Expecting boolean but found 3.14159");
   });
 
@@ -714,12 +681,8 @@ describe("scenarios > question > filter", () => {
     cy.findByText("Filter").click();
     cy.findByText("Custom Expression").click();
 
-    cy.get("[contenteditable='true']")
-      .click()
-      .type('"TheAnswer"');
-    cy.button("Done")
-      .should("not.be.disabled")
-      .click();
+    cy.get("[contenteditable='true']").click().type('"TheAnswer"');
+    cy.button("Done").should("not.be.disabled").click();
     cy.findByText('Expecting boolean but found "TheAnswer"');
   });
 
@@ -737,14 +700,10 @@ describe("scenarios > question > filter", () => {
       display: "table",
     });
 
-    cy.get(".cellData")
-      .contains("Count")
-      .click();
+    cy.get(".cellData").contains("Count").click();
     cy.findByText("Filter by this column").click();
     cy.findByPlaceholderText("Enter a number").type("42");
-    cy.button("Update filter")
-      .should("not.be.disabled")
-      .click();
+    cy.button("Update filter").should("not.be.disabled").click();
     cy.findByText("Doohickey");
     cy.findByText("Gizmo").should("not.exist");
   });
@@ -777,9 +736,7 @@ describe("scenarios > question > filter", () => {
     openOrdersTable({ mode: "notebook" });
     cy.findByText("Filter").click();
     cy.findByText("Custom Expression").click();
-    cy.get("[contenteditable=true]")
-      .type("0 < [ID]")
-      .blur();
+    cy.get("[contenteditable=true]").type("0 < [ID]").blur();
     cy.findByText("Expecting field but found 0");
   });
 
@@ -801,16 +758,12 @@ describe("scenarios > question > filter", () => {
       },
     });
     cy.get(".ScalarValue").contains("5");
-    cy.findAllByRole("button")
-      .contains("Filter")
-      .click();
+    cy.findAllByRole("button").contains("Filter").click();
     cy.findByTestId("sidebar-right").within(() => {
       cy.findByText("Category").click();
       cy.findByText("Gizmo").click();
     });
-    cy.button("Add filter")
-      .should("not.be.disabled")
-      .click();
+    cy.button("Add filter").should("not.be.disabled").click();
     cy.get(".dot");
   });
 
@@ -818,9 +771,7 @@ describe("scenarios > question > filter", () => {
     cy.viewport(1280, 720);
     openPeopleTable({ mode: "notebook" });
     cy.findByText("Filter").click();
-    popover()
-      .findByText("State")
-      .click();
+    popover().findByText("State").click();
     cy.findByText("AL").click();
     cy.button("Add filter").isVisibleInPopover();
   });
@@ -897,12 +848,8 @@ describe("scenarios > question > filter", () => {
       // Filter currently says "Total is less than..." but it can change in https://github.com/metabase/metabase/pull/16174 to "Total < Price"
       // See: https://github.com/metabase/metabase/pull/16209#discussion_r638129099
       cy.findByText(/^Total/);
-      cy.icon("add")
-        .last()
-        .click();
-      popover()
-        .findByText(/^ID$/i)
-        .click();
+      cy.icon("add").last().click();
+      popover().findByText(/^ID$/i).click();
       cy.findByPlaceholderText("Enter an ID").type("1");
       cy.button("Add filter").click();
       cy.findByText(/^Total/);
@@ -912,26 +859,18 @@ describe("scenarios > question > filter", () => {
     it("removing first filter in a sequence shouldn't result in an empty page (metabase#16198-3)", () => {
       openOrdersTable({ mode: "notebook" });
       cy.findByText("Filter").click();
-      popover()
-        .findByText("Total")
-        .click();
+      popover().findByText("Total").click();
       cy.findByPlaceholderText("Enter a number").type("123");
       cy.button("Add filter").click();
-      cy.icon("add")
-        .last()
-        .click();
+      cy.icon("add").last().click();
       cy.findByText("Custom Expression").click();
       cy.get("[contenteditable=true]")
         .type("[Total] < [Product → Price]")
         .blur();
       cy.button("Done").click();
       // cy.findByText(/^Total/);
-      cy.icon("add")
-        .last()
-        .click();
-      popover()
-        .findByText(/^ID$/i)
-        .click();
+      cy.icon("add").last().click();
+      popover().findByText(/^ID$/i).click();
       cy.findByPlaceholderText("Enter an ID").type("1");
       cy.button("Add filter").click();
       cy.findByText("Total is equal to 123")
@@ -972,21 +911,15 @@ describe("scenarios > question > filter", () => {
       });
 
       it("from the column popover (metabase#16386-1)", () => {
-        cy.get(".cellData")
-          .contains("boolean")
-          .click();
+        cy.get(".cellData").contains("boolean").click();
 
-        popover()
-          .findByText("Filter by this column")
-          .click();
+        popover().findByText("Filter by this column").click();
 
         popover().within(() => {
           // Not sure exactly what this popover will look like when this issue is fixed.
           // In one of the previous versions it said "Update filter" instead of "Add filter".
           // If that's the case after the fix, this part of the test might need to be updated accordingly.
-          cy.button(regexCondition)
-            .click()
-            .should("have.class", "bg-purple");
+          cy.button(regexCondition).click().should("have.class", "bg-purple");
           cy.button("Update filter").click();
         });
 
@@ -994,9 +927,7 @@ describe("scenarios > question > filter", () => {
       });
 
       it("from the simple question (metabase#16386-2)", () => {
-        cy.findAllByRole("button")
-          .contains("Filter")
-          .click();
+        cy.findAllByRole("button").contains("Filter").click();
 
         cy.findByTestId("sidebar-right").within(() => {
           cy.findByText("boolean").click();
@@ -1023,9 +954,7 @@ describe("scenarios > question > filter", () => {
 
       function addBooleanFilter() {
         // This is really inconvenient way to ensure that the element is selected, but it's the only one currently
-        cy.button(regexCondition)
-          .click()
-          .should("have.class", "bg-purple");
+        cy.button(regexCondition).click().should("have.class", "bg-purple");
         cy.button("Add filter").click();
       }
 
@@ -1045,7 +974,5 @@ function openExpressionEditorFromFreshlyLoadedPage() {
 }
 
 function typeInExpressionEditor(string) {
-  cy.get("[contenteditable='true']")
-    .click()
-    .type(string);
+  cy.get("[contenteditable='true']").click().type(string);
 }

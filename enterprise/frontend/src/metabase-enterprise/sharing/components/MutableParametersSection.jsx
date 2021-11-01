@@ -1,20 +1,17 @@
 /* eslint "react/prop-types": 2 */
-
-import React from "react";
-import PropTypes from "prop-types";
-
-import _ from "underscore";
 import cx from "classnames";
+import PropTypes from "prop-types";
+import React from "react";
 import { t } from "ttag";
+import _ from "underscore";
 
 import CollapseSection from "metabase/components/CollapseSection";
-import ParametersList from "metabase/parameters/components/ParametersList";
-
-import { getValuePopulatedParameters } from "metabase/parameters/utils/parameter-values";
 import {
   getPulseParameters,
   getActivePulseParameters,
 } from "metabase/lib/pulse";
+import ParametersList from "metabase/parameters/components/ParametersList";
+import { getValuePopulatedParameters } from "metabase/parameters/utils/parameter-values";
 
 function MutableParametersSection({
   className,

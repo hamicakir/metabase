@@ -50,9 +50,7 @@ function archiveQuestion(questionName) {
   cy.findByTestId("main-logo").click();
   cy.findByText("Browse all items").click();
   openEllipsisMenuFor(questionName);
-  popover()
-    .findByText("Archive this item")
-    .click();
+  popover().findByText("Archive this item").click();
 }
 
 function unarchiveQuestion(questionName) {

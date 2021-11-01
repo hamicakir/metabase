@@ -75,32 +75,36 @@ describe("issue 18440", () => {
 
     // Save the question using UI
     cy.findByText("Save").click();
-    cy.get(".Modal")
-      .button("Save")
-      .click();
+    cy.get(".Modal").button("Save").click();
 
-    cy.wait("@saveQuestion").then(({ response: { body: { id } } }) => {
-      cy.wrap(testCases).each(({ type, sheetName }) => {
-        cy.log(`downloading a ${type} file for a saved question`);
+    cy.wait("@saveQuestion").then(
+      ({
+        response: {
+          body: { id },
+        },
+      }) => {
+        cy.wrap(testCases).each(({ type, sheetName }) => {
+          cy.log(`downloading a ${type} file for a saved question`);
 
-        const endpoint = `/api/card/${id}/query/${type}`;
+          const endpoint = `/api/card/${id}/query/${type}`;
 
-        cy.request({
-          url: endpoint,
-          method: "POST",
-          encoding: "binary",
-        }).then(resp => {
-          const workbook = xlsx.read(resp.body, {
-            type: "binary",
-            raw: true,
+          cy.request({
+            url: endpoint,
+            method: "POST",
+            encoding: "binary",
+          }).then(resp => {
+            const workbook = xlsx.read(resp.body, {
+              type: "binary",
+              raw: true,
+            });
+
+            expect(workbook.Sheets[sheetName]["C1"].v).to.eq("Product ID");
+            expect(workbook.Sheets[sheetName]["C2"].v).to.eq(
+              "Awesome Concrete Shoes",
+            );
           });
-
-          expect(workbook.Sheets[sheetName]["C1"].v).to.eq("Product ID");
-          expect(workbook.Sheets[sheetName]["C2"].v).to.eq(
-            "Awesome Concrete Shoes",
-          );
         });
-      });
-    });
+      },
+    );
   });
 });

@@ -1,5 +1,5 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
+import React from "react";
 
 import { QuestionActivityTimeline } from "metabase/query_builder/components/QuestionActivityTimeline";
 

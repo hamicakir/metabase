@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 
+import type { RelativeDatetimeUnit } from "metabase-types/types/Query";
+
 import Select, { Option } from "metabase/components/Select";
 import { formatBucketing } from "metabase/lib/query_time";
-
-import type { RelativeDatetimeUnit } from "metabase-types/types/Query";
 
 type DateUnitSelectorProps = {
   value: RelativeDatetimeUnit,

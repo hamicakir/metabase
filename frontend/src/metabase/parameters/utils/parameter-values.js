@@ -1,5 +1,6 @@
-import { getParameterType } from "./parameter-type";
 import Dimension from "metabase-lib/lib/Dimension";
+
+import { getParameterType } from "./parameter-type";
 
 export function getValuePopulatedParameters(parameters, parameterValues) {
   return parameterValues
@@ -135,9 +136,10 @@ export function getParameterValuesByIdFromQueryParams(
     getParameterValueFromQueryParams(parameter, queryParams, metadata),
   ]);
 
-  const transformedPairs = forcefullyUnsetDefaultedParametersWithEmptyStringValue
-    ? removeAllEmptyStringParameters(parameterValuePairs)
-    : removeUndefaultedEmptyStringParameters(parameterValuePairs);
+  const transformedPairs =
+    forcefullyUnsetDefaultedParametersWithEmptyStringValue
+      ? removeAllEmptyStringParameters(parameterValuePairs)
+      : removeUndefaultedEmptyStringParameters(parameterValuePairs);
 
   const idValuePairs = transformedPairs.map(([parameter, value]) => [
     parameter.id,

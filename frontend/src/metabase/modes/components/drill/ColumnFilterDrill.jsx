@@ -4,13 +4,13 @@ import { t } from "ttag";
 import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
 import Filter from "metabase-lib/lib/queries/structured/Filter";
 
-import FilterPopover from "metabase/query_builder/components/filters/FilterPopover";
-
 import type {
   ClickAction,
   ClickActionProps,
   ClickActionPopoverProps,
 } from "metabase-types/types/Visualization";
+
+import FilterPopover from "metabase/query_builder/components/filters/FilterPopover";
 
 export default function QuickFilterDrill({
   question,
@@ -47,10 +47,7 @@ export default function QuickFilterDrill({
           filter={initialFilter}
           onClose={onClose}
           onChangeFilter={filter => {
-            const nextCard = query
-              .filter(filter)
-              .question()
-              .card();
+            const nextCard = query.filter(filter).question().card();
             onChangeCardAndRun({ nextCard });
             onClose();
           }}

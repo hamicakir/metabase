@@ -1,19 +1,17 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import { Box, Flex } from "grid-styled";
+import React from "react";
 import { t, msgid, ngettext } from "ttag";
 import _ from "underscore";
 
-import { Grid, GridItem } from "metabase/components/Grid";
+import CollectionCopyEntityModal from "metabase/collections/components/CollectionCopyEntityModal";
+import { ANALYTICS_CONTEXT } from "metabase/collections/constants";
 import BulkActionBar from "metabase/components/BulkActionBar";
 import Button from "metabase/components/Button";
+import { Grid, GridItem } from "metabase/components/Grid";
 import Modal from "metabase/components/Modal";
 import StackedCheckBox from "metabase/components/StackedCheckBox";
-
 import CollectionMoveModal from "metabase/containers/CollectionMoveModal";
-import CollectionCopyEntityModal from "metabase/collections/components/CollectionCopyEntityModal";
-
-import { ANALYTICS_CONTEXT } from "metabase/collections/constants";
 
 const BulkActionControls = ({ onArchive, onMove }) => (
   <Box ml={1}>

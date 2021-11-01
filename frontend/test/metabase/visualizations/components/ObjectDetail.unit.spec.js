@@ -1,8 +1,8 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
+import React from "react";
 
-import { ObjectDetail } from "metabase/visualizations/visualizations/ObjectDetail";
 import { TYPE } from "metabase/lib/types";
+import { ObjectDetail } from "metabase/visualizations/visualizations/ObjectDetail";
 
 const objectDetailCard = {
   card: {

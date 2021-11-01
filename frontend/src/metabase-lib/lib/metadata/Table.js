@@ -1,11 +1,11 @@
 // NOTE: this needs to be imported first due to some cyclical dependency nonsense
-import Question from "../Question";
-
-import Base from "./Base";
+import { memoize, createLookupByProperty } from "metabase-lib/lib/utils";
 
 import { singularize } from "metabase/lib/formatting";
 import { getAggregationOperatorsWithFields } from "metabase/lib/schema_metadata";
-import { memoize, createLookupByProperty } from "metabase-lib/lib/utils";
+
+import Question from "../Question";
+import Base from "./Base";
 
 /**
  * @typedef { import("./metadata").SchemaName } SchemaName
@@ -25,9 +25,7 @@ export default class Table extends Base {
   }
 
   newQuestion() {
-    return this.question()
-      .setDefaultQuery()
-      .setDefaultDisplay();
+    return this.question().setDefaultQuery().setDefaultDisplay();
   }
 
   question() {

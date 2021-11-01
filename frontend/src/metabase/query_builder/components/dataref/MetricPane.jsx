@@ -1,19 +1,18 @@
 /* eslint "react/prop-types": "warn" */
+import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
 import { t } from "ttag";
-import DetailPane from "./DetailPane";
-import QueryButton from "metabase/components/QueryButton";
-import QueryDefinition from "../QueryDefinition";
+import _ from "underscore";
 
+import QueryButton from "metabase/components/QueryButton";
 import { createCard } from "metabase/lib/card";
 import * as Q_DEPRECATED from "metabase/lib/query";
-
-import _ from "underscore";
 import { fetchTableMetadata } from "metabase/redux/metadata";
-
 import { getMetadata } from "metabase/selectors/metadata";
+
+import QueryDefinition from "../QueryDefinition";
+import DetailPane from "./DetailPane";
 
 const mapDispatchToProps = {
   fetchTableMetadata,
@@ -23,10 +22,7 @@ const mapStateToProps = (state, props) => ({
   metadata: getMetadata(state, props),
 });
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class MetricPane extends Component {
   constructor(props, context) {
     super(props, context);

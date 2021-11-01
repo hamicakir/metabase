@@ -1,23 +1,12 @@
 /* eslint "react/prop-types": "warn" */
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
-import title from "metabase/hoc/Title";
-
-import PulseEdit from "../components/PulseEdit";
+import { push, goBack } from "react-router-redux";
 
 import Collections from "metabase/entities/collections";
 import Pulses from "metabase/entities/pulses";
 import User from "metabase/entities/users";
-
-import { push, goBack } from "react-router-redux";
-
-import {
-  getPulseId,
-  getEditingPulse,
-  getPulseCardPreviews,
-  getPulseFormInput,
-} from "../selectors";
+import title from "metabase/hoc/Title";
 import { getUser } from "metabase/selectors/user";
 
 import {
@@ -28,6 +17,13 @@ import {
   fetchPulseCardPreview,
   testPulse,
 } from "../actions";
+import PulseEdit from "../components/PulseEdit";
+import {
+  getPulseId,
+  getEditingPulse,
+  getPulseCardPreviews,
+  getPulseFormInput,
+} from "../selectors";
 
 const mapStateToProps = (state, props) => ({
   pulseId: getPulseId(state, props),
@@ -54,10 +50,7 @@ const mapDispatchToProps = {
 };
 
 @User.loadList()
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 @title(({ pulse }) => pulse && pulse.name)
 export default class PulseEditApp extends Component {
   render() {

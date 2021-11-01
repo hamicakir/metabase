@@ -1,56 +1,43 @@
-import "core-js/stable";
-import "regenerator-runtime/runtime";
-
 // Use of classList.add and .remove in Background and FitViewPort Hocs requires
 // this polyfill so that those work in older browsers
 import "classlist-polyfill";
-
-import "number-to-locale-string";
-
-// If enabled this monkeypatches `t` and `jt` to return blacked out
-// strings/elements to assist in finding untranslated strings.
-import "metabase/lib/i18n-debug";
-
-// set the locale before loading anything else
-import { loadLocalization } from "metabase/lib/i18n";
-
-// NOTE: why do we need to load this here?
-import "metabase/lib/colors";
-
-// NOTE: this loads all builtin plugins
-import "metabase/plugins/builtin";
-
+import "core-js/stable";
 // This is conditionally aliased in the webpack config.
 // If EE isn't enabled, it loads an empty file.
-import "ee-plugins"; // eslint-disable-line import/no-unresolved
-
-import { PLUGIN_APP_INIT_FUCTIONS } from "metabase/plugins";
-
-import registerVisualizations from "metabase/visualizations/register";
-
+import "ee-plugins";
+import { createHistory } from "history";
+import "number-to-locale-string";
 import React from "react";
+import { DragDropContextProvider } from "react-dnd";
+// drag and drop
+import HTML5Backend from "react-dnd-html5-backend";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
+// router
+import { Router, useRouterHistory } from "react-router";
+import { syncHistoryWithStore } from "react-router-redux";
+import "regenerator-runtime/runtime";
 import { ThemeProvider } from "styled-components";
 
 import { createTracker } from "metabase/lib/analytics";
-import MetabaseSettings from "metabase/lib/settings";
-
 import api from "metabase/lib/api";
+// NOTE: why do we need to load this here?
+import "metabase/lib/colors";
 import { initializeEmbedding } from "metabase/lib/embed";
+// set the locale before loading anything else
+import { loadLocalization } from "metabase/lib/i18n";
+// If enabled this monkeypatches `t` and `jt` to return blacked out
+// strings/elements to assist in finding untranslated strings.
+import "metabase/lib/i18n-debug";
+import MetabaseSettings from "metabase/lib/settings";
+// eslint-disable-line import/no-unresolved
+import { PLUGIN_APP_INIT_FUCTIONS } from "metabase/plugins";
+// NOTE: this loads all builtin plugins
+import "metabase/plugins/builtin";
+import { refreshSiteSettings } from "metabase/redux/settings";
+import registerVisualizations from "metabase/visualizations/register";
 
 import { getStore } from "./store";
-
-import { refreshSiteSettings } from "metabase/redux/settings";
-
-// router
-import { Router, useRouterHistory } from "react-router";
-import { createHistory } from "history";
-import { syncHistoryWithStore } from "react-router-redux";
-
-// drag and drop
-import HTML5Backend from "react-dnd-html5-backend";
-import { DragDropContextProvider } from "react-dnd";
 
 // remove trailing slash
 const BASENAME = window.MetabaseRoot.replace(/\/+$/, "");

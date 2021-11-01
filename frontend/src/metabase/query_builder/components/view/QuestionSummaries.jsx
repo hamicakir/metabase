@@ -3,13 +3,11 @@ import React from "react";
 import { t } from "ttag";
 
 import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
-
-import ViewPill from "./ViewPill";
-import ViewButton from "./ViewButton";
-
-import SummarizeSidebar from "./sidebars/SummarizeSidebar/SummarizeSidebar";
-
 import { color } from "metabase/lib/colors";
+
+import ViewButton from "./ViewButton";
+import ViewPill from "./ViewPill";
+import SummarizeSidebar from "./sidebars/SummarizeSidebar/SummarizeSidebar";
 
 const SummarizePill = props => (
   <ViewPill icon="insight" color={color("accent1")} {...props} />
@@ -71,10 +69,7 @@ QuestionSummaries.shouldRender = ({
   queryBuilderMode === "view" &&
   question &&
   question.isStructured() &&
-  question
-    .query()
-    .topLevelQuery()
-    .hasAggregations() &&
+  question.query().topLevelQuery().hasAggregations() &&
   !isObjectDetail;
 
 QuestionSummarizeWidget.shouldRender = ({

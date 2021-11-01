@@ -1,7 +1,10 @@
 import { browse, restore } from "__support__/e2e/cypress";
 import { USERS } from "__support__/e2e/cypress_data";
 
-const sizes = [[1280, 800], [640, 360]];
+const sizes = [
+  [1280, 800],
+  [640, 360],
+];
 const { admin } = USERS;
 
 describe("scenarios > auth > signin", () => {
@@ -33,9 +36,7 @@ describe("scenarios > auth > signin", () => {
 
   it("should greet users after successful login", () => {
     cy.visit("/auth/login");
-    cy.findByLabelText("Email address")
-      .should("be.focused")
-      .type(admin.email);
+    cy.findByLabelText("Email address").should("be.focused").type(admin.email);
     cy.findByLabelText("Password").type(admin.password);
     cy.findByText("Sign in").click();
     cy.contains(/[a-z ]+, Bob/i);

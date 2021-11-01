@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+
 import { color } from "metabase/lib/colors";
 
 const PADDING = {
@@ -18,8 +19,9 @@ const BORDER_COLOR = {
 };
 
 export const Input = styled.input`
-  border: 1px solid ${props =>
-    props.colorScheme === "transparent" ? "transparent" : color("border")};
+  border: 1px solid
+    ${props =>
+      props.colorScheme === "transparent" ? "transparent" : color("border")};
   outline: none;
   width: 100%;
   font-size: 1.12em;

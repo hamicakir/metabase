@@ -1,9 +1,9 @@
 import React from "react";
 
 import ColorPicker from "metabase/components/ColorPicker";
-import { SegmentedControl } from "metabase/components/SegmentedControl";
 import Icon from "metabase/components/Icon";
 import IconWrapper from "metabase/components/IconWrapper";
+import { SegmentedControl } from "metabase/components/SegmentedControl";
 
 import type { NestedSettingComponentProps } from "./ChartSettingNestedSettings";
 

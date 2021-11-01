@@ -1,8 +1,9 @@
-import React, { useState } from "react";
 import PropTypes from "prop-types";
+import React, { useState } from "react";
 import _ from "underscore";
 
 import Icon from "metabase/components/Icon";
+
 import {
   Container,
   Transformer,

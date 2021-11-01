@@ -1,10 +1,4 @@
-import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-
-import _ from "underscore";
-
-import { delay } from "metabase/lib/promise";
-
 import {
   SAMPLE_DATASET,
   ANOTHER_DATABASE,
@@ -14,7 +8,10 @@ import {
   makeMetadata,
   state as fixtureData,
 } from "__support__/sample_dataset_fixture";
+import React from "react";
+import _ from "underscore";
 
+import { delay } from "metabase/lib/promise";
 import { UnconnectedDataSelector as DataSelector } from "metabase/query_builder/components/DataSelector";
 
 describe("DataSelector", () => {

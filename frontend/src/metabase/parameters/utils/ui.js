@@ -1,4 +1,5 @@
 import _ from "underscore";
+
 import { getParameterType } from "./parameter-type";
 
 export function getParameterIconName(parameter) {
@@ -25,9 +26,8 @@ export function buildHiddenParametersSlugSet(hiddenParameterSlugs) {
 }
 
 export function getVisibleParameters(parameters, hiddenParameterSlugs) {
-  const hiddenParametersSlugSet = buildHiddenParametersSlugSet(
-    hiddenParameterSlugs,
-  );
+  const hiddenParametersSlugSet =
+    buildHiddenParametersSlugSet(hiddenParameterSlugs);
 
   return parameters.filter(p => !hiddenParametersSlugSet.has(p.slug));
 }

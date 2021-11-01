@@ -1,8 +1,8 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
-import Questions from "metabase/entities/questions";
 import HistoryModal from "metabase/containers/HistoryModal";
+import Questions from "metabase/entities/questions";
 
 @Questions.load({
   id: (state, props) => props.questionId,

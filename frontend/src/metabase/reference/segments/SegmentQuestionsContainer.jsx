@@ -1,14 +1,13 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import SegmentSidebar from "./SegmentSidebar";
 import SidebarLayout from "metabase/components/SidebarLayout";
-import SegmentQuestions from "metabase/reference/segments/SegmentQuestions";
-
+import Questions from "metabase/entities/questions";
 import * as metadataActions from "metabase/redux/metadata";
 import * as actions from "metabase/reference/reference";
+import SegmentQuestions from "metabase/reference/segments/SegmentQuestions";
 
 import {
   getUser,
@@ -17,8 +16,7 @@ import {
   getDatabaseId,
   getIsEditing,
 } from "../selectors";
-
-import Questions from "metabase/entities/questions";
+import SegmentSidebar from "./SegmentSidebar";
 
 const mapStateToProps = (state, props) => ({
   user: getUser(state, props),
@@ -34,10 +32,7 @@ const mapDispatchToProps = {
   ...actions,
 };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class SegmentQuestionsContainer extends Component {
   static propTypes = {
     params: PropTypes.object.isRequired,

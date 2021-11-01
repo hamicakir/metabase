@@ -1,20 +1,18 @@
-import React, { Component } from "react";
+import { Box, Flex } from "grid-styled";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { t } from "ttag";
 import { push } from "react-router-redux";
+import { t } from "ttag";
 
 import Card from "metabase/components/Card";
 import Subhead from "metabase/components/type/Subhead";
 
-import Activity from "../components/Activity";
-import RecentViews from "../components/RecentViews";
-import NextStep from "../components/NextStep";
-
 import * as homepageActions from "../actions";
+import Activity from "../components/Activity";
+import NextStep from "../components/NextStep";
+import RecentViews from "../components/RecentViews";
 import { getActivity, getRecentViews, getUser } from "../selectors";
-
-import { Box, Flex } from "grid-styled";
 
 const mapStateToProps = (state, props) => ({
   activity: getActivity(state),
@@ -27,10 +25,7 @@ const mapDispatchToProps = {
   onChangeLocation: push,
 };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class HomepageApp extends Component {
   static propTypes = {
     onChangeLocation: PropTypes.func.isRequired,

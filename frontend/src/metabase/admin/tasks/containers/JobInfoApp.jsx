@@ -1,13 +1,12 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-import { t } from "ttag";
-import { connect } from "react-redux";
-
 import { Box, Flex } from "grid-styled";
+import React from "react";
+import { connect } from "react-redux";
+import { t } from "ttag";
 
-import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
 import AdminHeader from "metabase/components/AdminHeader";
 import Link from "metabase/components/Link";
+import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
 
 import { fetchJobInfo } from "../jobInfo";
 
@@ -57,10 +56,7 @@ const renderJobsTable = jobs => {
   );
 };
 
-@connect(
-  null,
-  { fetchJobInfo },
-)
+@connect(null, { fetchJobInfo })
 export default class JobInfoApp extends React.Component {
   async componentDidMount() {
     try {

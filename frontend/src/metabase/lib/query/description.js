@@ -1,16 +1,14 @@
+import inflection from "inflection";
 import React from "react";
-
 import { t } from "ttag";
 import _ from "underscore";
-import inflection from "inflection";
-
-import { stripId } from "metabase/lib/formatting";
 
 import { format as formatExpression } from "metabase/lib/expressions/format";
+import { stripId } from "metabase/lib/formatting";
 
 import * as AGGREGATION from "./aggregation";
-import * as QUERY from "./query";
 import * as FIELD_REF from "./field_ref";
+import * as QUERY from "./query";
 
 // NOTE: This doesn't support every MBQL clause, e.x. joins. It should also be moved to StructuredQuery.
 
@@ -283,7 +281,13 @@ export function formatAggregationDescription({ aggregation }, options = {}) {
 
 export function formatBreakoutDescription({ breakout }, options = {}) {
   if (breakout && breakout.length > 0) {
-    return [t`Grouped by `, joinList(breakout.map(b => b), " and ")];
+    return [
+      t`Grouped by `,
+      joinList(
+        breakout.map(b => b),
+        " and ",
+      ),
+    ];
   } else {
     return [];
   }

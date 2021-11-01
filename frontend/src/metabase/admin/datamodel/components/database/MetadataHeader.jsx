@@ -1,15 +1,14 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { Link, withRouter } from "react-router";
 import { t } from "ttag";
 
-import Databases from "metabase/entities/databases";
-
-import { DatabaseDataSelector } from "metabase/query_builder/components/DataSelector";
+import Icon from "metabase/components/Icon";
 import SaveStatus from "metabase/components/SaveStatus";
 import Toggle from "metabase/components/Toggle";
-import Icon from "metabase/components/Icon";
+import Databases from "metabase/entities/databases";
+import { DatabaseDataSelector } from "metabase/query_builder/components/DataSelector";
 
 @withRouter
 @Databases.loadList()

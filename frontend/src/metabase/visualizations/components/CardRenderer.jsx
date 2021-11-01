@@ -1,16 +1,15 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import _ from "underscore";
+
+import type { VisualizationProps } from "metabase-types/types/Visualization";
 
 import ExplicitSize from "metabase/components/ExplicitSize";
 import * as MetabaseAnalytics from "metabase/lib/analytics";
 import { startTimer } from "metabase/lib/performance";
-
 import { isSameSeries } from "metabase/visualizations/lib/utils";
-
-import type { VisualizationProps } from "metabase-types/types/Visualization";
 
 type DeregisterFunction = () => void;
 

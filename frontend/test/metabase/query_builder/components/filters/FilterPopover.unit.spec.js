@@ -1,11 +1,4 @@
-import "__support__/ui-mocks";
-import React from "react";
-
 import { fireEvent, render, screen } from "@testing-library/react";
-
-import Question from "metabase-lib/lib/Question";
-import FilterPopover from "metabase/query_builder/components/filters/FilterPopover";
-
 import {
   SAMPLE_DATASET,
   ORDERS,
@@ -13,6 +6,12 @@ import {
   metadata,
   StaticEntitiesProvider,
 } from "__support__/sample_dataset_fixture";
+import "__support__/ui-mocks";
+import React from "react";
+
+import Question from "metabase-lib/lib/Question";
+
+import FilterPopover from "metabase/query_builder/components/filters/FilterPopover";
 
 const QUERY = Question.create({
   databaseId: SAMPLE_DATASET.id,
@@ -29,11 +28,8 @@ const QUERY = Question.create({
     "asdf",
   ]);
 
-const [
-  RELATIVE_DAY_FILTER,
-  NUMERIC_FILTER,
-  STRING_CONTAINS_FILTER,
-] = QUERY.filters();
+const [RELATIVE_DAY_FILTER, NUMERIC_FILTER, STRING_CONTAINS_FILTER] =
+  QUERY.filters();
 
 describe("FilterPopover", () => {
   describe("existing filter", () => {

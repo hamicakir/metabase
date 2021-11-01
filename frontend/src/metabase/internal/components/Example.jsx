@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import { Box } from "grid-styled";
+import React from "react";
 import reactElementToJSXString from "react-element-to-jsx-string";
 
+import Card from "metabase/components/Card";
 import CopyButton from "metabase/components/CopyButton";
 import { Absolute } from "metabase/components/Position";
 import Label from "metabase/components/type/Label";
-import Card from "metabase/components/Card";
 
 const Example = ({ children }) => {
   const code = reactElementToJSXString(children);

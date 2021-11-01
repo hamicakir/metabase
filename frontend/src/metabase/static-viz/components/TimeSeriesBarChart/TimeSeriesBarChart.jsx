@@ -1,9 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
 import { AxisBottom, AxisLeft } from "@visx/axis";
 import { GridRows } from "@visx/grid";
 import { scaleBand, scaleLinear } from "@visx/scale";
 import { Bar } from "@visx/shape";
+import PropTypes from "prop-types";
+import React from "react";
+
 import {
   getLabelProps,
   getXTickLabelProps,

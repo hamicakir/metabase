@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import { Box, Flex } from "grid-styled";
+import React from "react";
 
 export const GridItem = ({ children, width, px, py, ...props }) => (
   <Box px={px} py={py} {...props} width={width}>

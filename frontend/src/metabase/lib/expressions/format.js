@@ -1,5 +1,7 @@
 import _ from "underscore";
 
+import type StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
+
 import {
   MBQL_CLAUSES,
   OPERATOR_PRECEDENCE,
@@ -18,7 +20,6 @@ import {
   formatStringLiteral,
   hasOptions,
 } from ".";
-import type StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
 
 export { DISPLAY_QUOTES, EDITOR_QUOTES } from "./config";
 

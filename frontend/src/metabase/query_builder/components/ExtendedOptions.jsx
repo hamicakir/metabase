@@ -1,21 +1,23 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import _ from "underscore";
 import cx from "classnames";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { t } from "ttag";
-import AddClauseButton from "./AddClauseButton";
-import Expressions from "./expressions/Expressions";
-import ExpressionWidget from "./expressions/ExpressionWidget";
-import LimitWidget from "./LimitWidget";
-import SortWidget from "./SortWidget";
-import Popover from "metabase/components/Popover";
-
-import * as MetabaseAnalytics from "metabase/lib/analytics";
+import _ from "underscore";
 
 import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
+
 import type { DatasetQuery } from "metabase-types/types/Card";
+
+import Popover from "metabase/components/Popover";
+import * as MetabaseAnalytics from "metabase/lib/analytics";
+
+import AddClauseButton from "./AddClauseButton";
 import type { GuiQueryEditorFeatures } from "./GuiQueryEditor";
+import LimitWidget from "./LimitWidget";
+import SortWidget from "./SortWidget";
+import ExpressionWidget from "./expressions/ExpressionWidget";
+import Expressions from "./expressions/Expressions";
 
 type Props = {
   query: StructuredQuery,

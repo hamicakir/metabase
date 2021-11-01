@@ -34,9 +34,7 @@ describe("scenarios > question > summarize sidebar", () => {
       .should("have.attr", "aria-selected", "true");
 
     cy.button("Done").click();
-    cy.findAllByText("Summarize")
-      .first()
-      .click();
+    cy.findAllByText("Summarize").first().click();
 
     // Removed from the unpinned list
     cy.findByTestId("unpinned-dimensions").within(() => {

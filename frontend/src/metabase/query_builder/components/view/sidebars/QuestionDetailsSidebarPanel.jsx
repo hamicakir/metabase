@@ -1,15 +1,15 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
-import QuestionActionButtons from "metabase/query_builder/components/QuestionActionButtons";
+import { PLUGIN_MODERATION } from "metabase/plugins";
 import { ClampedDescription } from "metabase/query_builder/components/ClampedDescription";
+import QuestionActionButtons from "metabase/query_builder/components/QuestionActionButtons";
+import QuestionActivityTimeline from "metabase/query_builder/components/QuestionActivityTimeline";
+
 import {
   Container,
   SidebarPaddedContent,
 } from "./QuestionDetailsSidebarPanel.styled";
-import QuestionActivityTimeline from "metabase/query_builder/components/QuestionActivityTimeline";
-
-import { PLUGIN_MODERATION } from "metabase/plugins";
 
 export default QuestionDetailsSidebarPanel;
 

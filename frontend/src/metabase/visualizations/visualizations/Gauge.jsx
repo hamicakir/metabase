@@ -1,20 +1,18 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
+import d3 from "d3";
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { t } from "ttag";
-import d3 from "d3";
-import cx from "classnames";
-
 import _ from "underscore";
+
+import type { VisualizationProps } from "metabase-types/types/Visualization";
 
 import { color } from "metabase/lib/colors";
 import { formatValue } from "metabase/lib/formatting";
 import { isNumeric } from "metabase/lib/schema_metadata";
-import { columnSettings } from "metabase/visualizations/lib/settings/column";
-
 import ChartSettingGaugeSegments from "metabase/visualizations/components/settings/ChartSettingGaugeSegments";
-
-import type { VisualizationProps } from "metabase-types/types/Visualization";
+import { columnSettings } from "metabase/visualizations/lib/settings/column";
 
 const MAX_WIDTH = 500;
 const PADDING_BOTTOM = 10;
@@ -252,8 +250,9 @@ export default class Gauge extends Component {
             viewBox={`0 0 ${viewBoxWidth * expandWidthFactor} ${viewBoxHeight}`}
           >
             <g
-              transform={`translate(${(viewBoxWidth * expandWidthFactor) /
-                2},50)`}
+              transform={`translate(${
+                (viewBoxWidth * expandWidthFactor) / 2
+              },50)`}
             >
               {/* BACKGROUND ARC */}
               <GaugeArc

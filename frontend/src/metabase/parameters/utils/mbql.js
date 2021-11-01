@@ -4,8 +4,9 @@ import Dimension, {
   FieldDimension,
   TemplateTagDimension,
 } from "metabase-lib/lib/Dimension";
-import { getParameterSubType, isDateParameter } from "./parameter-type";
+
 import { getParameterOperatorName } from "./operators";
+import { getParameterSubType, isDateParameter } from "./parameter-type";
 import { isDimensionTarget } from "./targets";
 
 const withTemporalUnit = (fieldRef, unit) => {

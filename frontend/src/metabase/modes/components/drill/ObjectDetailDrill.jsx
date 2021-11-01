@@ -1,9 +1,11 @@
-import { isFK, isPK } from "metabase/lib/schema_metadata";
 import { t } from "ttag";
+
 import type {
   ClickAction,
   ClickActionProps,
 } from "metabase-types/types/Visualization";
+
+import { isFK, isPK } from "metabase/lib/schema_metadata";
 
 export default ({ question, clicked }: ClickActionProps): ClickAction[] => {
   if (

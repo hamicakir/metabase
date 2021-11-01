@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import { t } from "ttag";
 import cx from "classnames";
+import PropTypes from "prop-types";
+import React, { useState, useEffect } from "react";
+import { t } from "ttag";
 
-import { color } from "metabase/lib/colors";
 import { usePrevious } from "metabase/hooks/use-previous";
+import { color } from "metabase/lib/colors";
 import SidebarContent from "metabase/query_builder/components/SidebarContent";
 
-import { updateAndRunQuery } from "./utils";
 import { AddAggregationButton } from "./AddAggregationButton";
 import { AggregationItem } from "./AggregationItem";
 import { DimensionList } from "./DimensionList";
@@ -16,6 +15,7 @@ import {
   DimensionListContainer,
   AggregationsContainer,
 } from "./SummarizeSidebar.styled";
+import { updateAndRunQuery } from "./utils";
 
 const propTypes = {
   question: PropTypes.object,

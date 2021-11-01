@@ -1,7 +1,8 @@
 /* eslint "react/prop-types": "warn" */
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { t } from "ttag";
+
 import Icon from "metabase/components/Icon";
 
 const MainPane = ({ databases, show }) => (

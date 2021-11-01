@@ -1,8 +1,11 @@
 import React from "react";
 import { t, jt } from "ttag";
+
 import { hasPremiumFeature } from "metabase-enterprise/settings";
-import { PLUGIN_CACHING, PLUGIN_FORM_WIDGETS } from "metabase/plugins";
+
 import Link from "metabase/components/Link";
+import { PLUGIN_CACHING, PLUGIN_FORM_WIDGETS } from "metabase/plugins";
+
 import { CacheTTLField } from "./components/CacheTTLField";
 import { DatabaseCacheTTLField } from "./components/DatabaseCacheTTLField";
 import { QuestionCacheTTLField } from "./components/QuestionCacheTTLField";

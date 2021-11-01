@@ -2,12 +2,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import RevisionHistory from "../components/revisions/RevisionHistory";
 import Metrics from "metabase/entities/metrics";
 import Segments from "metabase/entities/segments";
 
-import { getRevisions, getCurrentUser } from "../selectors";
+import RevisionHistory from "../components/revisions/RevisionHistory";
 import { fetchRevisions } from "../datamodel";
+import { getRevisions, getCurrentUser } from "../selectors";
 
 const mapStateToProps = (state, props) => ({
   objectType: props.params.entity,
@@ -18,10 +18,7 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = { fetchRevisions };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class RevisionHistoryApp extends Component {
   componentDidMount() {
     const { id, objectType } = this.props;

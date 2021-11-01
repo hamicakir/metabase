@@ -1,5 +1,5 @@
-import { restore } from "__support__/e2e/helpers/e2e-setup-helpers";
 import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
+import { restore } from "__support__/e2e/helpers/e2e-setup-helpers";
 
 const { ORDERS_ID } = SAMPLE_DATASET;
 

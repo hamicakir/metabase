@@ -1,16 +1,18 @@
 /// Utility functions used by both the LineAreaBar renderer and the RowRenderer
-
-import _ from "underscore";
 import { getIn } from "icepick";
+import _ from "underscore";
 
-import { datasetContainsNoResults } from "metabase/lib/dataset";
-import { parseTimestamp } from "metabase/lib/time";
+import type { Value } from "metabase-types/types/Dataset";
+
 import {
   NULL_DISPLAY_VALUE,
   NULL_NUMERIC_VALUE,
   TOTAL_ORDINAL_VALUE,
 } from "metabase/lib/constants";
+import { datasetContainsNoResults } from "metabase/lib/dataset";
+import { parseTimestamp } from "metabase/lib/time";
 
+import { computeNumericDataInverval, dimensionIsNumeric } from "./numeric";
 import {
   computeTimeseriesDataInverval,
   dimensionIsTimeseries,
@@ -18,12 +20,8 @@ import {
   getTimezone,
   minTimeseriesUnit,
 } from "./timeseries";
-import { computeNumericDataInverval, dimensionIsNumeric } from "./numeric";
-
 import { getAvailableCanvasWidth, getAvailableCanvasHeight } from "./utils";
 import { invalidDateWarning, nullDimensionWarning } from "./warnings";
-
-import type { Value } from "metabase-types/types/Dataset";
 
 export function initChart(chart, element) {
   // set the bounds
@@ -329,8 +327,8 @@ export function getXInterval({ settings, series }, xValues, warn) {
   } else if (isQuantitative(settings) || isHistogram(settings)) {
     // Get the bin width from binning_info, if available
     // TODO: multiseries?
-    const binningInfo = getFirstNonEmptySeries(series).data.cols[0]
-      .binning_info;
+    const binningInfo =
+      getFirstNonEmptySeries(series).data.cols[0].binning_info;
     if (binningInfo) {
       return binningInfo.bin_width;
     }

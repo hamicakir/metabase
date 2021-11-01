@@ -1,42 +1,40 @@
+import cx from "classnames";
+import { inflect } from "inflection";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { t, jt } from "ttag";
+import _ from "underscore";
+
+import type Table from "metabase-lib/lib/metadata/Table";
+
+import type { FieldId, Field } from "metabase-types/types/Field";
+import type { VisualizationProps } from "metabase-types/types/Visualization";
+
 import DirectionalButton from "metabase/components/DirectionalButton";
-import ExpandableString from "metabase/query_builder/components/ExpandableString";
 import Icon from "metabase/components/Icon";
 import IconBorder from "metabase/components/IconBorder";
 import LoadingSpinner from "metabase/components/LoadingSpinner";
-
+import Tables from "metabase/entities/tables";
+import { formatValue, formatColumn } from "metabase/lib/formatting";
 import {
   isID,
   isPK,
   foreignKeyCountsByOriginTable,
 } from "metabase/lib/schema_metadata";
 import { TYPE, isa } from "metabase/lib/types";
-import { inflect } from "inflection";
-import { formatValue, formatColumn } from "metabase/lib/formatting";
-
-import Tables from "metabase/entities/tables";
 import {
   loadObjectDetailFKReferences,
   followForeignKey,
   viewPreviousObjectDetail,
   viewNextObjectDetail,
 } from "metabase/query_builder/actions";
+import ExpandableString from "metabase/query_builder/components/ExpandableString";
 import {
   getTableMetadata,
   getTableForeignKeys,
   getTableForeignKeyReferences,
 } from "metabase/query_builder/selectors";
-
 import { columnSettings } from "metabase/visualizations/lib/settings/column";
-
-import cx from "classnames";
-import _ from "underscore";
-
-import type { VisualizationProps } from "metabase-types/types/Visualization";
-import type { FieldId, Field } from "metabase-types/types/Field";
-import type Table from "metabase-lib/lib/metadata/Table";
 
 type ForeignKeyId = number;
 type ForeignKey = {
@@ -138,11 +136,8 @@ export class ObjectDetail extends Component {
   };
 
   cellRenderer(column, value, isColumn) {
-    const {
-      settings,
-      onVisualizationClick,
-      visualizationIsClickable,
-    } = this.props;
+    const { settings, onVisualizationClick, visualizationIsClickable } =
+      this.props;
 
     let cellValue;
     let clicked;
@@ -401,7 +396,4 @@ export class ObjectDetail extends Component {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(ObjectDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(ObjectDetail);

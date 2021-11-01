@@ -1,25 +1,23 @@
+import { t } from "ttag";
+import _ from "underscore";
+
 import {
   isDimension,
   isMetric,
   isNumeric,
   isAny,
 } from "metabase/lib/schema_metadata";
-import { t } from "ttag";
+import { getMaxMetricsSupported } from "metabase/visualizations";
+import { dimensionIsNumeric } from "metabase/visualizations/lib/numeric";
+import { columnSettings } from "metabase/visualizations/lib/settings/column";
+import { seriesSetting } from "metabase/visualizations/lib/settings/series";
+import { getOptionFromColumn } from "metabase/visualizations/lib/settings/utils";
+import { dimensionIsTimeseries } from "metabase/visualizations/lib/timeseries";
 import {
   columnsAreValid,
   getFriendlyName,
   getDefaultDimensionsAndMetrics,
 } from "metabase/visualizations/lib/utils";
-
-import { seriesSetting } from "metabase/visualizations/lib/settings/series";
-import { columnSettings } from "metabase/visualizations/lib/settings/column";
-
-import { getOptionFromColumn } from "metabase/visualizations/lib/settings/utils";
-import { dimensionIsNumeric } from "metabase/visualizations/lib/numeric";
-import { dimensionIsTimeseries } from "metabase/visualizations/lib/timeseries";
-
-import _ from "underscore";
-import { getMaxMetricsSupported } from "metabase/visualizations";
 
 // NOTE: currently we don't consider any date extracts to be histgrams
 const HISTOGRAM_DATE_EXTRACTS = new Set([
@@ -260,7 +258,10 @@ export const STACKABLE_SETTINGS = {
     title: t`Stacked chart type`,
     widget: "segmentedControl",
     props: {
-      options: [{ icon: "area", value: "area" }, { icon: "bar", value: "bar" }],
+      options: [
+        { icon: "area", value: "area" },
+        { icon: "bar", value: "bar" },
+      ],
     },
     getDefault: (series, settings) => {
       const displays = series.map(single => settings.series(single).display);

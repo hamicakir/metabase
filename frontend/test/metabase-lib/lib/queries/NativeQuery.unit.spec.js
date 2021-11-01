@@ -1,10 +1,9 @@
-import { assocIn } from "icepick";
-
 import {
   SAMPLE_DATASET,
   PRODUCTS,
   MONGO_DATABASE,
 } from "__support__/sample_dataset_fixture";
+import { assocIn } from "icepick";
 
 import NativeQuery from "metabase-lib/lib/queries/NativeQuery";
 
@@ -111,9 +110,8 @@ describe("NativeQuery", () => {
     describe("setCollectionName(newCollection) selects or updates a target table for you mongo native query", () => {
       it("allows you to update mongo collections", () => {
         const fakeCollectionID = 9999;
-        const fakeMongoQuery = makeMongoQuery("").setCollectionName(
-          fakeCollectionID,
-        );
+        const fakeMongoQuery =
+          makeMongoQuery("").setCollectionName(fakeCollectionID);
         expect(fakeMongoQuery.collection()).toBe(fakeCollectionID);
       });
     });

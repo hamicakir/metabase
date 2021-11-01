@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+
+import { getLogoUrl } from "metabase-enterprise/settings/selectors";
 
 import { removeAllChildren, parseDataUri } from "metabase/lib/dom";
-
-import { connect } from "react-redux";
-import { getLogoUrl } from "metabase-enterprise/settings/selectors";
 
 const mapStateToProps = state => ({
   url: getLogoUrl(state),

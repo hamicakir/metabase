@@ -1,14 +1,14 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { t } from "ttag";
 
-import BaseTableItem from "./BaseTableItem";
 import {
   ColumnHeader,
   Table,
   SortingIcon,
   SortingControlContainer,
 } from "./BaseItemsTable.styled";
+import BaseTableItem from "./BaseTableItem";
 
 const sortingOptsShape = PropTypes.shape({
   sort_column: PropTypes.string.isRequired,

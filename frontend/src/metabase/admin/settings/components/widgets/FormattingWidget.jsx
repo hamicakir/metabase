@@ -3,7 +3,6 @@ import React from "react";
 import { t } from "ttag";
 
 import { TYPE } from "metabase/lib/types";
-
 import ColumnSettings from "metabase/visualizations/components/ColumnSettings";
 
 const SETTING_TYPES = [

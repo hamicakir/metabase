@@ -1,17 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import { color } from "metabase/lib/colors";
+import { delay } from "metabase/lib/promise";
+import Visualization from "metabase/visualizations/components/Visualization";
+
 import {
   NumberColumn,
   StringColumn,
   createFixture,
   cleanupFixture,
 } from "../__support__/visualizations";
-
-import { delay } from "metabase/lib/promise";
-
-import { color } from "metabase/lib/colors";
-import Visualization from "metabase/visualizations/components/Visualization";
 
 describe("Visualization", () => {
   // eslint-disable-next-line no-unused-vars
@@ -58,7 +57,10 @@ describe("Visualization", () => {
                 StringColumn({ name: "Dimension" }),
                 NumberColumn({ name: "Count" }),
               ],
-              rows: [["foo", 1], ["bar", 2]],
+              rows: [
+                ["foo", 1],
+                ["bar", 2],
+              ],
             },
           },
         ]);
@@ -79,7 +81,10 @@ describe("Visualization", () => {
                 NumberColumn({ name: "Count" }),
                 NumberColumn({ name: "Sum" }),
               ],
-              rows: [["foo", 1, 3], ["bar", 2, 4]],
+              rows: [
+                ["foo", 1, 3],
+                ["bar", 2, 4],
+              ],
             },
           },
         ]);
@@ -129,7 +134,10 @@ describe("Visualization", () => {
                 StringColumn({ name: "Dimension" }),
                 NumberColumn({ name: "Count" }),
               ],
-              rows: [["foo", 1], ["bar", 2]],
+              rows: [
+                ["foo", 1],
+                ["bar", 2],
+              ],
             },
           },
           {
@@ -139,7 +147,10 @@ describe("Visualization", () => {
                 StringColumn({ name: "Dimension" }),
                 NumberColumn({ name: "Count" }),
               ],
-              rows: [["foo", 3], ["bar", 4]],
+              rows: [
+                ["foo", 3],
+                ["bar", 4],
+              ],
             },
           },
         ]);

@@ -1,9 +1,10 @@
-import React from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
+import React from "react";
 import { Link as ReactRouterLink } from "react-router";
 import styled from "styled-components";
 import { display, color, hover, space } from "styled-system";
+
 import { stripLayoutProps } from "metabase/lib/utils";
 
 BaseLink.propTypes = {

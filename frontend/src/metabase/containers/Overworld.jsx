@@ -1,36 +1,31 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import { Box, Flex } from "grid-styled";
+import React from "react";
 import { connect } from "react-redux";
-import { t, jt } from "ttag";
 import { createSelector } from "reselect";
+import { t, jt } from "ttag";
 
-import CollectionItemsLoader from "metabase/containers/CollectionItemsLoader";
-import CandidateListLoader from "metabase/containers/CandidateListLoader";
-import ExplorePane from "metabase/components/ExplorePane";
-import Tooltip from "metabase/components/Tooltip";
-import MetabotLogo from "metabase/components/MetabotLogo";
-import CollectionList from "metabase/components/CollectionList";
-import ModalWithTrigger from "metabase/components/ModalWithTrigger";
+import { updateSetting } from "metabase/admin/settings/settings";
 import Button from "metabase/components/Button";
-
 import Card from "metabase/components/Card";
+import CollectionList from "metabase/components/CollectionList";
+import ExplorePane from "metabase/components/ExplorePane";
 import { Grid, GridItem } from "metabase/components/Grid";
 import Icon from "metabase/components/Icon";
 import Link from "metabase/components/Link";
+import MetabotLogo from "metabase/components/MetabotLogo";
+import ModalWithTrigger from "metabase/components/ModalWithTrigger";
+import Tooltip from "metabase/components/Tooltip";
 import Subhead from "metabase/components/type/Subhead";
-
-import * as Urls from "metabase/lib/urls";
-import { color } from "metabase/lib/colors";
-import Greeting from "metabase/lib/greeting";
-
+import CandidateListLoader from "metabase/containers/CandidateListLoader";
+import CollectionItemsLoader from "metabase/containers/CollectionItemsLoader";
+import { ROOT_COLLECTION } from "metabase/entities/collections";
 import Database from "metabase/entities/databases";
 import Search from "metabase/entities/search";
-import { ROOT_COLLECTION } from "metabase/entities/collections";
-
-import { updateSetting } from "metabase/admin/settings/settings";
-
 import { getUser } from "metabase/home/selectors";
+import { color } from "metabase/lib/colors";
+import Greeting from "metabase/lib/greeting";
+import * as Urls from "metabase/lib/urls";
 import {
   getShowHomepageData,
   getShowHomepageXrays,
@@ -39,9 +34,8 @@ import {
 const PAGE_PADDING = [1, 2, 4];
 const ROOT_COLLECTIONS_LOAD_LIMIT = 500;
 
-const getGreeting = createSelector(
-  [getUser],
-  user => Greeting.sayHello(user.first_name),
+const getGreeting = createSelector([getUser], user =>
+  Greeting.sayHello(user.first_name),
 );
 
 //class Overworld extends Zelda

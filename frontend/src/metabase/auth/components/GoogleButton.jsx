@@ -4,20 +4,15 @@ import ReactDOM from "react-dom";
 import { connect } from "react-redux";
 import { t } from "ttag";
 
-import AuthProviderButton from "metabase/auth/components/AuthProviderButton";
-
-import Settings from "metabase/lib/settings";
-
 import { loginGoogle } from "metabase/auth/auth";
+import AuthProviderButton from "metabase/auth/components/AuthProviderButton";
+import Settings from "metabase/lib/settings";
 
 const GOOGLE_AUTH_ERRORS = {
   popup_closed_by_user: t`The window was closed before completing Google Authentication.`,
 };
 
-@connect(
-  null,
-  { loginGoogle },
-)
+@connect(null, { loginGoogle })
 export default class GoogleButton extends Component {
   constructor(props) {
     super(props);

@@ -1,17 +1,14 @@
-import React, { useCallback } from "react";
-import PropTypes from "prop-types";
 import moment from "moment";
-
-import { PLUGIN_MODERATION } from "metabase/plugins";
-import { color } from "metabase/lib/colors";
-
-import ItemDragSource from "metabase/containers/dnd/ItemDragSource";
-
-import EntityItem from "metabase/components/EntityItem";
-import DateTime from "metabase/components/DateTime";
-import Tooltip from "metabase/components/Tooltip";
+import PropTypes from "prop-types";
+import React, { useCallback } from "react";
 
 import { ANALYTICS_CONTEXT } from "metabase/collections/constants";
+import DateTime from "metabase/components/DateTime";
+import EntityItem from "metabase/components/EntityItem";
+import Tooltip from "metabase/components/Tooltip";
+import ItemDragSource from "metabase/containers/dnd/ItemDragSource";
+import { color } from "metabase/lib/colors";
+import { PLUGIN_MODERATION } from "metabase/plugins";
 
 import {
   EntityIconCheckBox,

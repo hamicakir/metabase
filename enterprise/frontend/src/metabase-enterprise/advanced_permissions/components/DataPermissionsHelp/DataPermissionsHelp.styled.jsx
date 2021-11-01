@@ -1,7 +1,8 @@
 import styled from "styled-components";
+
+import ExternalLink from "metabase/components/ExternalLink";
 import Icon from "metabase/components/Icon";
 import { color, lighten } from "metabase/lib/colors";
-import ExternalLink from "metabase/components/ExternalLink";
 
 export const DataPermissionsHelpRoot = styled.div`
   h2 {

@@ -1,26 +1,26 @@
-import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import React, { useState, useEffect } from "react";
 import { t } from "ttag";
 import _ from "underscore";
 
-import Recents from "metabase/entities/recents";
 import Card from "metabase/components/Card";
+import EmptyState from "metabase/components/EmptyState";
+import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
 import Text from "metabase/components/type/Text";
+import Recents from "metabase/entities/recents";
 import * as Urls from "metabase/lib/urls";
+import { ItemIcon } from "metabase/search/components/SearchResult";
 import {
   ResultLink,
   Title,
 } from "metabase/search/components/SearchResult.styled";
-import { ItemIcon } from "metabase/search/components/SearchResult";
-import EmptyState from "metabase/components/EmptyState";
-import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
 
-import { getTranslatedEntityName } from "./utils";
 import {
   EmptyStateContainer,
   Header,
   RecentListItemContent,
 } from "./RecentsList.styled";
+import { getTranslatedEntityName } from "./utils";
 
 const LOADER_THRESHOLD = 100;
 

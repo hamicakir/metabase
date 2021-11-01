@@ -1,12 +1,13 @@
+import Question from "metabase-lib/lib/Question";
+
+import type { Card, VisualizationSettings } from "metabase-types/types/Card";
 import type {
   DatasetData,
   Column,
   Row,
   Value,
 } from "metabase-types/types/Dataset";
-import type { Card, VisualizationSettings } from "metabase-types/types/Card";
 import type { ReduxAction } from "metabase-types/types/redux";
-import Question from "metabase-lib/lib/Question";
 
 export type ActionCreator = (props: ClickActionProps) => ClickAction[];
 

@@ -1,12 +1,13 @@
 import React from "react";
-import _ from "underscore";
-import { handleActions } from "redux-actions";
 import { combineReducers } from "redux";
-import { addUndo } from "metabase/redux/undo";
+import { handleActions } from "redux-actions";
 import { t } from "ttag";
-import { AlertApi } from "metabase/services";
-import { RestfulRequest } from "metabase/lib/request";
+import _ from "underscore";
+
 import Icon from "metabase/components/Icon";
+import { RestfulRequest } from "metabase/lib/request";
+import { addUndo } from "metabase/redux/undo";
+import { AlertApi } from "metabase/services";
 
 export const FETCH_ALL_ALERTS = "metabase/alerts/FETCH_ALL_ALERTS";
 const fetchAllAlertsRequest = new RestfulRequest({
@@ -171,7 +172,8 @@ const removeAlertsForQuestionReducer = (state, { payload: questionId }) => {
 const alerts = handleActions(
   {
     ...fetchAllAlertsRequest.getReducers(),
-    [FETCH_ALERTS_FOR_QUESTION_CLEAR_OLD_ALERTS]: removeAlertsForQuestionReducer,
+    [FETCH_ALERTS_FOR_QUESTION_CLEAR_OLD_ALERTS]:
+      removeAlertsForQuestionReducer,
     ...fetchAlertsForQuestionRequest.getReducers(),
     ...createAlertRequest.getReducers(),
     ...updateAlertRequest.getReducers(),

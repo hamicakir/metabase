@@ -1,17 +1,15 @@
+import cx from "classnames";
 import React, { Component } from "react";
 import { Link } from "react-router";
-import cx from "classnames";
 import { t } from "ttag";
-
-import fitViewport from "metabase/hoc/FitViewPort";
-
-import CandidateListLoader from "metabase/containers/CandidateListLoader";
 
 import Card from "metabase/components/Card";
 import ExplorePane from "metabase/components/ExplorePane";
 import MetabotLogo from "metabase/components/MetabotLogo";
 import ProgressBar from "metabase/components/ProgressBar";
 import Quotes from "metabase/components/Quotes";
+import CandidateListLoader from "metabase/containers/CandidateListLoader";
+import fitViewport from "metabase/hoc/FitViewPort";
 
 type Props = {
   params: {

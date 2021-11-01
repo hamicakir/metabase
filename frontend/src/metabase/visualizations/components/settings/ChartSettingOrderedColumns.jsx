@@ -3,11 +3,12 @@ import React, { Component } from "react";
 import { t } from "ttag";
 import _ from "underscore";
 
+import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
+
 import {
   SortableContainer,
   SortableElement,
 } from "metabase/components/sortable";
-import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
 import { keyForColumn, findColumnForColumnSetting } from "metabase/lib/dataset";
 import { getFriendlyName } from "metabase/visualizations/lib/utils";
 

@@ -1,38 +1,35 @@
-import React, { Component } from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { t } from "ttag";
-import S from "./DashCardCardParameterMapper.css";
 
-import Icon from "metabase/components/Icon";
-import Tooltip from "metabase/components/Tooltip";
-
-import ParameterTargetWidget from "metabase/parameters/components/ParameterTargetWidget";
-
-import { fetchDatabaseMetadata } from "metabase/redux/metadata";
-
-import {
-  getEditingParameter,
-  getParameterTarget,
-  makeGetParameterMappingOptions,
-  getMappingsByParameter,
-} from "../selectors";
-import { setParameterMapping } from "../actions";
-
-import cx from "classnames";
+import AtomicQuery from "metabase-lib/lib/queries/AtomicQuery";
 
 import type { Card } from "metabase-types/types/Card";
 import type { DashCard } from "metabase-types/types/Dashboard";
+import type { DatabaseId } from "metabase-types/types/Database";
 import type {
   Parameter,
   ParameterId,
   ParameterMappingUIOption,
   ParameterTarget,
 } from "metabase-types/types/Parameter";
-import type { DatabaseId } from "metabase-types/types/Database";
 
+import Icon from "metabase/components/Icon";
+import Tooltip from "metabase/components/Tooltip";
+import ParameterTargetWidget from "metabase/parameters/components/ParameterTargetWidget";
+import { fetchDatabaseMetadata } from "metabase/redux/metadata";
+
+import { setParameterMapping } from "../actions";
+import {
+  getEditingParameter,
+  getParameterTarget,
+  makeGetParameterMappingOptions,
+  getMappingsByParameter,
+} from "../selectors";
 import type { MappingsByParameter } from "../selectors";
-import AtomicQuery from "metabase-lib/lib/queries/AtomicQuery";
+import S from "./DashCardCardParameterMapper.css";
 
 const makeMapStateToProps = () => {
   const getParameterMappingOptions = makeGetParameterMappingOptions();
@@ -50,10 +47,7 @@ const mapDispatchToProps = {
   fetchDatabaseMetadata,
 };
 
-@connect(
-  makeMapStateToProps,
-  mapDispatchToProps,
-)
+@connect(makeMapStateToProps, mapDispatchToProps)
 export default class DashCardCardParameterMapper extends Component {
   props: {
     card: Card,

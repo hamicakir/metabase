@@ -3,26 +3,26 @@ import {
   setDefaultVisualization,
 } from "metabase/visualizations";
 
-import Scalar from "./visualizations/Scalar";
-import SmartScalar from "./visualizations/SmartScalar";
-import Progress from "./visualizations/Progress";
-import Table from "./visualizations/Table";
-import Text from "./visualizations/Text";
-import LineChart from "./visualizations/LineChart";
-import BarChart from "./visualizations/BarChart";
-import WaterfallChart from "./visualizations/WaterfallChart";
-import RowChart from "./visualizations/RowChart";
-import PieChart from "./visualizations/PieChart";
 import AreaChart from "./visualizations/AreaChart";
+import BarChart from "./visualizations/BarChart";
 import ComboChart from "./visualizations/ComboChart";
-import MapViz from "./visualizations/Map";
-import ScatterPlot from "./visualizations/ScatterPlot";
 import Funnel from "./visualizations/Funnel";
 import Gauge from "./visualizations/Gauge";
+import LineChart from "./visualizations/LineChart";
+import MapViz from "./visualizations/Map";
 import ObjectDetail from "./visualizations/ObjectDetail";
+import PieChart from "./visualizations/PieChart";
 import PivotTable from "./visualizations/PivotTable";
+import Progress from "./visualizations/Progress";
+import RowChart from "./visualizations/RowChart";
+import Scalar from "./visualizations/Scalar";
+import ScatterPlot from "./visualizations/ScatterPlot";
+import SmartScalar from "./visualizations/SmartScalar";
+import Table from "./visualizations/Table";
+import Text from "./visualizations/Text";
+import WaterfallChart from "./visualizations/WaterfallChart";
 
-export default function() {
+export default function () {
   registerVisualization(Scalar);
   registerVisualization(SmartScalar);
   registerVisualization(Progress);

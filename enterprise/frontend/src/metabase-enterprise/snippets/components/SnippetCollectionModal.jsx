@@ -3,7 +3,6 @@ import React from "react";
 import { t } from "ttag";
 
 import Modal from "metabase/components/Modal";
-
 import SnippetCollections from "metabase/entities/snippet-collections";
 
 @SnippetCollections.load({ id: (state, props) => props.collection.id })

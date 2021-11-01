@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
 import React from "react";
 
-import cx from "classnames";
 import Icon from "metabase/components/Icon";
 
 const ChartSettingsWidget = ({

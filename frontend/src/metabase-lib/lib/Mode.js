@@ -1,11 +1,12 @@
 import Question from "metabase-lib/lib/Question";
-import { getMode } from "metabase/modes/lib/modes";
 
 import type {
   ClickAction,
   ClickObject,
   QueryMode,
 } from "metabase-types/types/Visualization";
+
+import { getMode } from "metabase/modes/lib/modes";
 
 export default class Mode {
   _question: Question;

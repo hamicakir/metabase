@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import AutosizeTextarea from "react-textarea-autosize";
 import { t } from "ttag";
-import cx from "classnames";
 import _ from "underscore";
 
 type Props = {

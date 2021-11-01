@@ -1,10 +1,11 @@
+import { state as sampleState } from "__support__/sample_dataset_fixture";
+
 import {
   getIsResultDirty,
   getNativeEditorCursorOffset,
   getNativeEditorSelectedText,
   getQuestionDetailsTimelineDrawerState,
 } from "metabase/query_builder/selectors";
-import { state as sampleState } from "__support__/sample_dataset_fixture";
 
 describe("getIsResultDirty", () => {
   describe("structure query", () => {
@@ -36,8 +37,20 @@ describe("getIsResultDirty", () => {
 
     it("should not be dirty if the fields were reordered", () => {
       const state = getState(
-        { "source-table": 1, fields: [["field", 1, null], ["field", 2, null]] },
-        { "source-table": 1, fields: [["field", 2, null], ["field", 1, null]] },
+        {
+          "source-table": 1,
+          fields: [
+            ["field", 1, null],
+            ["field", 2, null],
+          ],
+        },
+        {
+          "source-table": 1,
+          fields: [
+            ["field", 2, null],
+            ["field", 1, null],
+          ],
+        },
       );
       expect(getIsResultDirty(state)).toBe(false);
     });
@@ -46,11 +59,17 @@ describe("getIsResultDirty", () => {
       const state = getState(
         {
           "source-table": 1,
-          fields: [["field", 2, { "source-field": 1 }], ["field", 1, null]],
+          fields: [
+            ["field", 2, { "source-field": 1 }],
+            ["field", 1, null],
+          ],
         },
         {
           "source-table": 1,
-          fields: [["field", 1, null], ["field", 2, { "source-field": 1 }]],
+          fields: [
+            ["field", 1, null],
+            ["field", 2, { "source-field": 1 }],
+          ],
         },
       );
       expect(getIsResultDirty(state)).toBe(false);

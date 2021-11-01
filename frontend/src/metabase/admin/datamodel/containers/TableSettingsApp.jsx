@@ -1,16 +1,15 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
 import { t } from "ttag";
-import Breadcrumbs from "metabase/components/Breadcrumbs";
+
 import { BackButton } from "metabase/admin/datamodel/containers/FieldApp";
 import ActionButton from "metabase/components/ActionButton";
-import Section, { SectionHeader } from "../components/Section";
-
+import Breadcrumbs from "metabase/components/Breadcrumbs";
 import Databases from "metabase/entities/databases";
 import Tables from "metabase/entities/tables";
 
+import Section, { SectionHeader } from "../components/Section";
 import { rescanTableFieldValues, discardTableFieldValues } from "../table";
 
 const mapStateToProps = (state, { params: { databaseId, tableId } }) => ({
@@ -23,10 +22,7 @@ const mapDispatchToProps = {
   discardTableFieldValues,
 };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class TableSettingsApp extends Component {
   render() {
     const { tableId } = this.props;

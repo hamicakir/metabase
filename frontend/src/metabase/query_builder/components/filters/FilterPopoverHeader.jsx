@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import cx from "classnames";
+import React from "react";
 
-import OperatorSelector from "../filters/OperatorSelector";
 import SidebarHeader from "../SidebarHeader";
+import OperatorSelector from "../filters/OperatorSelector";
 
 export default function FilterPopoverHeader({
   className,

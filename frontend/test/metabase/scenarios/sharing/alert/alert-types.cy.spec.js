@@ -1,5 +1,4 @@
 import { restore, setupSMTP } from "__support__/e2e/cypress";
-
 import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
 
 const { PEOPLE, PEOPLE_ID } = SAMPLE_DATASET;
@@ -74,9 +73,7 @@ describe("scenarios > alert > types", () => {
 
       // Save question
       cy.findByText("Save").click();
-      cy.get(".Modal")
-        .button("Save")
-        .click();
+      cy.get(".Modal").button("Save").click();
       cy.findByText("Save question").should("not.exist");
 
       openAlertModal();
@@ -122,13 +119,9 @@ function openAlertModal() {
 
 function setGoal(goal) {
   // Enable the toggle
-  cy.findByText("Goal line")
-    .next()
-    .click();
+  cy.findByText("Goal line").next().click();
 
-  cy.findByDisplayValue("0")
-    .clear()
-    .type(goal);
+  cy.findByDisplayValue("0").clear().type(goal);
 
   cy.button("Done").click();
 }

@@ -1,7 +1,7 @@
 import _ from "underscore";
 
-import { createAction, createThunkAction } from "metabase/lib/redux";
 import * as MetabaseAnalytics from "metabase/lib/analytics";
+import { createAction, createThunkAction } from "metabase/lib/redux";
 
 const ADD_UNDO = "metabase/questions/ADD_UNDO";
 const DISMISS_UNDO = "metabase/questions/DISMISS_UNDO";
@@ -38,7 +38,7 @@ export const performUndo = createThunkAction(PERFORM_UNDO, undoId => {
   };
 });
 
-export default function(state = [], { type, payload, error }) {
+export default function (state = [], { type, payload, error }) {
   if (type === ADD_UNDO) {
     if (error) {
       console.warn("ADD_UNDO", payload);

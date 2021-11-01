@@ -1,5 +1,7 @@
 import "__support__/ui-mocks";
 
+import rowRenderer from "metabase/visualizations/lib/RowRenderer";
+
 import {
   createFixture,
   cleanupFixture,
@@ -8,16 +10,14 @@ import {
   StringColumn,
 } from "../__support__/visualizations";
 
-import rowRenderer from "metabase/visualizations/lib/RowRenderer";
-
 describe("RowChart", () => {
   let element;
 
-  beforeEach(function() {
+  beforeEach(function () {
     element = createFixture();
   });
 
-  afterEach(function() {
+  afterEach(function () {
     cleanupFixture(element);
   });
 

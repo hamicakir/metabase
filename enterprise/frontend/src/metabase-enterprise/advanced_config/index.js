@@ -1,8 +1,10 @@
+import { updateIn } from "icepick";
 import { t } from "ttag";
 import _ from "underscore";
-import { updateIn } from "icepick";
-import { PLUGIN_ADMIN_SETTINGS_UPDATES } from "metabase/plugins";
+
 import { hasPremiumFeature } from "metabase-enterprise/settings";
+
+import { PLUGIN_ADMIN_SETTINGS_UPDATES } from "metabase/plugins";
 
 if (hasPremiumFeature("advanced_config")) {
   PLUGIN_ADMIN_SETTINGS_UPDATES.push(sections =>

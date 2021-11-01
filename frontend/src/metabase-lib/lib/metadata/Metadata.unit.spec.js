@@ -1,13 +1,12 @@
-import Metadata from "./Metadata";
-import Base from "./Base";
-
-import Database from "./Database";
-import Table from "./Table";
-import Schema from "./Schema";
-import Field from "./Field";
-import Segment from "./Segment";
-import Metric from "./Metric";
 import Question from "../Question";
+import Base from "./Base";
+import Database from "./Database";
+import Field from "./Field";
+import Metadata from "./Metadata";
+import Metric from "./Metric";
+import Schema from "./Schema";
+import Segment from "./Segment";
+import Table from "./Table";
 
 describe("Metadata", () => {
   describe("instantiation", () => {

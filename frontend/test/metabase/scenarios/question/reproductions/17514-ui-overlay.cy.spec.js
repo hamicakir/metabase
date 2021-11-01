@@ -6,10 +6,9 @@ import {
   editDashboard,
   visualize,
 } from "__support__/e2e/cypress";
+import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
 
 import { setAdHocFilter } from "../../native-filters/helpers/e2e-date-filter-helpers";
-
-import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
 
 const { ORDERS, ORDERS_ID, PRODUCTS, PRODUCTS_ID } = SAMPLE_DATASET;
 
@@ -144,9 +143,7 @@ function openVisualizationOptions() {
 
 function hideColumn(columnName) {
   cy.findByTestId("chartsettings-sidebar").within(() => {
-    cy.findByText(columnName)
-      .siblings(".Icon-close")
-      .click();
+    cy.findByText(columnName).siblings(".Icon-close").click();
   });
 }
 

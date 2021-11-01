@@ -24,9 +24,7 @@ describe("postgres > question > custom columns", () => {
 
     cy.findByText("Function Percentile expects 1 argument").should("not.exist");
     cy.get("@description").type("A");
-    cy.button("Done")
-      .should("not.be.disabled")
-      .click();
+    cy.button("Done").should("not.be.disabled").click();
     // Todo: Add positive assertions once this is fixed
   });
 });

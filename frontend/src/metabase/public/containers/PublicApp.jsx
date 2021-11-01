@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import PublicNotFound from "metabase/public/components/PublicNotFound";
 import PublicError from "metabase/public/components/PublicError";
+import PublicNotFound from "metabase/public/components/PublicNotFound";
 
 type Props = {
   children: any,

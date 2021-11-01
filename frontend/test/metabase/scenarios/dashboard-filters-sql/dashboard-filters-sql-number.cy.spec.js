@@ -7,11 +7,10 @@ import {
   saveDashboard,
   setFilter,
 } from "__support__/e2e/cypress";
-
-import { DASHBOARD_SQL_NUMBER_FILTERS } from "./helpers/e2e-dashboard-filter-sql-data-objects";
-import { addWidgetNumberFilter } from "../native-filters/helpers/e2e-field-filter-helpers";
-
 import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
+
+import { addWidgetNumberFilter } from "../native-filters/helpers/e2e-field-filter-helpers";
+import { DASHBOARD_SQL_NUMBER_FILTERS } from "./helpers/e2e-dashboard-filter-sql-data-objects";
 
 const { PRODUCTS } = SAMPLE_DATASET;
 
@@ -41,13 +40,9 @@ Object.entries(DASHBOARD_SQL_NUMBER_FILTERS).forEach(
         editDashboard();
         setFilter("Number", filter);
 
-        cy.findByText("Column to filter on")
-          .next("a")
-          .click();
+        cy.findByText("Column to filter on").next("a").click();
 
-        popover()
-          .contains("Filter")
-          .click();
+        popover().contains("Filter").click();
       });
 
       it(`should work for "${filter}" when set through the filter widget`, () => {
@@ -62,9 +57,7 @@ Object.entries(DASHBOARD_SQL_NUMBER_FILTERS).forEach(
       });
 
       it(`should work for "${filter}" when set as the default filter`, () => {
-        cy.findByText("Default value")
-          .next()
-          .click();
+        cy.findByText("Default value").next().click();
 
         addWidgetNumberFilter(value);
 

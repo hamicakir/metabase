@@ -1,6 +1,6 @@
 import { ngettext, msgid } from "ttag";
-import { inflect } from "metabase/lib/formatting";
 
+import { AggregationDimension } from "metabase-lib/lib/Dimension";
 import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
 
 import type {
@@ -8,7 +8,7 @@ import type {
   ClickActionProps,
 } from "metabase-types/types/Visualization";
 
-import { AggregationDimension } from "metabase-lib/lib/Dimension";
+import { inflect } from "metabase/lib/formatting";
 
 export default ({ question, clicked }: ClickActionProps): ClickAction[] => {
   // removes post-aggregation filter stage
@@ -60,10 +60,7 @@ export default ({ question, clicked }: ClickActionProps): ClickAction[] => {
       question: () => {
         const q = question.drillUnderlyingRecords(dimensions);
         if (extraFilter) {
-          return q
-            .query()
-            .filter(extraFilter)
-            .question();
+          return q.query().filter(extraFilter).question();
         } else {
           return q;
         }

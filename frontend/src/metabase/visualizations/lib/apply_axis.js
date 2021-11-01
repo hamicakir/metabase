@@ -1,22 +1,20 @@
 /// functions for "applying" axes to charts, whatever that means.
-
-import _ from "underscore";
 import d3 from "d3";
 import dc from "dc";
 import moment from "moment-timezone";
-
 import { t } from "ttag";
+import _ from "underscore";
+
+import type { SingleSeries } from "metabase-types/types/Visualization";
 
 import { datasetContainsNoResults } from "metabase/lib/dataset";
 import { formatValue } from "metabase/lib/formatting";
 
+import { isMultipleOf } from "./numeric";
+import { isHistogram } from "./renderer_utils";
 import { computeTimeseriesTicksInterval } from "./timeseries";
 import timeseriesScale from "./timeseriesScale";
-import { isMultipleOf } from "./numeric";
 import { getFriendlyName } from "./utils";
-import { isHistogram } from "./renderer_utils";
-
-import type { SingleSeries } from "metabase-types/types/Visualization";
 
 // label offset (doesn't increase padding)
 const X_LABEL_PADDING = 10;
@@ -131,9 +129,8 @@ export function applyChartTimeseriesXAxis(
     // TODO: are there any other cases where we should do this?
     let tickFormatUnit = dimensionColumn.unit;
     const tickFormat = timestamp => {
-      const { column, ...columnSettings } = chart.settings.column(
-        dimensionColumn,
-      );
+      const { column, ...columnSettings } =
+        chart.settings.column(dimensionColumn);
       return waterfallTotalX && waterfallTotalX.isSame(timestamp)
         ? t`Total`
         : formatValue(timestamp, {

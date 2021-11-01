@@ -7,7 +7,6 @@ import {
   openReviewsTable,
   getBinningButtonForDimension,
 } from "__support__/e2e/cypress";
-
 import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
 
 const { ORDERS, ORDERS_ID } = SAMPLE_DATASET;
@@ -27,8 +26,7 @@ describe("scenarios > question > new", () => {
         engine: "h2",
         name: "Sample" + i,
         details: {
-          db:
-            "zip:./target/uberjar/metabase.jar!/sample-dataset.db;USER=GUEST;PASSWORD=guest",
+          db: "zip:./target/uberjar/metabase.jar!/sample-dataset.db;USER=GUEST;PASSWORD=guest",
         },
         auto_run_queries: false,
         is_full_sync: false,
@@ -52,10 +50,7 @@ describe("scenarios > question > new", () => {
     // Simple question
     openOrdersTable();
     cy.findByText("Summarize").click();
-    cy.findByText("Group by")
-      .parent()
-      .findByText("Rating")
-      .click();
+    cy.findByText("Group by").parent().findByText("Rating").click();
     cy.get(".Visualization .bar").should("have.length", 6);
 
     // Custom question ("Notebook")
@@ -117,10 +112,7 @@ describe("scenarios > question > new", () => {
       });
 
       it("should allow to search and select tables", () => {
-        cy.findAllByText("Orders")
-          .closest("li")
-          .findByText("Table in")
-          .click();
+        cy.findAllByText("Orders").closest("li").findByText("Table in").click();
         cy.url().should("include", "question#");
         cy.findByText("Sample Dataset");
         cy.findByText("Orders");
@@ -141,10 +133,7 @@ describe("scenarios > question > new", () => {
       });
 
       it("should allow to search and select tables", () => {
-        cy.findAllByText("Orders")
-          .closest("li")
-          .findByText("Table in")
-          .click();
+        cy.findAllByText("Orders").closest("li").findByText("Table in").click();
 
         visualize();
 
@@ -284,9 +273,7 @@ describe("scenarios > question > new", () => {
         cy.visit(`/question/${QESTION_ID}`);
 
         cy.wait("@cardQuery");
-        cy.get("button")
-          .contains("Summarize")
-          .click();
+        cy.get("button").contains("Summarize").click();
 
         // CSS class of a sorted header cell
         cy.get("[class*=TableInteractive-headerCellData--sorted]").as(
@@ -294,18 +281,14 @@ describe("scenarios > question > new", () => {
         );
 
         // At this point only "Sum of Subtotal" should be sorted
-        cy.get("@sortedCell")
-          .its("length")
-          .should("eq", 1);
+        cy.get("@sortedCell").its("length").should("eq", 1);
         removeMetricFromSidebar("Sum of Subtotal");
 
         cy.wait("@dataset");
         cy.findByText("Sum of Subtotal").should("not.exist");
 
         // "Sum of Total" should not be sorted, nor any other header cell
-        cy.get("@sortedCell")
-          .its("length")
-          .should("eq", 0);
+        cy.get("@sortedCell").its("length").should("eq", 0);
 
         removeMetricFromSidebar("Sum of Total");
 
@@ -428,9 +411,7 @@ describe("scenarios > question > new", () => {
     it("should allow using `Custom Expression` in orders metrics (metabase#12899)", () => {
       openOrdersTable({ mode: "notebook" });
       cy.findByText("Summarize").click();
-      popover()
-        .contains("Custom Expression")
-        .click();
+      popover().contains("Custom Expression").click();
       popover().within(() => {
         cy.get("[contentEditable=true]").type("2 * Max([Total])");
         cy.findByPlaceholderText("Name (required)").type("twice max total");
@@ -448,13 +429,9 @@ describe("scenarios > question > new", () => {
 
       openOrdersTable({ mode: "notebook" });
       cy.findByText("Summarize").click();
-      popover()
-        .contains("Custom Expression")
-        .click();
+      popover().contains("Custom Expression").click();
       popover().within(() => {
-        cy.get("[contentEditable=true]")
-          .type(FORMULA)
-          .blur();
+        cy.get("[contentEditable=true]").type(FORMULA).blur();
 
         cy.log("Fails after blur in v0.36.6");
         // Implicit assertion
@@ -465,21 +442,15 @@ describe("scenarios > question > new", () => {
     it("distinct inside custom expression should suggest non-numeric types (metabase#13469)", () => {
       openReviewsTable({ mode: "notebook" });
       cy.findByText("Summarize").click();
-      popover()
-        .contains("Custom Expression")
-        .click();
+      popover().contains("Custom Expression").click();
 
-      cy.get("[contentEditable=true]")
-        .click()
-        .type("Distinct([R");
+      cy.get("[contentEditable=true]").click().type("Distinct([R");
 
       cy.log(
         "**The point of failure for ANY non-numeric value reported in v0.36.4**",
       );
       // the default type for "Reviewer" is "No semantic type"
-      cy.findByText("Fields")
-        .parent()
-        .contains("Reviewer");
+      cy.findByText("Fields").parent().contains("Reviewer");
     });
 
     it.skip("summarizing by distinct datetime should allow granular selection (metabase#13098)", () => {
@@ -495,9 +466,7 @@ describe("scenarios > question > new", () => {
         // instead of relying on DOM structure that might change
         // (i.e. find "Created At" -> parent -> parent -> parent -> find "by month")
         // access it directly from the known common parent
-        cy.get(".List-item")
-          .contains("by month")
-          .click({ force: true });
+        cy.get(".List-item").contains("by month").click({ force: true });
       });
       // this should be among the granular selection choices
       cy.findByText("Hour of day").click();

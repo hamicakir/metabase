@@ -1,9 +1,8 @@
+import EventEmitter from "events";
 import querystring from "querystring";
 
-import EventEmitter from "events";
-
-import { delay } from "metabase/lib/promise";
 import { IFRAMED } from "metabase/lib/dom";
+import { delay } from "metabase/lib/promise";
 
 type TransformFn = (o: any) => any;
 

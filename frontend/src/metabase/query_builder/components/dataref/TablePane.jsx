@@ -1,20 +1,18 @@
 /* eslint "react/prop-types": "warn" */
-import React from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
+import React from "react";
 import { connect } from "react-redux";
 import { t } from "ttag";
-import cx from "classnames";
 
+import Expandable from "metabase/components/Expandable";
 // components
 import Icon from "metabase/components/Icon";
-import Expandable from "metabase/components/Expandable";
-
-// lib
-import { foreignKeyCountsByOriginTable } from "metabase/lib/schema_metadata";
-import { inflect } from "metabase/lib/formatting";
-
 // entities
 import Table from "metabase/entities/tables";
+import { inflect } from "metabase/lib/formatting";
+// lib
+import { foreignKeyCountsByOriginTable } from "metabase/lib/schema_metadata";
 
 const mapStateToProps = (state, ownProps) => ({
   tableId: ownProps.table.id,
@@ -26,10 +24,7 @@ const mapDispatchToProps = {
   fetchMetadata: Table.actions.fetchMetadata,
 };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class TablePane extends React.Component {
   state = {
     pane: "fields",

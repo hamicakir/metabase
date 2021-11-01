@@ -1,14 +1,14 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { t } from "ttag";
 
+import Icon from "metabase/components/Icon";
+import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
 import Tooltip from "metabase/components/Tooltip";
 import AggregationPopover from "metabase/query_builder/components/AggregationPopover";
-import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
-import Icon from "metabase/components/Icon";
 
-import { AddAggregationButtonRoot } from "./AddAggregationButton.styled";
 import { updateAndRunQuery } from "../utils";
+import { AddAggregationButtonRoot } from "./AddAggregationButton.styled";
 
 const propTypes = {
   query: PropTypes.object,

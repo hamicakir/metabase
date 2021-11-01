@@ -2,8 +2,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { getMetadata } from "metabase/selectors/metadata";
 import { fetchRemapping } from "metabase/redux/metadata";
+import { getMetadata } from "metabase/selectors/metadata";
 
 const mapStateToProps = (state, props) => ({
   metadata: getMetadata(state, props),
@@ -14,10 +14,7 @@ const mapDispatchToProps = {
 };
 
 export default ComposedComponent =>
-  @connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  )
+  @connect(mapStateToProps, mapDispatchToProps)
   class extends Component {
     static displayName =
       "Remapped[" +

@@ -1,9 +1,10 @@
-import _ from "underscore";
 import { setIn } from "icepick";
+import _ from "underscore";
 
 import Question from "metabase-lib/lib/Question";
-import { getParameterTargetField } from "metabase/parameters/utils/targets";
+
 import { slugify } from "metabase/lib/formatting";
+import { getParameterTargetField } from "metabase/parameters/utils/targets";
 
 export function createParameter(option, parameters = []) {
   let name = option.combinedName || option.name;

@@ -1,7 +1,6 @@
-import React, { Component } from "react";
-
-import _ from "underscore";
 import cx from "classnames";
+import React, { Component } from "react";
+import _ from "underscore";
 
 import Select, { Option } from "metabase/components/Select";
 

@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { color } from "metabase/lib/colors";
+
 import Button from "metabase/components/Button";
 import Icon from "metabase/components/Icon";
+import { color } from "metabase/lib/colors";
 
 export const Container = styled.div`
   padding: 1rem 1rem 1rem 0.5rem;

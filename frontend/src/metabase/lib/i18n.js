@@ -1,5 +1,5 @@
-import { addLocale, useLocale } from "ttag";
 import moment from "moment-timezone";
+import { addLocale, useLocale } from "ttag";
 
 import MetabaseSettings from "metabase/lib/settings";
 

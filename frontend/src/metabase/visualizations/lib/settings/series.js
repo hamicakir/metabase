@@ -1,13 +1,14 @@
+import { getIn } from "icepick";
 import { t } from "ttag";
 import _ from "underscore";
-import { getIn } from "icepick";
 
-import ChartNestedSettingSeries from "metabase/visualizations/components/settings/ChartNestedSettingSeries";
-import { nestedSettings } from "./nested";
+import type { SingleSeries } from "metabase-types/types/Visualization";
+
 import { getColorsForValues } from "metabase/lib/colors";
+import ChartNestedSettingSeries from "metabase/visualizations/components/settings/ChartNestedSettingSeries";
 
 import type { SettingDef } from "../settings";
-import type { SingleSeries } from "metabase-types/types/Visualization";
+import { nestedSettings } from "./nested";
 
 export function keyForSingleSeries(single: SingleSeries): string {
   // _seriesKey is sometimes set by transformSeries

@@ -1,5 +1,5 @@
-import Schema from "./Schema";
 import Base from "./Base";
+import Schema from "./Schema";
 
 describe("Schema", () => {
   describe("instantiation", () => {

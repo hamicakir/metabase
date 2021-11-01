@@ -1,18 +1,18 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
 import React, { Component } from "react";
 import { Link } from "react-router";
 import { reduxForm } from "redux-form";
-import cx from "classnames";
-
-import FormLabel from "../components/FormLabel";
-import FormInput from "../components/FormInput";
-import FormTextArea from "../components/FormTextArea";
-import FieldSet from "metabase/components/FieldSet";
-import PartialQueryBuilder from "../components/PartialQueryBuilder";
 import { t } from "ttag";
-import { formatValue } from "metabase/lib/formatting";
 
+import FieldSet from "metabase/components/FieldSet";
+import { formatValue } from "metabase/lib/formatting";
 import * as Q from "metabase/lib/query/query";
+
+import FormInput from "../components/FormInput";
+import FormLabel from "../components/FormLabel";
+import FormTextArea from "../components/FormTextArea";
+import PartialQueryBuilder from "../components/PartialQueryBuilder";
 
 @reduxForm(
   {

@@ -1,14 +1,14 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { Link } from "react-router";
+import { t } from "ttag";
 
 import Icon from "metabase/components/Icon";
-import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
 import ModalWithTrigger from "metabase/components/ModalWithTrigger";
-import { t } from "ttag";
-import ObjectRetireModal from "./ObjectRetireModal";
-
+import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
 import { capitalize } from "metabase/lib/formatting";
+
+import ObjectRetireModal from "./ObjectRetireModal";
 
 export default class ObjectActionsSelect extends Component {
   constructor(props) {

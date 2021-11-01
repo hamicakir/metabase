@@ -1,6 +1,6 @@
-import ObjectDetailDrill from "../drill/ObjectDetailDrill";
-
 import type { QueryMode } from "metabase-types/types/Visualization";
+
+import ObjectDetailDrill from "../drill/ObjectDetailDrill";
 
 const ObjectMode: QueryMode = {
   name: "object",

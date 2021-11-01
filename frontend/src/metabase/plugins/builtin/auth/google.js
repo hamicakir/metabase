@@ -1,18 +1,15 @@
-import { t } from "ttag";
 import { updateIn } from "icepick";
+import { t } from "ttag";
 
+import SettingsGoogleForm from "metabase/admin/settings/components/SettingsGoogleForm";
+import AuthenticationOption from "metabase/admin/settings/components/widgets/AuthenticationOption";
+import GoogleButton from "metabase/auth/components/GoogleButton";
+import MetabaseSettings from "metabase/lib/settings";
 import {
   PLUGIN_AUTH_PROVIDERS,
   PLUGIN_ADMIN_SETTINGS_UPDATES,
   PLUGIN_SHOW_CHANGE_PASSWORD_CONDITIONS,
 } from "metabase/plugins";
-
-import MetabaseSettings from "metabase/lib/settings";
-
-import GoogleButton from "metabase/auth/components/GoogleButton";
-
-import AuthenticationOption from "metabase/admin/settings/components/widgets/AuthenticationOption";
-import SettingsGoogleForm from "metabase/admin/settings/components/SettingsGoogleForm";
 
 const GOOGLE_PROVIDER = {
   name: "google",

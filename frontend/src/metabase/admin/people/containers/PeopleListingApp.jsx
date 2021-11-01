@@ -1,14 +1,13 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { t } from "ttag";
-
-import * as Urls from "metabase/lib/urls";
 
 import AdminPaneLayout from "metabase/components/AdminPaneLayout";
 import Radio from "metabase/components/Radio";
+import * as Urls from "metabase/lib/urls";
 
-import SearchInput from "../components/SearchInput";
 import PeopleList from "../components/PeopleList";
+import SearchInput from "../components/SearchInput";
 import { USER_STATUS } from "../constants";
 import { usePeopleQuery } from "../hooks/use-people-query";
 

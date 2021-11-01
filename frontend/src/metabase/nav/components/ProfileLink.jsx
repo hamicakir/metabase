@@ -1,18 +1,16 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { Box } from "grid-styled";
-
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { t } from "ttag";
 import _ from "underscore";
-import { capitalize } from "metabase/lib/formatting";
-import { color, darken } from "metabase/lib/colors";
 
+import EntityMenu from "metabase/components/EntityMenu";
+import LogoIcon from "metabase/components/LogoIcon";
+import Modal from "metabase/components/Modal";
+import { color, darken } from "metabase/lib/colors";
+import { capitalize } from "metabase/lib/formatting";
 import MetabaseSettings from "metabase/lib/settings";
 import * as Urls from "metabase/lib/urls";
-import Modal from "metabase/components/Modal";
-
-import LogoIcon from "metabase/components/LogoIcon";
-import EntityMenu from "metabase/components/EntityMenu";
 
 // generate the proper set of list items for the current user
 // based on whether they're an admin or not

@@ -1,5 +1,7 @@
-import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
 import { t } from "ttag";
+
+import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
+
 import type {
   ClickAction,
   ClickActionProps,

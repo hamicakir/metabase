@@ -7,7 +7,6 @@ import {
   saveDashboard,
   setFilter,
 } from "__support__/e2e/cypress";
-
 import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
 
 import { addWidgetStringFilter } from "../native-filters/helpers/e2e-field-filter-helpers";
@@ -39,9 +38,7 @@ describe("scenarios > dashboard > filters > SQL > ID", () => {
     });
 
     it("when set as the default filter", () => {
-      cy.findByText("Default value")
-        .next()
-        .click();
+      cy.findByText("Default value").next().click();
       addWidgetStringFilter("15");
 
       saveDashboard();
@@ -69,9 +66,7 @@ describe("scenarios > dashboard > filters > SQL > ID", () => {
     });
 
     it("when set as the default filter", () => {
-      cy.findByText("Default value")
-        .next()
-        .click();
+      cy.findByText("Default value").next().click();
       addWidgetStringFilter("4");
 
       saveDashboard();
@@ -117,11 +112,7 @@ function prepareDashboardWithFilterConnectedTo(rowId) {
   editDashboard();
   setFilter("ID");
 
-  cy.findByText("Column to filter on")
-    .next("a")
-    .click();
+  cy.findByText("Column to filter on").next("a").click();
 
-  popover()
-    .contains("Filter")
-    .click();
+  popover().contains("Filter").click();
 }

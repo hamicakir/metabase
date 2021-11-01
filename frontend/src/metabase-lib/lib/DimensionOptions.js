@@ -1,5 +1,4 @@
 import Dimension from "metabase-lib/lib/Dimension";
-
 import type Field from "metabase-lib/lib/metadata/Field";
 
 type Option = {

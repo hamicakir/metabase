@@ -1,9 +1,10 @@
-import { getParameterTargetField } from "./targets";
 import {
   metadata,
   PRODUCTS,
   SAMPLE_DATASET,
 } from "__support__/sample_dataset_fixture";
+
+import { getParameterTargetField } from "./targets";
 
 describe("parameters/utils/targets", () => {
   describe("getParameterTargetField", () => {

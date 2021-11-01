@@ -1,12 +1,14 @@
-import React from "react";
+import { setupEnterpriseTest } from "__support__/enterprise";
 import {
   renderWithProviders,
   screen,
   waitForElementToBeRemoved,
 } from "__support__/ui";
+import React from "react";
+
 import admin from "metabase/admin/admin";
 import MetabaseSettings from "metabase/lib/settings";
-import { setupEnterpriseTest } from "__support__/enterprise";
+
 import DatabaseEditApp from "./DatabaseEditApp";
 
 const ENGINES_MOCK = {

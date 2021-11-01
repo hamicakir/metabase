@@ -1,15 +1,13 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import NoResults from "assets/img/no_results.svg";
 import { Flex } from "grid-styled";
+import React from "react";
 import { t } from "ttag";
 
-import fitViewport from "metabase/hoc/FitViewPort";
-
-import Icon from "metabase/components/Icon";
 import EmptyState from "metabase/components/EmptyState";
 import ErrorDetails from "metabase/components/ErrorDetails";
-
-import NoResults from "assets/img/no_results.svg";
+import Icon from "metabase/components/Icon";
+import fitViewport from "metabase/hoc/FitViewPort";
 
 const ErrorPageWrapper = fitViewport(({ fitClassNames, children }) => (
   <Flex

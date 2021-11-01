@@ -1,23 +1,21 @@
-import React, { useState } from "react";
+import { Box } from "grid-styled";
 import PropTypes from "prop-types";
-import _ from "underscore";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { t } from "ttag";
-import { Box } from "grid-styled";
+import _ from "underscore";
 
-import Icon from "metabase/components/Icon";
 import Breadcrumbs from "metabase/components/Breadcrumbs";
-import { entityListLoader } from "metabase/entities/containers/EntityListLoader";
+import Icon from "metabase/components/Icon";
+import { SelectList } from "metabase/components/select-list";
 import Collections, { ROOT_COLLECTION } from "metabase/entities/collections";
+import { entityListLoader } from "metabase/entities/containers/EntityListLoader";
 import { useDebouncedValue } from "metabase/hooks/use-debounced-value";
-
+import { SEARCH_DEBOUNCE_DURATION } from "metabase/lib/constants";
 import { PLUGIN_COLLECTIONS } from "metabase/plugins";
 
 import { QuestionList } from "./QuestionList";
-
 import { BreadcrumbsWrapper, SearchInput } from "./QuestionPicker.styled";
-import { SEARCH_DEBOUNCE_DURATION } from "metabase/lib/constants";
-import { SelectList } from "metabase/components/select-list";
 
 const { isRegularCollection } = PLUGIN_COLLECTIONS;
 

@@ -1,4 +1,5 @@
 import { ORDERS, SAMPLE_DATASET } from "__support__/sample_dataset_fixture";
+
 import Question from "metabase-lib/lib/Question";
 
 const TEST_EXPRESSION = ["+", 1, 1];

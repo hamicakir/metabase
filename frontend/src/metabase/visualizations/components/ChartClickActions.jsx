@@ -1,26 +1,23 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { t } from "ttag";
-
 import { Link } from "react-router";
-import Icon from "metabase/components/Icon";
-import Popover from "metabase/components/Popover";
-import Tooltip from "metabase/components/Tooltip";
-
-import "./ChartClickActions.css";
-
-import * as MetabaseAnalytics from "metabase/lib/analytics";
-
-import { performAction } from "metabase/visualizations/lib/action";
+import { t } from "ttag";
+import _ from "underscore";
 
 import type {
   ClickObject,
   ClickAction,
 } from "metabase-types/types/Visualization";
 
-import cx from "classnames";
-import _ from "underscore";
+import Icon from "metabase/components/Icon";
+import Popover from "metabase/components/Popover";
+import Tooltip from "metabase/components/Tooltip";
+import * as MetabaseAnalytics from "metabase/lib/analytics";
+import { performAction } from "metabase/visualizations/lib/action";
+
+import "./ChartClickActions.css";
 
 // These icons used to be displayed for each row section of actions.
 // We're now just using them as a way to select different sections of actions to style them uniquely.

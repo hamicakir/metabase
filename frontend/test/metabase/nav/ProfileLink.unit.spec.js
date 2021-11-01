@@ -1,5 +1,5 @@
-import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
+import React from "react";
 
 import MetabaseSettings from "metabase/lib/settings";
 import ProfileLink from "metabase/nav/components/ProfileLink";

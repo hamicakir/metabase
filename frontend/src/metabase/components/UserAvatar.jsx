@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { Flex } from "grid-styled";
+import styled from "styled-components";
 import { color, height, width } from "styled-system";
 
 import { color as brandColor } from "metabase/lib/colors";

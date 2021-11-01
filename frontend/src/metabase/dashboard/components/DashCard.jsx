@@ -1,36 +1,33 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
-import styled from "styled-components";
-import { connect } from "react-redux";
+import cx from "classnames";
+import { getIn } from "icepick";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import { connect } from "react-redux";
+import styled from "styled-components";
 import { t } from "ttag";
+import _ from "underscore";
+
+import Icon, { iconPropTypes } from "metabase/components/Icon";
+import ModalWithTrigger from "metabase/components/ModalWithTrigger";
+import Tooltip from "metabase/components/Tooltip";
+import { isVirtualDashCard } from "metabase/dashboard/utils";
+import { getClickBehaviorDescription } from "metabase/lib/click-behavior";
+import { IS_EMBED_PREVIEW } from "metabase/lib/embed";
+import Utils from "metabase/lib/utils";
+import { getParameterValuesBySlug } from "metabase/parameters/utils/parameter-values";
+import QueryDownloadWidget from "metabase/query_builder/components/QueryDownloadWidget";
 import visualizations, { getVisualizationRaw } from "metabase/visualizations";
-import { mergeSettings } from "metabase/visualizations/lib/settings";
+import { ChartSettingsWithState } from "metabase/visualizations/components/ChartSettings";
 import Visualization, {
   ERROR_MESSAGE_GENERIC,
   ERROR_MESSAGE_PERMISSION,
 } from "metabase/visualizations/components/Visualization";
-import QueryDownloadWidget from "metabase/query_builder/components/QueryDownloadWidget";
-
-import ModalWithTrigger from "metabase/components/ModalWithTrigger";
-import { ChartSettingsWithState } from "metabase/visualizations/components/ChartSettings";
 import WithVizSettingsData from "metabase/visualizations/hoc/WithVizSettingsData";
+import { mergeSettings } from "metabase/visualizations/lib/settings";
 
-import Icon, { iconPropTypes } from "metabase/components/Icon";
-import Tooltip from "metabase/components/Tooltip";
-
-import { isVirtualDashCard } from "metabase/dashboard/utils";
 import DashCardParameterMapper from "./DashCardParameterMapper";
-
-import { IS_EMBED_PREVIEW } from "metabase/lib/embed";
-import { getClickBehaviorDescription } from "metabase/lib/click-behavior";
-
-import cx from "classnames";
-import _ from "underscore";
-import { getIn } from "icepick";
-import { getParameterValuesBySlug } from "metabase/parameters/utils/parameter-values";
-import Utils from "metabase/lib/utils";
 
 const DATASET_USUALLY_FAST_THRESHOLD = 15 * 1000;
 
@@ -43,10 +40,7 @@ const HEADER_ACTION_STYLE = {
 // This is done to add the `getExtraDataForClick` prop.
 // We need that to pass relevant data along with the clicked object.
 const WrappedVisualization = WithVizSettingsData(
-  connect(
-    null,
-    dispatch => ({ dispatch }),
-  )(Visualization),
+  connect(null, dispatch => ({ dispatch }))(Visualization),
 );
 
 export default class DashCard extends Component {

@@ -1,29 +1,21 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
+import { Box, Flex } from "grid-styled";
+import { getIn } from "icepick";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getValues } from "redux-form";
-
 import { t } from "ttag";
 
-import { Box, Flex } from "grid-styled";
-
-import title from "metabase/hoc/Title";
-
-import AddDatabaseHelpCard from "metabase/components/AddDatabaseHelpCard";
-import Button from "metabase/components/Button";
-import Breadcrumbs from "metabase/components/Breadcrumbs";
-import DriverWarning from "metabase/components/DriverWarning";
-import Radio from "metabase/components/Radio";
 import Sidebar from "metabase/admin/databases/components/DatabaseEditApp/Sidebar/Sidebar";
-
+import AddDatabaseHelpCard from "metabase/components/AddDatabaseHelpCard";
+import Breadcrumbs from "metabase/components/Breadcrumbs";
+import Button from "metabase/components/Button";
+import DriverWarning from "metabase/components/DriverWarning";
+import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
+import Radio from "metabase/components/Radio";
 import Databases from "metabase/entities/databases";
-
-import {
-  getEditingDatabase,
-  getDatabaseCreationStep,
-  getInitializeError,
-} from "../selectors";
+import title from "metabase/hoc/Title";
 
 import {
   reset,
@@ -36,8 +28,11 @@ import {
   deleteDatabase,
   selectEngine,
 } from "../database";
-import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
-import { getIn } from "icepick";
+import {
+  getEditingDatabase,
+  getDatabaseCreationStep,
+  getInitializeError,
+} from "../selectors";
 
 const DATABASE_FORM_NAME = "database";
 
@@ -80,10 +75,7 @@ const TABS = [
   },
 ];
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 @title(({ database }) => database && database.name)
 export default class DatabaseEditApp extends Component {
   constructor(props, context) {

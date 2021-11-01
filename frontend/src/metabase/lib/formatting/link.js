@@ -1,6 +1,6 @@
+import { formatValue } from "metabase/lib/formatting";
 import { isDate } from "metabase/lib/schema_metadata";
 
-import { formatValue } from "metabase/lib/formatting";
 import { formatDateTimeForParameter } from "./date";
 
 function formatValueForLinkTemplate(value, column) {

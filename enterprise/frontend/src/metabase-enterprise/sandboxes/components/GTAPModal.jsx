@@ -1,33 +1,30 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import _ from "underscore";
-import { jt, t } from "ttag";
-import { withRouter } from "react-router";
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
 import { push } from "react-router-redux";
-
-import MappingEditor from "./MappingEditor";
-
-import QuestionPicker from "metabase/containers/QuestionPicker";
-import QuestionParameterTargetWidget from "../containers/QuestionParameterTargetWidget";
-import Button from "metabase/components/Button";
-import ActionButton from "metabase/components/ActionButton";
-import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
-import Select, { Option } from "metabase/components/Select";
-import Radio from "metabase/components/Radio";
-import Icon from "metabase/components/Icon";
-import Tooltip from "metabase/components/Tooltip";
-import { GTAPApi } from "metabase/services";
-
-import { UNKNOWN_ERROR_MESSAGE } from "metabase/components/form/FormMessage";
-
-import EntityObjectLoader from "metabase/entities/containers/EntityObjectLoader";
-import QuestionLoader from "metabase/containers/QuestionLoader";
+import { jt, t } from "ttag";
+import _ from "underscore";
 
 import Dimension from "metabase-lib/lib/Dimension";
 
+import ActionButton from "metabase/components/ActionButton";
+import Button from "metabase/components/Button";
+import Icon from "metabase/components/Icon";
+import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
+import Radio from "metabase/components/Radio";
+import Select, { Option } from "metabase/components/Select";
+import Tooltip from "metabase/components/Tooltip";
+import { UNKNOWN_ERROR_MESSAGE } from "metabase/components/form/FormMessage";
+import QuestionLoader from "metabase/containers/QuestionLoader";
+import QuestionPicker from "metabase/containers/QuestionPicker";
+import EntityObjectLoader from "metabase/entities/containers/EntityObjectLoader";
 import { getParentPath } from "metabase/hoc/ModalRoute";
+import { GTAPApi } from "metabase/services";
+
 import { updateTableSandboxingPermission } from "../actions";
+import QuestionParameterTargetWidget from "../containers/QuestionParameterTargetWidget";
+import MappingEditor from "./MappingEditor";
 
 const mapStateToProps = () => ({});
 const mapDispatchToProps = {
@@ -54,10 +51,7 @@ type State = {
 };
 
 @withRouter
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class GTAPModal extends React.Component {
   props: Props;
   state: State = {
@@ -186,8 +180,7 @@ export default class GTAPModal extends React.Component {
                     options={[
                       { name: "Filter by a column in the table", value: true },
                       {
-                        name:
-                          "Use a saved question to create a custom view for this table",
+                        name: "Use a saved question to create a custom view for this table",
                         value: false,
                       },
                     ]}
@@ -339,7 +332,9 @@ const GTAPSummary = ({ gtap }: { gtap: GTAP }) => {
       </div>
       <SummaryRow
         icon="group"
-        content={jt`Users in ${<GroupName groupId={gtap.group_id} />} can view`}
+        content={jt`Users in ${(
+          <GroupName groupId={gtap.group_id} />
+        )} can view`}
       />
       <SummaryRow
         icon="table"
@@ -348,7 +343,7 @@ const GTAPSummary = ({ gtap }: { gtap: GTAP }) => {
             ? jt`rows in the ${(
                 <QuestionName questionId={gtap.card_id} />
               )} question`
-            : jt`rows in the ${<TableName tableId={gtap.table_id} />} table`
+            : jt`rows in the ${(<TableName tableId={gtap.table_id} />)} table`
         }
       />
       {Object.entries(gtap.attribute_remappings).map(
@@ -360,10 +355,10 @@ const GTAPSummary = ({ gtap }: { gtap: GTAP }) => {
               index === 0
                 ? jt`where ${(
                     <TargetName gtap={gtap} target={target} />
-                  )} equals ${<span className="text-code">{attribute}</span>}`
+                  )} equals ${(<span className="text-code">{attribute}</span>)}`
                 : jt`and ${(
                     <TargetName gtap={gtap} target={target} />
-                  )} equals ${<span className="text-code">{attribute}</span>}`
+                  )} equals ${(<span className="text-code">{attribute}</span>)}`
             }
           />
         ),

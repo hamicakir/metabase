@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { color, alpha, lighten } from "metabase/lib/colors";
-import Link from "metabase/components/Link";
+
 import Icon from "metabase/components/Icon";
+import Link from "metabase/components/Link";
+import { color, alpha, lighten } from "metabase/lib/colors";
 
 const HORIZONTAL_PADDING_VARIANTS = {
   sm: "0.5rem",

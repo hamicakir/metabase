@@ -1,10 +1,10 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { t } from "ttag";
 
 import LoadingSpinner from "metabase/components/LoadingSpinner";
-import { t } from "ttag";
-import cx from "classnames";
 
 export default class LoadingAndErrorWrapper extends Component {
   state = {

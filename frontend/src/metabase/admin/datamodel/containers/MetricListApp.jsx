@@ -2,12 +2,11 @@
 import React from "react";
 import { t } from "ttag";
 
-import Metrics from "metabase/entities/metrics";
 import MetricItem from "metabase/admin/datamodel/components/MetricItem";
 import FilteredToUrlTable from "metabase/admin/datamodel/hoc/FilteredToUrlTable";
-
 import Button from "metabase/components/Button";
 import Link from "metabase/components/Link";
+import Metrics from "metabase/entities/metrics";
 
 @Metrics.loadList({ wrapped: true })
 @FilteredToUrlTable("metrics")

@@ -1,14 +1,13 @@
-import { t } from "ttag";
 import { updateIn } from "icepick";
-
-import {
-  PLUGIN_ADMIN_SETTINGS_UPDATES,
-  PLUGIN_SHOW_CHANGE_PASSWORD_CONDITIONS,
-} from "metabase/plugins";
+import { t } from "ttag";
 
 import SettingsLdapForm from "metabase/admin/settings/components/SettingsLdapForm";
 import AuthenticationOption from "metabase/admin/settings/components/widgets/AuthenticationOption";
 import GroupMappingsWidget from "metabase/admin/settings/components/widgets/GroupMappingsWidget";
+import {
+  PLUGIN_ADMIN_SETTINGS_UPDATES,
+  PLUGIN_SHOW_CHANGE_PASSWORD_CONDITIONS,
+} from "metabase/plugins";
 
 PLUGIN_ADMIN_SETTINGS_UPDATES.push(
   sections =>

@@ -1,14 +1,11 @@
-import { createEntity } from "metabase/lib/entities";
-
+import { canonicalCollectionId } from "metabase/entities/collections";
 import { GET } from "metabase/lib/api";
-
+import { createEntity } from "metabase/lib/entities";
 import {
   ObjectUnionSchema,
   ENTITIES_SCHEMA_MAP,
   entityTypeForObject,
 } from "metabase/schema";
-
-import { canonicalCollectionId } from "metabase/entities/collections";
 
 const ENTITIES_TYPES = Object.keys(ENTITIES_SCHEMA_MAP);
 

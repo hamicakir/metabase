@@ -1,24 +1,21 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import { Box, Flex } from "grid-styled";
+import React from "react";
 import { t } from "ttag";
 
-import Schema from "metabase/entities/schemas";
-import Database from "metabase/entities/databases";
-
+import BrowseHeader from "metabase/browse/components/BrowseHeader";
+import { ANALYTICS_CONTEXT, ITEM_WIDTHS } from "metabase/browse/constants";
+import TableBrowser from "metabase/browse/containers/TableBrowser";
 import Card from "metabase/components/Card";
 import EntityItem from "metabase/components/EntityItem";
 import { Grid, GridItem } from "metabase/components/Grid";
 import Icon from "metabase/components/Icon";
 import Link from "metabase/components/Link";
 import Tooltip from "metabase/components/Tooltip";
-
-import TableBrowser from "metabase/browse/containers/TableBrowser";
-import * as Urls from "metabase/lib/urls";
+import Database from "metabase/entities/databases";
+import Schema from "metabase/entities/schemas";
 import { color } from "metabase/lib/colors";
-
-import BrowseHeader from "metabase/browse/components/BrowseHeader";
-import { ANALYTICS_CONTEXT, ITEM_WIDTHS } from "metabase/browse/constants";
+import * as Urls from "metabase/lib/urls";
 
 function SchemaBrowser(props) {
   const { schemas, params } = props;

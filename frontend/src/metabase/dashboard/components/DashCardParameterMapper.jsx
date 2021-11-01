@@ -2,9 +2,9 @@
 import React from "react";
 import { t } from "ttag";
 
-import DashCardCardParameterMapper from "../containers/DashCardCardParameterMapper";
-
 import { color } from "metabase/lib/colors";
+
+import DashCardCardParameterMapper from "../containers/DashCardCardParameterMapper";
 
 const DashCardParameterMapper = ({ dashcard }) => (
   <div className="relative flex-full flex flex-column layout-centered">

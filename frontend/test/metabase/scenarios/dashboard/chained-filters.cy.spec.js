@@ -311,10 +311,7 @@ describe("scenarios > dashboard > chained filter", () => {
         cy.icon("click").click();
         cy.findByText(/Ean/i).click();
         cy.findByText("Update a dashboard filter").click();
-        cy.findByText("Available filters")
-          .parent()
-          .findByText(/ID/i)
-          .click();
+        cy.findByText("Available filters").parent().findByText(/ID/i).click();
         popover().within(() => {
           cy.findByText(/Ean/i);
         });

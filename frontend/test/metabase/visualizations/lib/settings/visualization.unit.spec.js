@@ -1,6 +1,5 @@
 // NOTE: need to load visualizations first for getSettings to work
 import "metabase/visualizations/index";
-
 import {
   getComputedSettingsForSeries,
   getStoredSettingsForSeries,

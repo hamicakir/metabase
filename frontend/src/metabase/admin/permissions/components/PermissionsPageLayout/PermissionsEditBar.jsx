@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { t } from "ttag";
 import cx from "classnames";
+import PropTypes from "prop-types";
+import React from "react";
+import { t } from "ttag";
 
+import Button from "metabase/components/Button";
 import Confirm from "metabase/components/Confirm";
 import EditBar from "metabase/components/EditBar";
-import Button from "metabase/components/Button";
 
 import PermissionsConfirm from "../PermissionsConfirm";
 

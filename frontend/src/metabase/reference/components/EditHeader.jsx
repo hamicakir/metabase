@@ -1,10 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import PropTypes from "prop-types";
+import React from "react";
 import { t } from "ttag";
-import S from "./EditHeader.css";
 
 import RevisionMessageModal from "metabase/reference/components/RevisionMessageModal";
+
+import S from "./EditHeader.css";
 
 const EditHeader = ({
   hasRevisionHistory,

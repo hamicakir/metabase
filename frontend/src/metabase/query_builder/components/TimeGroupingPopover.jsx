@@ -1,8 +1,7 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-
-import { t } from "ttag";
 import cx from "classnames";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { t } from "ttag";
 
 const timeGroupingPopoverPropTypes = {
   title: PropTypes.string,

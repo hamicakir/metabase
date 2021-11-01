@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-import YearPicker from "./YearPicker";
-import { Flex } from "grid-styled";
-
-import moment from "moment";
-import _ from "underscore";
 import cx from "classnames";
+import { Flex } from "grid-styled";
+import moment from "moment";
+import React from "react";
+import _ from "underscore";
+
+import YearPicker from "./YearPicker";
 
 export default class DateMonthYearWidget extends React.Component {
   constructor(props, context) {
@@ -36,10 +36,7 @@ export default class DateMonthYearWidget extends React.Component {
   componentWillUnmount() {
     const { month, year } = this.state;
     if (month != null && year != null) {
-      const value = moment()
-        .year(year)
-        .month(month)
-        .format("YYYY-MM");
+      const value = moment().year(year).month(month).format("YYYY-MM");
       if (this.props.value !== value) {
         this.props.setValue(value);
       }
@@ -84,8 +81,6 @@ const Month = ({ month, selected, onClick }) => (
     )}
     onClick={onClick}
   >
-    {moment()
-      .month(month)
-      .format("MMMM")}
+    {moment().month(month).format("MMMM")}
   </div>
 );

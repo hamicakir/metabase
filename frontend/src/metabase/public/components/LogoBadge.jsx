@@ -1,8 +1,8 @@
 import React from "react";
-import LogoIcon from "metabase/components/LogoIcon";
-import ExternalLink from "metabase/components/ExternalLink";
-
 import { t, jt } from "ttag";
+
+import ExternalLink from "metabase/components/ExternalLink";
+import LogoIcon from "metabase/components/LogoIcon";
 
 type Props = {
   dark: boolean,

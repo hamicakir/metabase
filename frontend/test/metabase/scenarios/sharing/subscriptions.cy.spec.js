@@ -8,6 +8,7 @@ import {
   mockSlackConfigured,
 } from "__support__/e2e/cypress";
 import { USERS } from "__support__/e2e/cypress_data";
+
 const { admin } = USERS;
 
 describe("scenarios > dashboard > subscriptions", () => {
@@ -43,9 +44,7 @@ describe("scenarios > dashboard > subscriptions", () => {
       .type("Foo");
     cy.button("Save").click();
     cy.findByText("You're editing this dashboard.").should("not.exist");
-    cy.icon("share")
-      .closest("a")
-      .click();
+    cy.icon("share").closest("a").click();
 
     // Ensure clicking share icon opens sharing and embedding modal directly,
     // without a menu with sharing and dashboard subscription options.
@@ -137,17 +136,11 @@ describe("scenarios > dashboard > subscriptions", () => {
     it("should not display 'null' day of the week (metabase#14405)", () => {
       assignRecipient();
       cy.findByText("To:").click();
-      cy.get(".AdminSelect")
-        .contains("Hourly")
-        .click();
+      cy.get(".AdminSelect").contains("Hourly").click();
       cy.findByText("Monthly").click();
-      cy.get(".AdminSelect")
-        .contains("First")
-        .click();
+      cy.get(".AdminSelect").contains("First").click();
       cy.findByText("15th (Midpoint)").click();
-      cy.get(".AdminSelect")
-        .contains("15th (Midpoint)")
-        .click();
+      cy.get(".AdminSelect").contains("15th (Midpoint)").click();
       cy.findByText("First").click();
       clickButton("Done");
       // Implicit assertion (word mustn't contain string "null")
@@ -335,28 +328,14 @@ describe("scenarios > dashboard > subscriptions", () => {
 
         cy.findByText("Emailed hourly").click();
 
-        cy.findAllByText("Corbin Mertz")
-          .last()
-          .click();
-        popover()
-          .find("input")
-          .type("Bob");
-        popover()
-          .findByText("Bobby Kessler")
-          .click();
-        popover()
-          .contains("Update filter")
-          .click();
+        cy.findAllByText("Corbin Mertz").last().click();
+        popover().find("input").type("Bob");
+        popover().findByText("Bobby Kessler").click();
+        popover().contains("Update filter").click();
 
-        cy.findAllByText("Text 1")
-          .last()
-          .click();
-        popover()
-          .findByText("Gizmo")
-          .click();
-        popover()
-          .contains("Add filter")
-          .click();
+        cy.findAllByText("Text 1").last().click();
+        popover().findByText("Gizmo").click();
+        popover().contains("Add filter").click();
 
         cy.intercept("PUT", "/api/pulse/1").as("pulsePut");
 
@@ -386,10 +365,7 @@ function assignRecipient({ user = admin, dashboard_id = 1 } = {}) {
 }
 
 function clickButton(button_name) {
-  cy.contains(button_name)
-    .closest(".Button")
-    .should("not.be.disabled")
-    .click();
+  cy.contains(button_name).closest(".Button").should("not.be.disabled").click();
 }
 
 function createEmailSubscription() {
@@ -413,15 +389,9 @@ function addParametersToDashboard() {
 
   // add default value to the above filter
   cy.findByText("No default").click();
-  popover()
-    .find("input")
-    .type("Corbin");
-  popover()
-    .findByText("Corbin Mertz")
-    .click();
-  popover()
-    .contains("Add filter")
-    .click();
+  popover().find("input").type("Corbin");
+  popover().findByText("Corbin Mertz").click();
+  popover().contains("Add filter").click();
 
   // add Category > Dropdown "Category" filter
   cy.icon("filter").click();

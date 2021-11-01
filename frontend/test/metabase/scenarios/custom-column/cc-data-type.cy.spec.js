@@ -4,7 +4,6 @@ import {
   popover,
   enterCustomColumnDetails,
 } from "__support__/e2e/cypress";
-
 import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
 
 const { ORDERS_ID, PEOPLE_ID, PRODUCTS_ID } = SAMPLE_DATASET;
@@ -26,9 +25,7 @@ describe("scenarios > question > custom column > data type", () => {
     cy.button("Done").click();
 
     cy.findByText("Filter").click();
-    popover()
-      .findByText("CategoryTitle")
-      .click();
+    popover().findByText("CategoryTitle").click();
 
     cy.findByPlaceholderText("Enter a number").should("not.exist");
     cy.findByPlaceholderText("Enter some text");
@@ -41,9 +38,7 @@ describe("scenarios > question > custom column > data type", () => {
     cy.button("Done").click();
 
     cy.findByText("Filter").click();
-    popover()
-      .findByText("DoB")
-      .click();
+    popover().findByText("DoB").click();
 
     cy.findByPlaceholderText("Enter a number").should("not.exist");
 
@@ -61,9 +56,7 @@ describe("scenarios > question > custom column > data type", () => {
     cy.button("Done").click();
 
     cy.findByText("Filter").click();
-    popover()
-      .findByText("MiscDate")
-      .click();
+    popover().findByText("MiscDate").click();
 
     cy.findByPlaceholderText("Enter a number").should("not.exist");
 
@@ -81,9 +74,7 @@ describe("scenarios > question > custom column > data type", () => {
     cy.button("Done").click();
 
     cy.findByText("Filter").click();
-    popover()
-      .findByText("MiscDate")
-      .click();
+    popover().findByText("MiscDate").click();
 
     cy.findByPlaceholderText("Enter a number").should("not.exist");
 

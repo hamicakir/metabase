@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import _ from "underscore";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import _ from "underscore";
 
-import { PLUGIN_ADVANCED_PERMISSIONS } from "metabase/plugins";
-import Tables from "metabase/entities/tables";
 import Groups from "metabase/entities/groups";
+import Tables from "metabase/entities/tables";
+import { PLUGIN_ADVANCED_PERMISSIONS } from "metabase/plugins";
 
-import { getIsDirty, getDiff } from "../../selectors/data-permissions";
+import PermissionsPageLayout from "../../components/PermissionsPageLayout/PermissionsPageLayout";
 import {
   saveDataPermissions,
   loadDataPermissions,
   initializeDataPermissions,
 } from "../../permissions";
-import PermissionsPageLayout from "../../components/PermissionsPageLayout/PermissionsPageLayout";
+import { getIsDirty, getDiff } from "../../selectors/data-permissions";
 
 const mapDispatchToProps = {
   loadPermissions: loadDataPermissions,
@@ -90,8 +90,5 @@ DataPermissionsPage.propTypes = propTypes;
 
 export default _.compose(
   Groups.loadList(),
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
+  connect(mapStateToProps, mapDispatchToProps),
 )(DataPermissionsPage);

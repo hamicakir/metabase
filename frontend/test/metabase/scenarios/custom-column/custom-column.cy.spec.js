@@ -6,7 +6,6 @@ import {
   visitQuestionAdhoc,
   enterCustomColumnDetails,
 } from "__support__/e2e/cypress";
-
 import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
 
 const { ORDERS, ORDERS_ID, PRODUCTS, PRODUCTS_ID } = SAMPLE_DATASET;
@@ -245,10 +244,7 @@ describe("scenarios > question > custom column", () => {
       cy.visit(`/question/${QUESTION_ID}`);
 
       // Test displays collapsed filter - click on number 1 to expand and show the filter name
-      cy.icon("filter")
-        .parent()
-        .contains("1")
-        .click();
+      cy.icon("filter").parent().contains("1").click();
 
       cy.findByText(/Subtotal is greater than 0/i)
         .parent()
@@ -319,9 +315,7 @@ describe("scenarios > question > custom column", () => {
     cy.findByText("Join data").should("not.exist");
 
     cy.log("Reported failing on 0.38.1-SNAPSHOT (6d77f099)");
-    cy.get("[class*=NotebookCellItem]")
-      .contains(CE_NAME)
-      .should("not.exist");
+    cy.get("[class*=NotebookCellItem]").contains(CE_NAME).should("not.exist");
 
     visualize(response => {
       expect(response.body.error).to.not.exist;
@@ -382,12 +376,8 @@ describe("scenarios > question > custom column", () => {
     });
     cy.findByText("Summarize").click();
     cy.findByText("Sum of ...").click();
-    popover()
-      .findByText("MyCC [2021]")
-      .click();
-    cy.get("[class*=NotebookCellItem]")
-      .contains("Sum of MyCC [2021]")
-      .click();
+    popover().findByText("MyCC [2021]").click();
+    cy.get("[class*=NotebookCellItem]").contains("Sum of MyCC [2021]").click();
     popover().within(() => {
       cy.icon("chevronleft").click();
       cy.findByText("Custom Expression").click();
@@ -433,9 +423,7 @@ describe("scenarios > question > custom column", () => {
       cy.button("Done").click();
     });
     cy.findByText("Filter").click();
-    popover()
-      .contains("MiscDate")
-      .click();
+    popover().contains("MiscDate").click();
     // The popover shows up with the default value selected - previous 30 days.
     // Since we don't have any orders in the Sample Dataset for that period, we have to change it to the previous 30 years.
     cy.findByText("Days").click();

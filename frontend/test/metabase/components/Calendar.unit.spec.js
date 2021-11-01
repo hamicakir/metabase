@@ -1,7 +1,7 @@
-import React from "react";
-import moment from "moment";
-import mockDate from "mockdate";
 import { render, screen, fireEvent } from "@testing-library/react";
+import mockDate from "mockdate";
+import moment from "moment";
+import React from "react";
 
 import Calendar from "metabase/components/Calendar";
 

@@ -1,9 +1,11 @@
-import React, { useCallback, useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import React, { useCallback, useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { t } from "ttag";
 import _ from "underscore";
 
+import { getParentPath } from "metabase/collections/utils";
+import LoadingSpinner from "metabase/components/LoadingSpinner";
 import Collection from "metabase/entities/collections";
 import { getUser } from "metabase/selectors/user";
 
@@ -13,13 +15,9 @@ import {
   Sidebar,
   ToggleMobileSidebarIcon,
 } from "./CollectionSidebar.styled";
-
-import RootCollectionLink from "./RootCollectionLink/RootCollectionLink";
 import Footer from "./CollectionSidebarFooter/CollectionSidebarFooter";
 import Collections from "./Collections/Collections";
-import LoadingSpinner from "metabase/components/LoadingSpinner";
-
-import { getParentPath } from "metabase/collections/utils";
+import RootCollectionLink from "./RootCollectionLink/RootCollectionLink";
 import { updateOpenCollectionList } from "./updateOpenCollectionList";
 
 const collectionEntityQuery = {

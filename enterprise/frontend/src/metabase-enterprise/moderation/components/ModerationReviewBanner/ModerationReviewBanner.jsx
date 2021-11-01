@@ -1,16 +1,18 @@
-import React from "react";
 import PropTypes from "prop-types";
-import _ from "underscore";
+import React from "react";
 import { connect } from "react-redux";
+import _ from "underscore";
 
-import { color, alpha } from "metabase/lib/colors";
-import { getUser } from "metabase/selectors/user";
-import { getRelativeTimeAbbreviated } from "metabase/lib/time";
 import {
   getTextForReviewBanner,
   getIconForReview,
 } from "metabase-enterprise/moderation/service";
+
+import Tooltip from "metabase/components/Tooltip";
 import User from "metabase/entities/users";
+import { color, alpha } from "metabase/lib/colors";
+import { getRelativeTimeAbbreviated } from "metabase/lib/time";
+import { getUser } from "metabase/selectors/user";
 
 import {
   Container,
@@ -19,7 +21,6 @@ import {
   IconButton,
   StatusIcon,
 } from "./ModerationReviewBanner.styled";
-import Tooltip from "metabase/components/Tooltip";
 
 const ICON_BUTTON_SIZE = 20;
 const TOOLTIP_X_OFFSET = ICON_BUTTON_SIZE / 4;
@@ -60,9 +61,8 @@ export function ModerationReviewBanner({
   const relativeCreationTime = getRelativeTimeAbbreviated(
     moderationReview.created_at,
   );
-  const { name: iconName, color: iconColor } = getIconForReview(
-    moderationReview,
-  );
+  const { name: iconName, color: iconColor } =
+    getIconForReview(moderationReview);
   const showClose = isHovering || isActive;
 
   return (

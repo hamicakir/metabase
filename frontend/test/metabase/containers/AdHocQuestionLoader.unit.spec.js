@@ -1,12 +1,12 @@
-import React from "react";
 import { render } from "@testing-library/react";
+import React from "react";
 
 import Question from "metabase-lib/lib/Question";
-import { delay } from "metabase/lib/promise";
 
 // import the un-connected component so we can test its internal logic sans
 // redux
 import { AdHocQuestionLoader } from "metabase/containers/AdHocQuestionLoader";
+import { delay } from "metabase/lib/promise";
 
 describe("AdHocQuestionLoader", () => {
   let loadQuestionSpy, loadMetadataSpy, mockChild;

@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-
 import { Flex } from "grid-styled";
+import React from "react";
 
 import Subhead from "metabase/components/type/Subhead";
 

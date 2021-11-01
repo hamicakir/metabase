@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 
-import ParameterTargetWidget from "metabase/parameters/components/ParameterTargetWidget";
-import { QuestionLoaderHOC } from "metabase/containers/QuestionLoader";
-
-import { getParameterMappingOptions } from "metabase/parameters/utils/mapping-options";
-
 import type { ParameterTarget } from "metabase-types/types/Parameter";
+
+import { QuestionLoaderHOC } from "metabase/containers/QuestionLoader";
+import ParameterTargetWidget from "metabase/parameters/components/ParameterTargetWidget";
+import { getParameterMappingOptions } from "metabase/parameters/utils/mapping-options";
 
 type Props = {
   questionObject?: any, // FIXME: minimal card

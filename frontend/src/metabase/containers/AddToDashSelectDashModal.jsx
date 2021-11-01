@@ -1,19 +1,18 @@
 /* eslint-disable react/prop-types */
+import { Flex } from "grid-styled";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { t } from "ttag";
-import { Flex } from "grid-styled";
 
+import type { Card } from "metabase-types/types/Card";
+import type { Dashboard as DashboardType } from "metabase-types/types/Dashboard";
+
+import CreateDashboardModal from "metabase/components/CreateDashboardModal";
 import Icon from "metabase/components/Icon";
 import Link from "metabase/components/Link";
 import ModalContent from "metabase/components/ModalContent";
-import CreateDashboardModal from "metabase/components/CreateDashboardModal";
 import DashboardPicker from "metabase/containers/DashboardPicker";
-
 import * as Urls from "metabase/lib/urls";
-
-import type { Dashboard as DashboardType } from "metabase-types/types/Dashboard";
-import type { Card } from "metabase-types/types/Card";
 
 function mapStateToProps(state) {
   return {

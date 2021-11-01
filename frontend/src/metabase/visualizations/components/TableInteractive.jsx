@@ -1,16 +1,29 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import "./TableInteractive.css";
+import Draggable from "react-draggable";
+import { Grid, ScrollSync } from "react-virtualized";
+import _ from "underscore";
 
-import Icon from "metabase/components/Icon";
+import Dimension from "metabase-lib/lib/Dimension";
+import { memoize } from "metabase-lib/lib/utils";
 
+import type { VisualizationSettings } from "metabase-types/types/Card";
+import type { DatasetData, Value } from "metabase-types/types/Dataset";
+import type {
+  VisualizationProps,
+  ClickObject,
+} from "metabase-types/types/Visualization";
+
+import Ellipsified from "metabase/components/Ellipsified";
+import ExplicitSize from "metabase/components/ExplicitSize";
 import ExternalLink from "metabase/components/ExternalLink";
-
+import Icon from "metabase/components/Icon";
+import { fieldRefForColumn } from "metabase/lib/dataset";
 import { formatValue } from "metabase/lib/formatting";
 import { isID, isFK } from "metabase/lib/schema_metadata";
-import { memoize } from "metabase-lib/lib/utils";
 import {
   getTableCellClickedObject,
   getTableHeaderClickedObject,
@@ -18,18 +31,9 @@ import {
   isColumnRightAligned,
 } from "metabase/visualizations/lib/table";
 import { getColumnExtent } from "metabase/visualizations/lib/utils";
-import { fieldRefForColumn } from "metabase/lib/dataset";
-import Dimension from "metabase-lib/lib/Dimension";
 
-import _ from "underscore";
-import cx from "classnames";
-
-import ExplicitSize from "metabase/components/ExplicitSize";
 import MiniBar from "./MiniBar";
-
-import { Grid, ScrollSync } from "react-virtualized";
-import Draggable from "react-draggable";
-import Ellipsified from "metabase/components/Ellipsified";
+import "./TableInteractive.css";
 
 const HEADER_HEIGHT = 36;
 const ROW_HEIGHT = 36;
@@ -40,13 +44,6 @@ const HEADER_DRAG_THRESHOLD = 5;
 
 // HACK: used to get react-draggable to reset after a drag
 let DRAG_COUNTER = 0;
-
-import type {
-  VisualizationProps,
-  ClickObject,
-} from "metabase-types/types/Visualization";
-import type { VisualizationSettings } from "metabase-types/types/Card";
-import type { DatasetData, Value } from "metabase-types/types/Dataset";
 
 function pickRowsToMeasure(rows, columnIndex, count = 10) {
   const rowIndexes = [];
@@ -599,13 +596,8 @@ export default class TableInteractive extends Component {
   }
 
   tableHeaderRenderer = ({ key, style, columnIndex }: CellRendererProps) => {
-    const {
-      data,
-      sort,
-      isPivoted,
-      getColumnTitle,
-      renderTableHeaderWrapper,
-    } = this.props;
+    const { data, sort, isPivoted, getColumnTitle, renderTableHeaderWrapper } =
+      this.props;
     const { dragColIndex } = this.state;
     const { cols } = data;
     const column = cols[columnIndex];

@@ -1,5 +1,5 @@
-import React from "react";
 import { render } from "@testing-library/react";
+import React from "react";
 
 import Scalar from "metabase/visualizations/visualizations/Scalar";
 

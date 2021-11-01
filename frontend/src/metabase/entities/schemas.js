@@ -1,14 +1,13 @@
 import { updateIn } from "icepick";
-import { createEntity } from "metabase/lib/entities";
 
+import Questions from "metabase/entities/questions";
 import { GET } from "metabase/lib/api";
+import { createEntity } from "metabase/lib/entities";
 import {
   getCollectionVirtualSchemaId,
   getQuestionVirtualTableId,
 } from "metabase/lib/saved-questions";
-
 import { SchemaSchema, generateSchemaId, parseSchemaId } from "metabase/schema";
-import Questions from "metabase/entities/questions";
 
 // This is a weird entity because we don't have actual schema objects
 

@@ -1,19 +1,19 @@
 import moment from "moment";
 
+import { FieldDimension } from "metabase-lib/lib/Dimension";
+import Question from "metabase-lib/lib/Question";
+import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
+
+import type { Breakout } from "metabase-types/types/Query";
+import type { DimensionValue } from "metabase-types/types/Visualization";
+
 import {
   rangeForValue,
   fieldRefForColumn,
   fieldRefWithOption,
 } from "metabase/lib/dataset";
 import { isDate, isNumber } from "metabase/lib/schema_metadata";
-
-import type { Breakout } from "metabase-types/types/Query";
-import type { DimensionValue } from "metabase-types/types/Visualization";
 import { parseTimestamp } from "metabase/lib/time";
-
-import Question from "metabase-lib/lib/Question";
-import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
-import { FieldDimension } from "metabase-lib/lib/Dimension";
 
 export { drillDownForDimensions } from "./drilldown";
 
@@ -22,20 +22,14 @@ export { drillDownForDimensions } from "./drilldown";
 export function aggregate(question: Question, aggregation): ?Question {
   const query = question.query();
   if (query instanceof StructuredQuery) {
-    return query
-      .aggregate(aggregation)
-      .question()
-      .setDefaultDisplay();
+    return query.aggregate(aggregation).question().setDefaultDisplay();
   }
 }
 
 export function breakout(question: Question, breakout): ?Question {
   const query = question.query();
   if (query instanceof StructuredQuery) {
-    return query
-      .breakout(breakout)
-      .question()
-      .setDefaultDisplay();
+    return query.breakout(breakout).question().setDefaultDisplay();
   }
 }
 

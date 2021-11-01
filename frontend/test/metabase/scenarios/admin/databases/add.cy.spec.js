@@ -6,17 +6,11 @@ import {
 } from "__support__/e2e/cypress";
 
 function typeField(label, value) {
-  cy.findByLabelText(label)
-    .clear()
-    .type(value)
-    .blur();
+  cy.findByLabelText(label).clear().type(value).blur();
 }
 
 function toggleFieldWithDisplayName(displayName) {
-  cy.contains(displayName)
-    .closest(".Form-field")
-    .find("a")
-    .click();
+  cy.contains(displayName).closest(".Form-field").find("a").click();
 }
 
 describe("scenarios > admin > databases > add", () => {
@@ -49,9 +43,7 @@ describe("scenarios > admin > databases > add", () => {
     typeField("Database name", "test_postgres_db");
     typeField("Username", "uberadmin");
 
-    cy.button("Save")
-      .should("not.be.disabled")
-      .click();
+    cy.button("Save").should("not.be.disabled").click();
 
     cy.wait("@createDatabase");
     cy.url().should("match", /\/admin\/databases\?created=42$/);
@@ -85,17 +77,13 @@ describe("scenarios > admin > databases > add", () => {
     typeField("Database name", "test_postgres_db");
     typeField("Username", "uberadmin");
 
-    cy.button("Save")
-      .should("not.be.disabled")
-      .click();
+    cy.button("Save").should("not.be.disabled").click();
 
     cy.wait("@createDatabase");
 
     toggleFieldWithDisplayName("let me choose when Metabase syncs and scans");
 
-    cy.button("Next")
-      .should("not.be.disabled")
-      .click();
+    cy.button("Next").should("not.be.disabled").click();
 
     cy.findByText(
       "Couldn't connect to the database. Please check the connection details.",
@@ -116,9 +104,7 @@ describe("scenarios > admin > databases > add", () => {
 
     toggleFieldWithDisplayName("let me choose when Metabase syncs and scans");
 
-    cy.button("Next")
-      .should("not.be.disabled")
-      .click();
+    cy.button("Next").should("not.be.disabled").click();
 
     cy.findByText("Never, I'll do this manually if I need to").click();
 
@@ -341,13 +327,8 @@ describe("scenarios > admin > databases > add", () => {
       typeField("Username", "uberadmin");
 
       cy.findByText("Use instance default (TTL)").click();
-      popover()
-        .findByText("Custom")
-        .click();
-      cy.findByDisplayValue("24")
-        .clear()
-        .type("48")
-        .blur();
+      popover().findByText("Custom").click();
+      cy.findByDisplayValue("24").clear().type("48").blur();
 
       cy.button("Save").click();
 
@@ -363,14 +344,10 @@ function chooseDatabase(database) {
     .parents(".Form-field")
     .find(".AdminSelect")
     .click();
-  popover()
-    .contains(database)
-    .click({ force: true });
+  popover().contains(database).click({ force: true });
 }
 
 function isSyncOptionSelected(option) {
   // This is a really bad way to assert that the text element is selected/active. Can it be fixed in the FE code?
-  cy.findByText(option)
-    .parent()
-    .should("have.class", "text-brand");
+  cy.findByText(option).parent().should("have.class", "text-brand");
 }

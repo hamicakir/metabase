@@ -1,20 +1,6 @@
+import cx from "classnames";
 import React, { Component } from "react";
 import { t } from "ttag";
-import DatePicker from "metabase/query_builder/components/filters/pickers/DatePicker";
-import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
-import SelectButton from "metabase/components/SelectButton";
-import Button from "metabase/components/Button";
-
-import * as Query from "metabase/lib/query/query";
-import * as Filter from "metabase/lib/query/filter";
-import * as Card from "metabase/meta/Card";
-
-import {
-  parseFieldTarget,
-  generateTimeFilterValuesDescriptions,
-} from "metabase/lib/query_time";
-
-import cx from "classnames";
 import _ from "underscore";
 
 import type {
@@ -22,6 +8,18 @@ import type {
   StructuredDatasetQuery,
 } from "metabase-types/types/Card";
 import type { FieldFilter } from "metabase-types/types/Query";
+
+import Button from "metabase/components/Button";
+import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
+import SelectButton from "metabase/components/SelectButton";
+import * as Filter from "metabase/lib/query/filter";
+import * as Query from "metabase/lib/query/query";
+import {
+  parseFieldTarget,
+  generateTimeFilterValuesDescriptions,
+} from "metabase/lib/query_time";
+import * as Card from "metabase/meta/Card";
+import DatePicker from "metabase/query_builder/components/filters/pickers/DatePicker";
 
 type Props = {
   className?: string,
@@ -84,9 +82,8 @@ export default class TimeseriesFilterWidget extends Component {
     let currentDescription;
 
     if (currentFilter) {
-      currentDescription = generateTimeFilterValuesDescriptions(
-        currentFilter,
-      ).join(" - ");
+      currentDescription =
+        generateTimeFilterValuesDescriptions(currentFilter).join(" - ");
       if (currentFilter[0] === ">") {
         currentDescription = t`After ${currentDescription}`;
       } else if (currentFilter[0] === "<") {

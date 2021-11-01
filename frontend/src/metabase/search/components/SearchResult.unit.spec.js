@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import { setupEnterpriseTest } from "__support__/enterprise";
+import React from "react";
+
 import SearchResult from "./SearchResult";
 
 function collection({

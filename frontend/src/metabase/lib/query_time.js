@@ -1,11 +1,11 @@
-import moment from "moment";
 import inflection from "inflection";
-
-import { formatDateTimeWithUnit } from "metabase/lib/formatting";
-import { parseTimestamp } from "metabase/lib/time";
+import moment from "moment";
 import { t, ngettext, msgid } from "ttag";
 
 import { FieldDimension } from "metabase-lib/lib/Dimension";
+
+import { formatDateTimeWithUnit } from "metabase/lib/formatting";
+import { parseTimestamp } from "metabase/lib/time";
 
 export const DATETIME_UNITS = [
   // "default",

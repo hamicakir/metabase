@@ -1,10 +1,9 @@
-import Question from "../Question";
-
-import Base from "./Base";
-
 import { memoize, createLookupByProperty } from "metabase-lib/lib/utils";
 
 import { generateSchemaId } from "metabase/schema";
+
+import Question from "../Question";
+import Base from "./Base";
 
 /**
  * @typedef { import("./metadata").SchemaName } SchemaName
@@ -90,9 +89,7 @@ export default class Database extends Base {
   // QUESTIONS
 
   newQuestion() {
-    return this.question()
-      .setDefaultQuery()
-      .setDefaultDisplay();
+    return this.question().setDefaultQuery().setDefaultDisplay();
   }
 
   question(query = { "source-table": null }) {

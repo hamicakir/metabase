@@ -1,22 +1,18 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import { Box, Flex } from "grid-styled";
+import moment from "moment";
+import React from "react";
 import { t } from "ttag";
-
 import _ from "underscore";
 
+import Card from "metabase/components/Card";
+import ExternalLink from "metabase/components/ExternalLink";
+import Link from "metabase/components/Link";
+import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
+import fitViewport from "metabase/hoc/FitViewPort";
 import colors from "metabase/lib/colors";
 
 import StoreIcon from "../components/StoreIcon";
-import Card from "metabase/components/Card";
-import Link from "metabase/components/Link";
-import ExternalLink from "metabase/components/ExternalLink";
-import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
-
-import fitViewport from "metabase/hoc/FitViewPort";
-
-import moment from "moment";
-
 import FEATURES from "../lib/features";
 import { StoreApi } from "../lib/services";
 

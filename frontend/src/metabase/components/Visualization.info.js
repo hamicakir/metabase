@@ -1,4 +1,5 @@
 import React from "react";
+
 import Visualization from "metabase/visualizations/components/Visualization";
 
 export const component = Visualization;
@@ -17,7 +18,11 @@ const PROPS = {
 };
 
 const DATA = {
-  rows: [["a", 1], ["b", 2], ["c", 3]],
+  rows: [
+    ["a", 1],
+    ["b", 2],
+    ["c", 3],
+  ],
   cols: [
     { name: "foo", display_name: "Foo", base_type: "type/Text" },
     { name: "bar", display_name: "Bar", base_type: "type/Number" },

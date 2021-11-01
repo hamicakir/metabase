@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { t } from "ttag";
 import { connect } from "react-redux";
 import { goBack } from "react-router-redux";
+import { t } from "ttag";
 import _ from "underscore";
 
 import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
@@ -50,10 +50,7 @@ const renderTriggersTable = triggers => {
   );
 };
 
-@connect(
-  null,
-  { fetchJobInfo, goBack },
-)
+@connect(null, { fetchJobInfo, goBack })
 export default class JobTriggersModal extends React.Component {
   state = {
     triggers: null,

@@ -1,23 +1,20 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { t } from "ttag";
 import { getIn } from "icepick";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createSelector } from "reselect";
-
-import Visualization from "metabase/visualizations/components/Visualization";
-
-import * as MetabaseAnalytics from "metabase/lib/analytics";
-import { color } from "metabase/lib/colors";
-
-import Questions from "metabase/entities/questions";
-import { getMetadataWithHiddenTables } from "metabase/selectors/metadata";
-import { loadMetadataForQueries } from "metabase/redux/metadata";
+import { t } from "ttag";
 
 import Question from "metabase-lib/lib/Question";
 
+import Questions from "metabase/entities/questions";
+import * as MetabaseAnalytics from "metabase/lib/analytics";
+import { color } from "metabase/lib/colors";
+import { loadMetadataForQueries } from "metabase/redux/metadata";
+import { getMetadataWithHiddenTables } from "metabase/selectors/metadata";
 import { getVisualizationRaw } from "metabase/visualizations";
+import Visualization from "metabase/visualizations/components/Visualization";
 
 import { QuestionList } from "./QuestionList";
 

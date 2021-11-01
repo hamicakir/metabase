@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import { render } from "@testing-library/react";
+import { state as sampleDatasetReduxState } from "__support__/sample_dataset_fixture";
 import { createMemoryHistory } from "history";
-import { Router, Route } from "react-router";
-import { Provider } from "react-redux";
-import { reducer as form } from "redux-form";
-import { ThemeProvider } from "styled-components";
+import React from "react";
 import { DragDropContextProvider } from "react-dnd";
 import HTML5Backend from "react-dnd-html5-backend";
-import { state as sampleDatasetReduxState } from "__support__/sample_dataset_fixture";
+import { Provider } from "react-redux";
+import { Router, Route } from "react-router";
+import { reducer as form } from "redux-form";
+import { ThemeProvider } from "styled-components";
+
 import { getStore } from "./entities-store";
 
 function getUser(user = {}) {

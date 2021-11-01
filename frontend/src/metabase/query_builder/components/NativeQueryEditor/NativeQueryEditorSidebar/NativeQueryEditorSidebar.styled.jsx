@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
-import { space } from "metabase/styled-components/theme";
-
 import RunButtonWithTooltip from "metabase/query_builder/components/RunButtonWithTooltip";
+import { space } from "metabase/styled-components/theme";
 
 export const Container = styled.aside`
   display: flex;

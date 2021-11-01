@@ -4,10 +4,9 @@ import {
   filterWidget,
   visitQuestionAdhoc,
 } from "__support__/e2e/cypress";
+import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
 
 import * as SQLFilter from "../helpers/e2e-sql-filter-helpers";
-
-import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
 
 const { PRODUCTS } = SAMPLE_DATASET;
 
@@ -48,9 +47,7 @@ describe("issue 15460", () => {
 
   it("should be possible to use field filter on a query with joins where tables have similar columns (metabase#15460)", () => {
     // Set the filter value by picking the value from the dropdown
-    filterWidget()
-      .contains(filter["display-name"])
-      .click();
+    filterWidget().contains(filter["display-name"]).click();
 
     popover().within(() => {
       cy.findByText("Doohickey").click();

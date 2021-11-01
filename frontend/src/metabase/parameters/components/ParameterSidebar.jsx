@@ -1,19 +1,17 @@
 /* eslint-disable react/prop-types */
+import cx from "classnames";
 import React from "react";
 import { t, jt } from "ttag";
-import cx from "classnames";
 
-import { DashboardApi } from "metabase/services";
-import Fields from "metabase/entities/fields";
-import Tables from "metabase/entities/tables";
-
-import Radio from "metabase/components/Radio";
-import Toggle from "metabase/components/Toggle";
 import InputBlurChange from "metabase/components/InputBlurChange";
 import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
-
-import ParameterValueWidget from "metabase/parameters/components/ParameterValueWidget";
+import Radio from "metabase/components/Radio";
+import Toggle from "metabase/components/Toggle";
 import Sidebar from "metabase/dashboard/components/Sidebar";
+import Fields from "metabase/entities/fields";
+import Tables from "metabase/entities/tables";
+import ParameterValueWidget from "metabase/parameters/components/ParameterValueWidget";
+import { DashboardApi } from "metabase/services";
 
 const tabs = [
   { value: "settings", name: t`Settings`, icon: "gear" },

@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
+import { Flex } from "grid-styled";
 import React, { Component } from "react";
 import { Link } from "react-router";
-import { Flex } from "grid-styled";
-import { SetupApi } from "metabase/services";
 import { t } from "ttag";
-import { color } from "metabase/lib/colors";
-import MetabaseSettings from "metabase/lib/settings";
 
+import MarginHostingCTA from "metabase/admin/settings/components/widgets/MarginHostingCTA";
 import Icon from "metabase/components/Icon";
 import LoadingAndErrorWrapper from "metabase/components/LoadingAndErrorWrapper";
-import MarginHostingCTA from "metabase/admin/settings/components/widgets/MarginHostingCTA";
+import { color } from "metabase/lib/colors";
+import MetabaseSettings from "metabase/lib/settings";
+import { SetupApi } from "metabase/services";
 
 const TaskList = ({ tasks }) => (
   <ol>

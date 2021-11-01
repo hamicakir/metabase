@@ -1,4 +1,5 @@
 import { setupEnterpriseTest } from "__support__/enterprise";
+
 import {
   getCollectionIcon,
   ROOT_COLLECTION,

@@ -1,18 +1,16 @@
 /* eslint "react/prop-types": "warn" */
-import React, { Component } from "react";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import * as MetabaseAnalytics from "metabase/lib/analytics";
-
-import MetricSidebar from "./MetricSidebar";
 import SidebarLayout from "metabase/components/SidebarLayout";
-import MetricDetail from "metabase/reference/metrics/MetricDetail";
-
+import * as MetabaseAnalytics from "metabase/lib/analytics";
 import * as metadataActions from "metabase/redux/metadata";
+import MetricDetail from "metabase/reference/metrics/MetricDetail";
 import * as actions from "metabase/reference/reference";
 
 import { getUser, getMetric, getMetricId, getDatabaseId } from "../selectors";
+import MetricSidebar from "./MetricSidebar";
 
 const mapStateToProps = (state, props) => ({
   user: getUser(state, props),
@@ -26,10 +24,7 @@ const mapDispatchToProps = {
   ...actions,
 };
 
-@connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class MetricDetailContainer extends Component {
   static propTypes = {
     router: PropTypes.shape({

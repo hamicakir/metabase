@@ -1,4 +1,3 @@
-import _ from "underscore";
 import {
   restore,
   modal,
@@ -8,6 +7,7 @@ import {
 } from "__support__/e2e/cypress";
 import { USERS, USER_GROUPS } from "__support__/e2e/cypress_data";
 import { SAMPLE_DATASET } from "__support__/e2e/cypress_sample_dataset";
+import _ from "underscore";
 
 const { normal, admin } = USERS;
 const { DATA_GROUP } = USER_GROUPS;
@@ -155,10 +155,7 @@ describe("scenarios > admin > people", () => {
       cy.visit("/admin/people");
       showUserOptions(FULL_NAME);
       cy.findByText("Edit user").click();
-      cy.findByDisplayValue(first_name)
-        .click()
-        .clear()
-        .type(NEW_NAME);
+      cy.findByDisplayValue(first_name).click().clear().type(NEW_NAME);
 
       clickButton("Update");
       cy.findByText(NEW_FULL_NAME);
@@ -334,9 +331,7 @@ function showUserOptions(full_name) {
 }
 
 function clickButton(button_name) {
-  cy.button(button_name)
-    .should("not.be.disabled")
-    .click();
+  cy.button(button_name).should("not.be.disabled").click();
 }
 
 function assertTableRowsCount(length) {

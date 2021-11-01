@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
-import styles from "./Legend.css";
+import React, { Component } from "react";
+
+import Icon, { iconPropTypes } from "metabase/components/Icon";
+import { normal } from "metabase/lib/colors";
 
 import ExplicitSize from "../../components/ExplicitSize";
-import Icon, { iconPropTypes } from "metabase/components/Icon";
+import styles from "./Legend.css";
 import LegendItem from "./LegendItem";
 
-import cx from "classnames";
-
-import { normal } from "metabase/lib/colors";
 const DEFAULT_COLORS = Object.values(normal);
 const MIN_WIDTH_PER_SERIES = 100;
 

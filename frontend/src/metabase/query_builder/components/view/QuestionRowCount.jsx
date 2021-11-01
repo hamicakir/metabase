@@ -1,15 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-
 import { ngettext, msgid, t } from "ttag";
 
-import { formatNumber } from "metabase/lib/formatting";
-import { HARD_ROW_LIMIT } from "metabase/lib/query";
+import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
 
 import PopoverWithTrigger from "metabase/components/PopoverWithTrigger";
+import { formatNumber } from "metabase/lib/formatting";
+import { HARD_ROW_LIMIT } from "metabase/lib/query";
 import LimitPopover from "metabase/query_builder/components/LimitPopover";
-
-import StructuredQuery from "metabase-lib/lib/queries/StructuredQuery";
 
 const QuestionRowCount = ({
   question,

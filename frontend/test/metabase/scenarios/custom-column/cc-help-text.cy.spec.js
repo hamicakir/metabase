@@ -25,9 +25,7 @@ describe("scenarios > question > custom column > help text", () => {
   });
 
   it("should not appear when formula field is not in focus (metabase#15891)", () => {
-    cy.get("[contenteditable='true']")
-      .as("formulaField")
-      .type(`rou{enter}1.5`);
+    cy.get("[contenteditable='true']").as("formulaField").type(`rou{enter}1.5`);
 
     cy.findByText("round([Temperature])");
 

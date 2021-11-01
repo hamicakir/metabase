@@ -1,9 +1,10 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { t } from "ttag";
 
-import { Container } from "./DashboardEmptyState.styled";
 import EmptyState from "metabase/components/EmptyState";
+
+import { Container } from "./DashboardEmptyState.styled";
 
 const propTypes = {
   isNightMode: PropTypes.bool.isRequired,

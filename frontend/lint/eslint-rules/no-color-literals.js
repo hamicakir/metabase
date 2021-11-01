@@ -9,7 +9,8 @@
 // Rule Definition
 //------------------------------------------------------------------------------
 
-const COLOR_REGEX = /(?:#[a-fA-F0-9]{3}(?:[a-fA-F0-9]{3})?\b|(?:rgb|hsl)a?\(\s*\d+\s*(?:,\s*\d+(?:\.\d+)?%?\s*){2,3}\))/g;
+const COLOR_REGEX =
+  /(?:#[a-fA-F0-9]{3}(?:[a-fA-F0-9]{3})?\b|(?:rgb|hsl)a?\(\s*\d+\s*(?:,\s*\d+(?:\.\d+)?%?\s*){2,3}\))/g;
 const LINT_MESSAGE =
   "Color literals forbidden. Import colors from 'metabase/lib/colors'.";
 
@@ -22,7 +23,7 @@ module.exports = {
     },
     schema: [], // no options
   },
-  create: function(context) {
+  create: function (context) {
     return {
       Literal(node) {
         if (typeof node.value === "string" && COLOR_REGEX.test(node.value)) {

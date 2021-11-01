@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 
 import { PLUGIN_LOGO_ICON_COMPONENTS } from "metabase/plugins";
 

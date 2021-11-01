@@ -1,7 +1,7 @@
 import { PLUGIN_MODERATION } from "metabase/plugins";
-import QuestionModerationSection from "./components/QuestionModerationSection/QuestionModerationSection";
-import ModerationStatusIcon from "./components/ModerationStatusIcon/ModerationStatusIcon";
 
+import ModerationStatusIcon from "./components/ModerationStatusIcon/ModerationStatusIcon";
+import QuestionModerationSection from "./components/QuestionModerationSection/QuestionModerationSection";
 import {
   getStatusIconForQuestion,
   getStatusIcon,

@@ -1,17 +1,13 @@
 /* eslint-disable react/prop-types */
-import React, { Component } from "react";
+import cx from "classnames";
 import PropTypes from "prop-types";
+import React, { Component } from "react";
+import _ from "underscore";
 
 import ExplicitSize from "metabase/components/ExplicitSize";
-
 import Modal from "metabase/components/Modal";
-
-import { PLUGIN_COLLECTIONS } from "metabase/plugins";
-
-import { getVisualizationRaw } from "metabase/visualizations";
 import * as MetabaseAnalytics from "metabase/lib/analytics";
 import { color } from "metabase/lib/colors";
-
 import {
   GRID_WIDTH,
   GRID_ASPECT_RATIO,
@@ -20,15 +16,14 @@ import {
   DEFAULT_CARD_SIZE,
   MIN_ROW_HEIGHT,
 } from "metabase/lib/dashboard_grid";
+import { PLUGIN_COLLECTIONS } from "metabase/plugins";
+import { getVisualizationRaw } from "metabase/visualizations";
 
-import _ from "underscore";
-import cx from "classnames";
-
+import AddSeriesModal from "./AddSeriesModal/AddSeriesModal";
+import DashCard from "./DashCard";
+import RemoveFromDashboardModal from "./RemoveFromDashboardModal";
 import GridLayout from "./grid/GridLayout";
 import { generateMobileLayout } from "./grid/utils";
-import AddSeriesModal from "./AddSeriesModal/AddSeriesModal";
-import RemoveFromDashboardModal from "./RemoveFromDashboardModal";
-import DashCard from "./DashCard";
 
 @ExplicitSize()
 export default class DashboardGrid extends Component {
@@ -303,11 +298,8 @@ export default class DashboardGrid extends Component {
   }
 
   get isEditingLayout() {
-    const {
-      isEditing,
-      isEditingParameter,
-      clickBehaviorSidebarDashcard,
-    } = this.props;
+    const { isEditing, isEditingParameter, clickBehaviorSidebarDashcard } =
+      this.props;
     return (
       isEditing && !isEditingParameter && clickBehaviorSidebarDashcard == null
     );

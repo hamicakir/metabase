@@ -1,13 +1,13 @@
 /*global ace*/
-/* eslint-disable react/prop-types */
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import ReactDOM from "react-dom";
 
+/* eslint-disable react/prop-types */
 import "ace/ace";
-import "ace/mode-plain_text";
 import "ace/mode-javascript";
 import "ace/mode-json";
+import "ace/mode-plain_text";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
 
 const SCROLL_MARGIN = 8;
 const LINE_HEIGHT = 16;
