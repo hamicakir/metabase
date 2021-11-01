@@ -1,4 +1,6 @@
-import getGAMetadata from "promise-loader?global!metabase/lib/ga-metadata";
+// prettier-ignore-start
+import getGAMetadata from "promise-loader?global!metabase/lib/ga-metadata"; // eslint-disable-line import/default
+// prettier-ignore-end
 import _ from "underscore";
 
 import { FieldDimension } from "metabase-lib/lib/Dimension";
@@ -11,11 +13,9 @@ import type { DashboardWithCards } from "metabase-types/types/Dashboard";
 import type { DatabaseId } from "metabase-types/types/Database";
 
 import { GET, PUT, POST, DELETE } from "metabase/lib/api";
-// eslint-disable-line import/default
 import type { Data, Options, APIMethod } from "metabase/lib/api";
 import { IS_EMBED_PREVIEW } from "metabase/lib/embed";
 
-// use different endpoints for embed previews
 const embedBase = IS_EMBED_PREVIEW ? "/api/preview_embed" : "/api/embed";
 
 export const ActivityApi = {
@@ -23,7 +23,6 @@ export const ActivityApi = {
   recent_views: GET("/api/activity/recent_views"),
 };
 
-// only available with token loaded
 export const GTAPApi = {
   list: GET("/api/mt/gtap"),
   create: POST("/api/mt/gtap"),
@@ -31,18 +30,12 @@ export const GTAPApi = {
   attributes: GET("/api/mt/user/attributes"),
 };
 
-// Pivot tables need extra data beyond what's described in the MBQL query itself.
-// To fetch that extra data we rely on specific APIs for pivot tables that mirrow the normal endpoints.
-// Those endpoints take the query along with `pivot_rows` and `pivot_cols` to return the subtotal data.
-// If we add breakout/grouping sets to MBQL in the future we can remove this API switching.
 export function maybeUsePivotEndpoint(
   api: APIMethod,
   card: Card,
   metadata?: Metadata,
 ): APIMethod {
   function canonicalFieldRef(ref) {
-    // Field refs between the query and setting might differ slightly.
-    // This function trims binned dimensions to just the field-id
     const dimension = FieldDimension.parseMBQL(ref);
     if (!dimension) {
       return ref;
@@ -74,7 +67,6 @@ export function maybeUsePivotEndpoint(
   if (
     card.display !== "pivot" ||
     !question.isStructured() ||
-    // if we have metadata for the db, check if it supports pivots
     (question.database() && !question.database().supportsPivots())
   ) {
     return api;
@@ -98,7 +90,6 @@ export function maybeUsePivotEndpoint(
 
 export const CardApi = {
   list: GET("/api/card", (cards, { data }) =>
-    // HACK: support for the "q" query param until backend implements it
     cards.filter(
       card =>
         !data.q || card.name.toLowerCase().indexOf(data.q.toLowerCase()) >= 0,
@@ -110,7 +101,6 @@ export const CardApi = {
   delete: DELETE("/api/card/:cardId"),
   query: POST("/api/card/:cardId/query"),
   query_pivot: POST("/api/card/pivot/:cardId/query"),
-  // isfavorite:                  GET("/api/card/:cardId/favorite"),
   favorite: POST("/api/card/:cardId/favorite"),
   unfavorite: DELETE("/api/card/:cardId/favorite"),
 
@@ -118,16 +108,13 @@ export const CardApi = {
   listEmbeddable: GET("/api/card/embeddable"),
   createPublicLink: POST("/api/card/:id/public_link"),
   deletePublicLink: DELETE("/api/card/:id/public_link"),
-  // related
   related: GET("/api/card/:cardId/related"),
   adHocRelated: POST("/api/card/related"),
 };
 
 export const DashboardApi = {
   list: GET("/api/dashboard"),
-  // creates a new empty dashboard
   create: POST("/api/dashboard"),
-  // saves a complete transient dashboard
   save: POST("/api/dashboard/save"),
   get: GET("/api/dashboard/:dashId"),
   update: PUT("/api/dashboard/:id"),
@@ -151,7 +138,6 @@ export const CollectionsApi = {
   list: GET("/api/collection"),
   create: POST("/api/collection"),
   get: GET("/api/collection/:id"),
-  // Temporary route for getting things not in a collection
   getRoot: GET("/api/collection/root"),
   update: PUT("/api/collection/:id"),
   graph: GET("/api/collection/graph"),
@@ -191,7 +177,6 @@ type $AutoApi = {
 
 export const AutoApi: $AutoApi = {
   dashboard: GET("/api/automagic-dashboards/:subPath", {
-    // this prevents the `subPath` parameter from being URL encoded
     raw: { subPath: true },
   }),
   db_candidates: GET("/api/automagic-dashboards/database/:id/candidates"),
@@ -222,7 +207,6 @@ export const MetabaseApi = {
   db_metadata: GET("/api/database/:dbId/metadata"),
   db_schemas: GET("/api/database/:dbId/schemas"),
   db_schema_tables: GET("/api/database/:dbId/schema/:schemaName"),
-  //db_tables:   GET("/api/database/:dbId/tables"),
   db_fields: GET("/api/database/:dbId/fields"),
   db_idfields: GET("/api/database/:dbId/idfields"),
   db_autocomplete_suggestions: GET(
@@ -233,15 +217,11 @@ export const MetabaseApi = {
   db_discard_values: POST("/api/database/:dbId/discard_values"),
   db_get_db_ids_with_deprecated_drivers: GET("/db-ids-with-deprecated-drivers"),
   table_list: GET("/api/table"),
-  // table_get:                   GET("/api/table/:tableId"),
   table_update: PUT("/api/table/:id"),
-  // table_fields:                GET("/api/table/:tableId/fields"),
   table_fks: GET("/api/table/:tableId/fks"),
-  // table_reorder_fields:       POST("/api/table/:tableId/reorder"),
   table_query_metadata: GET(
     "/api/table/:tableId/query_metadata",
     async table => {
-      // HACK: inject GA metadata that we don't have intergrated on the backend yet
       if (table && table.db && table.db.engine === "googleanalytics") {
         const GA = await getGAMetadata();
         table.fields = table.fields.map(field => ({
@@ -265,7 +245,6 @@ export const MetabaseApi = {
       }
 
       if (table && table.fields) {
-        // replace dimension_options IDs with objects
         for (const field of table.fields) {
           if (field.dimension_options) {
             field.dimension_options = field.dimension_options.map(
@@ -282,11 +261,9 @@ export const MetabaseApi = {
       return table;
     },
   ),
-  // table_sync_metadata:        POST("/api/table/:tableId/sync"),
   table_rescan_values: POST("/api/table/:tableId/rescan_values"),
   table_discard_values: POST("/api/table/:tableId/discard_values"),
   field_get: GET("/api/field/:fieldId"),
-  // field_summary:               GET("/api/field/:fieldId/summary"),
   field_values: GET("/api/field/:fieldId/values"),
   field_values_update: POST("/api/field/:fieldId/values"),
   field_update: PUT("/api/field/:id"),
@@ -301,9 +278,7 @@ export const MetabaseApi = {
   dataset_duration: POST("/api/dataset/duration"),
   native: POST("/api/dataset/native"),
 
-  // to support audit app  allow the endpoint to be provided in the query
   datasetEndpoint: POST("/api/:endpoint", {
-    // this prevents the `endpoint` parameter from being URL encoded
     raw: { endpoint: true },
   }),
 };
@@ -372,8 +347,6 @@ export const SettingsApi = {
   list: GET("/api/setting"),
   put: PUT("/api/setting/:key"),
   putAll: PUT("/api/setting"),
-  // setAll:                      PUT("/api/setting"),
-  // delete:                   DELETE("/api/setting/:key"),
 };
 
 export const PermissionsApi = {
@@ -399,7 +372,6 @@ export const UserApi = {
   create: POST("/api/user"),
   list: GET("/api/user"),
   current: GET("/api/user/current"),
-  // get:                         GET("/api/user/:userId"),
   update: PUT("/api/user/:id"),
   update_password: PUT("/api/user/:id/password"),
   update_qbnewb: PUT("/api/user/:id/qbnewb"),
@@ -413,7 +385,6 @@ export const UtilApi = {
   random_token: GET("/api/util/random_token"),
   logs: GET("/api/util/logs"),
   bug_report_details: GET("/api/util/bug_report_details"),
-  // this one does not need an HTTP verb because it's opened as an external link
   connection_pool_details_url: "/api/util/diagnostic_info/connection_pool_info",
 };
 
