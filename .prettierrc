@@ -1,3 +1,21 @@
 {
-  "trailingComma": "all"
+  "arrowParens": "avoid",
+  "printWidth": 80,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "importOrder": ["^metabase-enterprise/(.*)$", "^metabase-lib/(.*)$", "^metabase-types/(.*)$", "^metabase/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "overrides": [{
+      "files": ["{enterprise/,}frontend/**/*.{js,jsx}"],
+      "options": {
+        "importOrderParserPlugins": ["classProperties", "decorators-legacy", "jsx", "flow"]
+      }
+    },
+    {
+      "files": ["{enterprise/,}frontend/**/*.{ts,tsx}"],
+      "options": {
+        "importOrderParserPlugins": ["classProperties", "decorators-legacy", "jsx", "typescript"]
+      }
+    }
+  ]
 }
